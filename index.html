@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>M&M: Mistero al Museo</title>
+    <!-- IMPORTARE JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- IMPORTARE BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <link href="style.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  </head>
+
+  <body style="background-color: black;">
+    <!--CONTENITORE CONTENENTE SCELTA DELL'ETA'-->
+    <div id="chooseGame" class="" style="text-align: center; margin-top: 5vw;">
+      <img src="img/welcome.jpg" alt="" />
+      <br />
+      <br />
+    </div>
+
+    <var>
+    
+    <div id="etaContainer" style="text-align: center;">
+      <h3 style="color: white;">Seleziona la tua età</h3>
+      <select id="eta">
+        <option disabled selected>Seleziona età</option>
+        <option value="1">7-10</option>
+        <option value="2">11-14</option>
+        <option value="3">15-18</option>
+      </select>
+      <button onclick="agePicker()">Inizia</button>
+    </div>
+
+    <!--CONTENITORE CONTENENTE SCELTA DEI GIOCHI-->
+
+    <div class="hidden" id="nazi" style="text-align: center;">
+      <button onclick="play('nazi')">Gioca NeoNazismo</button>
+    </div>
+
+    <br />
+
+    <div class="hidden" id="leonardo" style="text-align: center;">
+      <button onclick="play('leonardo')">Gioca Leonardo</button>
+    </div>
+
+    <br />
+    
+    <div class="hidden" id="mummia" style="text-align: center;">
+      <button onclick="play('mummia')">Gioca Mummia</button>
+    </div>
+
+    <!--GIOCO-->
+    <div class="hidden" id="game">
+      <div id="myData"></div>
+      <div id="picture"></div>
+      <div id="pulsante"></div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h1 style="color: white; text-align: center;">
+              INDIZI
+            </h1>
+            <div id="indizi"></div>
+          </div>
+          <div class="col">
+            <h1 style="color: white; text-align: center;">
+              OGGETTI
+            </h1>
+            <div id="oggetti"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--DIALOG ARMADIETTO-->
+    <div id="dialog"></div>
+    <!--DIALOG CASSAFORTE-->
+    <div id="dialogCassa"></div>
+    <!--DIALOG FURGONE-->
+    <div id="dialogFurgone"></div>
+
+    <script src="js/global/funzioniGlobali.js"></script>
+    <script src="js/nazi/hard.js"></script>
+    <script src="js/leo/hard.js"></script>
+    <script src="js/mummia/hard.js"></script>
+
+    <script src="js/nazi/easy.js"></script>
+    <script src="js/nazi/medium.js"></script>
+
+    <script src="js/leo/easy.js"></script>
+    <script src="js/leo/medium.js"></script>
+
+    <script src="js/mummia/medium.js"></script>
+    <script src="js/mummia/easy.js"></script>
+  </body>
+</html>

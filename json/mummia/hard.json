@@ -1,0 +1,1025 @@
+[
+  {
+    "pagina1": {
+      "testo": "Sei un archeologo esploratore molto famoso. Hai studiato le piramidi e i costumi egizi fin da ragazzo. Hai imparato persino ad interpretare i geroglifici. Ti hanno affidato l'incarico di ritrovare un gruppo di esploratori che si sono addentrati nella Piramite di Giza. Una volta entrato alla ricerca dei dispersi, finisci per cadere in un tranello e battendo la testa tutto si fa buio. Come ti risvegli ti trovi in un lungo corridoio e un po' disorientato.",
+      "img_url": "img/intro.png",
+      "pulsanteName": "avanti",
+      "pulsanteFunc": "fetchDataMummiaPage2()",
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina2": {
+      "testo": "Devi trovare una via di uscita. Davanti a te hai un corridoio molto buio, prova a cercare tra i tuoi oggetti se c'è qualcosa che possa aiutarti.",
+      "img_url": "img/mummia/CorridoioPiramide.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Cerca nello zaino",
+
+      "pulsanteName4": "Tasca sinistra",
+      "pulsanteName5": "Tasca destra",
+
+      "pulsanteFunc": "fetchDataMummiaPage3()",
+      "pulsanteFunc2": "fetchDataMummia()",
+      "pulsanteFunc3": "apriZaino()",
+      "pulsanteFunc4": "sinistra()",
+      "pulsanteFunc5": "destra()",
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina3": {
+      "testo": "Per terra lontano da te noti uno strano luccichio semi-nascosto dalla sabbia. Ti avvicini per osservare meglio.",
+      "img_url": "img/mummia/ScalePiramide.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Osserva oggetto",
+
+      "pulsanteFunc": "fetchDataMummiaPage4()",
+      "pulsanteFunc2": "fetchDataMummiaPage2()",
+      "pulsanteFunc3": "scarabeo()",
+
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "torcia",
+        "oggetto2": "pugnale"
+      }
+    },
+
+    "pagina4": {
+      "testo": "Sembrerebbe essere una stanza senza vie d'uscita. Ma da esperto esploratore sai bene che nelle piramidi sono presenti dei passaggi segreti",
+      "img_url": "img/mummia/StanzaPiramide.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Cerca nelle pareti",
+      "pulsanteName4": "Cerca nel pavimento",
+
+      "pulsanteFunc": "fetchDataMummiaPage5()",
+      "pulsanteFunc2": "fetchDataMummiaPage3()",
+      "pulsanteFunc3": "cercaPareti()",
+      "pulsanteFunc4": "cercaPavimento()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "torcia",
+        "oggetto2": "pugnale"
+      }
+    },
+
+    "pagina5": {
+      "testo": "Prosegui fino alla fine di questo stretto corridoio, si vede una luce in fondo",
+      "img_url": "img/mummia/BucoPiramide.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Prosegui",
+
+      "pulsanteFunc": "fetchDataMummiaPage6()",
+      "pulsanteFunc2": "fetchDataMummiaPage4()",
+      "pulsanteFunc3": "amuletoMummia()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina6": {
+      "testo": "Ti trovi davanti dei geroglifici. Provi a tradurli ma molte parti sono cancellate. L'unica frase ancora decifrabile è 'Non puoi sfuggire ad Anubi'",
+      "img_url": "img/mummia/Geroglifici.png",
+      "pulsanteName": "AvantiS",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Annota messaggio",
+      "pulsanteName4": "AvantiD",
+
+      "pulsanteFunc": "fetchDataMummiaPage7a1()",
+      "pulsanteFunc2": "fetchDataMummiaPage5()",
+      "pulsanteFunc3": "annotaMessaggio()",
+      "pulsanteFunc4": "fetchDataMummiaPage7b1()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina7a1": {
+      "testo": "Stai entrando in una stanza molto buia. L'odore è ai limiti della sopportazione. Qualcosa di brutto è accaduto da queste parti.",
+      "img_url": "img/storytime.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage7a2()",
+      "pulsanteFunc2": "fetchDataMummiaPage6()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina7a2": {
+      "testo": "Ci sono dei resti di una persona, anzi sono più di uno. Ce ne sono almeno tre. Le ossa sono calde. E' come se la carne si fosse dissolta lasciando solamente le ossa",
+      "img_url": "img/mummia/Cadavere.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Perlustra stanza",
+
+      "pulsanteFunc": "fetchDataMummiaPage8()",
+      "pulsanteFunc2": "fetchDataMummiaPage7a1()",
+      "pulsanteFunc3": "perlustraStanza()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina7b1": {
+      "testo": "La situazione sembra calma e tranquilla. Tuttavia quella frase ti ha un po' scombussolato. Ci deve essere qualcosa sotto. E' meglio sbrigarsi a trovare una via d'uscita",
+      "img_url": "img/storytime.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage7b2()",
+      "pulsanteFunc2": "fetchDataMummiaPage6()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina7b2": {
+      "testo": "Ci sono delle impronte. Qualcuno deve essere passato di qui poco tempo fa. E' stato fatto un disegno della struttura della piramide",
+      "img_url": "img/mummia/SotterraneoPiramide.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Annota disegno",
+
+      "pulsanteFunc": "fetchDataMummiaPage7b3()",
+      "pulsanteFunc2": "fetchDataMummiaPage7b1()",
+      "pulsanteFunc3": "annotaDisegno()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina7b3": {
+      "testo": "Secondo quanto riportato nella raffigurazione vista prima della piramide, questa dovrebbe essere la strada giusta per il Sepolcro",
+      "img_url": "img/mummia/PortaPiramide.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Entra nel Sepolcro",
+
+      "pulsanteFunc": "fetchDataMummiaPage8()",
+      "pulsanteFunc2": "fetchDataMummiaPage7b2()",
+      "pulsanteFunc3": "seguiDisegno()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "la piramide prevede un cortile, luogo di culto a nord, un tempio funerario, una rampa processionale e di un tempio a valle"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina8": {
+      "testo": "Questo deve essere il luogo di culto della Piramide, ovvero il tempio funerario. Secondo i tuoi studi, la struttura prevede due alte stele con in mezzo una tavola delle offerte e due scalinate",
+      "img_url": "img/mummia/LuogoCulto.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Ispeziona",
+      "pulsanteName3": "Entra nel Sepolcro",
+
+      "pulsanteFunc": "fetchDataMummiaPage9()",
+      "pulsanteFunc2": "ispezionaCulto()",
+      "pulsanteFunc3": "entraCulto()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": ""
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina9": {
+      "testo": "Il sarcofago del faraone. Qualcuno deve essere passato di qua, la tomba sembrerebbe essere stata aperta",
+      "img_url": "img/mummia/Sarcofago.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Entra nel Sepolcro",
+
+      "pulsanteFunc": "fetchDataMummiaPage10()",
+      "pulsanteFunc2": "fetchDataMummiaPage8()",
+      "pulsanteFunc3": "entraSarcofago()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "amuleto"
+      }
+    },
+
+    "pagina10": {
+      "testo": "Secondo alcune leggende, si narra che se ad un faraone vengono rubate le proprie ricchezze dal rispettivo sarcofago, si scatena il risveglio del dio Anubi. Tutti quelli che hanno provato a profanare la tomba di un faraone, non sono mai riusciti a rivedere la luce del sole. Devi trovare tutti i preziosi rubati dal sarcofago prima che succeda qualcosa di irreparabile.",
+      "img_url": "img/storytime.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage11()",
+      "pulsanteFunc2": "fetchDataMummiaPage9()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina11": {
+      "testo": "Durante la tua gioventù hai studiato i costumi e i riti degli antichi Egizi. Oltre all'amuleto devi trovare ancora due oggetti. L'occhio di Horus e la croce della vita",
+      "img_url": "img/storytime.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage12()",
+      "pulsanteFunc2": "fetchDataMummiaPage10()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina12": {
+      "testo": "Qui vicino deve esserci il tempio funerario. La temperatura comincia a farsi stranamente più fredda. Qualcosa non torna. La torcia non funziona più, non hai modo di vedere con chiarezza ciò che ti circonda. Attaccata alla parete trovi una fiaccola.",
+      "img_url": "img/mummia/Statue.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Raccogli fiaccola",
+      "pulsanteName4": "Perlustra stanza",
+
+      "pulsanteFunc": "fetchDataMummiaPage13()",
+      "pulsanteFunc2": "fetchDataMummiaPage11()",
+      "pulsanteFunc3": "raccogliFiaccola()",
+      "pulsanteFunc4": "perlustraStanzaStatue()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina13": {
+      "testo": "La scena raffigura il momento dell'offerta di doni da parte del popolo egizio al faraone per mostrargli lealtà ed entrare quindi nelle sue grazie. Chiunque non ubbidisse alle sue richieste oppure osasse prendersi gioco di lui rubandogli qualcosa, veniva ucciso all'istante.",
+      "img_url": "img/mummia/Tavola.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Ispeziona tavola",
+      "pulsanteName4": "Cerca altri oggetti",
+
+      "pulsanteFunc": "fetchDataMummiaPage14()",
+      "pulsanteFunc2": "fetchDataMummiaPage12()",
+      "pulsanteFunc3": "osservaTavola()",
+      "pulsanteFunc4": "continuaPerlustrazione()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "fiaccola"
+      }
+    },
+
+    "pagina14": {
+      "testo": "In questa stanza si gela e non si vede niente. Meglio farsi strada con la fiaccola",
+      "img_url": "img/mummia/Resti.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Controlla stanza",
+
+      "pulsanteFunc": "fetchDataMummiaPage15()",
+      "pulsanteFunc2": "fetchDataMummiaPage13()",
+      "pulsanteFunc3": "controllaStanza()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "fiaccola"
+      }
+    },
+
+    "pagina15": {
+      "testo": "Sei arrivato troppo tardi. Sembrerebbe essere il corpo di una donna che si sta dissolvendo lentamente. Aspetta un attimo. Ha qualcosa in mano",
+      "img_url": "img/mummia/Mummia.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Guarda più da vicino",
+      "pulsanteName4": "Ispeziona la zona",
+
+      "pulsanteFunc": "fetchDataMummiaPage16()",
+      "pulsanteFunc2": "fetchDataMummiaPage14()",
+      "pulsanteFunc3": "osservaDaVicino()",
+      "pulsanteFunc4": "ispezionaZona()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina16": {
+      "testo": "Bisogna riportare l'occhio di Horus nella tomba del faraone. Tuttavia come ha fatto quella donna a ridursi in quello stato? Cosa avrà voluto dire pronunciando la parola 'Anubi'? Forse le leggende sul Dio dell'aldilà sono vere...",
+      "img_url": "img/storytime.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage17()",
+      "pulsanteFunc2": "fetchDataMummiaPage15()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "Occhio di Horus"
+      }
+    },
+
+    "pagina17": {
+      "testo": "Restituisci l'occhio di Horus al faraone e corri a cercare la croce.",
+      "img_url": "img/mummia/Sarcofago.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Entra nel Sepolcro",
+
+      "pulsanteFunc": "fetchDataMummiaPage18()",
+      "pulsanteFunc2": "fetchDataMummiaPage16()",
+      "pulsanteFunc3": "restituisciOcchio()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": "Occhio di Horus"
+      }
+    },
+
+    "pagina18": {
+      "testo": "Dove sarà quella dannata croce!! Quegli esploratori non avrebbero dovuto saccheggiare la tomba del faraone",
+      "img_url": "img/mummia/CorridoioStretto.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Sinistra",
+      "pulsanteName4": "Destra",
+
+      "pulsanteFunc": "stanzaSxDx()",
+      "pulsanteFunc2": "fetchDataMummiaPage17()",
+      "pulsanteFunc3": "fetchDataMummiaPage20()",
+      "pulsanteFunc4": "fetchDataMummiaPage19a1()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a1": {
+      "testo": "Attento a dove metti i piedi, potrebbero esserci altri tranelli",
+      "img_url": "img/mummia/StatueTempio.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage19a2()",
+      "pulsanteFunc2": "fetchDataMummiaPage18()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a2": {
+      "testo": "Sei caduto in un trabochetto. Rispondi correttamente alle domande per poter proseguire",
+      "img_url": "img/Tranello.jpg",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage19a3()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a3": {
+      "testo": "Il faraone era ... ?",
+      "img_url": "img/Tranello.jpg",
+      "pulsanteName1": "Un'enoeme statua di granito",
+      "pulsanteName2": "il re padrone di tutte le terre d'Egitto, capo dell'esercito, del governo, dei tribunali e primo sacerdote",
+      "pulsanteName3": "Il funzionario che teneva i conti dello stato",
+
+      "pulsanteFunc1": "rispostaErrata()",
+      "pulsanteFunc2": "fetchDataMummiaPage19a4()",
+      "pulsanteFunc3": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a4": {
+      "testo": "Per quale motivo le piramidi sono piene di cunicoli, corridoi segreti, finte porte e trabocchetti?",
+      "img_url": "img/Tranello.jpg",
+      "pulsanteName1": "Per proteggere la stanza segreta in cui riposava il faraone",
+      "pulsanteName2": "Permette di ottenere un potere a tua scelta",
+      "pulsanteName3": "Perchè gli architetti di allora erano dei fantasiosi",
+
+      "pulsanteFunc1": "fetchDataMummiaPage19a5()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a5": {
+      "testo": "Perchè il nilo era importante per gli Egiziani?",
+      "img_url": "img/Tranello.jpg",
+      "pulsanteName1": "Perche vi si svolgevano spettacolari gare di nuoto",
+      "pulsanteName2": "Perchè con le sue piene rendeva il terreno fertile",
+      "pulsanteName3": "Perchè potevano farci il bucato",
+
+      "pulsanteFunc1": "rispostaErrata()",
+      "pulsanteFunc2": "fetchDataMummiaPage19a6()",
+      "pulsanteFunc3": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a6": {
+      "testo": "Che cos'è il limo?",
+      "img_url": "img/Tranello.jpg",
+      "pulsanteName1": "Uno strato di terriccio nero, umido e ricco di sali minerali",
+      "pulsanteName2": "il nome della benda con cui venivano fasciate le mummie",
+      "pulsanteName3": "un'antica lmonata",
+
+      "pulsanteFunc1": "fetchDataMummiaPage19a7()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina19a7": {
+      "testo": "Devi trovare una via di uscita. Raggiungi la fine del corridoio e sali su per le scale",
+      "img_url": "img/mummia/Guardiani.png",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage20()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina20": {
+      "testo": "Ci sono delle impronte sulla sabbia. Sembrerebbero fresche. Alcune però non sembrano umane... La situazione si fa sempre più strana. Riprendi il pugnale dallo zaino.",
+      "img_url": "img/mummia/Ambulacro.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+
+      "pulsanteFunc": "fetchDataMummiaPage21()",
+      "pulsanteFunc2": "fetchDataMummiaPage18()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina21": {
+      "testo": "La leggenda è vera!! Anubi esiste veramente, e quella ricercatrice è in pericolo. Devi salvarla",
+      "img_url": "img/mummia/Anubi.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Usa pugnale",
+      "pulsanteName4": "Cerca Croce",
+
+      "pulsanteFunc": "fetchDataMummiaPage22()",
+      "pulsanteFunc2": "fetchDataMummiaPage20()",
+      "pulsanteFunc3": "usaPugnale()",
+      "pulsanteFunc4": "cercaCroce()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "pugnale",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina22": {
+      "testo": "Restituisci la Croce della vita al faraone così da far riposare in pace la sua anima e poter uscire dalla piramide salvi",
+      "img_url": "img/mummia/SarcofagoThird.png",
+      "pulsanteName": "Avanti",
+      "pulsanteName2": "Indietro",
+      "pulsanteName3": "Riponi Croce",
+
+      "pulsanteFunc": "fetchDataMummiaPage23()",
+      "pulsanteFunc2": "fetchDataMummiaPage21()",
+      "pulsanteFunc3": "riponiCroce()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina23": {
+      "testo": "Finalmente hai trovato l'uscita...",
+      "img_url": "img/mummia/Uscita.png",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage24()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina24": {
+      "testo": "Sei riuscito ad uscire dalla piramide di Giza. Cosa farai adesso? Scriverai un libro su ciò che ti è accaduto?",
+      "img_url": "img/mummia/Success.jpg",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage25()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25": {
+      "testo": "Fai il quiz e dimostra a tutti quante cose hai imparato",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage25a1()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a1": {
+      "testo": "Qual è il significato di Ka ?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Rappresenta le ricchezze di una persona",
+      "pulsanteName2": "Conserva i ricordi della vita terrena",
+      "pulsanteName3": "E' solo un geroglifico egizio",
+      "pulsanteName4": "Rappresenta la fertilità",
+
+      "pulsanteFunc": "rispostaErrata()",
+      "pulsanteFunc2": "fetchDataMummiaPage25a2()",
+      "pulsanteFunc3": "rispostaErrata()",
+      "pulsanteFunc4": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a2": {
+      "testo": "Qual è il significato dell'occhio di Horus ?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Permette di vedere nel futuro",
+      "pulsanteName2": "Permette di ottenere un potere a tua scelta",
+      "pulsanteName3": "E' un simbolo di onniscienza",
+      "pulsanteName4": "E' un simbolo di prosperità",
+
+      "pulsanteFunc": "rispostaErrata()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+      "pulsanteFunc4": "fetchDataMummiaPage25a3()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a3": {
+      "testo": "Qual è un simbolo di fortuna per gli antichi egizi ?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Tartaruga",
+      "pulsanteName2": "Falco",
+      "pulsanteName3": "Cane",
+      "pulsanteName4": "Scarabeo",
+
+      "pulsanteFunc": "rispostaErrata()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+      "pulsanteFunc4": "fetchDataMummiaPage25a4()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a4": {
+      "testo": "Che forma ha il dio Anubi ?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Corpo umano con testa di sciacallo",
+      "pulsanteName2": "Corpo da alligatore e testa umana",
+      "pulsanteName3": "Corpo umano con testa di scimmia",
+      "pulsanteName4": "Corpo da falco e testa da leone",
+
+      "pulsanteFunc": "fetchDataMummiaPage25a5()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+      "pulsanteFunc4": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a5": {
+      "testo": "Cosa veniva usato per donare immortalità ai faraoni ?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Un anello dorato",
+      "pulsanteName2": "Una corona di alloro",
+      "pulsanteName3": "La corce della vita",
+      "pulsanteName4": "Delle vesti regali",
+
+      "pulsanteFunc": "rispostaErrata()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "fetchDataMummiaPage25a6()",
+      "pulsanteFunc4": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a6": {
+      "testo": "Cosa sono i sarcofagi?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Preziosi contenitori che proteggevano le mummie",
+      "pulsanteName2": "Insetti delle piramidi",
+      "pulsanteName3": "Gli addetti al processo di mummificazione",
+      "pulsanteName4": "Degli antichi amuleti portafortuna",
+
+      "pulsanteFunc": "fetchDataMummiaPage25a7()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+      "pulsanteFunc4": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina25a7": {
+      "testo": "Con quale tecnica gli egiziani realizzavano le mummie?",
+      "img_url": "img/QuizImg.png",
+      "pulsanteName": "Imbalsamazione",
+      "pulsanteName2": "Carbonizzazione",
+      "pulsanteName3": "Evaporazione",
+      "pulsanteName4": "Fossilizzazione",
+
+      "pulsanteFunc": "fetchDataMummiaPage26()",
+      "pulsanteFunc2": "rispostaErrata()",
+      "pulsanteFunc3": "rispostaErrata()",
+      "pulsanteFunc4": "rispostaErrata()",
+
+      "indizi": {
+        "indizio1": "PORTAFORTUNA: scarabeo",
+        "indizio2": "Anubi o Testa di Sciacallo ha corpo da uomo e testa da cane protegge il mondo dei morti",
+        "indizio3": "Ka conserva i ricordi e i sentimenti della vita terrena",
+        "indizio4": "Occhio di Horus - simbolo di protezione, prosperità, del potere regale e della buona salute. Personificato dalla dea Wadjet",
+        "indizio5": "L'ankh o Croce della vita - è il simbolo della vita, usata dagli antichi Egizi per donare immortalità ai faraoni"
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina26": {
+      "testo": "Nell'antico Egitto lo scarabeo era simbolo della resurrezione. Gli egizi credevano infatti che lo scarabeo della specie “stercorario” potesse rigenerarsi dalla palla di sterco che l'insetto fa rotolare davanti a sé. Inoltre, la palla veniva collegata con il disco solare che “rinasce” dopo la notte: il nome egizio dell’insetto, kheperer, è simile a quello del dio Khepri, il Sole, che sorge generato dalla Terra.",
+      "img_url": "img/Learning.jpg",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage27()",
+
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina27": {
+      "testo": "Anubi era il dio della mummificazione e dei cimiteri, protettore delle necropoli e del mondo dei morti. Anubi assunse funzioni diverse in vari contesti. Adorato, durante la I dinastia egizia come protettore delle tombe, finì per assumere anche le funzioni di imbalsamatore, inventore della mummificazione. Durante il Medio Regno fu sostituito da Osiride come signore dell'aldilà. Una delle sue mansioni principali era di accompagnare le anime dei defunti nell'oltretomba, per poi compiere la pesatura del cuore decisiva per l'ammissione delle anime nel regno dei morti.",
+      "img_url": "img/Learning.jpg",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage28()",
+
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina28": {
+      "testo": "L'Occhio di Horus è nella religione egizia il simbolo di protezione, della prosperità, del potere regale e della buona salute, ed è personificato dalla dea Wadjet. l'Occhio di Horus viene associato all'Occhio di Ra, di cui diventa sinonimo, nonostante in origine i due occhi facessero riferimento a rappresentazioni grafiche ben distinte. Secondo la mitologia egizia, Horus volle vendicare l'uccisione del padre Osiride, perpetrata dal fratello di quest'ultimo, Seth, ma nello scontro con lo zio perse l'occhio sinistro, che si divise in sei parti.",
+      "img_url": "img/Learning.jpg",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage29()",
+
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina29": {
+      "testo": "L'ankh è un antico e sacro simbolo egizio che essenzialmente simboleggia la vita. Gli dèi sono spesso raffigurati con un ankh in mano, o portato al gomito, oppure sul petto. In funzione di geroglifico l'ankh, oltre che significare 'vita', assume diverse sfumature, in base al contesto in cui è inserito, sebbene sempre con caratteri mistici e religiosi. Nelle raffigurazioni divine appare come caratteristica delle stesse divinità, ad indicare la natura ultraterrena e l'eterna esistenza di esse. In quanto è la vita il suo significato principale, abbinato agli dèi ne indica la natura di forze cosmiche, generatrici dell'universo e dunque della vita. L'ankh veniva utilizzato in particolare come amuleto, capace di infondere salute, benessere e fortuna.",
+      "img_url": "img/Learning.jpg",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "fetchDataMummiaPage30()",
+
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    },
+
+    "pagina30": {
+      "testo": "",
+      "img_url": "img/End.png",
+      "pulsanteName": "Avanti",
+
+      "pulsanteFunc": "backHomeDif()",
+
+      "indizi": {
+        "indizio1": "",
+        "indizio2": ""
+      },
+      "oggetti": {
+        "oggetto1": "",
+        "oggetto2": ""
+      }
+    }
+  }
+]

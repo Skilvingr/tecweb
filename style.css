@@ -1,0 +1,61 @@
+#myData {
+  background-color: hsla(27, 100%, 50%, 1);
+  margin-left: 10vw;
+  margin-right: 10vw;
+  text-align: center;
+  padding: 25px;
+  font-size: large;
+}
+
+#picture {
+  background-color: "";
+  text-align: center;
+  padding: 25px;
+  font-size: large;
+  margin-top: 15px;
+}
+
+#pulsante {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  background-color: hsla(120, 100%, 50%, 0.2);
+  text-align: center;
+  padding: 25px;
+  font-size: large;
+  margin-top: 15px;
+}
+
+#actions {
+  color: white;
+  background-color: gray;
+  padding: 15px;
+  size: large;
+  margin-top: 5%;
+  margin-left: 15%;
+}
+
+#indizi {
+  margin-left: 5;
+  margin-right: 5;
+  color: white;
+  border: 2px solid white;
+  text-align: center;
+  padding: 25px;
+  font-size: large;
+  margin-top: 15px;
+}
+
+#oggetti {
+  margin-left: 5;
+  margin-right: 5;
+  color: white;
+  border: 2px solid white;
+  text-align: center;
+  padding: 25px;
+  font-size: large;
+  margin-top: 15px;
+}
+
+.hidden {
+  display: none !important;
+}
