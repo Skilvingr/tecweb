@@ -65,9 +65,61 @@ function fetchData(name, page) {
             console.log(err);
         });
     } else if (eta === 2) {
-        fetch("json/${name}/medium.json")
+        fetch("json/" + name + "/medium.json")
+        .then(function(response) {
+            //get JSON data from the response
+            console.log("dati letti");
+            return response.json();
+            
+            //In the second then function we get the actual JSON data as a parameter.
+        })
+        //This is where we create the code which will append the data to our page.
+        .then(function (data) {
+            //pulisco i div per fare spazio alle nuove info
+            document.getElementById("myData").innerHTML = "";
+            document.getElementById("picture").innerHTML = "";
+            document.getElementById("pulsante").innerHTML = "";
+            document.getElementById("indizi").innerHTML = "";
+            document.getElementById("oggetti").innerHTML = "";
+            //popolo i div con le nuove info
+            
+            pushData(data, page)
+            //pushPicutres(data, page);
+            pushButtons(data, page);
+            //pushHint(data, page);
+            //pushStuff(data, page);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
     } else if (eta === 3) {
-        fetch("json/${name}/hard.json")
+        fetch("json/" + name + "/hard.json")
+        .then(function(response) {
+            //get JSON data from the response
+            console.log("dati letti");
+            return response.json();
+            
+            //In the second then function we get the actual JSON data as a parameter.
+        })
+        //This is where we create the code which will append the data to our page.
+        .then(function (data) {
+            //pulisco i div per fare spazio alle nuove info
+            document.getElementById("myData").innerHTML = "";
+            document.getElementById("picture").innerHTML = "";
+            document.getElementById("pulsante").innerHTML = "";
+            document.getElementById("indizi").innerHTML = "";
+            document.getElementById("oggetti").innerHTML = "";
+            //popolo i div con le nuove info
+            
+            pushData(data, page)
+            //pushPicutres(data, page);
+            pushButtons(data, page);
+            //pushHint(data, page);
+            //pushStuff(data, page);
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
     }
 }
 
