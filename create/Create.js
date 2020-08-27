@@ -6,38 +6,14 @@ var controlBut = 0;
 var controlObj = 0;
 var controlHint = 0;
 
-var numButs = 1;
-var numObj = 1;
-var numHint = 1;
+var numButs;
+var numObj;
+var numHint;
 
-var Storia = "pippo";
+var modificatore;
 
-function save(){
-    var json = {
-        "numPag": 1,
-        "controlBut": 1,
-        "controlObj": 1,
-        "controlHint": 1,
-        "numButs": 1,
-        "numObj": 1,
-        "numHint": 1,
-        "storia": "Storia"
-    };
-    var data = { "name":"gianni"}
-    $(document).ready(function(){
-      $("button").click(function(){
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8000",
-            contentType:"application/json;charset=utf-8",
-            dataType:"html",
-            data: JSON.stringify(json),
-            success: function(result){
-          $("#div1").html(result);
-        }});
- });
-});
-}
+var Storia;
+
 function logz() {
   console.log("faccio qualcosa di globale");
 }
@@ -48,11 +24,17 @@ function start() {
     // title = document.getElementById("titoloStory").value;
     //document.getElementById("myText").innerHTML = title;
     
-    save();
-        
     var pageN = document.createElement("p");
-    var np = document.createTextNode("Pagina "+numPag);
+    var np = document.createTextNode("Pagina");
     pageN.appendChild(np);
+  
+
+    modificatore = document.createElement("input");
+    modificatore.setAttribute("id","numeropag");
+    modificatore.style.textAlign="center";
+    modificatore.size="1";
+    modificatore.value = numPag;
+    modificatore.readOnly=true;
 
     var title = document.getElementById("titoloStory").value;
     document.getElementById("titolo").innerHTML="";
@@ -150,7 +132,13 @@ function start() {
     prev.style.float="left";
     prev.setAttribute("onClick", "");
 
+    var end = document.createElement("button");
+    end.textContent = "Fine";
+    end.style.float="center";
+    end.setAttribute("onClick", "end()");
+
     numPage.appendChild(pageN);
+    numPage.appendChild(modificatore);
     
     page.appendChild(stor);
     page.appendChild(story);
@@ -169,6 +157,7 @@ function start() {
 
     nextPrev.appendChild(next);
     nextPrev.appendChild(prev);
+    End.appendChild(end);
 }
 //Si occupa di creare i bottoni
 function createButs(){
@@ -275,7 +264,42 @@ function createHint(){
 }
 
 function next(){
-numPag++;
+  //azzera tutti gli input e cambia pagina
+
+  var temp1=1;
+  var temp2=1;
+  var temp3=1;
+
+  document.getElementById("textS").value="";
+  
+  document.getElementById("numeropag").value= ++numPag;
+/*
+  for(var i = 0; i < numButs; i++){
+   
+      document.getElementById("button"+temp1).value="";
+    temp1++;
+  }
+
+  for(var i = 0; i < numObj; i++){
+   
+    document.getElementById("object"+temp2).value="";
+  temp2++;
+}
+
+for(var i = 0; i < numHint; i++){
+   
+  document.getElementById("hint"+temp3).value="";
+temp3++;
+}
+*/
+  document.getElementById("list").value=0;
+  document.getElementById("listObj").value=0;
+  document.getElementById("listHint").value=0;
+  document.getElementById("buts").innerHTML="";
+  document.getElementById("objButs").innerHTML="";
+  document.getElementById("hinButs").innerHTML="";
+
+//document.getElementById("numero").value="Paggina "+numPag;
 
 /*
 document.getElementById("textS").value="";
@@ -301,4 +325,16 @@ var p = document.createElement("p");
     container.appendChild(p);
     //document.getElementById("container").innerHTML="";
     */
+}
+
+function end(){
+
+document.getElementById("body").innerHTML="";
+
+var titolo = document.createElement("h1");
+var h = document.createTextNode("Storia Creata");
+titolo.appendChild(h);
+
+body.appendChild(titolo);
+
 }
