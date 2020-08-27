@@ -6,12 +6,38 @@ var controlBut = 0;
 var controlObj = 0;
 var controlHint = 0;
 
-var numButs;
-var numObj;
-var numHint;
+var numButs = 1;
+var numObj = 1;
+var numHint = 1;
 
-var Storia;
+var Storia = "pippo";
 
+function save(){
+    var json = {
+        "numPag": 1,
+        "controlBut": 1,
+        "controlObj": 1,
+        "controlHint": 1,
+        "numButs": 1,
+        "numObj": 1,
+        "numHint": 1,
+        "storia": "Storia"
+    };
+    var data = { "name":"gianni"}
+    $(document).ready(function(){
+      $("button").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000",
+            contentType:"application/json;charset=utf-8",
+            dataType:"html",
+            data: JSON.stringify(json),
+            success: function(result){
+          $("#div1").html(result);
+        }});
+ });
+});
+}
 function logz() {
   console.log("faccio qualcosa di globale");
 }
@@ -22,8 +48,10 @@ function start() {
     // title = document.getElementById("titoloStory").value;
     //document.getElementById("myText").innerHTML = title;
     
+    save();
+        
     var pageN = document.createElement("p");
-    var np = document.createTextNode("Paggina "+numPag);
+    var np = document.createTextNode("Pagina "+numPag);
     pageN.appendChild(np);
 
     var title = document.getElementById("titoloStory").value;
