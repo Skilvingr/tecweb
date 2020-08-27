@@ -1,11 +1,39 @@
 var controlMis = 0;
 var numMis;
 
+//salvare file
+function save(){
+    var json = {
+        "titolo": 1,
+        "Missione": 1,
+        "": 1,
+        "controlHint": 1,
+        "numButs": 1,
+        "numObj": 1,
+        "numHint": 1,
+        "storia": "Storia"
+    };
+
+    $(document).ready(function(){
+      $("button").click(function(){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8000",
+            contentType:"application/json;charset=utf-8",
+            dataType:"html",
+            data: JSON.stringify(json),
+            success: function(result){
+          $("#div1").html(result);
+        }});
+ });
+});
+}
+
 function start() {
     //document.getElementById("titoloStory").value="ciao";
     // title = document.getElementById("titoloStory").value;
     //document.getElementById("myText").innerHTML = title;
-
+    save();
     var title = document.getElementById("titoloStory").value;
     document.getElementById("titolo").innerHTML="";
 
@@ -18,7 +46,7 @@ function start() {
     var story = document.createElement("h2");
     var title = document.createTextNode("Inserisci Missioni");
     story.appendChild(title);
-    
+
     var p = document.createElement("p");
     var p1 = document.createTextNode("Scegli il numero di Missioni iniziali");
     p.appendChild(p1);
@@ -40,8 +68,8 @@ function start() {
     var button = document.createElement("button");
     button.textContent = "Crea";
     button.setAttribute("onClick", "createButs()");
-    
-    
+
+
     var next = document.createElement("button");
     next.textContent = "Avanti";
     next.style.float="right";
@@ -60,12 +88,12 @@ function start() {
 
     page.appendChild(stor);
     page.appendChild(story);
-   
+
     page.appendChild(p);
     page.appendChild(selectList);
     page.appendChild(button);
 
-   
+
     nextPrev.appendChild(next);
     nextPrev.appendChild(prev);
     End.appendChild(end);
@@ -76,7 +104,7 @@ function createMissions(){
   var val = 1;
 
   for (var i = 0; i < numMis; i++) {
-  
+
     var button = document.createElement("button");
     button.setAttribute("id", "button"+val);
     button.textContent = "Missione"+ ++i ;
@@ -95,15 +123,7 @@ function ScegliMis(){
   var p = document.createElement("p");
   var p1 = document.createTextNode("Scegli una Missione da modificare");
   p.appendChild(p1);
-  var fs = require('fs');
 
-fs.writeFile("/tmp/test.txt", "Hey there!", function(err) {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log("The file was saved!");
-    }
-}); 
 
   container.appendChild(p);
 
@@ -114,41 +134,41 @@ function createButs(){
 
     var elem = document.getElementById("list").value;
     var val = 1;
-  
+
     //Controlla se son già creati dei bottoni
     if(controlMis!=0)
       document.getElementById("buts").innerHTML="";
-    
+
     for (var i = 0; i < elem; i++) {
-  
+
       var input = document.createElement("input");
       input.setAttribute("id", "mis"+val);
 
       /*var input = document.createElement("input");
       input.setAttribute("id","button"+val);
-      
-         // creating checkbox element 
-         var checkbox = document.createElement('input'); 
-                
-         // Assigning the attributes 
-         // to created checkbox 
-         checkbox.type = "checkbox"; 
-         checkbox.name = "name"; 
-         checkbox.value = "value"; 
-         checkbox.id = "id"+val; 
-  
-          // creating label for checkbox 
-          var label = document.createElement('label'); 
-                
-          // assigning attributes for the created label tag  
+
+         // creating checkbox element
+         var checkbox = document.createElement('input');
+
+         // Assigning the attributes
+         // to created checkbox
+         checkbox.type = "checkbox";
+         checkbox.name = "name";
+         checkbox.value = "value";
+         checkbox.id = "id"+val;
+
+          // creating label for checkbox
+          var label = document.createElement('label');
+
+          // assigning attributes for the created label tag
           label.htmlFor = "id";
-          label.appendChild(document.createTextNode('Continue button'));  
+          label.appendChild(document.createTextNode('Continue button'));
   */
       var p = document.createElement("p");
       var p1 = document.createTextNode(val+"° Missione");
       p.appendChild(p1);
-  
-    
+
+
       buts.appendChild(p);
       buts.appendChild(input);
       //buts.appendChild(checkbox);
@@ -157,6 +177,5 @@ function createButs(){
     }
     numMis = val-1;
     controlMis = 1;
-    
-  } 
 
+  }
