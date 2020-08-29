@@ -33,6 +33,14 @@ function start() {
     var pageN = document.createElement("p");
     var np = document.createTextNode("Pagina");
     pageN.appendChild(np);
+  
+
+    modificatore = document.createElement("input");
+    modificatore.setAttribute("id","numeropag");
+    modificatore.style.textAlign="center";
+    modificatore.size="1";
+    modificatore.value = numPag;
+    modificatore.readOnly=true;
 
 
     modificatore = document.createElement("input");
@@ -112,8 +120,14 @@ function start() {
 
     g.appendChild(g1);
 
+    var end = document.createElement("button");
+    end.textContent = "Fine";
+    end.style.float="center";
+    end.setAttribute("onClick", "end()");
+
     numPage.appendChild(pageN);
     numPage.appendChild(modificatore);
+
 
     page.appendChild(stor);
     page.appendChild(storyMis);
@@ -129,6 +143,7 @@ function start() {
 
     End.appendChild(end);
     Graph.appendChild(g);
+
 }
 
 //Si occupa di creare i bottoni
@@ -320,6 +335,7 @@ console.log(obj);
 }
 
 function end(){
+
 
 document.getElementById("body").innerHTML="";
 
