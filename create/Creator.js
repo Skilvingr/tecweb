@@ -2,32 +2,7 @@ var controlMis = 0;
 var numMis;
 
 //salvare file
-function save(){
-    var json = {
-        "titolo": 1,
-        "Missione": 1,
-        "": 1,
-        "controlHint": 1,
-        "numButs": 1,
-        "numObj": 1,
-        "numHint": 1,
-        "storia": "Storia"
-    };
 
-    $(document).ready(function(){
-      $("button").click(function(){
-        $.ajax({
-            type: "POST",
-            url: "http://localhost:8000",
-            contentType:"application/json;charset=utf-8",
-            dataType:"html",
-            data: JSON.stringify(json),
-            success: function(result){
-          $("#div1").html(result);
-        }});
- });
-});
-}
 
 function start() {
     //document.getElementById("titoloStory").value="ciao";

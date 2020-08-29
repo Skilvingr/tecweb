@@ -35,13 +35,11 @@ app.get("/create",function(req,res){
 app.post("*", function(req,res){
     console.log(req.body);
 
-    saver.gianni(req.body, "prova");
+    saver.save(req.body, "prova");
 
 
     res.send('<p>some html</p>');
-    //res.send("porcamadonna");
     res.status(200).end();
-    //return res.end();
 });
 
 app.listen(8000, () => {
