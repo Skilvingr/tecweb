@@ -103,23 +103,6 @@ function start() {
     p.id="ChooseNumButs";
     var p1 = document.createTextNode("Scegli il numero di bottoni");
     p.appendChild(p1);
-<<<<<<< HEAD
-    
-    //Create array of options to be added
-    var array = [0,1,2,3,4];
-    
-    //Create and append select list
-    var selectList = document.createElement("select");
-    selectList.id = "list";
-    //Create and append the options
-    for (var i = 0; i < array.length; i++) {
-        var option = document.createElement("option");
-        option.value = array[i];
-        option.text = array[i];
-        selectList.appendChild(option);
-    }
-    
-=======
 
   //Create array of options to be added
   var array = [0,1,2,3,4];
@@ -139,7 +122,6 @@ function start() {
   buttonImg.textContent = "Crea";
   buttonImg.setAttribute("onClick", "setImage()");
 
->>>>>>> 5b735a5... yeee
     var button = document.createElement("button");
     button.textContent = "Crea";
     button.id="createButtons";
@@ -151,15 +133,7 @@ function start() {
     next.textContent = "Avanti";
     next.style.float="right";
     next.setAttribute("onClick", "next()");
-<<<<<<< HEAD
-    
-    var prev = document.createElement("button");
-    prev.textContent = "Indietro";
-    prev.style.float="left";
-    prev.setAttribute("onClick", "prev()");
 
-=======
->>>>>>> 5b735a5... yeee
 
     var end = document.createElement("button");
     end.textContent = "Crea";
@@ -167,20 +141,12 @@ function start() {
     end.style.float="center";
     end.setAttribute("onClick", "end()");
 
-<<<<<<< HEAD
 
-    var g = document.createElement("p");
-    var g1 = document.createTextNode("Grafico");
-    var x;
-    var i=0;
-
-    g.appendChild(g1);
-=======
     var graph=document.createElement("span");
     graph.className="caret";
    
     graph.textContent="Grafico";
->>>>>>> 5b735a5... yeee
+
 
     imageStory.appendChild(image);
     imageStory.appendChild(submit);
