@@ -1,4 +1,6 @@
 const fs = require("fs");
+<<<<<<< HEAD
+=======
 /*
 function save(json, fileName){
     if(1){
@@ -26,21 +28,41 @@ function save(json, fileName){
 }
 */
 
- function gianni(jsonContent,filename) {
+function uploadImage(image){
 
+    fs.writeFile(("img/" + filename + ".jpg"),image, function (err) {
+        if (err) {
+            console.log("An error occured while writing JSON Object to File.");
+            return console.log(err);
+        }
+      }); 
+
+      console.log("JSON file has been saved.");
+
+}
+
+ function write(jsonContent,filename) {
+>>>>>>> 5b735a5... yeee
+
+function save(jsonContent,filename) {
+    
     var jsonObj = JSON.stringify(jsonContent,null,2);
     //var jsonContent = JSON.stringify(jsonObj);
     
-   
+    
     fs.writeFile(("json/" + filename + ".json"),jsonObj, function (err) {
-      if (err) {
-          console.log("An error occured while writing JSON Object to File.");
-          return console.log(err);
-      }
+        if (err) {
+            console.log("An error occured while writing JSON Object to File.");
+            return console.log(err);
+        }
     }); 
     
-
+    
     console.log("JSON file has been saved.");
 }; 
 
-module.exports={gianni};
+<<<<<<< HEAD
+module.exports={save};
+=======
+module.exports={write,uploadImage};
+>>>>>>> 5b735a5... yeee
