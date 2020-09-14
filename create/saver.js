@@ -1,6 +1,5 @@
 const fs = require("fs");
-<<<<<<< HEAD
-=======
+
 /*
 function save(json, fileName){
     if(1){
@@ -42,7 +41,6 @@ function uploadImage(image){
 }
 
  function write(jsonContent,filename) {
->>>>>>> 5b735a5... yeee
 
 function save(jsonContent,filename) {
     
@@ -61,8 +59,4 @@ function save(jsonContent,filename) {
     console.log("JSON file has been saved.");
 }; 
 
-<<<<<<< HEAD
-module.exports={save};
-=======
 module.exports={write,uploadImage};
->>>>>>> 5b735a5... yeee
