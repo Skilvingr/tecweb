@@ -1,5 +1,6 @@
 const { json } = require("express");
 const fs = require("fs");
+
 /*
 function save(json, fileName){
     if(1){
@@ -42,6 +43,7 @@ function uploadImage(image){
 
  function write(jsonContent) {
 
+
     var titolo = ""+jsonContent.title;
     console.log(jsonContent);
     var jsonObj = JSON.stringify(jsonContent,null,2);
@@ -70,4 +72,6 @@ function uploadImage(image){
  };
 
 module.exports={write,uploadImage};
+
+
 
