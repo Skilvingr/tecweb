@@ -1,6 +1,5 @@
+const { json } = require("express");
 const fs = require("fs");
-<<<<<<< HEAD
-=======
 /*
 function save(json, fileName){
     if(1){
@@ -41,16 +40,25 @@ function uploadImage(image){
 
 }
 
- function write(jsonContent,filename) {
->>>>>>> 5b735a5... yeee
+ function write(jsonContent) {
 
-function save(jsonContent,filename) {
-    
+    var titolo = ""+jsonContent.title;
+    console.log(jsonContent);
     var jsonObj = JSON.stringify(jsonContent,null,2);
     //var jsonContent = JSON.stringify(jsonObj);
-    
-    
-    fs.writeFile(("json/" + filename + ".json"),jsonObj, function (err) {
+   
+    console.log(titolo);
+
+    var dif=null;
+    var età = jsonContent.età;
+    if(età=="7-10")
+    dif="easy";
+    else if(età=="12-14")
+    dif = "medium";
+    else
+    dif="hard";
+
+    fs.writeFile(("json/" + titolo + "/" + dif +".json"),jsonObj, function (err) {
         if (err) {
             console.log("An error occured while writing JSON Object to File.");
             return console.log(err);
@@ -59,10 +67,7 @@ function save(jsonContent,filename) {
     
     
     console.log("JSON file has been saved.");
-}; 
+ };
 
-<<<<<<< HEAD
-module.exports={save};
-=======
 module.exports={write,uploadImage};
->>>>>>> 5b735a5... yeee
+

@@ -234,9 +234,11 @@ function graphView(title){
   span.appendChild(button);
 
   var length = arrayExtra.length-1;
+  
   console.log(length);
 
   var ulExtra=document.createElement("ul");
+    ulExtra.id="ulExtra";
     //ulExtra.className="nested";
     li.appendChild(ulExtra);
 
@@ -353,7 +355,7 @@ function controlList(){
 
   var buttonModExtra=document.createElement("button");
   buttonModExtra.id="buttonModifyExtra"+temp;
-  buttonModExtra.setAttribute("onClick","modifyButttonExtra("+temp+")");
+  buttonModExtra.setAttribute("onClick","modifyButtonExtra("+temp+")");
   buttonModExtra.textContent="modifica opzione bottone "+temp;
   div.appendChild(buttonModExtra);
 
@@ -387,7 +389,7 @@ controlL = 1;
 
 } 
 
-function modifyButttonExtra(button){
+function modifyButtonExtra(button){
 
   var temp=button;
 
@@ -729,10 +731,9 @@ var testo = document.getElementById("textS").value;
 var ButN = document.getElementById("list").value;
 
 if(title!=titleB){
-/*var bool = controlTitlePage(titolo);
-if(bool==true)
-return alert("modifica titolo");
-*/
+  var bool = controlTitlePage(title);
+  if(bool==true)
+  return alert("modifica titolo");
 obj[title] = obj[titleB];
 delete obj[titleB];
 }
@@ -760,13 +761,18 @@ for(var i=0;i<ButN;i++){
   if(sceltaB == 0){
 
     var inputButt = "destinazione bottone"+temp;
-    var input=document.getElementById("input"+temp).value;
-    /*var boolExtra = controlTitlePage(input);
+    var input = document.getElementById("input"+temp).value;
+    var control = obj[title][inputButt];
+
+    if(control != input){
+    var boolExtra = controlTitlePage(input);
     if(boolExtra==true){
-      
+      document.getElementById("buttonGraph"+pagina).textContent = title;
+      document.getElementById("buttonGraph"+pagina).setAttribute("onClick","populate(\""+ title+ "\")");
       return alert("modificare la destinazione");
     }
-    */
+  }
+  
     arrayExtra[index]=input;
     index++;
     obj[title][inputButt] = input;
@@ -812,6 +818,7 @@ alert("Modificato");
       End.appendChild(end);
 }
 
+
 function graphModify(title,pagina){
 
  
@@ -820,6 +827,7 @@ if(arrayExtra.length!=0){
 var liExtra= document.getElementById("liExtra"+pagina); 
 var button = document.getElementById("buttonGraph"+pagina);
 liExtra.removeChild(button);
+
 var span =document.createElement("span");
 span.className="caret";
 liExtra.appendChild(span);
@@ -860,6 +868,7 @@ var ulExtra=document.createElement("ul");
 
 }
 
+
 function end(){
 
 var button = document.createElement("button");
@@ -870,7 +879,7 @@ $(document).ready(function(){
   $("#reqButton").click(function(){
     $.ajax({
         type: "POST",
-        url: "http://localhost:8000",
+        url: "http://localhost:8000/create/story",
         contentType:"application/json;charset=utf-8",
         dataType:"html",
         data: JSON.stringify(obj),
@@ -884,3 +893,4 @@ $(document).ready(function(){
 End.appendChild(button);
 
 }
+

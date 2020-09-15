@@ -47,18 +47,25 @@ app.get("/create",function(req,res){
   //response.sendFile(path.join(__dirname), "ciao.txt");
  //console.log("Ciao"+id);
 });
-/*
-app.post("*", function(req,res){
+
+app.post("/create/story", function(req,res){
     console.log(req.body);
 
-    saver.write(req.body, "prova");
+    fs.mkdir("json/"+req.body.title+"/", (err) => {
+      if (err) {
+          throw err;
+      }
+      console.log("Directory is created.");
+  });
+
+    saver.write(req.body);
 
 
     res.send('<p>Caricata</p>');
     //res.send("porcamadonna");
     res.status(200).end();
 });
-*/
+
 //image
 
 app.post(
