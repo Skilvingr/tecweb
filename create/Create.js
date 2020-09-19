@@ -48,6 +48,10 @@ function validateTitle() {
         start();
 }
 
+function getExtraButtons() {
+    
+}
+
 //Si occupa di creare la pagina
 function start() {
     //document.getElementById("titoloStory").value="ciao";
@@ -846,3 +850,15 @@ function end(){
     
 }
 
+function openNav(id) {
+    document.getElementById(id).style.width = "250px";
+}
+
+function closeAllNavs() {
+    for(let sidenav of document.getElementsByClassName("sidenav"))
+        sidenav.style.width = "0";
+}
+
+function closeNav(id) {
+    document.getElementById(id).style.width = "0";
+}
