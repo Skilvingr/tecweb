@@ -41,6 +41,13 @@ var obj = {
 
 };
 
+function validateTitle() {
+    if(document.getElementById("titoloStory").value === "")
+        alert("Il titolo non può essere una stringa vuota!");
+    else
+        start();
+}
+
 //Si occupa di creare la pagina
 function start() {
     //document.getElementById("titoloStory").value="ciao";
@@ -50,10 +57,7 @@ function start() {
     var Age = document.getElementById("agePicker").value;
     obj.età = Age;
 
-    var pageN = document.createElement("p");
-    var np = document.createTextNode("Pagina");
-    pageN.appendChild(np);
-
+    
     var image = document.createElement("input");
     image.type = "file";
     image.id="imgName";
@@ -69,7 +73,6 @@ function start() {
     modificatore.setAttribute("id","numeropag");
     modificatore.style.textAlign="center";
     modificatore.size="1";
-    modificatore.value = numPag;
     modificatore.readOnly=true;
 
 
@@ -150,9 +153,6 @@ function start() {
 
     imageStory.appendChild(image);
     imageStory.appendChild(submit);
-   
-    numPage.appendChild(pageN);
-    numPage.appendChild(modificatore);
 
     page.appendChild(stor);
     page.appendChild(storyMis);
