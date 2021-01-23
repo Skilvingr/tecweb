@@ -1,0 +1,37 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "patataaa",
+      "text": "dsasdefythu",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "yee",
+          "type": "ContinueButton",
+          "destination": "crea",
+          "score": "-1",
+          "id": 1
+        },
+        {
+          "text": "asd",
+          "type": "ContinueButton",
+          "destination": "pippo",
+          "id": 1,
+          "score": "-1"
+        }
+      ],
+      "idGraph": 0,
+      "branch": true,
+      "status": "enabled",
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none"
+    },
+    null
+  ],
+  "storyInfo": {
+    "title": "a",
+    "età": "7-10"
+  }
+}

@@ -1,0 +1,104 @@
+[
+  
+    {
+      "testo": "Ricomincia la scuola , le lezioni sono tornate ad essere in presenza. E' stata una giornata tranquilla, torni a casa dopo aver pranzato con gli amici. Non hai con te le chiavi, speri che tua sorella sia rientrata prima. Arrivi al portone di casa, suoni, ma nessuno ti apre. Ricordi che c'è una chiave di scorta sotto il vaso affianco al portone. La cerchi... ma nulla! Anzi scorgi un biglietto che sbuca dal terriccio. Nel biglietto ci sono scritte testuali parole: 'Non aspettare nessuno, poichè ho rapito la tua famiglia. Per riaverla indietro fatti trovare in cima a San Luca alle 17:30 : un solo minuto di ritardo ne causerà la morte.",
+      "img_url": "img/sanluca.jpg",
+      "buttons": [
+       {"text": "avanti",
+        "fun": "fetchData('boloQuiz', 1)"
+       }
+        ]
+       
+    },
+
+     {
+      "testo": "Sono le 16:30... manca pochissimo... devi assolutamente muoverti!Non puoi utilizzare il tuo motorino perché hai perso la patente una settimana fa e dunque: con cosa puoi raggiungere il posto in modo più veloce?",
+      "buttons": [
+       {"text": "Bici",
+        "fun": "errore"
+       },
+          {
+         "text": "autobus",
+        "fun": "fetchData('boloQuiz', 2)"
+          }
+        ]
+     
+    },
+
+   {
+      "testo": "Corri sotto casa, dove si trova la fermata del bus. La linea del 21 passa fra 2 minuti, sei proprio in tempo. Il biglietto, però, non ce l'hai, allora guardi in tasca e controlli se hai delle monetine per farlo sul bus. Niente.. tenti la fortuna.",
+      "img_url": "img/21.jpg",
+         "buttons": [
+          {
+         "text": "avanti",
+        "fun": "fetchData('boloQuiz', 3)"
+          }
+        ]
+    },
+
+     {
+      "testo":"Arrivato il bus, sali, devi scendere in stazione per poi cambiare bus e prendere la linea del 20. Fai due fermate, ma alla terza salgono i controllori. Sono le 16:50 , il tempo stringe, e adesso cosa fai ?",
+      "img_url": "img/controllori.jpg",
+       "buttons": [
+          {
+         "text": "Scendi e inizi a correre",
+        "fun": "fetchData('boloQuiz', 4)"
+          },{
+        "text": "rimani su e ti prendi una multa",
+        "fun": "errore"
+          }
+        ]
+    },
+
+     {
+      "testo": "Il tempo stringe, ora devi trovare un altro modo per raggiungere il santuario. Vedi un ragazzo che sta scendendo dalla bici di fronte ad una copisteria, non la chiude con il lucchetto. Velocizzi il passo, ti avvicini,  sali sopra la bici e inizi a pedalare. Soluzione trovata. Sono le 17 e ti trovi ancora in piazza dei martiri, la strada è ancora lunga. Pedali sempre più in fretta.",
+      "img_url": "img/piazzadeimartiri.jpg",
+      "buttons": [
+          {
+         "text": "avanti",
+        "fun": "fetchData('boloQuiz', 5)"
+          }
+          ]
+    },
+
+    {
+      "testo": "sei in entrato in via saragozza, ma all'improvviso tre signori vestiti di nero si piazzano di fronte a te ",
+      "img_url": "img/saragozza.jpg",
+        "buttons": [
+          {
+         "text": "Prosegui cercando di investirli",
+        "fun": "errore"
+          },{
+        "text": "Ti fermi",
+        "fun": "fetchData('boloQuiz', 6)"
+          }
+        ]
+      
+    },
+{
+      "testo": " <<Per poter passare da questo punto dovrà risolvere un indovinello: Un bivio porta a due paesi diversi: in uno ci sono solo persone che dicono la verità, nell’altro solo persone che mentono. Un viandante vuole sapere qual è il paese della verità e, incrociando un uomo che sta venendo da uno dei due paesi, glielo chiede. Che domanda gli fa per sapere con certezza qual è il paese della verità?",
+      "img_url": "img/lieTruth.jpg",
+        "buttons": [
+          {
+         "text": "Chiedi: qual è il tuo paese?",
+        "fun": "errore"
+          },{
+        "text": "Chiedi di portarti  al suo paese",
+        "fun": "fetchData('boloQuiz', 7)"
+          }
+        ]
+      
+    },
+{
+      "testo": "La risposta, che hai dato, è corretta, ma gli uomini di fronte a te ti tolgono la bicicletta e rimani a piedi. Prosegui il tuo cammino arrivando fino a sotto il portico e sono le 17:30.. ce la puoi ancora fare! Ma devi correre...",
+   "img_url": "img/portico.jpg",
+      "buttons": [
+          {
+         "text": "avanti",
+        "fun": "fetchData('boloQuiz', 8)"
+          }
+          ]
+    }
+  ]
+    
+    

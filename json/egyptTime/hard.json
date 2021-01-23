@@ -1,0 +1,289 @@
+[
+  
+    {
+      "testo": "Ricomincia la scuola , le lezioni sono tornate ad essere in presenza. E' stata una giornata tranquilla, torni a casa dopo aver pranzato con gli amici. Non hai con te le chiavi, speri che tua sorella sia rientrata prima. Arrivi al portone di casa , suoni ma nessuno ti apre. Ricordi che c'è una chiave di scorta sotto il vaso affianco al portone. La cerchi.. ma nulla, anzi scorgi un biglietto che sbuca dal terriccio. Nel biglietto ci sono scritte testuali parole: 'Non aspettare nessuno, poichè ho rapito la tua famiglia .Per riaverla indietro fatti trovare in cima a San Luca alle 17:30 : un solo minuto di ritardo ne causerà la morte.",
+      "img_url": "img/intro.png",
+      "buttons": [
+       {"text": "avanti",
+        "fun": "fetchData('egyptTime', 1)"
+       }
+        ]
+       
+    },
+
+     {
+      "testo": "Sono le 16:30, manca pochissimo , devi assolutamente muoverti,non puoi utilizzare il tuo motorino perchè gai perso la patente una settimana fa e dunque: con cosa puoi raggiungere il posto in modo più veloce?",
+      "buttons": [
+       {"text": "Bici",
+        "fun": "errore"
+       },
+          {
+         "text": "autobus",
+        "fun": "fetchData('egyptTime', 2)"
+          }
+        ]
+     
+    },
+
+   {
+      "testo": "Corri sotto casa, dove si trova la fermata del bus. La linea del 21 passa fra 2 minuti, sei proprio in tempo. Il biglietto , però, non ce l'hai, allora guardi in tasta e controlli se hai delle monetine per farlo sul bus. Niente.. tenti la fortuna.",
+      "img_url": "img/egyptTime/ScalePiramide.png",
+         "buttons": [
+          {
+         "text": "avanti",
+        "fun": "fetchData('egyptTime', 3)"
+          }
+        ]
+    },
+
+     {
+      "testo":"Arrivato il bus, sali, devi scendere in stazione per poi cambiare bus e prendere la linea del 20. Fai due fermate , ma alla terza salgono i controllori. Sono le 16:50 , il tempo stringe, e adesso cosa fai ?",
+      "img_url": "img/egyptTime/StanzaPiramide.png",
+       "buttons": [
+          {
+         "text": "Scendi e inizi a correre",
+        "fun": "fetchData('egyptTime', 4)"
+          },{
+        "text": "rimani su e ti prendi una multa",
+        "fun": "errore"
+          }
+        ]
+    },
+
+     {
+      "testo": "Il tempo stringe, ora devi trovare un'altro modo per raggiungere il santuario. Vedi un ragazzo che sta scendendo dalla bici difronte ad una copisteria , non la chiude con il lucchetto. Velocizzi il passo , ti avvicini,  sali sopra la bici e inizi a pedalare. Soluzione trovata. Sono le 17 e ti trovi ancora in piazza dei martiri, la strada è ancora lunga. Pedali sempre più in fretta.",
+      "img_url": "img/egyptTime/BucoPiramide.png",
+      "buttons": [
+          {
+         "text": "avanti",
+        "fun": "fetchData('egyptTime', 5)"
+          }
+          ]
+    },
+
+    {
+      "testo": "sei in entrato in via saragozza, ora devi fare una lunga tirata per arrivare al punto in cui inizia la salita. Non ti fermi nemmeno ai semafori rossi. Il tempo scorre ma tu pedali sempre piu veloce, e ti ritrovi li sotto la salita . Farla in bici sarebbe abbastanza faticoso, così decidi di lasciarla giu e ti metti a correre. Arrivi ad una curva ripida quando senti arrivare una macchina, si trattava di una mercedes nera, fai segno con la mano con la speranza che si fermi e ti possa dare un passaggio. Si sarà trattato di un residente in quelle zone, si ferma e riesci a chiedergli se possa darti un passaggio. Se ci fosse stato bisogno lo avresti pagato. Il conducente, gentile, dice che non c'è nessun problema per il passaggio , che sarebbe dovuto andare lo stesso fin la cima per prendere un cliente per le 17.30. Inizi a insospettirti, 'Cosa ci fa qualcun atro in cima ?'    ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+          {
+         "text": "avanti",
+        "fun": "fetchData('egyptTime', 6)"
+          }
+          ]
+    },
+        {
+      "testo": "Arrivi in cima, vedi i tuoi genitori legati su una panchina e tua sorella su una sedia. Ti avvicini ma subito il rapinatore ti ferma. Era un uomo alto e muscoloso, si direbbe che facesse palestra o comunque si tenesse in forma. 'Sei arrivato puntuale , non lo avrei mai detto, perchè il tempo che ti avevo lasciato era poco' escalma il rapinatore ' La tua sfida non finisce qui' lo fermi e gli dici:' Ti ho portato un'ingente somma come riscatto , accettali e libera la mia famglia' . Il rapinatore ribatte: ' non voglio del denaro, voglio proporti una sfida sportiva, vediamo se sei preparato sia fisicamente che culturalmente. Ti lascio scegliere i campi '.  ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {"text": "Calcio, basket, atletica",
+        "fun": "errore"
+       },
+          {
+         "text": "Calcio, pallavolo, nuoto",
+        "fun": "fetchData('egyptTime', 7)"
+          },
+              {
+         "text": "Baseball, pallavolo, nuoto",
+        "fun": "errore"
+          }
+        ]
+    },
+            {
+      "testo": " 'Partiamo con una prova di resistenza fisica. C'è un circuito da percorrere con esercizi differenti , il tutto è gia allestito, il mio autista terrà il cronometro , vediamo chi impiega il tempo minore.'    ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": "avanti",
+        "fun": "fetchData('egyptTime', 8)"
+       }
+         
+        ]
+    },
+        {
+      "testo": " Il rapinatore ha conseguito un tempo pari a 55 secondi. Ora tocca te , devi stare sotto il tuo tempo. Inizi con una serie di flessioni, prosegui con il salto degli ostacoli , infine al salto della corda, nel mentre che saltavi ti arrivavano dei bastoni tra i piedi, era l'autista che cercava di farti perdere tempo, li eviti tutti e finisci le ripetizioni. Bene hai finito il circuito , Hai stabilito un nuovo record, hai totalizzato 43 secondi. Il rapinatore palestrato rimase sbalordito. 'La sfida pratica l'hai vinta ma ancora devi superare quella culturale'.  ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": "avanti",
+        "fun": "fetchData('egyptTime', 9)"
+       }
+         
+        ]
+    },
+
+            {
+      "testo": " 'Partiamo con il calcio : chi è l'attuale allenatore del bologna?'",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " Roberto Donadoni",
+        "fun": "errore"
+       },
+         {
+        "text": "Siniša Mihajlović",
+        "fun": "fetchData('egyptTime', 10)"
+         },
+               {
+        "text": "Stefano Pioli",
+        "fun": "errore"
+         }
+        ]
+    },
+      {
+      "testo": " 'Quanti scudetti vinse il bologna nella sua storia?'",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " 10",
+        "fun": "errore"
+       },
+         {
+        "text": "3",
+        "fun": "errore"
+         },
+               {
+        "text": "7",
+        "fun": "fetchData('egyptTime', 11)"
+         }
+        ]
+    },
+          {
+      "testo": " 'Quale fu il risultato della partita Milan-Bologna del 21/09/2020?'",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " 2-0",
+        "fun": "fetchData('egyptTime', 12)"
+       },
+         {
+        "text": "0-2",
+        "fun": "errore"
+         },
+               {
+        "text": "1-1",
+        "fun": "errore"
+         }
+        ]
+    },
+           {
+      "testo": " 'Bravo vedo che di calcio te ne intendi, vediamo come va con la pallavolo:' Chi è la pallavolista più alta della nazionale italiana'? ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " Valentina Diouf",
+        "fun": "fetchData('egyptTime', 13)"
+       },
+         {
+        "text": "Nicole Gamba",
+        "fun": "errore"
+         },
+               {
+        "text": "Francesca Piccinini",
+        "fun": "errore"
+         }
+        ]
+    },
+    
+      {
+      "testo": " 'Chi è il capitano della squadra della nazionale italiana '? ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " Paola Egonu",
+        "fun": "errore"
+       },
+         {
+        "text": "Cristina Chirichella ",
+        "fun": "fetchData('egyptTime', 14)"
+         },
+               {
+        "text": "Lucia Bosetti",
+        "fun": "errore"
+         }
+        ]
+    },
+          {
+      "testo": " 'Chi è l'allenatore attuale della squadra della nazionale italiana? ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " Adele Magnani",
+        "fun": "errore"
+       },
+         {
+        "text": "Massimo Barbolini ",
+        "fun": "errore"
+         },
+               {
+        "text": "Davide Mazzanti",
+        "fun": "fetchData('egyptTime', 15)"
+         }
+        ]
+    },
+           {
+      "testo": " 'Anche nella pallavolo ti sei dimostrato preparato, vediamo con il nuoto. Pronto? Prima domanda: chi è denominata la regina del nuoto italiano?' ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " Federica Pellegrini",
+        "fun": "fetchData('egyptTime', 16)"
+       },
+         {
+        "text": "Simona Quadarella ",
+        "fun": "errore"
+         },
+               {
+        "text": "Alessia Flippi",
+        "fun": "errore"
+         }
+        ]
+    },
+               {
+      "testo": " 'Qual è la specialità di Gregorio Paltrinieri ' ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " 1500 Stile Libero",
+        "fun": "fetchData('egyptTime', 17)"
+       },
+         {
+        "text": "800 stie libero ",
+        "fun": "errore"
+         },
+               {
+        "text": "100 stile libero",
+        "fun": "errore"
+         }
+        ]
+    },
+                  {
+      "testo": " 'Quale fu la classifica della specialità di tuffi sincro nei mondiali di Rio 2016? ' ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " Russia, Cina, Italia",
+        "fun": "fetchData('egyptTime', 18)"
+       },
+         {
+        "text": "Italia, Russia, Germania ",
+        "fun": "errore"
+         },
+               {
+        "text": "Cina, Italia, Francia",
+        "fun": "errore"
+         }
+        ]
+    },
+          {
+      "testo": " 'hai risposto bene a tutte le domande, la tua famiglia è libera'. Sciogli le corde con cui eramo stati chiamati. 'Avrei potuto chiederti un ingente somma d denaro, a quello che aspirare è proprio questo, trovare qualcuno che sia alla mia altezza. Ti ho osservato durante gli allenamenti di calcio.  'Ti ringrazio per la sfidaa' Escalma il rapinatore ' ho trovato una persona del mio sttesso livello.. La tua famiglia è salva. >' Sta per iniziare a piovere e il rapinatore prenota un'altra macchina taxi , Hai deciso di scendere a pied, l'aria sembra esserci fatta piu pulita. Ebbene hai salvsato la tua famiglia.. ci rivediamo presto ",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {
+        "text": " fine",
+        "fun": "fetchData('egyptTime', 19)"
+       }
+
+        ]
+      }
+]
+    

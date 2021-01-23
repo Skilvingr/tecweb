@@ -1,0 +1,20 @@
+{
+  "player": [
+    null,
+    {
+      "id": 1,
+      "title": "pio",
+      "text": "",
+      "numeroBottoni": 0,
+      "buttons": [],
+      "idGraph": 0,
+      "branch": true,
+      "widgetPuzzle": false,
+      "img": "none"
+    }
+  ],
+  "storyInfo": {
+    "title": "popa",
+    "età": "7-10"
+  }
+}

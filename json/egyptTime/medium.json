@@ -1,0 +1,165 @@
+[
+  {
+      "testo": "Grazie alla borsa di studio , ti sei iscritto alle medie 'Malpighi', una delle più rinomate. Quest'anno hanno organizzato una gita scolastica a Bologna , una gita particolare data la situazione del covid. Bologna riserva molte sorprese. Per differenziare le solite gite scolatische , viene organizzata una caccia al tesoro con l'obiettivo di scoprire la storia di Bologna. Ogni alunno sarà munito di un foglio e deve completare dei quesiti trovando risposta dalla caccia al tesoro ",
+      "img_url": "img/intro.png",
+      "buttons": [
+       {
+         "text": "avanti",
+        "fun": "fetchData('egyptTime', 1)"
+       }
+        ]
+
+    },
+
+     {
+      "testo": "Prima Tappa: 'Piazza Maggiore'. Ti trovi sotto Palazzo del Podestà. Trovi un telefono per terra.. primo segnale.. a cosa fa riferimento? .",
+      "img_url": "img/egyptTime/CorridoioPiramide.png",
+      "buttons": [
+       {"text": "telefono senza fili: basta mettersi ai lati opposti delle volte e “passare” il messaggio, l’architettura della struttura permette alla voce di passare ed il messaggio ricevuto nonostante la distanza.",
+        "fun": "fetchData('egyptTime', 2)"
+       },{
+           "text:": "Zona dove c'è più campo telefonico a Bologna",
+           "fun":"errore"
+       }
+        ]
+    },
+ {
+      "testo": "Ti sposti verso la celebre Fontana del Nettuno, conosciuta come Il Gigante, che si erge al centro della Piazza del Nettuno, di fronte all’ingresso del Palazzo di Re Enzo..Quale curiosità si nasconde dietro la fontana? ",
+      "img_url": "img/egyptTime/ScalePiramide.png",
+       "buttons": [
+       {
+           "text": "Tradizione importante per i bolognesi che gli studenti, prima di intraprendere un esame, debbano girare due volte in senso antiorario attorno alla fontana per avere fortuna",
+        "fun": "fetchData('egyptTime', 3)"
+       },{
+           "text:": "Se lanci una moneta all'interno dell'acqua della fontana.. ti porterà fortuna! ",
+           "fun":"errore"
+       }
+        ]
+    },
+
+   {
+      "testo": "Giri attorno alla fontana due volte quando scorgi un piccolo tridente , come miniatura di quello del Nettuno. Lo prendi e lo tieni come Souvenir.",
+      "img_url": "img/egyptTime/StanzaPiramide.png",
+      "buttons": [
+      {
+           "text:": "Avanti",
+           "fun":"fetchData('mummia', 4)"
+       }
+        ]
+    },
+
+    {
+      "testo": "Prossima tappa: le due Torri di Bologna, torre Asinelli e torre Garisenda, di cui la torre degli Asinelli detiene il record di torre pendente più alta del mondo coi suoi 900 anni di vita. Qual è la leggenda di questa Torre?",
+      "img_url": "img/egyptTime/BucoPiramide.png",
+      "buttons": [
+       {
+        "text": "Una leggendapopolare vuole che gli studenti non debbano salire in cima alla torre Asinelli prima di laurearsi",
+        "fun": "fetchData('egyptTime', 5)"
+       },{
+           "text:": "Se sali prima dei 30 anni almeno una volta, incontrerai l'amore della tua vita!",
+           "fun":"errore"
+       }
+        ]
+    },
+
+   {
+      "testo": "In cima alla torre si trova un vaso rotto. Sai cosa sta a significare?",
+      "img_url": "img/egyptTime/BucoPiramide.png",
+      "buttons": [
+       {
+        "text": "Capacità dei bolognesi nella risoluzione dei problemi ",
+        "fun": "fetchData('egyptTime', 6)"
+       },{
+           "text:": "capacità dei bolognesi di fare soldi",
+           "fun":"errore"
+       }
+        ]
+    },
+   {
+      "testo": "Terza tappa : Piazza Santo Stefano detta anche Piazza delle 7 Chiese , proprio per la presenza di 7 Chiese. Una delle più affascinanti chiese di Bologna nasconde ben più di una curiosità.Cominciamo dalla pietra nera posta sulla facciata della chiesa del Santo Sepolcro. Qual è la storia che ci sta dietro?",
+      "img_url": "img/egyptTime/Geroglifici.png",
+       "buttons": [
+       {"text": "Pare che fosse così lucida da permettere alle donne di specchiarsi. Peccato però che, successivamente all’incantesimo lanciato da un eremita, la pietra continuò sì a fungere da specchio… ma dei peccati.",
+        "fun": "fetchData('egyptTime', 7)"
+       },{
+           "text:": "La pietra nera , se viene toccata anche solo per sbaglio, porterà sfortuna e brutte notizie per i prossimi 10 anni",
+           "fun":"errore"
+       }
+        ]
+    },
+    {
+      "testo": "Bologna è una delle pù importanti città universitarie, percorri a piedi via Zamboni , passi in rassegna diverse facoltà , in primis Giurisprudenza, fino ad arrivare in piazza Scaravilli dove si trova la facoltà di Economia e Statistica. Arrivato li .. c'è una cosa che non devi assolutamente fare. quale?",
+      "img_url": "img/egyptTime/Cadavere.png",
+            "buttons": [
+       {"text": "Tagliare in diagonale la piazza poichè porta sfortuna e non conseguirai la laurea(Sfortuna parte due)",
+        "fun": "fetchData('egyptTime', 8)"
+       },{
+           "text:": "entrare nel palazzo della facoltà prima di immatricolarti",
+           "fun":"errore"
+       }
+        ]
+    },
+    {
+      "testo": "vai fino in fondo a via Zamboni , qui si trova Porta San Donato.. Quante porte ha Bologna?",
+           "img_url": "img/egyptTime/Cadavere.png"
+           
+    },
+        {
+      "testo": "Quali sono?",
+      "img_url": "img/egyptTime/Cadavere.png"
+       
+    },
+          
+    {
+      "testo": "La prossima tappa prevede una divisione in gruppi, si prevede un trasferimento verso il famoso Santuario di san Luca. Si prenderà il trenino in piazza Maggiore e questo porterà fino alla Chiesa, dove si potrà ammirare Bologna dall'alto. Ad ogni Arcata c'è una figura mitologica.. [immagine diavolo], qual è il numero delle arcate? Prendi come indizio quelle figure mitologiche (METTI IN INPUT IL NUMERO DELLE ARCATE)",
+      "img_url": "img/storytime.png",
+       "buttons": [
+       {
+           "text": "Decidi di salire a piedi per contare il numero di arcate",
+        "fun": "fetchData('egyptTime', 9)"
+       }
+        ]
+    },
+
+   {
+      "testo": "Passiamo alla cultura enogastronomica.. quali piatti tipici conosci? Seleziona la combinazione corretta :",
+      "img_url": "img/egyptTime/LuogoCulto.png",
+    
+   "buttons": [
+       {
+        "text": "risotto alla milanese , tortelloni, piadina ",
+        "fun": "errore"
+       },
+          {
+         "text": "polenta, passatelli al brodo , cotoletta alla bolognese ",
+         "fun": "errore"
+          },
+          {
+         "text": "tagliatelle al ragù, tortellini in brodo, gramigna",
+         "fun": "fetchData('egyptTime', 10))"
+          }
+        ]
+    },
+
+    {
+      "testo": "Quale ristorante fu premiato da Alessandro Borghese?",
+      "img_url": "img/egyptTime/Sarcofago.png",
+      "buttons": [
+       {
+        "text": "Ristorante Diana",
+        "fun": "errore"
+       },
+          {
+         "text": "Fourghetti ",
+         "fun": "errore"
+          },
+          {
+         "text": "Trattoria Da Me",
+         "fun": "fetchData('egyptTime', 11))"
+          }
+        ]
+    }
+
+ 
+]
+

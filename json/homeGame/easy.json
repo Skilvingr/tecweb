@@ -1,0 +1,82 @@
+[
+    {
+    "testo": "Causa Coronavirus sei obbligato a rimanere in casa, le giornate diventano pesanti e vuoi occupare il tempo in modo diverso e fruttuoso, vai in cucina, trovi il ricettario della mamma e vieni colpito da una torta, perciò decidi di replicarla. Essendo tu un principiante in qesto campo, segui tutte le indicazioni e ti adoperi per munirti degli utensili opportuni. Inizi ad osservare l'ambiente circostante e ti fai una lista degli strumenti necessari. La mamma legge questa lista e decide di attaccare dei post-it in cucina per aiutarti ad orientarti nella ricerca. Buona caccia agli strumenti!" ,
+    "img_url": "img/cucina.jpg",
+    "buttons": [
+        {
+        "text": "Avanti",
+        "fun": "fetchData('homeGame', 1)"
+        }
+    ]
+    },
+    
+    
+    {
+    "testo": "Apri il frigorifero e cerchi i primi ingredienti. Questo è ciò che vedi:" ,
+    "img_url":  "img/frigorifero.jpg",
+    "buttons": [
+        {
+        "text": "Uova (3x)",
+        "fun": "fetchData('homeGame', 2)"
+        },
+        {
+        "text": "Lievito di birra",
+        "fun": "errore"
+        },
+        {
+            "text": "indietro",
+              "fun": "fetchData('homeGame', 0)" 
+          }]     
+    
+   
+    },
+    
+    
+    {
+    "testo": "Apri la prima mensola vicino al frigo, quando vedi il primo post-it.",
+    "img_url": "img/postit.jpg",
+    "buttons": [
+        {
+        "text": "Lievito per dolci",
+        "fun": "fetchData('homeGame', 3)"
+        },
+        {
+        "text": "Cioccolata",
+        "fun": "errore"
+        },
+        {
+        "text": "Farina",
+        "fun": "errore"
+        }
+    ]
+   
+    },
+    {
+    "testo": "Ti guardi attorno e noti un post-it affisso sullo sportello di un mobile. Lo apri e trovi questa domanda: quanto grande vuoi la tua torta?",
+    "img_url":  "img/tortiera.jpeg",
+    "buttons": [
+        {
+        "text": "10 cm",
+        "fun": "errore"
+        },
+        {
+        "text": "20 cm",
+        "fun": "fetchData('homeGame', 4)"
+        }
+    ]
+    
+    },
+    {
+    "testo": "Apri lo sportello e noti la scatola di uno sbattitore, una ciotola e una bilancia.",
+    "img_url":  "img/sbattitore.jpg",
+    "buttons": [
+        {
+        "text": "Prendi tutto",
+        "fun": "fetchData('homeGame', 5)"
+        }
+    ]
+    
+  
+    }
+]
+

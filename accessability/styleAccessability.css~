@@ -1,0 +1,20 @@
+body{
+    background-color:black;
+
+}
+
+#initialAccessability{
+    
+
+}
+
+
+#text{
+
+    text-align:center;   
+}
+
+#buttons{
+
+    text-align:center;
+}

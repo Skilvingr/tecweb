@@ -1,4 +1,5 @@
 var eta = 0;
+var points=0;
 
 function logz() {
   console.log("faccio qualcosa di globale");
@@ -6,13 +7,20 @@ function logz() {
 
 function agePicker() { //da variare
   var sel = document.getElementById("eta");
+ 
+   // var nomeGruppo = document.getElementById("MyText").value;
   var strUser = sel.options[sel.selectedIndex].value;
-  console.log(strUser);
-  $("#nazi").removeClass("hidden");
-  $("#leonardo").removeClass("hidden");
-  $("#mummia").removeClass("hidden");
-  $("#etaContainer").removeClass("hidden").addClass("hidden");
     
+  console.log(strUser);
+  $("#homeGame").removeClass("hidden");
+  $("#egyptTime").removeClass("hidden");
+  $("#boloQuiz").removeClass("hidden");
+  $("#etaContainer").addClass("hidden");
+  $("#group-options").addClass("hidden");
+  $("#containerQrcode").addClass("hidden");
+ //$("#nameGroup").addClass("hidden");
+ 
+  
   if (strUser === "1") {
       eta = 1;
       console.log("hai scelto la difficoltà facile");
@@ -23,16 +31,66 @@ function agePicker() { //da variare
         eta = 3;
         console.log("hai scelto la difficoltà difficile");
     }
+   
+    var button = document.createElement("button");
+    button.setAttribute("onclick","initialPage()");
+    button.textContent="indietro";
+    button.setAttribute("id","Indietro");
+    var div = document.createElement("div");
+    div.setAttribute("id","divButton");
+    var br = document.createElement("br");
+    boloQuiz.appendChild(div);
+    div.appendChild(button);
+
+    var p= document.createElement("p");
+    p.setAttribute("id","TextGroup");
+    p.style.color="white";
+    var p1= document.createTextNode("Inserisci il nome del tuo gruppo");
+    p.appendChild(p1);
+    nameGroup.appendChild(p);
+
+    var name= document.createElement("input");
+    name.setAttribute("id","MyText");
+    nameGroup.appendChild(name);
+
+    var selGroup = document.getElementById("options").value;
+    if(selGroup=="0"){
+    var p =document.getElementById("TextGroup");
+    var p2=document.createTextNode("inseirsci il nome del Player");
+    p.removeChild(p.childNodes[0]);
+    p.appendChild(p2);
+    }
+    
 }
 
 function play(name){
-    $("#game").removeClass("hidden");
-    $("#chooseGame").removeClass("hidden").addClass("hidden");
-    $("#nazi").removeClass("hidden").addClass("hidden");
-    $("#leonardo").removeClass("hidden").addClass("hidden");
-    $("#mummia").removeClass("hidden").addClass("hidden");
+   
+    var selGroup = document.getElementById("options").value;
+    var nameGruppo = document.getElementById("MyText").value;
+
+    if(selGroup!="0"){
+    if(nameGruppo==""){
+    alert("inserire un nome per il gruppo");
+    return null;
+    }else
+    gruppo(selGroup,nameGruppo);
+    }else{
+    if(nameGruppo==""){
+        alert("inserire il nome del player");
+        return null;
+    }
+    gruppo(1,nameGruppo);
+    }
+     $("#game").removeClass("hidden");
+     $("#chooseGame").removeClass("hidden").addClass("hidden");
+     $("#homeGame").removeClass("hidden").addClass("hidden");
+     $("#egyptTime").removeClass("hidden").addClass("hidden");
+     $("#boloQuiz").removeClass("hidden").addClass("hidden");
+     $("#nameGroup").addClass("hidden");
+     fetchData(name, 0);
     
-    fetchData(name, 0);
+    
+
 }
 
 function fetchData(name, page) {
@@ -51,15 +109,14 @@ function fetchData(name, page) {
             document.getElementById("myData").innerHTML = "";
             document.getElementById("picture").innerHTML = "";
             document.getElementById("pulsante").innerHTML = "";
-            document.getElementById("indizi").innerHTML = "";
-            document.getElementById("oggetti").innerHTML = "";
+           
             //popolo i div con le nuove info
-            
+            pushPicutres(data,page);
             pushData(data, page)
-            //pushPicutres(data, page);
+          
             pushButtons(data, page);
-            //pushHint(data, page);
-            //pushStuff(data, page);
+            points++;
+        
         })
         .catch(function (err) {
             console.log(err);
@@ -79,15 +136,14 @@ function fetchData(name, page) {
             document.getElementById("myData").innerHTML = "";
             document.getElementById("picture").innerHTML = "";
             document.getElementById("pulsante").innerHTML = "";
-            document.getElementById("indizi").innerHTML = "";
-            document.getElementById("oggetti").innerHTML = "";
+         
             //popolo i div con le nuove info
             
             pushData(data, page)
-            //pushPicutres(data, page);
+          
             pushButtons(data, page);
-            //pushHint(data, page);
-            //pushStuff(data, page);
+            pushPicutres(data,page);
+           
         })
         .catch(function (err) {
             console.log(err);
@@ -107,15 +163,14 @@ function fetchData(name, page) {
             document.getElementById("myData").innerHTML = "";
             document.getElementById("picture").innerHTML = "";
             document.getElementById("pulsante").innerHTML = "";
-            document.getElementById("indizi").innerHTML = "";
-            document.getElementById("oggetti").innerHTML = "";
+        
             //popolo i div con le nuove info
             
             pushData(data, page)
-            //pushPicutres(data, page);
+        
             pushButtons(data, page);
-            //pushHint(data, page);
-            //pushStuff(data, page);
+            pushPicutres(data,page);
+           
         })
         .catch(function (err) {
             console.log(err);
@@ -134,21 +189,20 @@ function pushData(data, page) {
   console.log("----");
 }
 
-function pushPicutres(data) {
+function pushPicutres(data,page) {
   var picContainer = document.getElementById("picture");
 
-  for (var j = 0; j < data.length; j++) {
-    var urlvalue = JSON.stringify(data[j].pagina1.img_url);
-    var stripped = urlvalue.replace(/['"]+/g, "");
-    var img_url = document.createElement("IMG");
+  
+    var urlvalue = JSON.stringify(data[page].img_url);//Il metodo JSON.stringify() converte un oggetto o un valore JavaScript in una stringa JSON, sostituendo facoltativamente i valori se viene specificata una funzione sostitutiva o facoltativamente includendo solo le proprietà specificate se viene specificato un array replacer.
+    var stripped = urlvalue.replace(/['"]+/g, ""); 
+    var img_url = document.createElement("IMG"); 
     img_url.setAttribute("src", stripped);
     img_url.setAttribute("width", "640");
     img_url.setAttribute("height", "220");
-    //img_url.setAttribute("alt", "The Pulpit Rock");
-    //document.body.appendChild(img_url);
     picContainer.appendChild(img_url);
-    img_url.innerHTML = data[j].pagina1.img_url;
-  }
+    img_url.innerHTML = data[page].img_url;
+    
+  
 
   console.log(img_url);
   console.log(urlvalue);
@@ -157,22 +211,48 @@ function pushPicutres(data) {
   console.log("----");
 }
 
+function errore(){
+    if(points!=0)
+    points -= 1-0.5;
+    return alert("errore "+points);
+}
+
 function pushButtons(data, page) {
   var pulsContainer = document.getElementById("pulsante");
 
   var urlvalue = null;
   var stripped = null;
   var puls = null;
+  var indietro=null;
   
   for(var buttons = 0; buttons < data[page].buttons.length; buttons++) {
-          urlvalue = JSON.stringify(data[page].buttons[buttons].fun);
-          stripped = urlvalue.replace(/["]+/g, "");
-          puls = document.createElement("button");
-          puls.setAttribute("onclick", stripped);
-          pulsContainer.appendChild(puls);
-          puls.innerHTML = data[page].buttons[buttons].text;
+    urlvalue = JSON.stringify(data[page].buttons[buttons].fun);
+    stripped = urlvalue.replace(/["]+/g, "");
+    puls = document.createElement("button" );
+    if(stripped=="errore"){
+        puls.setAttribute("onclick", "errore()");
+        pulsContainer.appendChild(puls);
+    }else if(stripped=="indietro"){
+   
+     indietro= document.getElementById("indietro");
+    puls.setAttribute("onclick",stripped);
+    indietro.appendChild(puls);
+    }
+    
+    else {
 
-      }
+    puls.setAttribute("onclick", stripped);  
+    pulsContainer.appendChild(puls);
+    }
+    var controllo=  data[page].buttons[buttons].text;
+    if((controllo=="Avanti")&&(points!=0)){
+      points--;
+    }
+
+    puls.innerHTML = data[page].buttons[buttons].text;
+    
+}
+
 
   console.log(puls);
   console.log(urlvalue);
@@ -180,45 +260,17 @@ function pushButtons(data, page) {
   console.log(pulsContainer);
 }
 
-function pushHint(data) {
-  var mainContainer = document.getElementById("indizi");
-  for (var i = 0; i < data.length; i++) {
-    var istruzioni = document.createElement("p");
-    var bordo = "border:2px solid black;";
-    istruzioni.setAttribute("style", bordo);
-    mainContainer.appendChild(istruzioni);
-    istruzioni.innerHTML =
-      data[i].pagina1.indizi.indizio1 +
-      " <br> " +
-      data[i].pagina1.indizi.indizio2;
+function initialPage(){
+
+    $("#homeGame").addClass("hidden");
+    $("#egyptTime").addClass("hidden");
+    $("#boloQuiz").addClass("hidden");
+    $("#etaContainer").removeClass("hidden");
+    $("#group-options").removeClass("hidden");
+    $("#containerQrcode").removeClass("hidden");
+    nameGroup.innerHTML="";
+    //var button=document.getElementById("Indietro");
+    div=document.getElementById("divButton");
+    boloQuiz.removeChild(div);
   }
-  console.log(istruzioni);
-  console.log("----");
-}
 
-function pushStuff(data) {
-  var mainContainer = document.getElementById("oggetti");
-  for (var i = 0; i < data.length; i++) {
-    var istruzioni = document.createElement("p");
-    var bordo = "border:2px solid black;";
-    istruzioni.setAttribute("style", bordo);
-    mainContainer.appendChild(istruzioni);
-    istruzioni.innerHTML =
-      data[i].pagina1.oggetti.oggetto1 +
-      " <br> " +
-      data[i].pagina1.oggetti.oggetto2;
-  }
-  console.log(istruzioni);
-  console.log("----");
-}
-
-////////////////////////////// ALTRE FUNZIONI GLOBALI////////////////////////////
-
-function hid() {
-  $("#hidButton").removeClass("hidden").addClass("hidden");
-  console.log("scompare");
-}
-function show() {
-  $("#hidButton").removeClass("hidden");
-  console.log("riappare");
-}

@@ -1,0 +1,162 @@
+[
+   {
+      "testo": "E' una giornata uggiosa, eri in cucina che stavi preparando la torta per il compleanno della tua sorellina. Avevi visto molte ricette e avevi scelto di cucinare una buona cheesecake al pistacchio. Mamma e sorella sono uscite poco prima che iniziasse a piovere violentemente e si sono bloccate in un bar  mentre Papà è a lavoro. Sei solo a casa , quando a un certo punto salta la corrente mentre stavi usando lo sbattitore per montare la panna. Non si vede nulla, fuori tutto buio,  e hai il telefono, da cui guardavi la ricetta, al 10%.",
+      "img_url": "img/cheesecake.jpg",
+      "buttons": [
+       {"text": "Avanti",
+        "fun": "fetchData('homeGame', 1)"
+       }
+        ]
+     
+    },
+
+    {
+      "testo": "Attivi la torcia del telefono e esci dalla cucina, raggiungi il corridoio da cui dovrai prendere le scale e scendere in cantina. In cantina si trova l'interruttore della luce. La torcia si spegne appena arrivi in corridoio. Ti viene in mente che in cucina c'è una candela e ti giri.. Ma non vedi niente, ti appoggi al muro e senti qualcosa in tasca, trovi l'accendino con cui avevi acceso il fuoco in cucina per fare a crema. Inizi ad aprire i cassetti..    ",
+      "img_url": "img/corridoio.jpg",
+         "buttons": [
+             {
+                 "text": " Cassetto1",
+                   "fun": "errore"
+               
+             },
+             {
+                  "text": "cassetto2",
+                  "fun":"fetchData('homeGame', 2)"
+             },
+             {
+                  "text": " Cassetto3",
+                   "fun": "errore"
+               
+             }
+         ]
+        
+    },
+
+    
+    {
+      "testo": "Trovata La candela la accende , chiude il cassetto e si dirige alla porta, quando ad un tratto sento un rumore dal salotto. Sembrava che qualcuno fosse entrato in casa. Decidi di 'armarti' prendendo un coltello, Hai due possibilità per prendere quello più grande.. ",
+      "img_url": "img/candela.jpg",
+         "buttons": [
+        {
+        "text": "15 cm",
+        "fun": "errore"
+        },
+              {
+        "text": "20 cm",
+        "fun": "fetchData('homeGame', 3)"
+        }
+    ]
+     
+    },
+
+    {
+      "testo": " Preso il coltello , si dirige in corridoio. Cammina lentamete per scorgere i movimenti del estraneo entrato in casa. Sente avvicinarsi qualcosa. Che cosa può essere? Posiziona il coltello verso il rumore che sente avvicinarsi sempre di più. Lancia il coltello. Controlli se hai ferito qualcuno..  ",
+      "img_url": "img/stanzaBuia.jpg",
+       "buttons": [
+        {
+        "text": " Colpisci",
+        "fun": "errore"
+        },
+              {
+        "text": "Non Colpisci",
+        "fun": "fetchData('homeGame', 4)"
+        }
+    ]
+      
+    },
+
+     {
+      "testo": " Era il gatto del vicino, hai preso uno spavento, ma per fortuna non gli hai fatto del male. Ora è il momento di scendere in cantina e sistemare le luci. Scendi in cantina, ma la porta è serrata. La chiave dovrebbe averla la mamma , ma non puoi perdere tempo e decidi di risolvere in qualche modo la situazione. Che strumenti utilizzi?",
+      "img_url": "img/cantina.png",
+     
+      "buttons": [
+        {
+        "text": " Carta di identità",
+        "fun":" fetchData('homeGame', 5)"
+        }
+       ]
+    
+    },
+
+     {
+      "testo": "Corri in camera, cerchi il portafoglio, noti che erano passate già due ore, e il temporale non cessava. Devi terminare la torta entro le 19 altrimenti rovineresti la festa alla tua sorellina. Trovi la carta di identità e torni immediatamente giu. La candela si sta per spegnere , devi affrettarti..La porta è una di quele vecchie. Ricordi una scena di un film e replichi la tecnica. Non credi ai tuoi occhi, la porta si è aperta.  Ti dirigi verso l'interruttore e devi capire quale levetta sollevare.. ",
+      "img_url": "img/apriPorta.jpg",
+     
+        "buttons": [
+        {
+        "text": " rossa",
+        "fun":" errore"
+        },
+              {
+        "text": "nera",
+        "fun":" fetchData('homeGame', 6)"
+        },{
+            "text": " bianca",
+        "fun":" errore"
+        }        
+       ]
+     
+    },
+
+   {
+      "testo": " Le luci si riaccendono. La candela si era appena spenta. Hai avuto fortuna! Torni in cucina e con entusiamo riprendi a fare la torta .. ma ti accorgi che le uova si erano rotte. Era stato il gatto , ha sporcato tutta la cucina. Devi comprare altre uova. Prendi l'ombrello ed esci. La pioggia si era calmata. L'orologio segnava le 18 non hai tempo da perdere. Decidi di andare dal vicino e non al supermercato. Suoni a due vicini di casa.. Risponderà qualcuno ? Risponde il primo vicino ..",
+      "img_url": "img/uova.jpg",
+       "buttons": [
+        {
+        "text": " Ha le uova",
+        "fun":" fetchData('homeGame', 7)"
+        },
+              {
+        "text": "non ha le uova",
+        "fun":"errore"
+        }      
+       ]
+     
+    },
+
+     {
+      "testo": "Torni a casa. Riprendi in mano la situazione: il pan di spagna è pronto.. è da da finire la crema! Rompi le uova e aggiungi gli altri ingredienti. Riscaldi la crema e decidi di aggiungerci le gocce di cioccolato. Mancano meno di 20 minuti. Intanto il telefono che avevi messo sotto carica si è acceso, e vedi 10 chiamate perse. Chiami subito la mamma. Stanno arrivando. Ti agiti , devi finire di decorare la torta.Metti la crema in fretta e furia. Ti bruci un dito, la torta si scoglie. Devi trovare una soluzione ",
+      "img_url": "img/crema.jpg",
+      "buttons": [
+        {
+        "text": "Vai in pasticceria",
+        "fun":" fetchData('homeGame', 8)"
+        },
+              {
+        "text": "chiami la mamma ",
+        "fun":"errore"
+        }      
+       ]
+    
+    },
+
+    {
+      "testo": "Hai solo 20€ euro con te.La pasticceria è lontana. Devi valutare se prendere il taxi o la bici. Il tempo scorre , per fortuna la pioggia è finita. ",
+      "img_url": "img/bici.jpg",
+     "buttons": [
+        {
+        "text": "prendi il taxi",
+        "fun":"errore"
+        },
+              {
+        "text": "prendi la bici ",
+        "fun":" fetchData('homeGame', 9)"
+        }      
+       ]
+    
+    },
+
+   {
+      "testo": "Prendi la bici, conservando i soldi, e ti rechi in pasticceria. Chiami la mamma e le dici che la nonna non sta molto bene per guadagnare tempo. Arrivi in pasticceria , trovi l'ultima torta a 15€ per 7 persone. La Compri e corri a casa. Butti via la carta della torta e metti la torta in frigo . Pulisci la cucina senza lasciare tracce. Senti arrivare la macchina. Ora inizia la festa.",
+      "img_url": "img/compleanno.jpg",
+     "buttons": [
+        {
+        "text": "Hai salvato il compleanno",
+        "fun":" fetchData('homeGame', 10)"
+        }]
+      
+    }
+    
+    ]
+
+   

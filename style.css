@@ -1,59 +1,103 @@
-#myData {
-  background-color: hsla(27, 100%, 50%, 1);
-  margin-left: 10vw;
-  margin-right: 10vw;
-  text-align: center;
-  padding: 25px;
-  font-size: large;
+#body{
+    background-color:black;
+}
+.homeSidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
 }
 
-#picture {
-  background-color: "";
-  text-align: center;
-  padding: 25px;
-  font-size: large;
-  margin-top: 15px;
+.leftSidenav {
+    left: 0;
 }
 
-#pulsante {
-  margin-left: 10vw;
-  margin-right: 10vw;
-  background-color: hsla(120, 100%, 50%, 0.2);
-  text-align: center;
-  padding: 25px;
-  font-size: large;
-  margin-top: 15px;
+#mainContainer{
+    background-color: black;
+    background-image:url("mainImg/imageMain3.jpg");
 }
 
-#actions {
-  color: white;
-  background-color: gray;
-  padding: 15px;
-  size: large;
-  margin-top: 5%;
-  margin-left: 15%;
+#jumboMain{
+    text-align:center;
+    
 }
 
-#indizi {
-  margin-left: 5;
-  margin-right: 5;
-  color: white;
-  border: 2px solid white;
-  text-align: center;
-  padding: 25px;
-  font-size: large;
-  margin-top: 15px;
+h1{
+    color:white;
+}
+h2{
+    color:white;
 }
 
-#oggetti {
-  margin-left: 5;
-  margin-right: 5;
-  color: white;
-  border: 2px solid white;
-  text-align: center;
-  padding: 25px;
-  font-size: large;
-  margin-top: 15px;
+h3{
+    color:white;
+}
+
+p{
+    color:white;
+}
+
+#introduction{
+    text-align:center;    
+}
+
+#age{
+    text-align:center;
+}
+
+
+#story{
+    text-align:center;
+}
+
+.playerCard{
+    
+    border-color: white;
+    border-width: thick;
+    border-style: solid;
+    border-radius:5px;
+}
+.card {display:inline-block;}
+
+.sizeCard{
+    width:170px;
+    height:160px;
+    border-radius: 50%;
+    padding-top:5px;
+    
+}
+#playerName{
+    bottom-padding:20px;
+}
+#players{
+    text-align:center;
+}
+
+#loginRef{
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+   
+}
+
+#textStory{
+
+    text-align:center;
+}
+#titlePlayer{
+
+    text-align:center;
+}
+
+#buttonsStory{
+
+    text-align:center;
 }
 
 .hidden {

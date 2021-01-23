@@ -1,0 +1,81 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "loppof titolo",
+      "text": "loppof era un piccolo gnorry gialoppy... un giorno andò a fare in clulo",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "vai a fare in culo",
+          "type": "ContinueButton",
+          "destination": "culo",
+          "score": "1",
+          "id": 1
+        }
+      ],
+      "idGraph": 0,
+      "branch": true,
+      "status": "enabled",
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none"
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "culo",
+      "text": "della elfa di giovanni matricola n° 874003",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "vag",
+          "type": "ContinueButton",
+          "destination": "l'utero",
+          "id": 2,
+          "score": "1.5",
+          "fun": "fetchData('loppof',2)"
+        },
+        {
+          "text": "il culo",
+          "type": "ContinueButton",
+          "destination": "il retto",
+          "id": 3,
+          "score": "-0.5",
+          "fun": "fetchData('loppof',3)"
+        }
+      ],
+      "id": 1,
+      "branch": false,
+      "idGraph": 1,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    },
+    {
+      "title": "l'utero",
+      "text": "",
+      "numeroBottoni": "0",
+      "buttons": [],
+      "id": 2,
+      "branch": false,
+      "idGraph": 2,
+      "fatherIdGraph": 1,
+      "img": "img/img/img/img/img/undefined"
+    },
+    {
+      "title": "il retto",
+      "text": "",
+      "numeroBottoni": "0",
+      "buttons": [],
+      "id": 3,
+      "branch": false,
+      "idGraph": 3,
+      "fatherIdGraph": 1,
+      "img": "img/img/img/img/img/undefined"
+    }
+  ],
+  "storyInfo": {
+    "title": "loppof",
+    "età": "7-10"
+  }
+}

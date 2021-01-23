@@ -1,0 +1,106 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "asdfg",
+      "text": "",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "",
+          "type": "ContinueButton",
+          "destination": "af",
+          "id": 2,
+          "score": "-1"
+        },
+        {
+          "text": "",
+          "type": "ContinueButton",
+          "destination": "f",
+          "id": 3,
+          "score": "1.5"
+        },
+        {
+          "text": "pippo",
+          "type": "ContinueButton",
+          "destination": "kjxnjwnce",
+          "id": 4,
+          "score": "-1"
+        }
+      ],
+      "idGraph": 0,
+      "branch": true,
+      "status": "enabled",
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none"
+    },
+    {
+      "id": 1,
+      "title": "kjxnjwnce",
+      "text": "",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "pippo",
+          "type": "ContinueButton",
+          "destination": "nuova destinazione",
+          "id": 4,
+          "score": "-1",
+          "fun": "fetchData('asdghjklòà',4)"
+        }
+      ],
+      "idGraph": 4,
+      "branch": true,
+      "status": "disabled",
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none"
+    },
+    {
+      "title": "af",
+      "text": "",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "pippo",
+          "type": "BridgeButton",
+          "bridge": "4",
+          "score": "-1",
+          "fun": "fetchData('asdghjklòà',4)"
+        }
+      ],
+      "id": 2,
+      "idGraph": 1,
+      "fatherIdGraph": 0,
+      "img": "none",
+      "widgetPuzzle": false,
+      "video": "none"
+    },
+    {
+      "title": "f",
+      "text": "",
+      "numeroBottoni": "0",
+      "buttons": [],
+      "id": 3,
+      "idGraph": 2,
+      "fatherIdGraph": 0,
+      "img": "img/img/img/img/img/undefined"
+    },
+    {
+      "title": "kjxnjwnce",
+      "text": "",
+      "numeroBottoni": "0",
+      "buttons": [],
+      "id": 4,
+      "branch": false,
+      "idGraph": 5,
+      "fatherIdGraph": 4,
+      "img": "img/img/img/undefined"
+    }
+  ],
+  "storyInfo": {
+    "title": "asdghjklòà",
+    "età": "7-10"
+  }
+}

@@ -1,0 +1,206 @@
+[
+  
+     {
+      "testo": " Siamo a settembre, hanno riaperto le scuole, hai cambiato scuola, devi frequentare l'ultimo anno delle elementari. Sarà un po' difficile ambientarti in un nuovo contesto ma allo stesso tempo sei entusiasta.Quest'anno dopo la situazione del covid ,il preside della Federzoni ha organizzato un concorso di vincita di una borsa di studio per le medie (che avrebbe coperto i tre anni), che consiste in un superamento di prove culturali e sportive. ",
+      "img_url": "img/scuola.jpg",
+        "buttons":[
+          {
+      "text": "avanti",
+      "fun": "fetchData('boloQuiz', 1)"  
+    }]
+   
+    },
+
+    {
+      "testo": "Decidi di partecipare alla prova culturale che si terrà settimana prossima.Stai studiando per mettercela tutta e vincere quella borsa che farebbe comodo economicamente anche a mamma e papà. La gara prevederà una sfida tra diversi alunni che dovranno rispondere correttamente a 10 quiz. La sfida prevede una domanda posta a due alunni: chi risponde correttamente passa allo step successivo. Colui che arriverà alla finale e batterà l'avversario con più risposte azzecate verrà nominato vincitore.",
+      "img_url": "img/quiz.png",
+        "buttons":[{
+      "text": "avanti",
+      "fun": "fetchData('boloQuiz', 2)"
+    },
+  {
+    "text": "indietro",
+      "fun": "fetchData('boloQuiz', 1)" 
+  }]
+    },
+
+     {
+      "testo": "E' arrivato il giorno del atteso quiz. Sei emozionato...  La coordinatrice sta facendo l'appello. Chiama  il tuo nome. Sei il primo. Con ansia ti rechi nella postazione a te assegnata. Vengono spiegate le regole e si dà il via al quiz: Domanda 1: In quale cartone animato c’è il personaggio di Olaf? ",
+      "img_url": "img/Olaf.png",
+      "buttons":[{
+      "text": "Re Leone",
+      "fun": "errore"  
+    },
+{
+     "text": "Frozen",
+      "fun": "errore"
+},
+{
+     "text": "Zootropolis",
+      "fun": "fetchData('boloQuiz', 3)"
+}]
+    },
+
+    {
+      "testo": "Domanda 2: Dove si trova l’alluce?",
+      "img_url": "img/corpoumano.jpg",
+      
+      "buttons":[{
+      "text": "mano",
+      "fun": "errore"
+    },
+{
+     "text": "piede",
+      "fun": "fetchData('boloQuiz', 4)"
+},
+{
+     "text": "Torace",
+      "fun": "errore"
+}]
+    },
+
+     {
+      "testo": "Domanda3:  Sunday e Friday sono i nomi di:",
+      "img_url": "img/englishteam.jpg",
+      "buttons":[{
+      "text": "stagioni",
+      "fun": "errore" 
+    },
+{
+     "text": "giorni della settimana",
+      "fun": "fetchData('boloQuiz', 5)"
+},
+{
+     "text": "colori",
+      "fun": "errore"
+}]
+    },
+
+     {
+      "testo": "Domanda4:'Quale sport pratica Beckham?",
+      "img_url": "img/beckham.jpg",
+      "buttons":[{
+      "text": "tennis",
+      "fun": "errore"
+    },
+{
+     "text": "calcio",
+      "fun": "fetchData('boloQuiz', 6)"
+},
+{
+     "text": "baket",
+      "fun": "errore"
+}]
+    },
+
+     {
+      "testo": "Domanda5:Quanti polmoni ha, normalmente, un essere umano?.",
+      "img_url": "img/corpomano.png",
+      "buttons":[{
+      "text": "2",
+      "fun": "fetchData('boloQuiz', 7)"
+    },
+{
+     "text": "3",
+      "fun": "errore"
+},
+{
+     "text": "4",
+      "fun": "errore"
+}]
+    },
+
+    {
+      "testo": "Domanda6:Come si chiama la città di Batman?",
+      "img_url": "img/batman.jpg",
+      "buttons":[{
+      "text": "Gotham",
+      "fun": "fetchData('boloQuiz', 8)"  
+    },
+{
+     "text": "Milano",
+      "fun": "errore"
+},
+{
+     "text": "Londra",
+      "fun": "errore"
+}]
+    },
+
+    {
+      "testo": "Domanda7:Quale imperatore è famoso per aver dato fuoco, secondo la leggenda, a Roma?",
+      "img_url": "img/boloQuiz/LuogoCulto.png",
+      "buttons":[{
+      "text": "Adriano",
+      "fun": "errore"
+    },
+{
+     "text": "Cesare",
+      "fun": "errore"
+},
+{
+     "text": "Nerone",
+      "fun": "fetchData('boloQuiz', 9)"
+}]
+    },
+
+    {
+      "testo": "Domanda 8 Quanti puntini ci sono, complessivamente, in una coppia di dadi?",
+      "img_url": "img/dadi.png",
+      "buttons":[{
+      "text": "12",
+      "fun":"errore"
+    },
+{
+     "text": "24",
+      "fun": "errore"
+},
+{
+     "text": "36",
+      "fun": "fetchData('boloQuiz', 10)"
+}]
+    },
+
+   {
+      "testo": "Domanda 9: Cosa indica il colore verde sulle cartine geografiche?.",
+      "img_url": "img/cartinaGeografica.jpg",
+      "buttons":[{
+      "text": "colline",
+      "fun": "fetchData('boloQuiz', 11)"
+    },
+{
+     "text": "montagne",
+      "fun": "errore"
+},
+{
+     "text": "pianure",
+      "fun": "errore"
+}]
+    },
+
+   {
+      "testo": "Domanda10: Quanto fa 7 + 7 : 7 + 7 x 7 - 7?",
+      "img_url": "img/math.jpg",
+      "buttons":[{
+      "text": "50",
+      "fun": "fetchData('boloQuiz', 12)" 
+    },
+{
+     "text": "56",
+      "fun": "errore"
+},
+{
+     "text": "3",
+      "fun": "errore"
+}]
+    },
+ {
+      "testo": "Hai vinto il quiz! complimenti!! ora poi passare alla sfida successiva..",
+      "img_url": "img/End.png",
+      "buttons":[{
+      "text": "FINE",
+      "fun": "window.location.reload()"
+      
+        }  ]
+    }
+]
