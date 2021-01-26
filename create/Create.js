@@ -14,7 +14,7 @@ function initialObject(){
 
     //graph.data(data);
     //graph.render();
-    
+
     var age = document.getElementById("agePicker").value;
 
     title = document.getElementById("titoloStory").value;
@@ -100,7 +100,7 @@ function start() {
     //selettore per le immagini
     var selectImage = document.createElement("select");
     selectImage.setAttribute("id","selectImage");
-    
+
 
     var optionImage = document.createElement("option");
     optionImage.value="none";
@@ -110,17 +110,17 @@ function start() {
     //creo il div per il puzzle
     var divWidget =document.createElement("div");
     divWidget.setAttribute("id","widgetShow");
-    
+
 
     imageStory.appendChild(image);
     imageStory.appendChild(submit);
-    
+
     page.appendChild(stor);
     page.appendChild(selectImage);
     page.appendChild(storyMis);
-    
+
     page.appendChild(titoloMis);
-    
+
     page.appendChild(story);
     page.appendChild(textarea);
     page.appendChild(p);
@@ -159,7 +159,7 @@ function start() {
 		}
             });
 
-	    
+
 	    if(ext=="jpg"||ext=="jpeg"||ext=="png"){
 		//crea il testo per inserire il nome dell'immagine
 		var fatherImage=document.getElementById("selectImage");
@@ -200,7 +200,7 @@ function createPage(){
 
     var control = controlTitle();
     if(control == false)
-	return alert("assicurarsi di aver inserito tutti i titoli");
+	   return alert("assicurarsi di aver inserito tutti i titoli");
 
     //creo la pagina
     var objectId = createObject();
@@ -208,17 +208,22 @@ function createPage(){
     //createBranch(objectId);
     controlWidget(objectId);
 
-    obj.forEach((object) => {
-        createBranch(object.id);
+    //obj.forEach((object) => {
+        createBranch(objectId);
+        obj[objectId].buttons.forEach((item) => {
+          if(item.type==="ContinueButton")
+          createBranch(item.id);
         });
-    
+
+      //  });
+
         console.log(data);
         graph.data(data);
         graph.render();
         graph.fitView();
-    
+
     //se è stata caricata l'immagine la salvo sennò setto a 'none'
-    
+
     var file = document.getElementById("selectImage");
     var name = file.value;
     var ext=name.split(".").pop();
@@ -230,16 +235,16 @@ function createPage(){
 	obj[objectId].video="none";
 	obj[objectId].img=name;
     }
-    
+
     //aggiustare il delete branch
     //inizializzo il bottone per eliminare il branch
     var deletePage=document.createElement("option");
     deletePage.setAttribute("id","DeletePage"+document.getElementById("TitoloMissione").value);
     deletePage.text="delete Branch di "+document.getElementById("TitoloMissione").value;
     deletePage.value= obj[objectId].id ;
-
+    selectBranch.appendChild(deletePage);
     $("#elimina").removeClass("hidden");
-    
+
 
     //pulisco la pagina
     document.getElementById("TitoloMissione").value="";
@@ -315,7 +320,7 @@ function deleteAllPage(id){
         $("#Modify").addClass("hidden");
 
     }catch(err){}
-    
+
     $(`#${id}`).remove();
 }
 
@@ -371,13 +376,13 @@ function initPage() {
     validateTitle();
     populate(0);
     populateGraph();
-    
+
     for(var x in obj){
 	if(obj[x]!=null){
 	    id=obj[x].id;
 	}
-	
-    }    
+
+    }
 }
 
 
@@ -485,7 +490,7 @@ function changeStatus(id) {
 	obj[id].status = "disabled";
     else
 	obj[id].status = "enabled";
-    
+
     var pippo = obj
 	.forEach((page) => {
 	    page.buttons
