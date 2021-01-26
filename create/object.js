@@ -1,9 +1,3 @@
-/*function regenObject(id){
-
-    controlDestination(id);
-
-}
-*/
 
 function regenObject(id){
 
@@ -18,13 +12,13 @@ function regenObject(id){
     //tre casi bottoni=0 bottoniattuali < bottoni vecchi  bottoni attuali > bottoni vecchi
 
     if(buttons==0){
-    obj[id].buttons.forEach(element => {
+    obj[id].buttons.forEach((element,i) => {
 
         if(element.type=="ContinueButton"){
 		        deleteButtonGraph(element.id);
             deleteButtons(element.id);
         }
-        delete element;
+        deleteElement(id,i);
     });
 
          obj[id].numeroBottoni=0;
@@ -33,7 +27,7 @@ function regenObject(id){
 
 }
 
-    else if(buttons<oldButtons){
+  else if(buttons<oldButtons){
 	var temp=buttons;
 	//elimina i bottoni in più
 	while(temp<oldButtons){
@@ -47,51 +41,61 @@ function regenObject(id){
             delete obj[id].buttons[temp-1];
 	}
 
-	controlDestination(obj[id].id,buttons);
-
 	obj[id].numeroBottoni=buttons;
-	modifyButtons(obj[id].id,buttons,oldButtons);
+	regenButtons(obj[id].id);
 
 	console.log(obj);
 
-    }else if(buttons>oldButtons){
+  }else if(buttons>oldButtons){
 
 	temp=oldButtons;
-	//controllo le destinazioni
-	controlDestination(obj[id].id,oldButtons);
 
-	obj[id].numeroBottoni=buttons;
-	modifyButtons(obj[id].id,buttons,oldButtons);
+  regenButtons(obj[id].id);
 
+  while(temp<buttons){
+    console.log("temp è= "+temp);
+    console.log("listBut"+(parseInt(temp+1)));
+    var list=document.getElementById("listBut"+(parseInt(temp+1))).value;
+    recreate(id,(temp),list);
+    temp++;
+}
 	obj[id].numeroBottoni=buttons;
 	console.log(obj);
-/*
-    }else if(buttons==oldButtons){
+
+  }else if(buttons==oldButtons){
 
 	temp=buttons;
-	controlDestination(obj[id].id,buttons);
 
 	obj[id].numeroBottoni=buttons;
-	modifyButtons(obj[id].id,buttons,oldButtons);
-
-	obj[id].numeroBottoni=buttons;
+	regenButtons(obj[id].id);
 
 	console.log(obj);
 
     }
-    */
+
+}
+function deleteElement(id,elementId){
+  delete obj[id].buttons[elementId];
+
 }
 
-function controlDestination(id){
+function controlDestination(id,i){
+//modifica i bottoni destinazione attuali
 
-
+    var input = document.getElementById("input"+(i+1)).value;
+    if(input!=obj[id].buttons[i].destination){
+        obj[id].buttons[i].destination=input;
+          //modifica il nome nel grafo
+          editNode(obj[id].buttons[i].id,obj[id].buttons[i].id,input);
+    }
+    console.log(obj);
 
 }
 
 function deleteButtonGraph(id){
     console.log("father:"+obj[id].fatherIdGraph);
     console.log("child:"+obj[id].id);
-    removeEdge("id"+obj[id].id,"id"+obj[id].fatherIdGraph);
+    removeEdge("id"+obj[id].fatherIdGraph,"id"+obj[id].id);
 /*
     obj[id].buttons
 	.filter((button) => button.type === "ContinueButton")
@@ -152,4 +156,84 @@ function deleteButtons(id){
 
     delete obj[id];
 
+}
+
+function regenButtons(id){
+
+  obj[id].buttons.forEach((element,i) => {
+    var list=document.getElementById("listBut"+(i+1)).value;
+      if(element.type=="ContinueButton"&&list==arrayBut[0])
+        controlDestination(id,i);
+      else{
+        if(element.type=="ContinueButton"&&list!=arrayBut[0]){
+            deleteButtonGraph(element.id);
+            deleteButtons(element.id);
+        }
+        deleteElement(id,i);
+        recreate(id,i,list);
+
+    }
+  });
+
+}
+
+function recreate(id,i,list){
+
+	switch(list){
+
+	case arrayBut[0]:
+  console.log("i= "+i);
+  console.log("id = "+id);
+	    var destination=document.getElementById("input"+(parseInt(i+1))).value;
+	    obj[id].buttons[i]={};
+	    obj[id].buttons[i].text=document.getElementById("button"+(parseInt(i+1))).value;
+	    obj[id].buttons[i].type="ContinueButton";
+	    obj[id].buttons[i].destination=destination;
+      addDestination(id,i);
+
+	    break;
+
+	case arrayBut[1]:
+	    var alert = document.getElementById("stop"+(parseInt(i+1))).value;
+	    obj[id].buttons[i]={};
+	    obj[id].buttons[i].text=document.getElementById("button"+(parseInt(i+1))).value;
+	    obj[id].buttons[i].type="StopButton";
+	    obj[id].buttons[i].alert=alert;
+	    break;
+
+	case arrayBut[2]:
+	    obj[id].buttons[i]={};
+	    obj[id].buttons[i].text=document.getElementById("button"+(parseInt(i+1))).value;
+	    obj[id].buttons[i].type="WrongButton";
+	    obj[id].buttons[i].wrong="";
+	    break;
+
+	case arrayBut[3]:
+	    var bridge = document.getElementById("listBridge"+(parseInt(i+1))).value;
+	    obj[id].buttons[i]={};
+	    obj[id].buttons[i].text=document.getElementById("button"+(parseInt(i+1))).value;
+	    obj[id].buttons[i].type="BridgeButton";
+	    obj[id].buttons[i].bridge=bridge;
+	    break;
+
+	default: break;
+	}
+
+}
+
+function addDestination(idObject,i){
+  obj[id]={};
+  obj[id].img="none";
+  obj[id].video="none";
+  var title=obj[idObject].buttons[i].destination;
+  obj[id].title = title;
+  obj[id].text = "";
+  obj[id].numeroBottoni = "0";
+  obj[id].buttons=[];
+  obj[id].id=id;
+  obj[id].branch = false;
+  obj[id].fatherIdGraph=obj[idObject].id;
+  obj[idObject].buttons[i].id=id;
+  createBranch(id);
+  id++;
 }
