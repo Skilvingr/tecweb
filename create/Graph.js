@@ -180,7 +180,7 @@ function removeEdge(source, target) {
 // Modifica il nodo con l'id selezionato
 function editNode(id, newId = null, newLabel = null) {
 
-    var toEdit = findNode(data.children, "id" + obj[id].fatherIdGraph);
+    var toEdit = findNode(data.children, "id" + id);
 
     if(toEdit != null) {
 	if(newId != null)
@@ -188,6 +188,6 @@ function editNode(id, newId = null, newLabel = null) {
 	if(newLabel != null)
 	    toEdit.label = newLabel;
     } else {
-	console.log("editNode: nodenot found");
+	console.log("editNode: node not found");
     }        
 }
