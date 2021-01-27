@@ -212,7 +212,5 @@ function editNode(id, newId = null, newLabel = null) {
 	    toEdit.label = newLabel;
     } else {
 	console.log("editNode: node not found");
-    }        
-	console.log("editNode: nodenot found");
     }
 }
