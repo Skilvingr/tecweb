@@ -9,7 +9,7 @@
 
 
   <link rel="stylesheet" href="styleCreator.css">
- 
+
 
 <head>
     <title>Creator</title>
@@ -17,7 +17,7 @@
 
 <body>
 
-   
+
 
 <div>
   <span style="font-size:30px;cursor:pointer;text-align:left" id="DrawerUtils" class="hidden" onclick="openNavGraph('utilsSidenav')">&#9776;</span>
@@ -71,7 +71,7 @@
     <br>
     <textarea rows="10" cols="70" id="consoleOut"></textarea>
   </div>
-  
+
     <h1 style="text-align: center;">Creator</h1>
 
   <div style ="text-align: center" id="options"class="hidden">
@@ -79,11 +79,11 @@
   </div>
 
     <div id="main"  onClick="closeAllNavs()" style="text-align: center;">
-        
+
         <div id="titolo" >
 
         <img  src="ImageCreate/story.png" style="width:40%">
-    
+
         <h1>TitoloStoria</h1>
         <input id="titoloStory" type="text"/>
         <p>Selezionare Pubblico</p>
@@ -99,10 +99,18 @@
 
 
         <div id="elimina" style="text-align: left ;padding-bottom:10px ;"class=hidden>
-	  <select id="selectBranch" >
-	  </select>
-	  <button id="buttonSelectBranch" onclick="deleteSelectBranch()">Delete Selected Branch</button>
+	         <select id="selectBranch" >
+	          </select>
+	           <button id="buttonSelectBranch" onclick="deleteSelectBranch()">Delete Selected Branch</button>
+             <button id="buttonDisableSelectBranch" onclick="disableSelectBranch()">Disable Selected Branch</button>
         </div>
+        
+        <div id="disable" style="text-align: left ;padding-bottom:10px ;"class=hidden>
+           <select id="selectButtonToDisable" >
+            </select>
+             <button id="disableButtons" onclick="disableSelectButton()">disable selected buttons</button>
+        </div>
+
 
 	 <div id="disableBranch" style="text-align: left ;padding-bottom:10px ;"class=hidden>
 	  <select id="selectDisable"></select>
@@ -115,9 +123,9 @@
             </select>
             <button id="applyWidget" onclick="showWidget()">Crea Widget</button>
         </div>
-            
-        
-        
+
+
+
         <div id="container">
 
             <div  id="page" style="text-align: center; padding-bottom: 10px;" ></div>
@@ -143,7 +151,7 @@
     </div>
 </div>
 
-    
+
 
         <div id="files" style="text-align: center" class="hidden" >
             <br>
@@ -154,8 +162,8 @@
         <form id="imageStory"  name="file" action="http://site181979.tw.cs.unibo.it/create"  enctype="multipart/form-data">
         </form>
         </div>
-    
-  
+
+
 
 </body>
 </html>

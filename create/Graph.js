@@ -6,7 +6,7 @@ var data = {
     children: []
 };
 
-function initGraph() { 
+function initGraph() {
     graph = new G6.TreeGraph({
       container: "sidenavForBranches",
       width: 1920,
@@ -74,7 +74,7 @@ function initGraph() {
         },
       };
     });
-    
+
     configGraph();
 }
 
@@ -93,15 +93,15 @@ function configGraph() {
 
     graph.on('node:dblclick', (e) => {
 	var regex = /[+-]?\d+(?:\.\d+)?/g;
-	
-	populatePage(regex.exec(e.item._cfg.id)[0]);
+
+	populate(regex.exec(e.item._cfg.id)[0]);
     });
 }
 
 // function updateBranch(id) {
 //     var x = document.getElementById("buts").childElementCount;
 //     var buttons = x/4;
-    
+
 //     var oldButtons = obj[id].numeroBottoni;
 
 //     if(buttons == 0) {
@@ -109,17 +109,17 @@ function configGraph() {
 // }
 
 // Crea il nodo con l'oggetto passato e lo collega al padre
-function createBranch(id){    
+function createBranch(id){
     var newNode = {
 	id: "id" + obj[id].id,
 	label: obj[id].title,
 	children:[]
     };
-    
+
     if(obj[id].branch != true) {
 
 	var father = findNode(data.children, "id" + obj[id].fatherIdGraph);
-	
+
 	if(father != null)
 	    father.children.push(newNode);
 	else
@@ -131,14 +131,14 @@ function createBranch(id){
 
 function findNode(childrenArray, id) { // Return by reference
     var tempNode = childrenArray.find((node) => node.id === id);
-    
+
     if(tempNode != null)
 	return tempNode;
-    
+
     return childrenArray.reduceRight((acc, child) => {
 	if(acc == null) {
 	    var tmp = findNode(child.children, id);
-	    
+
 	    if(tmp != null)
 		return tmp;
 	}
@@ -167,14 +167,37 @@ function removeBranch(id) {
 
 // Rimuove l'arco che va da `source` a `target`
 function removeEdge(source, target) {
-    
+/*
     var toRemoveIndex = data.children.indexOf(
 	data.children.find((el) =>
-	    el.source === source && el.target === target
+	    el.id === source && el.id === target
 	)
     );
+*/
+  findEdge(source,target,data);
+    //console.log("index to delete"+toRemoveIndex);
+    //data.children.splice(toRemoveIndex, 1);
+}
+function findEdge(source,target,edgeArray){
 
-    data.children.splice(toRemoveIndex, 1);
+  console.log("target"+target);
+  console.log("source"+source);
+  edgeArray.children.forEach((item,i) => {
+    console.log("i = "+i);
+    console.log(item);
+    if(item.id===target){
+      deleteEdgeItem(edgeArray,i);
+      console.log(data);
+    }
+    else if(item.children)
+      findEdge(source,target,item);
+  });
+
+
+}
+function deleteEdgeItem(element,i){
+
+  element.children.splice(i,1);
 }
 
 // Modifica il nodo con l'id selezionato
@@ -190,4 +213,6 @@ function editNode(id, newId = null, newLabel = null) {
     } else {
 	console.log("editNode: node not found");
     }        
+	console.log("editNode: nodenot found");
+    }
 }

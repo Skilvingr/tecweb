@@ -145,7 +145,7 @@ function addScore(id){
     });
     */
 }
-
+/*
 //aggiungo una destinazione
 function addDestination(destination){
 
@@ -162,7 +162,7 @@ function addDestination(destination){
 
     return obj[oldId].id;
 }
-
+*/
 //********************************** Sta roba viene da Graph-obj.js.old | Fine ***********************************
 
 
@@ -377,7 +377,11 @@ while(i<length){
   div.appendChild(select);
 
 }
-
+function removeAllChildNodes(parent) {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
 //ripopola la pagina con le informazioni contenute nell'oggetto
 function populate(id){
 
@@ -390,6 +394,24 @@ function populate(id){
 
     document.getElementById("list").value = bottoni;
     createButs();
+
+var disableButtonSelect =document.getElementById("selectButtonToDisable");
+//pulisco il select per disabilitare i bottoni
+removeAllChildNodes(disableButtonSelect)
+//aggiungo alla lista i bottoni da poter disabilitare
+obj[id].buttons.forEach(item => {
+
+  if(item.type == "ContinueButton"){
+    var disableButton=document.createElement("option");
+    disableButton.setAttribute("id","disableButton"+item.text);
+    disableButton.text="disable button di "+item.text;
+    disableButton.value= item.id;
+    disableButtonSelect.appendChild(disableButton);
+    $("#disable").removeClass("hidden");
+
+  }
+
+});
 
 //pulire i addScoreButton se non servono più anche sopra nell select list button
 
@@ -419,29 +441,28 @@ function populate(id){
 
 
 
-    obj[id].buttons.forEach(element => {
-      var a =1;
-        if(element.type == "ContinueButton") {
+    obj[id].buttons.forEach((element,i) => {
 
-            document.getElementById("button"+a).value=obj[id].buttons[a-1].text;
-            document.getElementById("input"+a).value = obj[id].buttons[a-1].destination;
-            document.getElementById("score"+a).value=obj[id].buttons[a-1].score;
+        if(element.type == "ContinueButton") {
+            document.getElementById("button"+(i+1)).value=element.text;
+            document.getElementById("input"+(i+1)).value = element.destination;
+            document.getElementById("score"+(i+1)).value=element.score;
 
         }else if (element.type == "StopButton"){
-            document.getElementById("button"+a).value=obj[id].buttons[a-1].text;
-            document.getElementById("stop"+a).value  = obj[id].buttons[a-1].alert;
-            document.getElementById("score"+a).value=obj[id].buttons[a-1].score;
+            document.getElementById("button"+(i+1)).value=element.text;
+            document.getElementById("stop"+(i+1)).value  =element.alert;
+            document.getElementById("score"+(i+1)).value=element.score;
 
         }else if (element.type == "BridgeButton"){
-            var testoBridge = obj[id].buttons[a-1].bridge;
-            document.getElementById("button"+a).value=obj[id].buttons[a-1].text;
-            document.getElementById("listBridge"+a).value  = testoBridge;
-            document.getElementById("score"+a).value=obj[id].buttons[a-1].score;
+            var testoBridge = element.bridge;
+            document.getElementById("button"+(i+1)).value=element.text;
+            document.getElementById("listBridge"+(i+1)).value  = testoBridge;
+            document.getElementById("score"+(i+1)).value=element.score;
         }else{
-            document.getElementById("button"+a).value=obj[id].buttons[a-1].text;
-            document.getElementById("score"+a).value=obj[id].buttons[a-1].score;
+            document.getElementById("button"+(i+1)).value=element.text;
+            document.getElementById("score"+(i+1)).value=element.score;
         }
-        a++;
+
       });
 
 

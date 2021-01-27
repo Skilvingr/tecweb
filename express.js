@@ -1,11 +1,11 @@
-var http = require('http');      
+var http = require('http');
 const express = require("express");
 const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 const saver = require("./create/saver.js");
 const multer = require("multer");
-var fs = require('fs'); 
+var fs = require('fs');
 const { response, text } = require("express");
 const {exec, execSync} = require ("child_process");
 var cors = require('cors');
@@ -16,7 +16,7 @@ const options = {};
 
 
 let crypto = require('crypto');
-	   
+
 const User = require('./create/passport/findUser.js');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -52,7 +52,7 @@ passport.use(new LocalStrategy(
 	    console.log("trovato: "+user);
      	    var saltUser=User.findSalt(user);
 	    console.log("salt = "+saltUser);
-	    var pass = User.hash(password,saltUser); 
+	    var pass = User.hash(password,saltUser);
             var controlPass=User.findPassword(user,pass);
 	   if(controlPass==true){
 	      return done(null,user);
@@ -103,7 +103,7 @@ app.post('/signup', function(req,res) {
 	res.status(200).end();
     }else
 	res.send("Esistente");
-    
+
 });
 
 /*
@@ -205,10 +205,11 @@ app.post(
 	res.status(200).end();
     });
 
-//app.listen(8000, () => {
-//console.log("running...");
-//});
-
+app.listen(8000, () => {
+console.log("running...");
+});
+/*
 var httpServer = http.createServer(app);
 
-httpServer.listen(8000, () => console.log("Running…"));  
+httpServer.listen(8000, () => console.log("Running…"));
+*/
