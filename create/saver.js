@@ -8,7 +8,7 @@ function uploadImage(image){
             console.log("An error occured while writing JSON Object to File.");
             return err;
         }
-    }); 
+    });
 
     console.log("JSON file has been saved.");
 
@@ -19,7 +19,7 @@ function write(jsonContent) {
     var titolo = ""+jsonContent.storyInfo.title;
     console.log(jsonContent);
     var jsonObj = JSON.stringify(jsonContent,null,2);
-    
+
     console.log(titolo);
 
     var dif=null;
@@ -31,7 +31,7 @@ function write(jsonContent) {
     else
 	dif="hard";
 
-    fs.writeFile(("./webapp/json/"+ titolo +"/"+ titolo +"-"+ dif +".json"),jsonObj, function (err) {
+    fs.writeFile(("json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
         if (err) {
 	    console.log(err);
 	    console.log("An error occured while writing JSON Object to File.");
@@ -42,9 +42,9 @@ function write(jsonContent) {
 	    return "saved";
 	}
     });
-    
-    
-    
+
+
+
 };
 
 module.exports={write,uploadImage};

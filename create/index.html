@@ -50,9 +50,13 @@
 </div>
 <div id="removeSidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('removeSidenav')">&times;</a>
+  <div id="removeInnerDiv">
+  </div>
 </div>
 <div id="loadSidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('loadSidenav')">&times;</a>
+  <div id="modifyInnerDiv">
+  </div>
 </div>
 <div id="levelSidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
@@ -104,7 +108,13 @@
 	           <button id="buttonSelectBranch" onclick="deleteSelectBranch()">Delete Selected Branch</button>
              <button id="buttonDisableSelectBranch" onclick="disableSelectBranch()">Disable Selected Branch</button>
         </div>
-        
+
+        <div id="enableBranch" style="text-align: left ;padding-bottom:10px ;"class=hidden>
+           <select id="selectBranchToEnable" >
+            </select>
+             <button id="enableBranchButton" onclick="enable()">enable selected branch</button>
+        </div>
+
         <div id="disable" style="text-align: left ;padding-bottom:10px ;"class=hidden>
            <select id="selectButtonToDisable" >
             </select>
@@ -115,6 +125,11 @@
 	 <div id="disableBranch" style="text-align: left ;padding-bottom:10px ;"class=hidden>
 	  <select id="selectDisable"></select>
         </div>
+
+        <div id="enableButtons" style="text-align: left ;padding-bottom:10px ;"class=hidden>
+     	  <select id="selectEnable"></select>
+        <button id="enableDestination" onclick="enableButton()">enable selected button</button>
+             </div>
 
         <div class ="hidden" id="widgets" style="text-align: center;" >
             <select id ="widgetList">
@@ -159,7 +174,7 @@
             <p>Selezionare le immagini o i video che si desiderano usare per creare la storia </p>
             <p>(formato in jpg,png,avi,mkv)</p>
             <br>
-        <form id="imageStory"  name="file" action="http://site181979.tw.cs.unibo.it/create"  enctype="multipart/form-data">
+        <form id="imageStory"  name="file" action="http://localhost:8000/create"  enctype="multipart/form-data">
         </form>
         </div>
 

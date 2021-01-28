@@ -129,8 +129,47 @@ app.get("/getStory", (req, res) => {
     res.sendFile(path.join(__dirname, data));
 });
 
+app.get("/playableStory", (req, res) => {
+    var story = "json/" + req.query.story + "/";
+    var data = story + req.query.level + ".json";
+
+    execSync(("mkdir completeJson/" + req.query.story));
+    execSync(("cp " + data + " " + "completeJson/" + req.query.story + "/" + req.query.story + "-" + req.query.level + ".json" ));
+
+    //saver.playable(req.query.story,req.query.level);
+    res.header("Content-Type","application/json");
+
+    //res.sendFile(path.join(__dirname, data));
+});
+
+app.get("/removeStory", (req, res) => {
+
+    execSync(("rm completeJson/" + req.query.story +"/" + req.query.story + "-" + req.query.level + ".json"));
+
+
+    //saver.playable(req.query.story,req.query.level);
+    res.header("Content-Type","application/json");
+
+    //res.sendFile(path.join(__dirname, data));
+});
+
+app.get("/getStoriesComplete", (req,res)=>{
+  exec("ls completeJson/", (error, stdout, stderr) => {
+if (error) {
+    console.log(`error: ${error.message}`);
+    return;
+}
+if (stderr) {
+    console.log(`stderr: ${stderr}`);
+    return;
+}
+
+res.send(stdout);
+  });
+});
+
 app.get("/getStories", (req, res) => {
-    exec("ls webapp/json/", (error, stdout, stderr) => {
+    exec("ls json/", (error, stdout, stderr) => {
 	if (error) {
 	    console.log(`error: ${error.message}`);
 	    return;
@@ -172,7 +211,7 @@ app.get("/loginWindow", (req, res) => {
 //multer path
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-	cb(null, 'webapp/imgCreate')
+	cb(null, 'imgCreate')
     },
     filename: function (req, file, cb) {
 	cb(null, file.originalname)
@@ -183,8 +222,8 @@ var storage = multer.diskStorage({
 var upload = multer({storage : storage});
 
 app.post("/create/story", function(req,res){
-    execSync(("rm -rf webapp/json/" + req.body.storyInfo.title+" 2&>/dev/null"));
-    execSync(("mkdir webapp/json/" + req.body.storyInfo.title));
+    execSync(("rm -rf json/" + req.body.storyInfo.title+" 2&>/dev/null"));
+    execSync(("mkdir json/" + req.body.storyInfo.title));
 
 	var returned = saver.write(req.body);
 
