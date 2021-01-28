@@ -118,8 +118,9 @@ function createBranch(id){
 
     if(obj[id].branch != true) {
 
+	console.log("Sto chiamando findNode(data.children, " + obj[id].fatherIdGraph + ")");
 	var father = findNode(data.children, "id" + obj[id].fatherIdGraph);
-
+	
 	if(father != null)
 	    father.children.push(newNode);
 	else
@@ -131,17 +132,19 @@ function createBranch(id){
 
 function findNode(childrenArray, id) { // Return by reference
     var tempNode = childrenArray.find((node) => node.id === id);
-
+    	console.log("Chiamata findNode(data.children, " + id + ")");
     if(tempNode != null)
 	return tempNode;
 
     return childrenArray.reduceRight((acc, child) => {
 	if(acc == null) {
 	    var tmp = findNode(child.children, id);
-
+	    
 	    if(tmp != null)
 		return tmp;
 	}
+
+	return acc;
     }, null);
 }
 
@@ -204,10 +207,10 @@ function deleteEdgeItem(element,i){
 function editNode(id, newId = null, newLabel = null) {
 
     var toEdit = findNode(data.children, "id" + id);
-
+    
     if(toEdit != null) {
 	if(newId != null)
-	    toEdit.id = newId;
+	    toEdit.id = "id" + newId;
 	if(newLabel != null)
 	    toEdit.label = newLabel;
     } else {
