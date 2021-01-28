@@ -200,6 +200,15 @@ function deleteEdgeItem(element,i){
   element.children.splice(i,1);
 }
 
+function deleteBranchGraph(id){
+  data.children.forEach((item, i) => {
+    if(item.id==id)
+        data.children.splice(i,1);
+
+  });
+
+
+}
 // Modifica il nodo con l'id selezionato
 function editNode(id, newId = null, newLabel = null) {
 
