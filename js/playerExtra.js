@@ -3,11 +3,11 @@ const { checkServerIdentity } = require("tls");
 
 function playerButtons(){
     document.getElementById("story").innerHTML="" ;
-        var com1="ls ./webapp/completeJson/";
+        var com1="ls completeJson/";
     	$.ajax({
 	    type: "GET",
 	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + com1 +"",
+	    url: "http://localhost:8000/getOut?com=" + com1 +"",
 	    success: function(returnData1) {
 		//alert(returnData);
 		//data=returnData;
@@ -17,7 +17,7 @@ function playerButtons(){
 	    }
 	})
 
-   
+
 
 }
 
@@ -25,11 +25,11 @@ function findButtons1(data){
     var array = data.split("\n");
     console.log("array "+array+""+ array.length);
 	for(var i=0;i<array.length - 1;i++){
-	var com2= "ls ./webapp/completeJson/"+array[i];
+	var com2= "ls completeJson/"+array[i];
 	$.ajax({
 	    type: "GET",
 	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + com2 +"",
+	    url: "http://localhost:8000/getOut?com=" + com2 +"",
 	    success: function(returnData2) {
 		console.log("il secondo "+returnData2);
 		findButtons2(returnData2);
@@ -39,7 +39,7 @@ function findButtons1(data){
 }
 
 function findButtons2(select){
-    var ageValue=document.getElementById("ageSelect").value; 
+    var ageValue=document.getElementById("ageSelect").value;
     var arraySelect=select.split("\n");
     console.log("array "+ arraySelect+""+ arraySelect.length+"age : "+ ageValue);
     for(var j=0;j<arraySelect.length - 1;j++){
@@ -52,12 +52,12 @@ function findButtons2(select){
 	}
 	if(dif[1]=="medium.json"&& ageValue=="2")
 	    createButtonsPlayer(title,dif[1]);
-	
-	if(dif[1]=="hard.json"&& ageValue=="3")    
+
+	if(dif[1]=="hard.json"&& ageValue=="3")
 	    createButtonsPlayer(title,dif[1]);
-	
+
     }
-    
+
 }
 
 function createButtonsPlayer(title,dif){
@@ -83,12 +83,12 @@ function addPlayer(){
 
     if(numPlayer==6)
 	return alert("Max 4 Player");
-    
+
     newPlayer.classList.add("card");
     newPlayer.classList.add("playerCard");
     newPlayer.style.width="190px";
     newPlayer.setAttribute("id","player"+(numPlayer-1));
-	
+
     img.classList.add("card-img-top");
     img.classList.add("sizeCard");
     img.src="./mainImg/player.jpeg";
@@ -99,7 +99,7 @@ function addPlayer(){
 
     var t1 = document.createTextNode("Player "+(numPlayer-1));
     t.appendChild(t1);
-    
+
     p.classList.add("p");
     var p1 = document.createTextNode("Scegli il Nome");
     p.appendChild(p1);
@@ -119,20 +119,20 @@ function addPlayer(){
 
     $("#deletePlayer").removeClass("hidden");
     console.log("numero"+(numPlayer-1));
-    
+
 }
 
 function deletePlayer(){
     var div = document.getElementById("players");
     var numPlayer = div.childElementCount;
-   
+
     if(numPlayer==4)
 	$("#deletePlayer").addClass("hidden");
-    
+
     var del = document.getElementById("player"+(numPlayer-2));
     div.removeChild(del);
     console.log("poppo "+ div.childNodes[numPlayer]);
-    console.log("numeroDelete"+numPlayer); 
+    console.log("numeroDelete"+numPlayer);
 }
 
 function playStory(title,dif){
@@ -153,11 +153,11 @@ function playStory(title,dif){
     }
     var body = document.getElementById("body");
     body.appendChild(endStoryButton);
-}   
+}
 
 function createPlayerObj(title,dif){
 
-    var playerObj={};
+    var playerObj=[];
     var div = document.getElementById("players");
     var players = div.childElementCount;
 
@@ -166,9 +166,9 @@ function createPlayerObj(title,dif){
     playerObj[i].story=title;
     playerObj[i].difficulty=dif;
     playerObj[i].numberOfPlayers=(players-2);
-	playerObj[i].name=document.getElementById("playerName"+i).value;
-	playerObj[i].score=0;
-	
+	  playerObj[i].name=document.getElementById("playerName"+i).value;
+	  playerObj[i].score=0;
+
     }
 
     return playerObj;
@@ -180,7 +180,7 @@ function generateStory(title,dif,playerName,playerObj){
 
     var score={};
     score.points=0;
-    
+
     fetch("completeJson/"+title+"/"+title+"-"+dif)
        .then(function(response) {
             //get JSON data from the response
@@ -194,9 +194,9 @@ function generateStory(title,dif,playerName,playerObj){
 		    break;
 		}
 	    }
-	    
+
 	    generation(story.player,number,playerName,playerObj,score);
-	    
+
 	    	})
 
 }
@@ -226,7 +226,7 @@ function generation(story,number,playerName,playerObj,score){
     generateText(story,number);
     generateImg(story,number);
     generateButtons(story,number,score,playerName,playerObj);
-    
+
     checkEnd(story,number,playerName,playerObj,score);
 
 }
@@ -239,20 +239,20 @@ function generateText(story,number){
     var p1 = document.createTextNode(""+story[number].text);
     p.appendChild(p1);
     text.appendChild(p);
-  
-    
+
+
 }
 
 function generateImg(story,number){
 
-    
+
 }
 
 function generateButtons(story,number,score,name,obj){
 
     var buttons = document.getElementById("buttonsStory");
     buttons.innerHTML="";
-    
+
     story[number].buttons.forEach(element => {
         var button=document.createElement("button");
         button.textContent=element.text;
@@ -280,7 +280,7 @@ function generateButtons(story,number,score,name,obj){
         buttons.appendChild(button);
 
     });
-    
+
 
 }
 
@@ -296,7 +296,7 @@ function checkEnd(story,number,playerName,playerObj,score){
     var control=true;
     story[number].buttons.forEach(element => {
         if(element.destination||element.bridge)
-        control=false;        
+        control=false;
     });
     if(control==true){
         for(var x in playerObj){
@@ -318,15 +318,41 @@ function checkEnd(story,number,playerName,playerObj,score){
 }
 
 function end(playerName,playerObj){
+  console.log(playerObj);
+  //var index=playerObj.map(function(item){return item.name;}).indexOf(""+playerName);
+  //var index = playerObj.findIndex(i => i.name === ""+playerName);
+  //var indexPlayer;
+  //playerObj.filter(function(item, index) { indexPlayer = index; return item.name == playerName; })
+
+  var index = findIndex(playerName,playerObj);
+  console.log("index"+index);
+  console.log("playerName"+playerName);
+
+  if(index==playerObj[index].numberOfPlayers){
+    var endStoryButton = document.createElement("button");
+    endStoryButton.textContent="Fine Storia";
+    endStoryButton.onclick=function(){
+    tablePlayer(playerObj);
+    }
+    var body = document.getElementById("body");
+    body.appendChild(endStoryButton);
+  }else{
+    index++;
+    generateStory(playerObj[index].story,playerObj[index].difficulty,playerObj[index].name,playerObj);
+  }
+  /*
     for(var x in playerObj){
         if(playerObj[x].name==playerName){
             console.log("numero player "+x);
-            console.log("nmero pp"+playerObj[x].numberOfPlayers);
+            console.log("nmero pp"+playerObj[2].numberOfPlayers);
             if(x!=playerObj[x].numberOfPlayers){
-            generate(playerObj[x+1].story,playerObj[(x+1)].difficulty,playerName,playerObj);
+              console.log(playerObj);
+              x++;
+
+            generateStory(playerObj[parseInt((x))].story,playerObj[parseInt((x))].difficulty,playerObj[x].name,playerName,playerObj);
             }
-            else{ 
-                
+            else{
+
             var endStoryButton = document.createElement("button");
             endStoryButton.textContent="Fine Storia";
             endStoryButton.onclick=function(){
@@ -337,6 +363,21 @@ function end(playerName,playerObj){
         }
         }
     }
+*/
+}
+
+function findIndex(playerName,playerObj){
+  var length=playerObj.length-1;
+  console.log("lenght é "+length)
+  var i=1;
+  while(i<=length){
+    console.log("x è"+i);
+    if(playerObj[i].name==playerName)
+      return i;
+
+        i++;
+    }
+
 
 }
 

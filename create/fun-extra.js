@@ -136,14 +136,14 @@ function initDestination(idObject){
 //da rivedere
 
 function addScore(id){
-  /*
+
     var bottoni=obj[id].numeroBottoni;
 
     obj[id].buttons.forEach((button, index) => {
       console.log("index:"+index)
       button.score = document.getElementById("score" + (index + 1)).value
     });
-    */
+
 }
 /*
 //aggiungo una destinazione
@@ -395,17 +395,29 @@ function populate(id){
     document.getElementById("list").value = bottoni;
     createButs();
 
+
+
+
 var disableButtonSelect =document.getElementById("selectButtonToDisable");
 //pulisco il select per disabilitare i bottoni
 removeAllChildNodes(disableButtonSelect)
 //aggiungo alla lista i bottoni da poter disabilitare
-obj[id].buttons.forEach(item => {
+obj[id].buttons.forEach((item,i) => {
 
   if(item.type == "ContinueButton"){
+    var disableButton = document.createElement("option");
+    disableButton.setAttribute("id","disableButton"+item.text);
+    disableButton.text = "disable button di "+item.text;
+    disableButton.value = "destination-"+item.id;
+    disableButtonSelect.appendChild(disableButton);
+    $("#disable").removeClass("hidden");
+
+  }
+  else{
     var disableButton=document.createElement("option");
     disableButton.setAttribute("id","disableButton"+item.text);
     disableButton.text="disable button di "+item.text;
-    disableButton.value= item.id;
+    disableButton.value= ""+obj[id].id+"-"+i;
     disableButtonSelect.appendChild(disableButton);
     $("#disable").removeClass("hidden");
 
@@ -415,28 +427,28 @@ obj[id].buttons.forEach(item => {
 
 //pulire i addScoreButton se non servono più anche sopra nell select list button
 
-    obj[id].buttons.forEach(element => {
-        var i=1;
+    obj[id].buttons.forEach((element,i) => {
+
 
         if( element.type == "ContinueButton"){
-            document.getElementById("listBut" + i).value = arrayBut[0];
-            modifyButtonExtra(i);
+            document.getElementById("listBut" + parseInt((i+1))).value = arrayBut[0];
+            modifyButtonExtra(parseInt((i+1)));
             //addScoreButton(i);
         }
         else if(element.type == "StopButton"){
-            document.getElementById("listBut" + i).value = arrayBut[1];
-            modifyButtonExtra(i);
+            document.getElementById("listBut" + parseInt((i+1))).value = arrayBut[1];
+            modifyButtonExtra(parseInt((i+1)));
             //addScoreButton(i);
         }else if (element.type == "BridgeButton"){
-            document.getElementById("listBut" + i).value = arrayBut[3];
-            modifyButtonExtra(i);
+            document.getElementById("listBut" + parseInt((i+1))).value = arrayBut[3];
+            modifyButtonExtra(parseInt((i+1)));
             //addScoreButton(i);
         }else{
-        document.getElementById("listBut" + i).value = arrayBut[2];
-        modifyButtonExtra(i);
+        document.getElementById("listBut" + parseInt((i+1))).value = arrayBut[2];
+        modifyButtonExtra(parseInt((i+1)));
        // addScoreButton(i);
       }
-      i++
+
     });
 
 
@@ -444,23 +456,23 @@ obj[id].buttons.forEach(item => {
     obj[id].buttons.forEach((element,i) => {
 
         if(element.type == "ContinueButton") {
-            document.getElementById("button"+(i+1)).value=element.text;
-            document.getElementById("input"+(i+1)).value = element.destination;
-            document.getElementById("score"+(i+1)).value=element.score;
+            document.getElementById("button"+parseInt((i+1))).value=element.text;
+            document.getElementById("input"+parseInt((i+1))).value = element.destination;
+            document.getElementById("score"+parseInt((i+1))).value=element.score;
 
         }else if (element.type == "StopButton"){
-            document.getElementById("button"+(i+1)).value=element.text;
-            document.getElementById("stop"+(i+1)).value  =element.alert;
-            document.getElementById("score"+(i+1)).value=element.score;
+            document.getElementById("button"+parseInt((i+1))).value=element.text;
+            document.getElementById("stop"+parseInt((i+1))).value  =element.alert;
+            document.getElementById("score"+parseInt((i+1))).value=element.score;
 
         }else if (element.type == "BridgeButton"){
             var testoBridge = element.bridge;
-            document.getElementById("button"+(i+1)).value=element.text;
-            document.getElementById("listBridge"+(i+1)).value  = testoBridge;
-            document.getElementById("score"+(i+1)).value=element.score;
+            document.getElementById("button"+parseInt((i+1))).value=element.text;
+            document.getElementById("listBridge"+parseInt((i+1))).value  = testoBridge;
+            document.getElementById("score"+parseInt((i+1))).value=element.score;
         }else{
-            document.getElementById("button"+(i+1)).value=element.text;
-            document.getElementById("score"+(i+1)).value=element.score;
+            document.getElementById("button"+parseInt((i+1))).value=element.text;
+            document.getElementById("score"+parseInt((i+1))).value=element.score;
         }
 
       });
@@ -468,6 +480,11 @@ obj[id].buttons.forEach(item => {
 
 
       $("#nextPrev").addClass("hidden");
+
+      //controllo se ci sono bottoni disabilitati
+      controlDisable(id);
+      //controllo se c'è il tag disableBranch
+      controlDisableBranch(id);
 
     //controllo se c'è il puzzle
     if(obj[id].widgetPuzzle==true){
@@ -501,6 +518,171 @@ obj[id].buttons.forEach(item => {
 
     console.log(obj);
     $("#Modify").removeClass("hidden");
+
+}
+
+function controlDisableBranch(id){
+var enableSelectBranch=document.getElementById("selectBranchToEnable");
+removeAllChildNodes(enableSelectBranch);
+if(obj[id].disableBranch==true){
+  document.getElementById("TitoloMissione").readOnly=true;
+  document.getElementById("textS").readOnly=true;
+  $('#list').prop('disabled', 'disabled');
+  obj[id].buttons.forEach((item, i) => {
+
+    if(item.type=="ContinueButton"){
+      document.getElementById("input"+parseInt((i+1))).readOnly=true;
+      document.getElementById("button"+parseInt((i+1))).readOnly=true;
+      $("#enableButtons").removeClass("hidden")
+      $('#listBut'+parseInt(i+1)).prop('disabled', 'disabled');
+      $('#score'+parseInt(i+1)).prop('disabled', 'disabled');
+
+    }else{
+      if(item.type=="WrongButton")
+      document.getElementById("stop"+parseInt((i+1))).readOnly=true;
+
+      document.getElementById("button"+parseInt((i+1))).readOnly=true;
+
+      $('#listBut'+parseInt(i+1)).prop('disabled', 'disabled');
+      $('#score'+parseInt(i+1)).prop('disabled', 'disabled');
+}
+  });
+  if(obj[id].branch==true){
+  var list=document.getElementById("selectBranchToEnable");
+  var enableBranch=document.createElement("option");
+  enableBranch.setAttribute("id","enableBranch"+obj[id].title);
+  enableBranch.text="enable branch di "+obj[id].title;
+  enableBranch.value= obj[id].id;
+  list.appendChild(enableBranch);
+  $("#enableBranch").removeClass("hidden")
+  }
+}else{
+  document.getElementById("TitoloMissione").readOnly=false;
+  document.getElementById("textS").readOnly=false;
+  $('#list').prop('disabled', false);
+}
+}
+
+function enable(){
+  var item=document.getElementById("selectBranchToEnable").value;
+  enableBranch(item);
+  enableBranchGraph(item);
+  console.log("patata");
+}
+
+function enableBranch(id){
+obj[id].disableBranch=false;
+
+  obj[id].buttons.forEach((item) => {
+    if(item.type=="ContinueButton")
+      enableBranch(item.id);
+
+  });
+  graph.data(data);
+  graph.render();
+  graph.fitView();
+}
+
+
+
+function enableBranchGraph(id){
+
+  var node=findNode(data.children,"id"+id);
+  //node.style= node.style.disable
+  node.style.fill="green";
+  console.log(node);
+  obj[id].buttons.forEach((element, i) => {
+    if(element.type=="ContinueButton")
+      enableBranchGraph(element.id);
+  });
+
+}
+
+function controlDisable(id){
+var enableSelect=document.getElementById("selectEnable");
+removeAllChildNodes(enableSelect);
+
+  obj[id].buttons.forEach((item,i) => {
+
+    if(item.disable==true&&item.type=="ContinueButton"){
+      document.getElementById("input"+parseInt((i+1))).readOnly=true;
+      document.getElementById("button"+parseInt((i+1))).readOnly=true;
+      var list=document.getElementById("selectEnable");
+      var enableButton=document.createElement("option");
+      enableButton.setAttribute("id","enableButton"+item.text);
+      enableButton.text="enable button di "+item.text;
+      enableButton.value= "destination"+"-"+item.id;
+      list.appendChild(enableButton);
+      $("#enableButtons").removeClass("hidden")
+      $('#listBut'+parseInt(i+1)).prop('disabled', 'disabled');
+      $('#score'+parseInt(i+1)).prop('disabled', 'disabled');
+
+    }else if(item.disable==true){
+      if(item.type=="WrongButton")
+      document.getElementById("stop"+parseInt((i+1))).readOnly=true;
+
+      document.getElementById("button"+parseInt((i+1))).readOnly=true;
+      var list=document.getElementById("selectEnable");
+      var enableButton=document.createElement("option");
+      enableButton.setAttribute("id","enableButton"+item.text);
+      enableButton.text="enable button di "+item.text;
+      enableButton.value= ""+obj[id].id+"-"+i;
+      list.appendChild(enableButton);
+      $("#enableButtons").removeClass("hidden")
+      $('#listBut'+parseInt(i+1)).prop('disabled', 'disabled');
+      $('#score'+parseInt(i+1)).prop('disabled', 'disabled');
+
+    }
+
+  });
+}
+
+function enableButton(){
+var id= document.getElementById("selectEnable").value;
+var element=id.split("-");
+if(element[0]=="destination"){
+enableAllButton(element[1]);
+enableGraphButton(element[1]);
+alert("abilitato, modificare per apportare i cambiamenti");
+graph.data(data);
+graph.render();
+graph.fitView();
+}else{
+  var tempId=parseInt(element[0]);
+  var tempIndex=parseInt(element[1]);
+  obj[tempId].buttons[tempIndex].disable=false;
+
+}
+
+}
+
+function enableAllButton(id){
+
+  obj[id].disable=false;
+  var temp = obj[id].fatherIdGraph
+//setto il tag disable anche nel bottone del padre
+obj[temp].buttons.forEach((item) => {
+  if(item.id==id)
+  item.disable=false;
+});
+
+  obj[id].buttons.forEach((element) => {
+    if(element.type=="ContinueButton")
+      enableAllButton(element.id);
+  });
+
+}
+
+function enableGraphButton(id){
+
+    var node=findNode(data.children,"id"+id);
+    //node.style= node.style.disable
+    node.style.fill="green";
+    console.log(node);
+    obj[id].buttons.forEach((element, i) => {
+      if(element.type=="ContinueButton")
+        disableGraphButtons(element.id);
+    });
 
 }
 
@@ -571,6 +753,14 @@ function modify(id){
     document.getElementById("buts").innerHTML="";
     $("#nextPrev").removeClass("hidden");
     $("#Modify").addClass("hidden");
+    $("#enableButtons").addClass("hidden");
+    $("#disable").addClass("hidden");
+
+    //riabilità text titolo e list
+    document.getElementById("TitoloMissione").readOnly=false;
+    document.getElementById("textS").readOnly=false;
+    $('#list').prop('disabled', false);
+
     alert("Modificato");
 
 }
@@ -588,7 +778,12 @@ function openNav(id) {
 function openStoriesNav(id) {
     var sidenav = document.getElementById(id);
     sidenav.style.width = "250px";
+    if(sidenav.id=="loadSidenav")
+    getStories(document.getElementById("modifyInnerDiv"));
+    else if(sidenav.id=="editSidenav")
     getStories(document.getElementById("editInnerDiv"));
+    else if(sidenav.id=="removeSidenav")
+    getStoriesComplete(document.getElementById("removeInnerDiv"))
 }
 
 function openLevelNav(story) {
@@ -601,6 +796,30 @@ function openLevelNav(story) {
     mediumButton.setAttribute("onclick", "getStory(\"" + story + "\", \"medium\")");
     var hardButton = document.getElementById("hardButtonNav");
     hardButton.setAttribute("onclick", "getStory(\"" + story + "\", \"hard\")");
+}
+
+function uploadLevelNav(story) {
+    var sidenav = document.getElementById("levelSidenav");
+    sidenav.style.width = "250px";
+
+    var easyButton = document.getElementById("easyButtonNav");
+    easyButton.setAttribute("onclick", "playableStory(\"" + story + "\", \"easy\")");
+    var mediumButton = document.getElementById("mediumButtonNav");
+    mediumButton.setAttribute("onclick", "playableStory(\"" + story + "\", \"medium\")");
+    var hardButton = document.getElementById("hardButtonNav");
+    hardButton.setAttribute("onclick", "playableStory(\"" + story + "\", \"hard\")");
+}
+
+function removeLevelNav(story) {
+    var sidenav = document.getElementById("levelSidenav");
+    sidenav.style.width = "250px";
+
+    var easyButton = document.getElementById("easyButtonNav");
+    easyButton.setAttribute("onclick", "removeStory(\"" + story + "\", \"easy\")");
+    var mediumButton = document.getElementById("mediumButtonNav");
+    mediumButton.setAttribute("onclick", "removeStory(\"" + story + "\", \"medium\")");
+    var hardButton = document.getElementById("hardButtonNav");
+    hardButton.setAttribute("onclick", "removeStory(\"" + story + "\", \"hard\")");
 }
 
 function closeAllNavs() {
@@ -816,5 +1035,104 @@ function getFileName(file) {
  if(ext=="jpg"||ext=="png"||ext=="jpeg"||ext=="mkv"||ext=="avi"||ext=="flv"||ext=="mp4"){
     return ext;
   }else{return alert("Cambiare Estensione del file");}
+
+}
+//disabilità il bottone selezionato
+function disableSelectButton(){
+
+var item = document.getElementById("selectButtonToDisable").value;
+var element= item.split("-");
+if(element[0]=="destination"){
+disableAllDestination(parseInt(element[1]));
+disableGraphButtons(parseInt(element[1]));
+graph.data(data);
+graph.render();
+graph.fitView();
+controlDisable(obj[element[1]].fatherIdGraph);
+}else{
+  var tempId=parseInt(element[0]);
+  var tempIndex=parseInt(element[1]);
+  obj[tempId].buttons[tempIndex].disable=true;
+  controlDisable(obj[tempId].id);
+}
+console.log("item= "+item);
+
+alert("disabilitato");
+}
+
+function disableGraphButtons(id){
+
+  var node=findNode(data.children,"id"+id);
+  //node.style= node.style.disable
+  node.style.fill="red";
+  console.log(node);
+  obj[id].buttons.forEach((element, i) => {
+    if(element.type=="ContinueButton")
+      disableGraphButtons(element.id);
+  });
+}
+
+function  disableAllDestination(id){
+
+  obj[id].disable=true;
+  var temp = obj[id].fatherIdGraph
+//setto il tag disable anche nel bottone del padre
+obj[temp].buttons.forEach((item, i) => {
+  if(item.id==id)
+  item.disable=true;
+});
+
+  obj[id].buttons.forEach((element, i) => {
+    if(element.type=="ContinueButton")
+      disableAllDestination(element.id);
+  });
+
+}
+
+function deleteSelectBranch(){
+
+  var item = document.getElementById("selectBranch").value;
+  var select=document.getElementById("selectBranch")
+  console.log("item = "+item)
+  deleteBranchGraph("id"+item);
+  graph.data(data);
+  graph.render();
+  graph.fitView();
+
+  select.remove(select.selectedIndex);
+  document.getElementById("TitoloMissione").value="";
+  document.getElementById("textS").value="";
+  document.getElementById("list").value=0;
+  document.getElementById("buts").innerHTML="";
+  $("#nextPrev").removeClass("hidden");
+  $("#Modify").addClass("hidden");
+  $("#enableButtons").addClass("hidden");
+  $("#disable").addClass("hidden");
+
+  console.log(data);
+}
+
+function disableSelectBranch(){
+
+  var item = document.getElementById("selectBranch").value;
+  var select=document.getElementById("selectBranch");
+  disableAllBranch(item);
+  disableGraphButtons(item);
+  graph.data(data);
+  graph.render();
+  graph.fitView();
+  controlDisableBranch(item);
+}
+
+function disableAllBranch(id){
+
+  obj[id].disableBranch=true;
+  obj[id].buttons.forEach((item, i) => {
+
+    if(item.type=="ContinueButton"){
+      disableAllBranch(item.id);
+    }
+
+  });
 
 }
