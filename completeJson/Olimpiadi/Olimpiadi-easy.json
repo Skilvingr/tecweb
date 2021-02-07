@@ -1,0 +1,353 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "Pagina1",
+      "text": "Benvenuto\nSei pronto per fare un viaggio alla scoperta della storia delle\nOlimpiadi?\n",
+      "numeroBottoni": 1,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "Andiamo!",
+          "type": "ContinueButton",
+          "destination": "Pagina2",
+          "score": "0",
+          "id": 1
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "1.jpg"
+    },
+    {
+      "img": "new2.jpg",
+      "video": "none",
+      "title": "Pagina2",
+      "text": "Uno dei simboli delle olimpiadi sono proprio i cinque cerchi di colore\ndiverso sun un fondo bianco e simboleggia l'unione tra tutte le nazioni\nche i giochi olimpici portano.\nil colori scelti ( nero, azzurro, rosso, verde, giallo e lo sfondo bianco)\nnon sono casuali, infatti le bandiere di tutto il mondo contengono almeno uno di questi colori.\nI cerchi invece cosa stanno a significare?\n",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "i cinque continenti",
+          "type": "ContinueButton",
+          "destination": "Pagina3",
+          "id": 2,
+          "score": "1"
+        },
+        {
+          "text": " il numero di persone che fondarono i giochi",
+          "type": "WrongButton",
+          "wrong": "",
+          "score": "-0.5"
+        },
+        {
+          "text": " il numero di competizioni presenti nella prima edizione",
+          "type": "WrongButton",
+          "wrong": "",
+          "score": "-0.5"
+        }
+      ],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "3.jpg",
+      "video": "none",
+      "title": "Pagina3",
+      "text": "Le Prime olimpiadi si svolsero ad Olimponel\nL’origine dei Giochi Olimpici viene fatta risalire al 766 a.C. Inizialmente\nerano delle celebrazioni in onore degli\ndei dell’Olimpo, infatti si volgevano nella città di Olimpia.\nMi sai dire quali tra questi e' il simbolo delle olimpiadi?\n",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Fiaccola Olimpica",
+          "type": "ContinueButton",
+          "destination": "Pagina4",
+          "id": 3,
+          "score": "1.5"
+        },
+        {
+          "text": "Una macchina",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "Una palla",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        }
+      ],
+      "id": 2,
+      "branch": false,
+      "fatherIdGraph": 1,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "4.jpg",
+      "video": "none",
+      "title": "Pagina4",
+      "text": "Esatto!\nLe origini della torcia risalgono in Grecia, quando un fuoco sacro era\ntenuto acceso per tutto il periodo delle Olimpiadi Antiche.\nPer gli antichi greci, il fuoco aveva una connotazione divina: il mito\nnarra che fosse stato\nrubato agli Dei dall’eroe Prometeo per donarlo agli uomini",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Continuiamo il nostro viaggio!",
+          "type": "ContinueButton",
+          "destination": "Pagina5",
+          "id": 4,
+          "score": "1.5"
+        }
+      ],
+      "id": 3,
+      "branch": false,
+      "fatherIdGraph": 2,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "5.jpg",
+      "video": "none",
+      "title": "Pagina5",
+      "text": "Nel presente vengono premiati moltissimi sport ma devi sapere che\nsono piu' di trante gli sport che entrano a far parte delle competizioni\nolimpiche!\nInizialmente pero erano molti meno e molti erano differenti da quelli\nattuali.\nAuitami a trovare almeno uno di questi\n",
+      "numeroBottoni": 4,
+      "buttons": [
+        {
+          "text": "Salto con l'asta",
+          "type": "ContinueButton",
+          "destination": "Pagina6",
+          "id": 5,
+          "score": "1.5"
+        },
+        {
+          "text": "Pallacanestro",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "Lotta",
+          "type": "ContinueButton",
+          "destination": "Pagina7",
+          "id": 6,
+          "score": "1.5"
+        },
+        {
+          "text": "Lancio del disco",
+          "type": "ContinueButton",
+          "destination": "Pagina8",
+          "id": 7,
+          "score": "1.5"
+        }
+      ],
+      "id": 4,
+      "branch": false,
+      "fatherIdGraph": 3,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "6.jpg",
+      "video": "none",
+      "title": "Pagina6",
+      "text": "inizialmente il salto con l'asta aveva come obiettivo che l'atleta\nsaltasse il piu in lungo possibile con l'utilizzo di un'asta (allora era una\nramo molto robusto) per poter raggiungere la distanza maggiore. Negli\nanni questo sport si e' sviluppato ed e' cambiato l'obiettivo dell'atleta\novvero questo non deve piu saltarte in lungo ma in alto cercando\nquindi di raggiungere l'altezza maggiore possibile\nMi sai dire quale di queste e' attualmente il record di salto con l'asta\ndell'era moderna?\n",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "2.89 mt",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "20.23 mt",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "6.18mt",
+          "type": "ContinueButton",
+          "destination": "Pagina9",
+          "id": 8,
+          "score": "1.5"
+        }
+      ],
+      "id": 5,
+      "branch": false,
+      "fatherIdGraph": 4,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "7.jpg",
+      "video": "none",
+      "title": "Pagina7",
+      "text": "La lotta ai Giochi olimpici affonda le proprie radici nei Giochi olimpici\nantichi, infatti sin dal 708 a.C. veniva disputata. Con la restaurazione\ndei moderni Giochi olimpici, la lotta (nella forma greco-romana) è\nriapparsa ai Giochi sin da Atene 1896 e, ad eccezione del programma\nolimpico del 1900, tuttora fa parte dell'evento polisportivo\nMi sai dire quale e' la nazione ad aver vinto piu medaglie nella lotta?\n",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Svezia",
+          "type": "BridgeButton",
+          "bridge": "8",
+          "score": "1.5"
+        },
+        {
+          "text": "Italia",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "Francia",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        }
+      ],
+      "id": 6,
+      "branch": false,
+      "fatherIdGraph": 4,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "8.jpg",
+      "video": "none",
+      "title": "Pagina8",
+      "text": "Il lancio del disco è uno sport antico. Il Discobolo di Mirone, la\nceleberrima scultura che ritrae un atleta che si appresta a scagliare il\ndisco, risale al V secolo a.C. Nelle Olimpiadi moderne il lancio del disco\nmaschile è presente sin dalla prima edizione, mentre la gara femminile\nfu introdotta ai Giochi di Amsterdam 1928.\nMi sai dire quale e' il record olimpico maschile del lancio del disco?\n",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "69,89 mt",
+          "type": "BridgeButton",
+          "bridge": "8",
+          "score": "1.5"
+        },
+        {
+          "text": "75,36 mt",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "43,92 mt",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        }
+      ],
+      "id": 7,
+      "branch": false,
+      "fatherIdGraph": 4,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Pagina9",
+      "text": "Complimenti, se vuoi avere altre informazioni sulle altre competizioni puoi cliccare sul bottone corrispondente.",
+      "numeroBottoni": 4,
+      "buttons": [
+        {
+          "text": "Voglio Andare Avanti",
+          "type": "ContinueButton",
+          "destination": "Pagina10",
+          "id": 9,
+          "score": "0"
+        },
+        {
+          "text": "Informazioni Su Salto Con L'asta",
+          "type": "BridgeButton",
+          "bridge": "5",
+          "score": "0"
+        },
+        {
+          "text": "Informazioni Su Lotta",
+          "type": "BridgeButton",
+          "bridge": "6",
+          "score": "0"
+        },
+        {
+          "text": "Informazioni Su Lancio Del Disco",
+          "type": "BridgeButton",
+          "bridge": "7",
+          "score": "0"
+        }
+      ],
+      "id": 8,
+      "branch": false,
+      "fatherIdGraph": 5,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "9.jpg",
+      "video": "none",
+      "title": "Pagina10",
+      "text": "Complimenti!\nEsattamente come in tutte le competizioni anche nei giochi olimpici ci\nsono dei vincitori e questi ricevo un oggetto molto ambito.\nQuale di questi e' il premio per chi vince la competizione?\n",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Coppa d'oro",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "Diploma",
+          "type": "StopButton",
+          "alert": "Ritenta",
+          "score": "-0.5"
+        },
+        {
+          "text": "medaglia d'oro",
+          "type": "ContinueButton",
+          "destination": "Pagina11",
+          "id": 10,
+          "score": "1.5"
+        }
+      ],
+      "id": 9,
+      "branch": false,
+      "fatherIdGraph": 8,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Pagina11",
+      "text": "Esatto!\nCompleta questo puzzle per sbloccare la Medaglia d'oro!\n",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "ContinueButton",
+          "destination": "Pagina12",
+          "id": 11,
+          "score": "1.5"
+        }
+      ],
+      "id": 10,
+      "branch": false,
+      "fatherIdGraph": 9,
+      "widgetPuzzle": true,
+      "puzzle": [
+        {
+          "img": "10.jpg"
+        }
+      ]
+    },
+    {
+      "img": "11.jpg",
+      "video": "none",
+      "title": "Pagina12",
+      "text": "Congratulazioni!\nHai vinto la medaglia d'oro\n",
+      "numeroBottoni": 0,
+      "buttons": [],
+      "id": 11,
+      "branch": false,
+      "fatherIdGraph": 10,
+      "widgetPuzzle": false
+    }
+  ],
+  "storyInfo": {
+    "title": "Olimpiadi",
+    "età": "7-10",
+    "css": "ColorFull"
+  }
+}

@@ -13,13 +13,15 @@ function regenObject(id){
 
     if(buttons==0){
     obj[id].buttons.forEach((element,i) => {
-
+      console.log(element);
         if(element.type=="ContinueButton"){
 		        deleteButtonGraph(element.id);
             deleteButtons(element.id);
         }
-        deleteElement(id,i);
+        //console.log("i="+elementId);
+        //deleteElement(id,i);
     });
+    obj[id].buttons=[];
 
          obj[id].numeroBottoni=0;
 
@@ -28,17 +30,35 @@ function regenObject(id){
 }
 
   else if(buttons<oldButtons){
-	var temp=buttons;
+    console.log("oldButtons"+oldButtons);
+    console.log("buttons= "+buttons);
+	var temp=oldButtons;
 	//elimina i bottoni in più
-	while(temp<oldButtons){
+/*
+  obj[id].buttons.slice((buttons),(oldButtons-1)).forEach((item) => {
+console.log("i è uguale a"+i);
+    if(item.type=="ContinueButton"){
+        deleteButtonGraph(item.id);
+        deleteButtons(item.id);
+    }
+    deleteElement(obj[id].id,i);
+  });
+  */
 
-            temp++;
-
-            if(obj[id].buttons[temp-1].type=="ContinueButton"){
-		deleteButtonGraph(obj[id].buttons[temp-1].id);
-		deleteButtons(obj[id].buttons[temp-1].id);
+	while(temp>buttons){
+    temp--;
+            if(obj[id].buttons[temp].type=="ContinueButton"){
+		            deleteButtonGraph(obj[id].buttons[temp].id);
+		            deleteButtons(obj[id].buttons[temp].id);
             }
-            delete obj[id].buttons[temp-1];
+
+            //obj[id].buttons.splice(parseInt((temp-1)),1);
+            delete obj[id].buttons[temp];
+              obj[id].buttons.pop();
+              console.log("temp="+temp)
+              console.log(obj[id].buttons);
+            //obj[id].buttons.length--;
+
 	}
 
 	obj[id].numeroBottoni=buttons;
@@ -75,13 +95,17 @@ function regenObject(id){
 
 }
 function deleteElement(id,elementId){
+  console.log("i="+elementId);
+  //obj[id].buttons.splice(elementId,1);
   delete obj[id].buttons[elementId];
+//  obj[id].buttons.length--;
 
 }
 
 function controlDestination(id,i){
 //modifica i bottoni destinazione attuali
-
+    var button=document.getElementById("button"+(i+1)).value;
+    obj[id].buttons[i].text=button;
     var input = document.getElementById("input"+(i+1)).value;
     if(input!=obj[id].buttons[i].destination){
         obj[id].buttons[i].destination=input;
@@ -154,11 +178,12 @@ function deleteButtons(id){
 	    obj[id].numeroBottoni--;
 	});
 
-    delete obj[id];
+     delete obj[id];
 
 }
 
 function regenButtons(id){
+var restore=toRestoreDisable(id);
 
   obj[id].buttons.forEach((element,i) => {
     var list=document.getElementById("listBut"+(i+1)).value;
@@ -169,12 +194,13 @@ function regenButtons(id){
             deleteButtonGraph(element.id);
             deleteButtons(element.id);
         }
-        deleteElement(id,i);
+        //deleteElement(id,i);
+        delete obj[id].buttons[i];
         recreate(id,i,list);
 
     }
   });
-
+restoreButtonDisabled(id,restore);
 }
 
 function recreate(id,i,list){
@@ -236,4 +262,28 @@ function addDestination(idObject,i){
   obj[idObject].buttons[i].id=id;
   createBranch(id);
   id++;
+}
+
+function toRestoreDisable(id){
+
+var restore=[];
+var j=0;
+obj[id].buttons.forEach((item, i) => {
+  if(item.disable==true){
+  restore[j]={};
+  restore[j].restore=i;
+  j++;
+}
+});
+console.log(restore)
+return restore;
+
+}
+
+function restoreButtonDisabled(id,restore){
+restore.forEach((item, i) => {
+  obj[id].buttons[item.restore].disable=true;
+});
+
+  console.log(obj[id]);
 }

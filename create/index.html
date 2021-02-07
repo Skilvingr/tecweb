@@ -27,14 +27,36 @@
 <div id="utilsSidenav" class="sidenav leftSidenav">
   <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('changeStatus')">Attiva/Disattiva Branch</a>
   <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('delete')">Elimina Branch</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Fa' altra roba</a>
+  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavButtons')">Attiva/Disattiva Bottoni</a>
+  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listWidget('widgets')">Attiva/Mostra widget</a>
+  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavForImg')">Mostra immagine</a>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('utilsSidenav')">&times;</a>
+</div>
+
+<div id="sidenavUtils" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sidenavUtils')">&times;</a>
+</div>
+
+<div id="sidenavButtons" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sidenavButtons')">&times;</a>
 </div>
 
 <div id="sidenavForBranches" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sidenavForBranches')">&times;</a>
 </div>
 
+<div id="sidenavForWidget" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('sidenavForWidget')">&times;</a>
+</div>
+
+<div id="sidenavForPuzzle" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeAllNavs()">&times;</a>
+</div>
+
+<div id="sidenavForImg" class="sidenav">
+  <div id="divImgSidenav"></div>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeAllNavs()">&times;</a>
+</div>
 
 <div id="masterSidenav" class="sidenav">
   <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Modifica storia</a>
@@ -60,10 +82,9 @@
 </div>
 <div id="levelSidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
-  <a id="easyButtonNav" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Facile</a>
-  <a id="mediumButtonNav" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Medio</a>
-  <a id="hardButtonNav" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Difficile</a>
+  <div id="levelInnerDiv">
   </div>
+</div>
 
 
 
@@ -96,50 +117,22 @@
             <option>12-14</option>
             <option>16-18</option>
         </select>
+
         <button onclick="validateTitle()">Inizia</button>
+
+        <br>
+        <h2>Choose a css Style</h2>
+        <select id="CssStyle">
+            <option>default</option>
+            <option>ColorFull</option>
+        <select>
+  <a href="/create/customCss">Create Custom Css</a>
+  <br>
+  <br>
+    <a href="/">Back To Player</a>
         </div>
 
         <span id="myText"></span>
-
-
-        <div id="elimina" style="text-align: left ;padding-bottom:10px ;"class=hidden>
-	         <select id="selectBranch" >
-	          </select>
-	           <button id="buttonSelectBranch" onclick="deleteSelectBranch()">Delete Selected Branch</button>
-             <button id="buttonDisableSelectBranch" onclick="disableSelectBranch()">Disable Selected Branch</button>
-        </div>
-
-        <div id="enableBranch" style="text-align: left ;padding-bottom:10px ;"class=hidden>
-           <select id="selectBranchToEnable" >
-            </select>
-             <button id="enableBranchButton" onclick="enable()">enable selected branch</button>
-        </div>
-
-        <div id="disable" style="text-align: left ;padding-bottom:10px ;"class=hidden>
-           <select id="selectButtonToDisable" >
-            </select>
-             <button id="disableButtons" onclick="disableSelectButton()">disable selected buttons</button>
-        </div>
-
-
-	 <div id="disableBranch" style="text-align: left ;padding-bottom:10px ;"class=hidden>
-	  <select id="selectDisable"></select>
-        </div>
-
-        <div id="enableButtons" style="text-align: left ;padding-bottom:10px ;"class=hidden>
-     	  <select id="selectEnable"></select>
-        <button id="enableDestination" onclick="enableButton()">enable selected button</button>
-             </div>
-
-        <div class ="hidden" id="widgets" style="text-align: center;" >
-            <select id ="widgetList">
-                <option  >Selezionare widget per la pagina corrente</option>
-                <option>Puzzle</option>
-            </select>
-            <button id="applyWidget" onclick="showWidget()">Crea Widget</button>
-        </div>
-
-
 
         <div id="container">
 
@@ -174,7 +167,7 @@
             <p>Selezionare le immagini o i video che si desiderano usare per creare la storia </p>
             <p>(formato in jpg,png,avi,mkv)</p>
             <br>
-        <form id="imageStory"  name="file" action="http://localhost:8000/create"  enctype="multipart/form-data">
+        <form id="imageStory"  name="file" action="http://site192020.tw.cs.unibo.it/create"  enctype="multipart/form-data">
         </form>
         </div>
 

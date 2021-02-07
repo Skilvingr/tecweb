@@ -3,7 +3,7 @@ const fs = require("fs");
 
 function uploadImage(image){
 
-    fs.writeFile(("imgCreate/" + filename + ".jpg"),image, function (err) {
+    fs.writeFile(("webapp/imgCreate/" + filename + ".jpg"),image, function (err) {
         if (err) {
             console.log("An error occured while writing JSON Object to File.");
             return err;
@@ -28,10 +28,10 @@ function write(jsonContent) {
 	dif="easy";
     else if(età=="12-14")
 	dif = "medium";
-    else
+    else if(età=="16-18")
 	dif="hard";
 
-    fs.writeFile(("json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
+    fs.writeFile(("webapp/json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
         if (err) {
 	    console.log(err);
 	    console.log("An error occured while writing JSON Object to File.");
@@ -39,12 +39,28 @@ function write(jsonContent) {
         }else{
 
 	    console.log("JSON file has been saved.");
-	    return "saved";
+
 	}
     });
 
-
+ return "saved";
 
 };
+function writeCss(objCss){
+  console.log(objCss);
+  var title=""+objCss.name.css;
+  var jsonCss = JSON.stringify(objCss,null,2);
+  fs.writeFile(("webapp/create/customCss/createdCss/"+title+".css"),jsonCss,function(err){
+      if (err) {
+    console.log(err);
+    console.log("An error occured while writing JSON Object to File.");
+    return err;
+      }else{
 
-module.exports={write,uploadImage};
+    console.log("JSON file has been saved.");
+
+  }
+  });
+  return "saved";
+};
+module.exports={write,uploadImage,writeCss};

@@ -1,0 +1,24 @@
+body{
+  background-image: url("../../imgCreate/ColorFull2.jpg")!important;
+}
+
+button{
+  background-color: orange;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+  cursor: pointer;
+}
+
+p{
+  color: white;
+  font-family: 'Original Surfer';
+  font-size: 25px;
+  line-height: 28px;
+  margin: 0 0 24px;
+}

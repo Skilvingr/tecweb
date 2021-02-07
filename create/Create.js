@@ -9,19 +9,54 @@ var graphNumber=0;
 
 //creo un oggetto con le informazioni iniziali della storia (età e titolo)
 
+$(document).ready(function(){
+
+  var query="ls webapp/create/customCss/createdCss"
+  $.ajax({
+	    type: "GET",
+	    datatype: "html",
+	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + query +"",
+	    success: function(returnData) {
+		listCssCreate(returnData);
+	    }
+	})
+
+});
+function listCssCreate(cssData){
+  var arrayData=cssData.split("\n");
+  var select=document.getElementById("CssStyle");
+
+for(var i=0; i<arrayData.length;i++){
+  var option =document.createElement("option");
+  option.text=arrayData[i];
+  option.value=arrayData[i];
+  select.appendChild(option);
+  }
+}
+
+function normalizeString(str){
+    
+    const finalString = str.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+    var noSpaceString = finalString.replace(/\s+/g, '');
+    return noSpaceString;
+}
+
 function initialObject(){
     initGraph();
 
     //graph.data(data);
     //graph.render();
-
+    
     var age = document.getElementById("agePicker").value;
-
+    var css =document.getElementById("CssStyle").value;
     title = document.getElementById("titoloStory").value;
+    var finalTitle=normalizeString(title);
     document.getElementById("titolo").innerHTML="";
     init.storyInfo={};
-    init.storyInfo.title = title;
+    init.storyInfo.title = finalTitle;
     init.storyInfo.età = age;
+    init.storyInfo.css= css;
+    console.log(init);
     start();
 }
 
@@ -177,7 +212,9 @@ function start() {
 			addOptionImage.text=name;
 			fatherImage.appendChild(addOptionImage);
 		    }
-		}catch(err){console.log(err);}
+		}catch(err){
+		    //console.log(err);
+			   }
 	    }else if(ext=="avi"||ext=="mp4"||ext=="mkv"||ext=="flv"){
 
 		//crea il testo per inserire il nome del video
@@ -238,13 +275,14 @@ function createPage(){
 
     //aggiustare il delete branch
     //inizializzo il bottone per eliminare il branch
+    /*
     var deletePage=document.createElement("option");
     deletePage.setAttribute("id","DeletePage"+document.getElementById("TitoloMissione").value);
     deletePage.text="delete Branch di "+document.getElementById("TitoloMissione").value;
     deletePage.value= obj[objectId].id ;
     selectBranch.appendChild(deletePage);
     $("#elimina").removeClass("hidden");
-
+*/
 
     //pulisco la pagina
     document.getElementById("TitoloMissione").value="";
@@ -262,15 +300,16 @@ function end(){
 //	completejson();
         $.ajax({
             type: "POST",
-            url: "http://localhost:8000/create/story",
+            url: "http://site192020.tw.cs.unibo.it/create/story",
             contentType:"application/json;charset=utf-8",
             dataType:"html",
             data: JSON.stringify(init),
             success: function(result){
                 alert(result);
+		 location.reload();
             }});
     });
-
+   
     //End.appendChild(button);
 
 }
@@ -329,28 +368,42 @@ function getStories(sidenav) {
 	$.ajax({
 	    type: "GET",
 	    datatype: "html",
-	    url: "http://localhost:8000/getStories",
+	    url: "http://site192020.tw.cs.unibo.it/getStories",
 	    success: function(returnData) {
 		handleStories(returnData, sidenav);
 	    }
 	})
     });
 }
+
 //ottiene le storie completate
 function getStoriesComplete(sidenav){
   $(document).ready(function(){
 $.ajax({
     type: "GET",
     datatype: "html",
-    url: "http://localhost:8000/getStoriesComplete",
+    url: "http://site192020.tw.cs.unibo.it/getStoriesComplete",
     success: function(returnData) {
   handleStories(returnData, sidenav);
     }
 })
   });
-
-
 }
+
+function getAvailableLevels(story, sidenav, onclick, dir) {
+    $(document).ready(function(){
+	$.ajax({
+	    type: "GET",
+	    dataType: "html",
+	    url: "http://site192020.tw.cs.unibo.it/getAvailableLevels?story=" + story + "&dir=" + dir,
+	    success: function(returnData) {
+		console.log(returnData);
+		handleStories(returnData, sidenav, onclick);
+	    }
+	})
+    });
+}
+
 
 function getOut(com) {
     $(document).ready(function(){
@@ -391,7 +444,7 @@ function playableStory(story, level) {
 	$.ajax({
 	    type: "GET",
 	    dataType: "json",
-	    url: "http://localhost:8000/playableStory?story=" + story + "&level=" + level,
+	    url: "http://site192020.tw.cs.unibo.it/playableStory?story=" + story + "&level=" + level,
 	    success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
@@ -408,7 +461,7 @@ function removeStory(story, level) {
 	$.ajax({
 	    type: "GET",
 	    dataType: "json",
-	    url: "http://localhost:8000/removeStory?story=" + story + "&level=" + level,
+	    url: "http://site192020.tw.cs.unibo.it/removeStory?story=" + story + "&level=" + level,
 	    success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
@@ -423,6 +476,7 @@ function removeStory(story, level) {
 function initPage() {
     document.getElementById("titoloStory").value = init.storyInfo.title;
     document.getElementById("agePicker").value = init.storyInfo.età;
+    document.getElementById("CssStyle").value=init.storyInfo.css;
     validateTitle();
     populate(0);
     populateGraph();
@@ -431,7 +485,7 @@ function initPage() {
 	if(obj[x]!=null){
 	    id=obj[x].id;
 	}
-
+id++;
     }
 }
 
@@ -439,6 +493,7 @@ function initPage() {
 function populateGraph() {
 
     obj.forEach((page) => {
+      if(page!=null)
 	createBranch(page.id);
     });
 
@@ -504,48 +559,63 @@ function handleButton(page, button) {
     }
 }
 
-function handleStories(stories, sidenav){
+function handleStories(stories, sidenav, onclick = null){
     var storiesArray = stories.split("\n");
-console.log(sidenav.id);
+    console.log(sidenav.id);
 
-if(sidenav.id=="modifyInnerDiv"){
-  document.getElementById("modifyInnerDiv").innerHTML="";
-  storiesArray.forEach((story) => {
-    var a = document.createElement("a");
-    a.className = "storyLabel";
-    a.setAttribute("style", "font-size:30px;cursor:pointer");
-    a.setAttribute("onclick", "uploadLevelNav(\"" + story + "\")");
-    a.textContent = story;
-    sidenav.appendChild(a);
+    if(sidenav.id=="modifyInnerDiv"){
+	document.getElementById("modifyInnerDiv").innerHTML="";
+	storiesArray.forEach((story) => {
+	    var a = document.createElement("a");
+	    a.className = "storyLabel";
+	    a.setAttribute("style", "font-size:30px;cursor:pointer");
+	    a.setAttribute("onclick", "uploadLevelNav(\"" + story + "\")");
+	    a.textContent = story;
+	    sidenav.appendChild(a);
 
-  });
-  }
-else if (sidenav.id=="editInnerDiv"){
-    document.getElementById("editInnerDiv").innerHTML="";
+	});
+    }
+    else if (sidenav.id=="editInnerDiv"){
+	document.getElementById("editInnerDiv").innerHTML="";
 
-storiesArray.forEach((story) => {
-	var a = document.createElement("a");
-	a.className = "storyLabel";
-	a.setAttribute("style", "font-size:30px;cursor:pointer");
-	a.setAttribute("onclick", "openLevelNav(\"" + story + "\")");
-	a.textContent = story;
-	sidenav.appendChild(a);
+	storiesArray.forEach((story) => {
+	    var a = document.createElement("a");
+	    a.className = "storyLabel";
+	    a.setAttribute("style", "font-size:30px;cursor:pointer");
+	    a.setAttribute("onclick", "openLevelNav(\"" + story + "\")");
+	    a.textContent = story;
+	    sidenav.appendChild(a);
 
-    });
-  }
-  else if (sidenav.id=="removeInnerDiv"){
-    document.getElementById("removeInnerDiv").innerHTML="";
+	});
+    }
+    else if (sidenav.id=="removeInnerDiv"){
+	document.getElementById("removeInnerDiv").innerHTML="";
 
-storiesArray.forEach((story) => {
-	var a = document.createElement("a");
-	a.className = "storyLabel";
-	a.setAttribute("style", "font-size:30px;cursor:pointer");
-	a.setAttribute("onclick", "removeLevelNav(\"" + story + "\")");
-	a.textContent = story;
-	sidenav.appendChild(a);
+	storiesArray.forEach((story) => {
+	    var a = document.createElement("a");
+	    a.className = "storyLabel";
+	    a.setAttribute("style", "font-size:30px;cursor:pointer");
+	    a.setAttribute("onclick", "removeLevelNav(\"" + story + "\")");
+	    a.textContent = story;
+	    sidenav.appendChild(a);
 
-    });
-  }
+	});
+    }
+    else if (sidenav.id=="levelInnerDiv"){
+	document.getElementById("levelInnerDiv").innerHTML="";
+
+	storiesArray = storiesArray.map((str) => str.split(".")[0]);
+
+	storiesArray.forEach((level) => {
+	    var a = document.createElement("a");
+	    a.className = "storyLabel";
+	    a.setAttribute("style", "font-size:30px;cursor:pointer");
+	    a.setAttribute("onclick", onclick + level + "\")");
+	    a.textContent = level;
+	    sidenav.appendChild(a);
+
+	});
+    }
 }
 
 
@@ -581,25 +651,89 @@ function changeStatus(id) {
 }
 
 function listBranches(action) {
-    openNav("sidenavForBranches");
+    openNav("sidenavUtils");
 
     obj.filter((page) => (page != null && page.branch)).map((page) => {
+      console.log("gianni");
 	var a = document.createElement("a");
 	a.className = "toRemove";
 	a.id = page.id;
 
-	if(page.status === "enabled")
-	    a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:green");
-	else
-    	    a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
+
 
 	if(action === "changeStatus"){
-	    a.setAttribute("onclick", `changeStatus(${page.id})`);
-	} else {
-	    a.setAttribute("onclick", `deleteAllPage(${page.id})`);
+    a.textContent = (page.title);
+      if(page.disableBranch!=true){
+        a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:green");
+
+    a.onclick=function(){
+        disableSelectBranch(a.id);
+    }
+
+  }else{
+      a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
+    a.onclick=function(){
+      enable(a.id);
+    }
+
+  }
+	}
+  else if (action === "delete"){
+    a.textContent = (page.title);
+    a.onclick=function(){
+        deleteSelectBranch(a.id);
+      }
+	    //a.setAttribute("onclick", `deleteAllPage(${page.id})`);
 	}
 
-	a.textContent = (page.title + ": " + page.status);
-	$("#sidenavForBranches").append(a);
+	$("#sidenavUtils").append(a);
+      })
+
+}
+
+function sidenavListButtons(id){
+    console.log("gianni2");
+    var toDelete=document.getElementById("sidenavButtons");
+    removeAllChildNodes(toDelete);
+   obj[id].buttons.forEach((item, i) => {
+
+  var a = document.createElement("a");
+//	a.className = "toRemove";
+if(item.type=="ContinueButton")
+	a.id = "destination"+"-"+item.id;
+else
+a.id=""+obj[id].id+"-"+i;
+
+        a.textContent = (item.text);
+        console.log("testo"+item.text);
+          if(item.disable!=true){
+            a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:green");
+
+        a.onclick=function(){
+            disableSelectButton(a.id);
+        }
+
+      }else{
+          a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
+        a.onclick=function(){
+          enableButton(a.id);
+        }
+
+      }
+
+    $("#sidenavButtons").append(a);
     })
+
+}
+
+function listWidget(action){
+
+  var a = document.createElement("a");
+  	a.className = "toRemove";
+      a.textContent = "Applica Puzzle";
+    a.onclick=function(){
+      showWidget("sidenavForPuzzle");
+    }
+      $("#sidenavForWidget").append(a);
+    openNav("sidenavForWidget");
 }

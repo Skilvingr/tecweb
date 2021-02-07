@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+        <!-- JQUERY -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        
+    
+        
+        <link href="style.css" rel="stylesheet" />
+
+    </head>
+    <body id="body">
+      <div id="players" class="container">
+        <h3>Gioca con gli Amici</h3>
+
+
+
+        <div id="player1"class="card playerCard" style="width:190px">
+          <img class="card-img-top sizeCard" src="./mainImg/player.jpeg" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <p>Player 1</p>
+            <p class="card-text">Scegli il Nome</p>
+            <input size="7" id="playerName1" class="btn btn-primary"></input>
+          </div>
+        </div>
+          <div id="addPlayers"class="card" style="width:190px">
+            <button id="deletePlayer" onclick="deletePlayer()" class="hidden">Elimina Giocatore</button>
+            <img  class="card-img-top sizeCard"onclick="addPlayer()" src="./imgCreate/registration.png" alt="Card image" style="width:100%">
+            <div class="card-body">
+              <p class="card-text">Aggiungi un giocatore</p>
+            </div>
+          </div>
+
+      </div>
+          <button onclick="createButtonsPlayer('olimpiadi','easy.json')">Click me</button>
+
+          <div id="story">
+      
+          </div>
+          <div>
+
+          </div>
+          
+     <script src="js/playerExtra.js"></script>
+     <script src="inizioQRCode.js"></script>
+     
+
+    </body>
+</html>

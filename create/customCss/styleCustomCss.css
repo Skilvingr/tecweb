@@ -1,0 +1,9 @@
+body{
+  background-color: white;
+}
+#tryBox{
+  height: 700px;
+  width: 700px;
+   float:right;
+   align-content: center;
+}

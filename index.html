@@ -6,25 +6,32 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+
+
     <link href="style.css" rel="stylesheet" />
-  
+
   </head>
 
   <body id="body">
-
+    <div id="buttonQrCode">
+      <button id="buttonQrCode" onclick="qrCodeGeneration()">Genera QrCode</button>
+    </div>
+   <div id="accessabilityDiv">
+      <a href="/accessability">Accessibilità</a>
+      </div>
     <div id="mainContainer" class="container">
       <form action="/loginWindow" method="get">
 	<input class="submit-btn" type="submit" value="Creator"></input>
       </form>
-      <a href="/accessability">Accessibilità</a>
+      
+      
       
       <div id="jumboMain"class="jumbotron">
 	<h1>Welcome</h1>
-	<img width="700px" height="300px" src="/mainImg/magic-book.jpg"></img>
+
 	
       </div>
-     
+       <div id="qrCode"></div>
     </div>
 
     <div id="introduction">
@@ -33,7 +40,7 @@
 
     <div id="players" class="container">
       <h3>Gioca con gli Amici</h3>
-      
+
       <div id="player1"class="card playerCard" style="width:190px">
 	<img class="card-img-top sizeCard" src="./mainImg/player.jpeg" alt="Card image" style="width:100%">
 	<div class="card-body">
@@ -42,17 +49,17 @@
 	<input size="7" id="playerName1" class="btn btn-primary"></input>
 	</div>
       </div>
-     
+
       <div id="addPlayers"class="card" style="width:190px">
 	<button id="deletePlayer" onclick="deletePlayer()" class="hidden">Elimina Giocatore</button>
-	 <img class="card-img-top sizeCard"onclick="addPlayer()" src="./imgCreate/registration.png" alt="Card image" style="width:100%">
+	 <img class="card-img-top sizeCard"onclick="addPlayer()" src="./mainImg/addPlayer2.png" alt="Card image" style="width:100%">
 	 <div class="card-body">
 	   <p class="card-text">Aggiungi un giocatore</p>
 	   </div>
        </div>
-       
+
     </div>
-    
+
       <br>
     <div id="age" onchange="playerButtons()">
       <p>Scegli l'età e Seleziona una Storia</p>
@@ -63,21 +70,23 @@
 	<option value="3">15-18</option>
       </select>
     </div>
-    
+
     <div id="story">
-      
+
     </div>
-    
+
     <div id="homeSideNav" class="homeSidenav leftSidenav">
      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" action="loginWindow/" method="get">Login</a>
 
-    
+
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav('homeSideNav')">&times;</a>
     </div>
- 
-    <script src="js/global/funzioniGlobali.js"></script>
-    <script src="js/global/gruppi.js"></script>
-     <script src="js/playerExtra.js"></script>
+
+    <script src="js/playerExtra.js"></script>
     <script src="create/fun-extra.js"></script>
+    <script src="/widget/puzzle-game-jquery/dist/script.js"></script>
+    <script type="text/javascript" src="js/qrCode/qrcode.js"></script>
+    <script src="js/qrCode/qrCodeGen.js"></script>
+    
   </body>
 </html>
