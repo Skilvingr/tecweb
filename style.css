@@ -60,6 +60,7 @@ select{
 }
 body{
     background-image: url("mainImg/blackMain4.jpg");
+    display: grid;
 }
 .homeSidenav {
     height: 100%;
@@ -76,16 +77,6 @@ body{
 
 .leftSidenav {
     left: 0;
-}
-
-#mainContainer{
-    background-color: black;
-    background-image:url("mainImg/blackMain4.jpg");
-}
-
-#jumboMain{
-    text-align:center;
-
 }
 
 h1{
@@ -136,10 +127,10 @@ p{
 .card {display:inline-block;}
 
 .sizeCard{
-    width:170px;
-    height:160px;
+    width:60%;
+    height:50%;
     border-radius: 50%;
-    padding-top:5px;
+    padding: 5px;
 
 }
 #playerName{
@@ -155,6 +146,7 @@ p{
     cursor:pointer;
 
 }
+
 
 #textStory{
 
