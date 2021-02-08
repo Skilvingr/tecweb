@@ -7,80 +7,93 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
 
-    <link href="style.css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+      <link href="style.css" rel="stylesheet" />
 
   </head>
 
   <body id="body">
-    <div id="buttonQrCode">
-      <button id="buttonQrCode" onclick="qrCodeGeneration()">Genera QrCode</button>
-    </div>
-   <div id="accessabilityDiv">
-      <a href="/accessability">Accessibilità</a>
-      </div>
-    <div id="mainContainer" class="container">
-      <form action="/loginWindow" method="get">
-	<input class="submit-btn" type="submit" value="Creator"></input>
-      </form>
-      
-      
-      
-      <div id="jumboMain"class="jumbotron">
-	<h1>Welcome</h1>
+    <row id="NavMenu">
+        <div>
+            <button id="buttonQrCode" onclick="qrCodeGeneration()">Genera QrCode</button>
+        </div>
+        <div id="accessabilityDiv">
+            <button onclick="window.location.href='/accessability';">
+               Accessibilità
+            </button>
+        </div>
+        <div id="mainContainer" class="container">
+            <form action="/loginWindow" method="get">
+                <input class="submit-btn" type="submit" value="Creator"></input>
+            </form>
+        </div>
+    </row>
 
-	
-      </div>
-       <div id="qrCode"></div>
-    </div>
+    <row id="qrCodeRow">
+        <div id="qrCode" style="position:absolute"></div>
+    </row>
 
-    <div id="introduction">
-      <h2>Questo è il Player Qui puoi Scegliere e Giocare Differenti Storie<h2>
-    </div>
+    <row id="WelcomeRow">
+        <div id="jumboMain"class="jumbotron">
+            <img src="./mainImg/welcome.png" alt="Welcome image" style="width:37%">
+        </div>
+    </row>
 
-    <div id="players" class="container">
-      <h3>Gioca con gli Amici</h3>
+    <row>
+        <div id="introduction">
+            <h2>Questo è il Player, puoi scegliere e giocare differenti storie</h2>
+        </div>
+        <div id="players" class="container">
+            <h3>Gioca con gli amici</h3>
 
-      <div id="player1"class="card playerCard" style="width:190px">
-	<img class="card-img-top sizeCard" src="./mainImg/player.jpeg" alt="Card image" style="width:100%">
-	<div class="card-body">
-	<p>Player 1</p>
-	<p class="card-text">Scegli il Nome</p>
-	<input size="7" id="playerName1" class="btn btn-primary"></input>
-	</div>
-      </div>
+            <div id="player1"class="card playerCard" style="width:190px">
+                <img class="card-img-top sizeCard" src="./mainImg/player.jpeg" alt="Card image" style="width:90%">
+                <div class="card-body">
+                    <p>Player 1</p>
+                    <p class="card-text">Scegli il Nome</p>
+                    <input size="7" id="playerName1" class="btn btn-primary"></input>
+                </div>
+            </div>
 
-      <div id="addPlayers"class="card" style="width:190px">
-	<button id="deletePlayer" onclick="deletePlayer()" class="hidden">Elimina Giocatore</button>
-	 <img class="card-img-top sizeCard"onclick="addPlayer()" src="./mainImg/addPlayer2.png" alt="Card image" style="width:100%">
-	 <div class="card-body">
-	   <p class="card-text">Aggiungi un giocatore</p>
-	   </div>
-       </div>
+            <div id="addPlayers"class="card" style="width:190px">
+                <button id="deletePlayer" onclick="deletePlayer()" class="hidden">Elimina Giocatore</button>
+                <img class="card-img-top sizeCard"onclick="addPlayer()" src="./mainImg/addPlayer2.png" alt="Card image" style="width:90%">
+                <div class="card-body">
+                    <p class="card-text">Aggiungi un giocatore</p>
+                </div>
+            </div>
 
-    </div>
+        </div>
+    </row>
 
       <br>
-    <div id="age" onchange="playerButtons()">
-      <p>Scegli l'età e Seleziona una Storia</p>
-      <select id="ageSelect">
-	<option>Age</option>
-	<option value="1">7-10</option>
-	<option value="2">11-14</option>
-	<option value="3">15-18</option>
-      </select>
-    </div>
+    <row>
+        <div id="age" onchange="playerButtons()">
+            <p>Scegli l'età e Seleziona una Storia</p>
+            <select id="ageSelect">
+                <option>Age</option>
+                <option value="1">7-10</option>
+                <option value="2">11-14</option>
+                <option value="3">15-18</option>
+            </select>
+        </div>
 
-    <div id="story">
+        <div id="story">
 
-    </div>
+        </div>
 
-    <div id="homeSideNav" class="homeSidenav leftSidenav">
-     <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" action="loginWindow/" method="get">Login</a>
+        <div id="homeSideNav" class="homeSidenav leftSidenav">
+            <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" action="loginWindow/" method="get">Login</a>
 
 
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav('homeSideNav')">&times;</a>
-    </div>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav('homeSideNav')">&times;</a>
+        </div>
+    </row>
+
 
     <script src="js/playerExtra.js"></script>
     <script src="create/fun-extra.js"></script>
