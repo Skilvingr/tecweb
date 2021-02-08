@@ -1,23 +1,39 @@
+body{
+    display: grid;
+    text-decoration-color: black;
+    margin: 0.3% 0;
+    font-family: 'Shadows Into Light Two', cursive;
+}
+
 button {
-  background-color: darkgreen;
+  background-color: #ff861a;
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: smaller;
   border-radius: 5px;
   border: none;
   color: white;
-  padding: 7px 20px;
-  text-align: center;
+    padding: 8px 24px;
+    text-align: center;
   text-decoration: none;
   display: inline-block;
-
-  margin-left:5px;
+  margin:2px;
   cursor: pointer;
 }
+#NavMenu{
+    margin-bottom: 0.5%;
+    border-bottom: 2px solid orange;
+    padding-bottom: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
 input{
-   
-  background-color: darkgreen;
+  background-color: #ff861a;
   border-radius: 5px;
   border: none;
   color: white;
-  padding: 5px 15px;
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: smaller;
+    padding: 8px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -26,20 +42,22 @@ input{
 
 }
 a{
-  background-color: darkgreen;
+  background-color: #ff861a;
   border-radius: 5px;
   border: none;
   color: white;
-  padding: 7px 20px;
+    padding: 4px 6px;
+    font-weight: bold;
+    font-size: small;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-
+    margin:2px;
   cursor: pointer;
 }
 
 select{
-  background-color: darkgreen;
+  background-color: #ff861a;
   border: none;
   color: white;
   padding: 7px 20px;
@@ -55,11 +73,14 @@ select{
 #accessabilityDiv{
     float:right;
 }
-#qrCode{
-    float:right;
-}
-body{
-    background-image: url("mainImg/blackMain4.jpg");
+
+#WelcomeRow{
+    padding-top: 5%;
+    padding-bottom: 9%;
+    background-image: url("mainImg/sfondoWelcome.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .homeSidenav {
     height: 100%;
@@ -78,9 +99,9 @@ body{
     left: 0;
 }
 
-#mainContainer{
-    background-color: black;
-    background-image:url("mainImg/blackMain4.jpg");
+#qrCodeRow{
+    display: flex;
+    justify-content: right;
 }
 
 #jumboMain{
@@ -88,20 +109,6 @@ body{
 
 }
 
-h1{
-    color:white;
-}
-h2{
-    color:white;
-}
-
-h3{
-    color:white;
-}
-
-p{
-    color:white;
-}
 
 #introduction{
     text-align:center;
@@ -127,17 +134,17 @@ p{
 }
 
 .playerCard{
-
-    border-color: white;
+    border-color: darkorange;
+    background: lightgoldenrodyellow;
     border-width: thick;
     border-style: solid;
     border-radius:5px;
+    padding:1%;
 }
 .card {display:inline-block;}
 
 .sizeCard{
-    width:170px;
-    height:160px;
+
     border-radius: 50%;
     padding-top:5px;
 
