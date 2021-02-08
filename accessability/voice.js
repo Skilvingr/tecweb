@@ -1,3 +1,6 @@
+var utterance = null;
+var synthesis = null;
+
 $(document).ready(function() {
     var number = document.getElementById("initialAccessability").childElementCount;
 
@@ -40,13 +43,14 @@ function eyesJson(name){
         })
 	.then((data) => { //This is where we create the code which will append the data to our page.
             var score = {};
-            score.correct=0;
-            score.wrong=0;
-            startRead(0,data,score);
+            score.correct = 0;
+            score.wrong = 0;
+            startRead(0, data, score);
         });
 }
 
 function startRead(number,data,score){
+    synthesis.cancel();
     text(number, data);
     buttons(number, data, score);
 }
@@ -72,16 +76,15 @@ function buttons(number, data, score){
     var container = document.getElementById("buttons");
     container.innerHTML = "";
     var buttonsArray = data[number].buttons;
-    var i = 1;
 
-    buttonsArray.forEach((element) => {
-	speech("premere il numero " + i + ", e poi, invio per selezionare il pulsante: " + element.text);
+    buttonsArray.forEach((element, index) => {
+	speech("premere il numero " + (index + 1) + ", e poi, invio per selezionare il pulsante: " + element.text);
 
 	if(element.destination){
 	    var button = document.createElement("button");
             button.textContent = element.text;
-            button.setAttribute("id", "button" + i);
-            button.onclick=function(){
+            button.setAttribute("id", "button" + (index + 1));
+            button.onclick = function(){
 		if(element.text != "avanti" && element.text != "Avanti"){
 		    score.correct += 1;
 		}
@@ -94,7 +97,7 @@ function buttons(number, data, score){
 	else if(element.errore){
 	    var button = document.createElement("button");
             button.textContent = element.text;
-            button.setAttribute("id", "button" + i);
+            button.setAttribute("id", "button" + (index + 1));
             button.onclick = function(){
 		score.wrong += 1;
 
@@ -107,25 +110,33 @@ function buttons(number, data, score){
 	else if(element.end){
             var button = document.createElement("button");
             button.textContent = element.text;
-            button.setAttribute("id", "button" + i);
+            button.setAttribute("id", "button" + (index + 1));
             button.onclick = () => {
 		endStory(score);
             }
             container.appendChild(button);
 	}
-	i++;
     });
+
+    	
     
-    var buttonNumber = parseInt(
-	window.prompt(""),
-	10);
+    var buttonNumber = NaN;
     
-    if(isNaN(buttonNumber) || (buttonNumberi)){
-	speech("input sbagliato");
-	buttons(number, data, score);
+    while(isNaN(buttonNumber)){
+	buttonNumber = parseInt(
+	    window.prompt(""),
+	    10
+	);
+
+	if(isNaN(buttonNumber) || buttonNumber > data[number].buttons.length || buttonNumber <= 0) {
+	    if(!synthesis.pending)
+		speech("Input sbagliato");
+	    
+	    buttonNumber = NaN;
+	}
     }
-    else
-	$("#button" + buttonNumber).click();
+
+    $("#button" + buttonNumber).click();
 
 }
 
@@ -147,15 +158,16 @@ function endStory(score){
 
 function speech(data){
 
-    var synthesis = window.speechSynthesis;
+    synthesis = window.speechSynthesis;
 
     if ('speechSynthesis' in window) {
-	var synthesis = window.speechSynthesis;
+	synthesis = window.speechSynthesis;
 	// Get the first `it` language voice in the list
 	var voice = synthesis.getVoices().filter((voice) => {
 	    return voice.lang === 'it';
 	})[0];
-	var utterance = new SpeechSynthesisUtterance(data);
+	
+	utterance = new SpeechSynthesisUtterance(data);
 
 	// Set utterance properties
 	utterance.voice = voice;
