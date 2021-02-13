@@ -92,6 +92,8 @@ function start() {
     $("#files").removeClass("hidden");
 
     $("#Drawer").attr("onClick", "openNavGraph('sidenavForBranches')");
+    $("#iconNav").removeClass("far fa-edit")
+    $("#iconNav").addClass("fas fa-project-diagram")
     $("#DrawerUtils").removeClass("hidden");
 
 
@@ -113,14 +115,14 @@ function start() {
     stor.appendChild(storyTitle);
 
 
-    var storyMis = document.createElement("h2");
+    var storyMis = document.createElement("p");
     var titleMis = document.createTextNode("Inserisci titolo");
     storyMis.appendChild(titleMis);
 
     var titoloMis = document.createElement("input");
     titoloMis.setAttribute("id","TitoloMissione");
 
-    var story = document.createElement("h3");
+    var story = document.createElement("p");
     var title = document.createTextNode("Inserisci storia");
     story.appendChild(title);
 

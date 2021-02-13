@@ -40,6 +40,34 @@ select{
   cursor: pointer;
 }
 
+#Drawer{
+  cursor:pointer;
+  text-align:right;
+}
+
+#DrawerUtils{
+  cursor: pointer;
+  text-align: left;
+  right: 96%;
+  position: relative;
+}
+
+#btn_NavAdd{
+  background: none;
+  color: black;
+  padding: 0px;
+  margin-top: 0px;
+  font-size: x-large;
+}
+
+#btn_NavAltro{
+  background: none;
+  color: black;
+  padding: 0px;
+  margin-top: 0px;
+  font-size: x-large;
+}
+
 button{
   background-color: #03989e;
   font-family: 'Yusei Magic', sans-serif;
@@ -70,9 +98,9 @@ button{
   cursor: pointer;
 }
 
-#selectImage{
-position: left;
-
+#options{
+  text-align: center;
+  margin: 2%;
 }
 
 .sidenavGraph {

@@ -13,28 +13,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link rel="stylesheet" href="styleCreator.css">
 
 
 <head>
     <title>Creator</title>
+    <script src="https://kit.fontawesome.com/bc89441cf1.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
 
 
-<div>
-  <span style="font-size:30px;cursor:pointer;text-align:left" id="DrawerUtils" class="hidden" onclick="openNavGraph('utilsSidenav')">&#9776;</span>
-    <span style="font-size:30px;cursor:pointer;position:absolute;left:97%;text-align:right" id="Drawer" onclick="openNav('masterSidenav')">&#9776;</span>
-</div>
+        <div style="display: flex; justify-content: right">
+            <span id="DrawerUtils" class="hidden" onclick="openNavGraph('utilsSidenav')">
+                <button id="btn_NavAdd">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </span>
+            <span id="Drawer" onclick="openNav('masterSidenav')">
+                <button id="btn_NavAltro">
+                    <i id="iconNav" class="far fa-edit"></i>
+                </button>
+            </span>
+        </div>
 
 <div id="utilsSidenav" class="sidenav leftSidenav">
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('changeStatus')">Attiva/Disattiva Branch</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('delete')">Elimina Branch</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavButtons')">Attiva/Disattiva Bottoni</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listWidget('widgets')">Attiva/Mostra widget</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavForImg')">Mostra immagine</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('changeStatus')">Attiva/Disattiva Branch</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('delete')">Elimina Branch</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavButtons')">Attiva/Disattiva Bottoni</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listWidget('widgets')">Attiva/Mostra widget</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavForImg')">Mostra immagine</a>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('utilsSidenav')">&times;</a>
 </div>
 
@@ -64,9 +75,9 @@
 </div>
 
 <div id="masterSidenav" class="sidenav">
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Modifica storia</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Elimina storia</a>
-  <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Rendi storia giocabile</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Modifica storia</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Elimina storia</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Rendi storia giocabile</a>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('masterSidenav')">&times;</a>
   <a href="#">About diocane</a>
 </div>
@@ -95,15 +106,11 @@
 
 <div id="body" onclick="closeAllNavs()">
 
-        <div id="console" class="hidden">
+    <div id="console" class="hidden">
             <input id="com">
             <button id="sendCom" onclick="sendCom()">send com</button>
             <br>
             <textarea rows="10" cols="70" id="consoleOut"></textarea>
-        </div>
-
-        <div style ="text-align: center" id="options"class="hidden">
-            <button id="End" onclick="end()">Crea Storia</button>
         </div>
 
     <div id="main"  onClick="closeAllNavs()" style="text-align: center;">
@@ -158,6 +165,7 @@
                 <div id="Modify" class=hidden style ="text-align: center; padding-bottom: 30px;" ></div>
             </div>
         </row>
+
     </div>
 
 
@@ -176,16 +184,19 @@
 
 
 
-        <div id="files" style="text-align: center" class="hidden" >
-            <br>
-            <br>
-            <p>Selezionare le immagini o i video che si desiderano usare per creare la storia </p>
-            <p>(formato in jpg,png,avi,mkv)</p>
-            <br>
+    <div id="files" style="text-align: center" class="hidden" >
+        <br>
+        <br>
+        <p>Selezionare le immagini o i video che si desiderano usare per creare la storia </p>
+        <p>(formato in jpg,png,avi,mkv)</p>
+        <br>
         <form id="imageStory"  name="file" action="http://site192020.tw.cs.unibo.it/create"  enctype="multipart/form-data">
         </form>
-        </div>
+    </div>
 
+    <div id="options"class="hidden">
+        <button id="End" onclick="end()">Crea Storia</button>
+    </div>
 
 
 </body>
