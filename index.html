@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- JQUERY -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -28,7 +29,7 @@
         </div>
         <div id="mainContainer" class="container">
             <form action="/loginWindow" method="get">
-                <input class="submit-btn" type="submit" value="Creator"></input>
+                <input class="submit-btn" type="submit" value="Creator">
             </form>
         </div>
     </row>
@@ -39,22 +40,22 @@
 
     <row id="WelcomeRow">
         <div id="jumboMain"class="jumbotron">
-            <img src="./mainImg/welcome.png" alt="Welcome image" style="width:37%">
+            <img src="./mainImg/Player.png" alt="Player image" style="width:32%">
         </div>
     </row>
 
-    <row>
+    <row id="IntroductionRow">
         <div id="introduction">
-            <h2>Questo è il Player, puoi scegliere e giocare differenti storie</h2>
+            <h1>Questo è il Player, puoi scegliere e giocare differenti storie</h1>
         </div>
         <div id="players" class="container">
-            <h3>Gioca con gli amici</h3>
+            <h2>Gioca con gli amici</h2>
 
             <div id="player1"class="card playerCard" style="width:190px">
-                <img class="card-img-top sizeCard" src="./mainImg/player.jpeg" alt="Card image" style="width:90%">
+                <img class="card-img-top sizeCard" src="./mainImg/player_added.png" alt="Card image" style="width:80%">
                 <div class="card-body">
                     <p>Player 1</p>
-                    <p class="card-text">Scegli il Nome</p>
+                    <p class="card-text">Nome</p>
                     <input size="7" id="playerName1" class="btn btn-primary"></input>
                 </div>
             </div>

@@ -100,9 +100,9 @@ function addPlayer(){
 
     img.classList.add("card-img-top");
     img.classList.add("sizeCard");
-    img.src="./mainImg/player.jpeg";
+    img.src="./mainImg/player_added.png";
     img.alt="Card image";
-    img.style.width="100%";
+    img.style.width="80%";
 
     bodyCard.classList.add("card-body");
 

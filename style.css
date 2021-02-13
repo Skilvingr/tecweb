@@ -2,11 +2,15 @@ body{
     display: grid;
     text-decoration-color: black;
     margin: 0.3% 0;
+    font-family: 'Yusei Magic', sans-serif;
+}
+
+h1,h2{
     font-family: 'Shadows Into Light Two', cursive;
 }
 
 button {
-  background-color: #ff861a;
+  background-color: #ff5757;
     font-family: 'Yusei Magic', sans-serif;
     font-size: smaller;
   border-radius: 5px;
@@ -20,24 +24,30 @@ button {
   cursor: pointer;
 }
 #NavMenu{
-    margin-bottom: 0.5%;
-    border-bottom: 2px solid orange;
+    margin-bottom: 0.3%;
+    border-bottom: 2px solid #ff5757;
     padding-bottom: 3px;
     padding-left: 3px;
     padding-right: 3px;
 }
+
+#IntroductionRow{
+    border-top: 2px solid #ff5757;
+    margin-top: 0.3%;
+}
+
 input{
-  background-color: #ff861a;
   border-radius: 5px;
-  border: none;
-  color: white;
+    background:white;
+  border: 2px solid black;
+  color: black;
     font-family: 'Yusei Magic', sans-serif;
     font-size: smaller;
     padding: 8px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-
+  margin:2px;
   cursor: pointer;
 
 }
@@ -57,9 +67,11 @@ a{
 }
 
 select{
-  background-color: #ff861a;
+  background-color: #ff5757;
   border: none;
   color: white;
+    font-family: 'Yusei Magic', sans-serif;
+    font-size: smaller;
   padding: 7px 20px;
   text-align: center;
   text-decoration: none;
@@ -75,9 +87,7 @@ select{
 }
 
 #WelcomeRow{
-    padding-top: 5%;
-    padding-bottom: 9%;
-    background-image: url("mainImg/sfondoWelcome.png");
+    background-image: url("mainImg/sfondoCarta.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -134,9 +144,9 @@ select{
 }
 
 .playerCard{
-    border-color: darkorange;
-    background: lightgoldenrodyellow;
-    border-width: thick;
+    border-color: #ff5757;
+    margin-right: 1%;
+    border-width: medium;
     border-style: solid;
     border-radius:5px;
     padding:1%;
@@ -145,6 +155,7 @@ select{
 
 .sizeCard{
 
+    border: 3px solid black;
     border-radius: 50%;
     padding-top:5px;
 
