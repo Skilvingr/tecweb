@@ -35,7 +35,7 @@ for(var i=0; i<arrayData.length;i++){
 }
 
 function normalizeString(str){
-    
+
     const finalString = str.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
     var noSpaceString = finalString.replace(/\s+/g, '');
     return noSpaceString;
@@ -46,7 +46,7 @@ function initialObject(){
 
     //graph.data(data);
     //graph.render();
-    
+
     var age = document.getElementById("agePicker").value;
     var css =document.getElementById("CssStyle").value;
     title = document.getElementById("titoloStory").value;
@@ -309,7 +309,7 @@ function end(){
 		 location.reload();
             }});
     });
-   
+
     //End.appendChild(button);
 
 }
@@ -439,6 +439,27 @@ function getStory(story, level) {
     });
 }
 
+function getStoryForAccessability(story, level) {
+    $(document).ready(function(){
+	$.ajax({
+	    type: "GET",
+	    dataType: "json",
+	    url: "http://site192020.tw.cs.unibo.it/getStory?story=" + story + "&level=" + level,
+	    success: function(returnData) {
+		closeAllNavs();
+		$("#sidenavEntryPoint").addClass("hidden");
+		console.log(returnData);
+		var temp= returnData;
+		delete init;
+		delete obj;
+		init = returnData;
+		obj = returnData.player;
+		initPageForAccessability();
+	    }
+	})
+    });
+}
+
 function playableStory(story, level) {
     $(document).ready(function(){
 	$.ajax({
@@ -471,6 +492,23 @@ function removeStory(story, level) {
 	   })
     });
     	alert("La storia è stata eliminata");
+}
+
+function initPageForAccessability() {
+    document.getElementById("titoloStory").value = init.storyInfo.title;
+    document.getElementById("agePicker").value = init.storyInfo.età;
+    document.getElementById("CssStyle").value=init.storyInfo.css;
+    validateTitle();
+    populate(0);
+    populateGraph();
+
+    for(var x in obj){
+	if(obj[x]!=null){
+	    id=obj[x].id;
+	}
+id++;
+    }
+    setForAccessability();
 }
 
 function initPage() {
@@ -615,6 +653,18 @@ function handleStories(stories, sidenav, onclick = null){
 	    sidenav.appendChild(a);
 
 	});
+    }
+    else if(sidenav.id=="accessabilityStoryInnerDiv"){
+  document.getElementById("accessabilityStoryInnerDiv").innerHTML="";
+  storiesArray.forEach((story) => {
+      var a = document.createElement("a");
+      a.className = "storyLabel";
+      a.setAttribute("style", "font-size:30px;cursor:pointer");
+      a.setAttribute("onclick", "accessabilityLevelNav(\"" + story + "\")");
+      a.textContent = story;
+      sidenav.appendChild(a);
+
+  });
     }
 }
 

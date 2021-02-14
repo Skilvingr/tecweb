@@ -1,0 +1,348 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "Missione1",
+      "text": "Sei un ragazzo appassionato di esperimenti scientifici, ti eri informato su un simpatico e semplice esperimento, cosi decidi di testarlo. Perciò prendi una graffetta e decidi di posarla delicatamente in un bicchiere pieno d'acqua. Noti che la graffetta non sta affondando, sai dirmi il perchè? ",
+      "numeroBottoni": 2,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "Si",
+          "type": "ContinueButton",
+          "destination": "Missione2",
+          "score": "0",
+          "id": 1
+        },
+        {
+          "text": "No",
+          "type": "BridgeButton",
+          "bridge": "2",
+          "score": "0"
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "Graffetta.png",
+      "start": true
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione2",
+      "text": "Perfetto, perciò saprai dirmi perchè un corpo pesante, come ad esempio un sasso, riesce ad entrare facilmente in acqua?\n",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "perche riesce a dividere il legame creato dalle molecole d'acqua sulla superficie.",
+          "type": "ContinueButton",
+          "destination": "Missione3",
+          "id": 3,
+          "score": "1"
+        },
+        {
+          "text": "Perchè, appunto, è pesante",
+          "type": "WrongButton",
+          "wrong": "",
+          "score": "-1"
+        }
+      ],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    },
+    {
+      "id": 2,
+      "title": "SpiegazioneTensioneSuperficiale",
+      "text": "Le forze che agiscono sulle molecole di superficie non sono equilibrate verso l'alto e da ciò risulta una compressione verso l'interno. \nInoltre, la coesione tra le molecole determina una tensione tangenziale alla superficie. La forza superficiale di coesione tra le molecole appena descritta prende il nome di tensione superficiale",
+      "numeroBottoni": 1,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "BridgeButton",
+          "bridge": "3",
+          "score": "0"
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "tensione-superficiale.jpg"
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione3",
+      "text": "Una volta messa in acqua la graffetta decidi di aggiungere del sapone liquido sai dirmi cosa accade?",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "il legame creato fra le molecole d'acqua diventa più forte e la graffetta rimane in superficie",
+          "type": "WrongButton",
+          "wrong": "",
+          "score": "-1"
+        },
+        {
+          "text": "il legame creato tra le molecole d'acqua si scioglie e la graffetta può affondare",
+          "type": "ContinueButton",
+          "destination": "Missione4",
+          "id": 4,
+          "score": "1"
+        }
+      ],
+      "id": 3,
+      "branch": false,
+      "fatherIdGraph": 1,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione4",
+      "text": "Soddisfatto del tuo esperimento decidi di tornare in casa. Entrato decidi di effetuare un secondo esperimento chiamato il dentifricio dell'elefante.Sai cos'è?",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Certo",
+          "type": "ContinueButton",
+          "destination": "Missione5",
+          "id": 5,
+          "score": "0"
+        },
+        {
+          "text": "Non so",
+          "type": "BridgeButton",
+          "bridge": "6",
+          "score": "0"
+        }
+      ],
+      "id": 4,
+      "branch": false,
+      "fatherIdGraph": 3,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione5",
+      "text": "Decidi di leggere gli ingredienti per effettuare l'esperimento. Avrai bisogno di 120 ml di acqua ossigenata, 15 g di lievito secco, 45 ml di acqua calda, Sapone liquido per i piatti e volendo anchde del colorante alimentare.",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "ContinueButton",
+          "destination": "Missione6",
+          "id": 7,
+          "score": "0"
+        }
+      ],
+      "id": 5,
+      "branch": false,
+      "fatherIdGraph": 4,
+      "widgetPuzzle": false
+    },
+    {
+      "id": 6,
+      "title": "SpiegazioneDentifricio",
+      "text": "Il lievito spinge gli elementi chimici contenuti nell'acqua ossigenata (perossido di idrogeno) e libera l’ossigeno che viene \"bloccato\" dal detersivo.\n\nSi crea così la schiuma, chiamata il dentifricio dell'elefante: fuoriesce dalla bottiglia perché l’ossigeno, come tutti i gas, occupa tutto lo spazio del contenitore. È per questo che più il contenitore è stretto e alto, tipo una bottiglia di plastica, più l'effetto è dirompente",
+      "numeroBottoni": 1,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "BridgeButton",
+          "bridge": "5",
+          "score": "0"
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "dentifricioSpiegazionCut.jpg"
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione6",
+      "text": "Per cercare gli ingredienti decidi di rivolgerti a tua madre cosi da farti aiutare, tuttavia tua madre decide di sottoporti ad alcune sfide per la ricerca dei tuoi ingredienti. Per procedere ti chiede di risolvere un puzzle.",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Procedi",
+          "type": "ContinueButton",
+          "destination": "Missione7",
+          "id": 8,
+          "score": "1"
+        }
+      ],
+      "id": 7,
+      "branch": false,
+      "fatherIdGraph": 5,
+      "widgetPuzzle": true,
+      "puzzle": [
+        {
+          "img": "Untitled10.png"
+        }
+      ]
+    },
+    {
+      "img": "acqua ossigenata.jpg",
+      "video": "none",
+      "title": "Missione7",
+      "text": "Il puzzle che hai risolto rappresenta la formula chimica del perossido di idrogeno più comunemente chiamata acqua ossigenata. Risolto il puzzle tua madre decide questa volta di farti una domanda alla quale dovrai rispondere correttamente se vuoi avere il lievito.\nQuando viene svolta la fotosintesi clorofilliana?",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Di giorno",
+          "type": "StopButton",
+          "alert": "Rifletti bene, la risposta è parzialmente esatta",
+          "score": "-0.5"
+        },
+        {
+          "text": "Di notte",
+          "type": "StopButton",
+          "alert": "Rifletti bene, la risposta è parzialmente esatta",
+          "score": "-0.5"
+        },
+        {
+          "text": "Sempre",
+          "type": "ContinueButton",
+          "destination": "Missione8",
+          "id": 9,
+          "score": "1"
+        }
+      ],
+      "id": 8,
+      "branch": false,
+      "fatherIdGraph": 7,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "Giorno notte.jpg",
+      "video": "none",
+      "title": "Missione8",
+      "text": "Esatto! la fotosintesi viene svolta sempre, di giorno viene prodotto ossigeno(O2), quello che noi respiriamo per mantenerci in vita mentre di notte respirano ossigeno e producono anidride carbonica(CO2).\nE per questo non bisogna mai tenere una pianta in camera di notte mentre si dorme perchè la pianta potrebbe assorbire tutto l'ossigeno presente nell'aria.",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "ContinueButton",
+          "destination": "Missione9",
+          "id": 10,
+          "score": "0"
+        }
+      ],
+      "id": 9,
+      "branch": false,
+      "fatherIdGraph": 8,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione9",
+      "text": "Bravo! ti sei meritato il tuo premio adesso però per scaldare l'acqua e procurarti cosi l'ultimo ingrediente tua madre decide di farti un'altra domanda.\nLa fotosinteti clorofilliana trasforma il glucosio in energia? O l'energia in glucosio?",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "l'energia in glucosio",
+          "type": "ContinueButton",
+          "destination": "Missione10",
+          "id": 11,
+          "score": "1"
+        },
+        {
+          "text": "il glucosio in energia",
+          "type": "WrongButton",
+          "wrong": "",
+          "score": "-1"
+        }
+      ],
+      "id": 10,
+      "branch": false,
+      "fatherIdGraph": 9,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione10",
+      "text": "Ottimo ti vedo preparato, infatti la fotosintesi trasforma l'energia ricevuta dal sole in energia per la pianta, fortunatamente non hai bisogno di procurarti il sapone liquido visto che ne è avanzato un pò dal tuo esperimento precedente. Tuttavia tua madre ti chiede se hai bisogno anche del colorante per rendere l'esperimento più interessante.",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Si grazie",
+          "type": "ContinueButton",
+          "destination": "Missione11",
+          "id": 12,
+          "score": "0.5"
+        },
+        {
+          "text": "No preferisco far senza",
+          "type": "ContinueButton",
+          "destination": "Missione12",
+          "id": 13,
+          "score": "0"
+        }
+      ],
+      "id": 11,
+      "branch": false,
+      "fatherIdGraph": 10,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "clorofilla.jpg",
+      "video": "none",
+      "title": "Missione11",
+      "text": "Okay, tuttavia dovrai prima rispondere ad un'altra domanda. Chi si occupa di catturare l'energia solare?",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "il glucosio",
+          "type": "StopButton",
+          "alert": "no il glucosio è la sostanza che viene ricavata dal prodecimento della fotosintesi",
+          "score": "-1"
+        },
+        {
+          "text": "la clorofilla",
+          "type": "BridgeButton",
+          "bridge": "13",
+          "score": "1"
+        },
+        {
+          "text": "la cellula vegetale",
+          "type": "StopButton",
+          "alert": "La risposta è parzialmente esatta, la cellula vegetale contiene i plastidi che svolgono grazie ad un componente la trasformazione",
+          "score": "0.5"
+        }
+      ],
+      "id": 12,
+      "branch": false,
+      "fatherIdGraph": 11,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "Dentifricio.jpg",
+      "video": "none",
+      "title": "Missione12",
+      "text": "Ottimo! adesso che hai i componenti che cercavi puoi finalmente creare il tuo esperimento.  Mescola 45 ml di acqua con il lievito e lascialo riposare, versa il sapone per i piatti, volendo anche il colorante alimentare, e 120 ml di acqua ossigenata in una bottiglia. Dopodichè versa il composto di lievito nella bottiglia usando un imbuto. Togli l'imbuto e goditi lo spettacolo.",
+      "numeroBottoni": 0,
+      "buttons": [
+        {
+          "text": "Fine Storia",
+          "end": true
+        }
+      ],
+      "id": 13,
+      "branch": false,
+      "fatherIdGraph": 11,
+      "widgetPuzzle": false,
+      "end": true
+    }
+  ],
+  "storyInfo": {
+    "title": "TheScientist",
+    "età": "12-14",
+    "css": "TheScientistCss.css"
+  }
+}

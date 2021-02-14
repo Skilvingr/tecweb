@@ -63,4 +63,23 @@ function writeCss(objCss){
   });
   return "saved";
 };
-module.exports={write,uploadImage,writeCss};
+
+function writeAccessability(objAccessability){
+  console.log(objAccessability);
+  var title=""+objAccessability.storyInfo.title;
+  var jsonAccessability = JSON.stringify(objAccessability,null,2);
+  fs.writeFile(("accessability/eyes/"+title+".json"),jsonAccessability,function(err){
+      if (err) {
+    console.log(err);
+    console.log("An error occured while writing JSON Object to File.");
+    return err;
+      }else{
+
+    console.log("JSON file has been saved.");
+
+  }
+  });
+  return "saved";
+};
+
+module.exports={write,uploadImage,writeCss,writeAccessability};

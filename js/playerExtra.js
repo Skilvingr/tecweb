@@ -65,7 +65,7 @@ function addSpaceTitle(str){
     var modString= str.replace(/([A-Z])/g, ' $1').trim();
     console.log(modString);
     return modString;
-    
+
 }
 
 function createButtonsPlayer(title,dif){
@@ -163,20 +163,20 @@ while(i<length){
 
 function controlNull(objP){
     var control=false;
-    
+
     objP.forEach((item)=>{
 	if(item.name==="")
 	    control=true;
     });
-    
+
     return control;
 }
 
 function playStory(title,dif){
    var control =false;
-   var nullTitle=false; 
+   var nullTitle=false;
    var objP = createPlayerObj(title,dif);
-   nullTitle=controlNull(objP); 
+   nullTitle=controlNull(objP);
    control=controlNamePlayer(objP);
     console.log(objP);
     if(nullTitle==true)
