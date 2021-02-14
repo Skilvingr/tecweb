@@ -309,6 +309,17 @@ app.post(
     	res.send(returned);
     });
 
+    app.post("/create/accessabilityStory", function(req,res){
+        //execSync(("mkdir webapp/create/customCss/createdCss" + req.body.storyInfo.title));
+
+      var returned = saver.writeAccessability(req.body);
+
+        if(returned === "saved")
+      res.send('Caricata');
+        else
+      res.send(returned);
+    });
+
 
 
 /* app.listen(8000, () => {

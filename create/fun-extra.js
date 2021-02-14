@@ -755,6 +755,8 @@ function openStoriesNav(id) {
 	getStories(document.getElementById("editInnerDiv"));
     else if(sidenav.id=="removeSidenav")
 	getStoriesComplete(document.getElementById("removeInnerDiv"))
+    else if(sidenav.id=="accessabilityStorySidenav")
+  getStories(document.getElementById("accessabilityStoryInnerDiv"));
 }
 
 function openLevelNav(story) {
@@ -790,6 +792,18 @@ function removeLevelNav(story) {
 	document.getElementById("levelInnerDiv"),
 	"removeStory(\"" + story + "\", \"",
 	"completeJson"
+    );
+}
+
+function accessabilityLevelNav(story) {
+    var sidenav = document.getElementById("levelSidenav");
+    sidenav.style.width = "250px";
+
+    getAvailableLevels(
+	story,
+	document.getElementById("levelInnerDiv"),
+	"getStoryForAccessability(\"" + story + "\", \"",
+	"json"
     );
 }
 
@@ -1077,8 +1091,8 @@ function deleteSelectBranch(item){
   graph.data(data);
   graph.render();
   graph.fitView();
-console.log(obj);
-  //select.remove(select.selectedIndex);
+
+    //select.remove(select.selectedIndex);
   document.getElementById("TitoloMissione").value="";
   document.getElementById("textS").value="";
   document.getElementById("list").value=0;
@@ -1115,6 +1129,218 @@ function disableAllBranch(id){
       disableAllBranch(item.id);
     }
 
+  });
+
+}
+
+//modifica il Creator per eseguire l'upload delle storie per l'accessibilità
+function setForAccessability(){
+  var body = document.getElementById("body");
+  $("#End").addClass("hidden");
+
+  var div = document.createElement("div");
+  div.setAttribute("id","EndAccessability");
+  div.style.textAlign="center";
+  var button = document.createElement("button");
+  button.setAttribute("id","EndButtonAccessability");
+  button.textContent="Carica Storia Accessibile";
+
+  button.onclick=function(){
+    $("#files").addClass("hidden");
+    $("#utilsSidenav").addClass("hidden");
+    $("#sidenavForBranches").addClass("hidden");
+    var arrayImg=[];
+    var i=0;
+    for(var x in obj){
+      if(obj[x].img!="none"){
+        arrayImg[i]=x;
+        i++;
+      }
+    }
+
+    console.log(arrayImg);
+    i=0;
+    textForImages(arrayImg,i);
+  }
+  div.appendChild(button);
+  body.appendChild(div);
+}
+//permette di aggiungere descrizioni per le foto della storia
+function textForImages(arrayImg,i){
+  console.log(arrayImg);
+  var x = arrayImg[i];
+
+  var body = document.getElementById("body");
+  body.innerHTML="";
+  var p=document.createElement("p");
+  var p1 = document.createTextNode("Qui è possibile aggiungere le descrizioni per le immagini");
+  p.appendChild(p1);
+  body.appendChild(p);
+  var img=document.createElement("div");
+  var urlvalue = JSON.stringify("../imgCreate/"+obj[x].img);
+  var stripped = urlvalue.replace(/['"]+/g, "");
+  var img_url = document.createElement("IMG");
+  img_url.setAttribute("src", stripped);
+  img_url.setAttribute("width", "440");
+  img_url.setAttribute("height", "320");
+  img.appendChild(img_url);
+  body.appendChild(img);
+
+  var textarea = document.createElement("textarea");
+  textarea.setAttribute("id", "textS");
+  textarea.setAttribute("rows", "7");
+  textarea.setAttribute("cols", "100");
+  body.appendChild(textarea);
+  var divButtons=document.createElement("div");
+  divButtons.setAttribute("id","divForButtons");
+  if(obj[x].textAccessability)
+    textarea.value=obj[x].textAccessability;
+
+  var buttonNext=document.createElement("button");
+  buttonNext.setAttribute("id","buttonNextImg");
+  buttonNext.textContent="Avanti";
+  buttonNext.onclick=function(){
+    if(arrayImg[parseInt((i+1))])
+    textForImages(arrayImg,parseInt(i+1));
+
+  }
+
+  var buttonBack=document.createElement("button");
+  buttonBack.setAttribute("id","buttonBackImg");
+  buttonBack.textContent="Indietro";
+  buttonBack.onclick=function(){
+      if(arrayImg[parseInt((i-1))])
+      textForImages(arrayImg,parseInt(i-1));
+
+  }
+
+  var buttonSet = document.createElement("button");
+  buttonSet.textContent="Applica Testo";
+  buttonSet.onclick=function(){
+    obj[x].textAccessability=document.getElementById("textS").value;
+  }
+
+  var endButton=document.createElement("button");
+  endButton.textContent="Fine";
+  endButton.setAttribute("onClick","setEndStartAccessabilityStory()");
+
+
+  body.appendChild(divButtons);
+
+  divForButtons.appendChild(buttonSet);
+  divButtons.appendChild(document.createElement("br"));
+  divButtons.appendChild(document.createElement("br"));
+  divForButtons.appendChild(buttonBack);
+  divForButtons.appendChild(buttonNext);
+  divButtons.appendChild(document.createElement("br"));
+  divButtons.appendChild(document.createElement("br"));
+  divForButtons.appendChild(endButton)
+
+  body.style.textAlign="center";
+}
+
+function setEndStartAccessabilityStory(){
+
+var body = document.getElementById("body");
+body.innerHTML="";
+
+var p=document.createElement("p");
+var p1 = document.createTextNode("Scegliere punto iniziale");
+p.appendChild(p1);
+
+var t=document.createElement("p");
+var t1 = document.createTextNode("Scegliere punto finale");
+t.appendChild(t1);
+
+var array = [];
+var arrayId=[];
+var i=0;
+for(var x in obj){
+console.log(x);
+if(obj[x]!=null){
+    array[i]=obj[x].title;
+    arrayId[i]=obj[x].id;
+i++;
+}
+}
+
+var divStart=document.createElement("div");
+var listStart = document.createElement("select");
+listStart.setAttribute("id","listStart");
+
+for (var a = 0; a < array.length; a++) {
+    var optionStart = document.createElement("option");
+    optionStart.value = arrayId[a];
+    optionStart.text = array[a];
+    listStart.appendChild(optionStart);
+}
+divStart.appendChild(p);
+divStart.appendChild(listStart);
+
+var divEnd=document.createElement("div");
+var listEnd = document.createElement("select");
+listEnd.setAttribute("id","listEnd");
+
+for (var a = 0; a < array.length; a++) {
+    var optionEnd = document.createElement("option");
+    optionEnd.value = arrayId[a];
+    optionEnd.text = array[a];
+    listEnd.appendChild(optionEnd);
+}
+divEnd.appendChild(t);
+divEnd.appendChild(listEnd);
+
+  body.appendChild(divStart);
+  body.appendChild(divEnd);
+  var button = document.createElement("button");
+  button.textContent="Carica Storia";
+  button.setAttribute("id","uploadStory");
+  button.setAttribute("onclick","setButtonInObj()");
+  body.appendChild(document.createElement("br"));
+  body.appendChild(button);
+}
+
+function setButtonInObj(){
+var end=document.getElementById("listEnd").value;
+var start=document.getElementById("listStart").value;
+if(end==null||start==null)
+    return alert("selezionare punto di inizio e punto di fine");
+
+  var array = [];
+  var arrayId = [];
+  var i=0;
+  for(var x in obj){
+  console.log(x);
+  if(obj[x] != null){
+     if(obj[x].start==true)
+      obj[x].start==false;
+    }
+  }
+  console.log(obj);
+    obj[start].start=true;
+    obj[end].end=true;
+    var numButtons=obj[end].numeroBottoni;
+    obj[end].buttons[parseInt(numButtons)]={}
+    obj[end].buttons[parseInt(numButtons)].text="Fine Storia";
+    obj[end].buttons[parseInt(numButtons)].end=true;
+    console.log(obj);
+    uploadAccessabilityStory();
+}
+
+function uploadAccessabilityStory(){
+
+  $(document).ready(function(){
+  //	completejson();
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:8000/create/accessabilityStory",
+          contentType:"application/json;charset=utf-8",
+          dataType:"html",
+          data: JSON.stringify(init),
+          success: function(result){
+              alert(result);
+   location.reload();
+          }});
   });
 
 }
