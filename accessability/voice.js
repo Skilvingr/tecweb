@@ -60,10 +60,10 @@ function speechNumber(){
   var number = document.getElementById("initialAccessability").childElementCount;
 
   Array.from(document.getElementById("initialAccessability").children).forEach((cN, index) => {
-var text = "premere il numero " + (index + 1) + " per avviare la storia " + cN.textContent + "";
+var text = "premere il numero " + (index + 1) + " e poi : invio, per avviare la storia " + cN.textContent + "";
 speech(text);
   });
-
+  speech("E' possibile tornare al player in qualsiasi momento premendo il numero: 6, e poi: invio.");
   chooseNumber(number);
 
 }
@@ -115,9 +115,11 @@ function eyesJson(name){
 
 function startRead(number,data,score){
     synthesis.cancel();
+    if(data[number].disableBranch!=true&&data[number].disable!=true){
     text(number, data);
     img(number,data);
     buttons(number, data, score);
+  }
 }
 
 function text(number,data){
@@ -161,10 +163,11 @@ function buttons(number, data, score){
     var buttonsArray = data[number].buttons;
 
     buttonsArray.forEach((element, index) => {
+      if(element.disable!=true)
 	speech("premere il numero " + (index + 1) + ", e poi, invio per selezionare il pulsante: " + element.text);
 
 	if(element.type=="ContinueButton"){
-
+      if(element.disable!=true){
 	    var button = document.createElement("button");
             button.textContent = element.text;
             button.setAttribute("id", "button" + (index + 1));
@@ -174,9 +177,10 @@ function buttons(number, data, score){
             }
             //button.setAttribute("onclick","startRead("+ element.destination + ",\""+data+"\")");
             container.appendChild(button);
+          }
 	}
 	 else if(element.type=="WrongButton"){
-
+    if (element.disable!=true){
 	    var button = document.createElement("button");
             button.textContent = element.text;
             button.setAttribute("id", "button" + (index + 1));
@@ -186,9 +190,10 @@ function buttons(number, data, score){
 
             }
             container.appendChild(button);
+          }
 	}
   else if(element.type=="StopButton"){
-
+    if(element.disable!=true){
     var button = document.createElement("button");
         button.textContent = element.text;
         button.setAttribute("id", "button" + (index + 1));
@@ -197,9 +202,10 @@ function buttons(number, data, score){
           repeatButtons(element, number, data, score);
                   }
         container.appendChild(button);
+      }
   }
   else if(element.type=="BridgeButton"){
-
+if(element.disable!=true){
     var button = document.createElement("button");
           button.textContent = element.text;
           button.setAttribute("id", "button" + (index + 1));
@@ -209,8 +215,10 @@ function buttons(number, data, score){
 
   }
     container.appendChild(button);
+  }
 }
 else if(element.end==true){
+  if(element.disable!=true){
          var button = document.createElement("button");
          button.textContent = element.text;
          button.setAttribute("id", "button" + (index + 1));
@@ -218,6 +226,7 @@ else if(element.end==true){
            endStory(score);
          }
          container.appendChild(button);
+       }
 }
 
     });
@@ -230,13 +239,15 @@ else if(element.end==true){
 	    window.prompt(""),
 	    10
 	);
-
+  if(buttonNumber!=6){
 	if(isNaN(buttonNumber) || buttonNumber > data[number].buttons.length || buttonNumber <= 0) {
 	    if(!synthesis.pending)
 		speech("Input sbagliato");
 
 	    buttonNumber = NaN;
 	}
+}else
+  window.location.replace("http://site192020.tw.cs.unibo.it");
     }
 
     $("#button" + buttonNumber).click();

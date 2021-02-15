@@ -67,7 +67,8 @@
       ],
       "widgetPuzzle": false,
       "video": "none",
-      "img": "tensione-superficiale.jpg"
+      "img": "tensione-superficiale.jpg",
+      "start": true
     },
     {
       "img": "none",

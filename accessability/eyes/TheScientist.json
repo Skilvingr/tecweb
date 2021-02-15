@@ -24,6 +24,7 @@
       "widgetPuzzle": false,
       "video": "none",
       "img": "Graffetta.png",
+      "textAccessability": "patata",
       "start": true
     },
     {
@@ -178,7 +179,7 @@
       "id": 7,
       "branch": false,
       "fatherIdGraph": 5,
-      "widgetPuzzle": true,
+      "widgetPuzzle": false,
       "puzzle": [
         {
           "img": "Untitled10.png"

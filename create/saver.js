@@ -30,8 +30,8 @@ function write(jsonContent) {
 	dif = "medium";
     else if(età=="16-18")
 	dif="hard";
-
-    fs.writeFile(("webapp/json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
+//modificare cartelle
+    fs.writeFile(("json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
         if (err) {
 	    console.log(err);
 	    console.log("An error occured while writing JSON Object to File.");

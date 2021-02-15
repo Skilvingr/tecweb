@@ -253,6 +253,32 @@ app.get("/getCss", (req, res) => {
 	res.send(stdout);
     });
 });
+//modificare chiamata nel server
+app.get("/getStoriesForAccessabilityToRemove", (req, res) => {
+    exec("ls accessability/eyes/", (error, stdout, stderr) => {
+	if (error) {
+	    console.log(`error: ${error.message}`);
+	    return;
+	}
+	if (stderr) {
+	    console.log(`stderr: ${stderr}`);
+	    return;
+	}
+
+	res.send(stdout);
+    });
+});
+//modificare cartella
+app.get("/removeStoryForAccessability", (req, res) => {
+
+    execSync(("rm accessability/eyes/" + req.query.story + ""));
+
+
+    //saver.playable(req.query.story,req.query.level);
+    res.header("Content-Type","application/json");
+
+    //res.sendFile(path.join(__dirname, data));
+});
 
 /*mostra la finestra di login*/
 
@@ -275,10 +301,10 @@ var storage = multer.diskStorage({
 
 //multer
 var upload = multer({storage : storage});
-
+//modificare cartelle
 app.post("/create/story", function(req,res){
-    execSync(("rm -rf webapp/json/" + req.body.storyInfo.title+" 2&>/dev/null"));
-    execSync(("mkdir webapp/json/" + req.body.storyInfo.title));
+    execSync(("rm -rf json/" + req.body.storyInfo.title+" 2&>/dev/null"));
+    execSync(("mkdir json/" + req.body.storyInfo.title));
 
 	var returned = saver.write(req.body);
 
@@ -298,7 +324,7 @@ app.post(
 	res.status(200).end();
     });
 
-    app.post("/create/uploadCss", function(req,res){
+app.post("/create/uploadCss", function(req,res){
         //execSync(("mkdir webapp/create/customCss/createdCss" + req.body.storyInfo.title));
 
     	var returned = saver.writeCss(req.body);
@@ -309,7 +335,7 @@ app.post(
     	res.send(returned);
     });
 
-    app.post("/create/accessabilityStory", function(req,res){
+app.post("/create/accessabilityStory", function(req,res){
         //execSync(("mkdir webapp/create/customCss/createdCss" + req.body.storyInfo.title));
 
       var returned = saver.writeAccessability(req.body);

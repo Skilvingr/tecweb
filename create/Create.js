@@ -317,27 +317,94 @@ function createPage(){
     document.getElementById("buts").innerHTML="";
 }
 
-function end(){
+function setStartPoint(){
+  var body = document.getElementById("body");
+  body.innerHTML="";
+  $("#files").addClass("hidden");
+  $("#utilsSidenav").addClass("hidden");
+  $("#sidenavForBranches").addClass("hidden");
+  $("#Drawer").addClass("hidden");
+  $("#DrawerUtils").addClass("hidden");
+  $("#options").addClass("hidden");
+  showOldStartPoint();
+  var p=document.createElement("p");
+  var p1 = document.createTextNode("Scegliere punto iniziale della storia");
+  p.appendChild(p1);
 
+  var array = [];
+  var arrayId=[];
+  var i=0;
+  for(var x in obj){
+  console.log(x);
+  if(obj[x]!=null){
+      array[i]=obj[x].title;
+      arrayId[i]=obj[x].id;
+  i++;
+  }
+  }
+
+  var divStart=document.createElement("div");
+  divStart.style.textAlign="center";
+  var listStart = document.createElement("select");
+  listStart.setAttribute("id","listStart");
+
+  for (var a = 0; a < array.length; a++) {
+      var optionStart = document.createElement("option");
+      optionStart.value = arrayId[a];
+      optionStart.text = array[a];
+      listStart.appendChild(optionStart);
+  }
+  divStart.appendChild(p);
+  divStart.appendChild(listStart);
+
+    body.appendChild(divStart);
     var button = document.createElement("button");
-    button.id="reqButton";
-    button.textContent="carica storia";
-    $(document).ready(function(){
+    button.textContent="Carica Storia";
+    button.setAttribute("id","uploadStoryCreate");
+    button.setAttribute("onclick","end()");
+    divStart.appendChild(document.createElement("br"));
+    divStart.appendChild(button);
+
+}
+
+function end(){
+  var start=document.getElementById("listStart").value;
+  if(start==null)
+      return alert("selezionare punto di inizio");
+
+  for(var x in obj){
+      console.log(x);
+      if(obj[x] != null){
+         if(obj[x].start===true)
+            obj[x].start=false;
+
+        }
+      }
+  obj[start].start=true;
+  uploadStoryForCreator();
+}
+function uploadStoryForCreator(){
+  /*
+  var button = document.createElement("button");
+  button.id="reqButton";
+  button.textContent="carica storia";
+  */
+  //modificare chiamata
+  $(document).ready(function(){
 //	completejson();
-        $.ajax({
-            type: "POST",
-            url: "http://site192020.tw.cs.unibo.it/create/story",
-            contentType:"application/json;charset=utf-8",
-            dataType:"html",
-            data: JSON.stringify(init),
-            success: function(result){
-                alert(result);
-		 location.reload();
-            }});
-    });
+      $.ajax({
+          type: "POST",
+          url: "http://localhost:8000/create/story",
+          contentType:"application/json;charset=utf-8",
+          dataType:"html",
+          data: JSON.stringify(init),
+          success: function(result){
+              alert(result);
+   location.reload();
+          }});
+  });
 
-    //End.appendChild(button);
-
+  //End.appendChild(button);
 }
 
 function deleteAllPage(id){
@@ -387,6 +454,21 @@ function deleteAllPage(id){
     }catch(err){}
 
     $(`#${id}`).remove();
+}
+//modificare chiamata
+function getStoriesForAccessability(sidenav){
+
+  $(document).ready(function(){
+$.ajax({
+    type: "GET",
+    datatype: "html",
+    url: "http://localhost:8000/getStoriesForAccessabilityToRemove",
+    success: function(returnData) {
+  handleStories(returnData, sidenav);
+    }
+})
+  });
+
 }
 
 function getStories(sidenav) {
@@ -520,6 +602,23 @@ function removeStory(story, level) {
     	alert("La storia è stata eliminata");
 }
 
+function removeStoryForAccessability(story) {
+    $(document).ready(function(){
+	$.ajax({
+	    type: "GET",
+	    dataType: "json",
+	    url: "http://localhost:8000/removeStoryForAccessability?story=" + story + "",
+	    success: function(returnData) {
+		closeAllNavs();
+		$("#sidenavEntryPoint").addClass("hidden");
+		console.log(returnData);
+
+	    }
+	   })
+    });
+    	alert("La storia è stata eliminata");
+}
+
 function initPageForAccessability() {
     document.getElementById("titoloStory").value = init.storyInfo.title;
     document.getElementById("agePicker").value = init.storyInfo.età;
@@ -534,6 +633,7 @@ function initPageForAccessability() {
 	}
 id++;
     }
+    disablewidgetForAccessaability();
     setForAccessability();
 }
 
@@ -688,6 +788,21 @@ function handleStories(stories, sidenav, onclick = null){
       a.setAttribute("style", "font-size:30px;cursor:pointer");
       a.setAttribute("onclick", "accessabilityLevelNav(\"" + story + "\")");
       a.textContent = story;
+      sidenav.appendChild(a);
+
+  });
+    }
+    else if(sidenav.id=="accessabilityStoryToRemoveInnerDiv"){
+
+  document.getElementById("accessabilityStoryToRemoveInnerDiv").innerHTML="";
+  storiesArray.forEach((story) => {
+    var name= story.split(".");
+    console.log(name);
+      var a = document.createElement("a");
+      a.className = "storyLabel";
+      a.setAttribute("style", "font-size:30px;cursor:pointer");
+      a.setAttribute("onclick", "removeStoryForAccessability(\"" + story + "\")");
+      a.textContent = name[0];
       sidenav.appendChild(a);
 
   });

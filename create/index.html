@@ -18,18 +18,25 @@
   <body>
 
 
-
-    <div>
-      <span style="font-size:30px;cursor:pointer;text-align:left" id="DrawerUtils" class="hidden" onclick="openNavGraph('utilsSidenav')">&#9776;</span>
-      <span style="font-size:30px;cursor:pointer;position:absolute;left:98.5%;text-align:right" id="Drawer" onclick="openNav('masterSidenav')">&#9776;</span>
+    <div style="display: flex; justify-content: right">
+      <span id="DrawerUtils" class="hidden" onclick="openNav('utilsSidenav')">
+        <button id="btn_NavAdd">
+          <i class="far fa-plus-square"></i>
+        </button>
+      </span>
+      <span id="Drawer" onclick="openNav('masterSidenav')">
+        <button id="btn_NavAltro">
+          <i id="iconNav" class="far fa-edit"></i>
+        </button>
+      </span>
     </div>
 
     <div id="utilsSidenav" class="sidenav leftSidenav">
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('changeStatus')">Attiva/Disattiva Branch</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('delete')">Elimina Branch</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavButtons')">Attiva/Disattiva Bottoni</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listWidget('widgets')">Attiva/Mostra widget</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavForImg')">Mostra immagine</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('changeStatus')">Attiva/Disattiva Branch</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listBranches('delete')">Elimina Branch</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavButtons')">Attiva/Disattiva Bottoni</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="listWidget('widgets')">Attiva/Mostra widget</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('sidenavForImg')">Mostra immagine</a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('utilsSidenav')">&times;</a>
     </div>
 
@@ -59,12 +66,11 @@
     </div>
 
     <div id="masterSidenav" class="sidenav">
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Modifica storia</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Elimina storia</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Rendi storia giocabile</a>
-      <a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('accessabilitySidenav')">Accessability</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Modifica storia</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Elimina storia</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Rendi storia giocabile</a>
+      <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('accessabilitySidenav')">Accessability</a>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('masterSidenav')">&times;</a>
-      <a href="#">About diocane</a>
     </div>
     <div id="editSidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('editSidenav')">&times;</a>
@@ -83,17 +89,25 @@
     </div>
 
     <div id="accessabilitySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('accessabilitySidenav')">&times;</a>
       <a id="addAccessabilityStory" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('accessabilityStorySidenav')">Rendere Storia Accessibile</a>
-      <a id="removeAccessabilityStory" style="font-size:30px;cursor:pointer" onclick="open('accessabilitySidenav')">Eliminare Storia Accessibile</a>
+      <a id="removeAccessabilityStory" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('accessabilityRemoveSidenav')">Eliminare Storia Accessibile</a>
       <div id="accessabilityInnerDiv">
       </div>
     </div>
+
     <div id="accessabilityStorySidenav" class="sidenav">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('accessabilityStorySidenav')">&times;</a>
       <div id="accessabilityStoryInnerDiv">
       </div>
     </div>
+
+    <div id="accessabilityRemoveSidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav('accessabilityRemoveSidenav')">&times;</a>
+      <div id="accessabilityStoryToRemoveInnerDiv">
+      </div>
+    </div>
+
     <div id="levelSidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
       <div id="levelInnerDiv">
@@ -103,87 +117,142 @@
 
     <div id="body" onclick="closeAllNavs()">
 
-      <div id="console">
-	<input id="com"></input>
-	<button id="sendCom" onclick="sendCom()">send com</button>
+      <div id="console" class="hidden">
+        <input id="com">
+        <button id="sendCom" onclick="sendCom()">send com</button>
+        <br>
+        <textarea rows="10" cols="70" id="consoleOut"></textarea>
+      </div>
+
+      <div id="masterSidenav" class="sidenav">
+	<a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('editSidenav')">Modifica storia</a>
+	<a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Elimina storia</a>
+	<a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Rendi storia giocabile</a>
+	<a id="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('accessabilitySidenav')">Accessability</a>
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('masterSidenav')">&times;</a>
+	<a href="#">About diocane</a>
+      </div>
+      <div id="editSidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('editSidenav')">&times;</a>
+	<div id="editInnerDiv">
+	</div>
+      </div>
+      <div id="removeSidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('removeSidenav')">&times;</a>
+	<div id="removeInnerDiv">
+	</div>
+      </div>
+      <div id="loadSidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('loadSidenav')">&times;</a>
+	<div id="modifyInnerDiv">
+	</div>
+      </div>
+
+      <div id="accessabilitySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
+	<a id="addAccessabilityStory" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('accessabilityStorySidenav')">Rendere Storia Accessibile</a>
+	<a id="removeAccessabilityStory" style="font-size:30px;cursor:pointer" onclick="open('accessabilitySidenav')">Eliminare Storia Accessibile</a>
+	<div id="accessabilityInnerDiv">
+	</div>
+      </div>
+      <div id="accessabilityStorySidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
+	<div id="accessabilityStoryInnerDiv">
+	</div>
+      </div>
+      <div id="levelSidenav" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
+	<div id="levelInnerDiv">
+	</div>
+      </div>
+
+
+      <div id="body" onclick="closeAllNavs()">
+
+	<div id="console">
+	  <input id="com"></input>
+	  <button id="sendCom" onclick="sendCom()">send com</button>
+	  <br>
+	  <textarea rows="10" cols="70" id="consoleOut"></textarea>
+	</div>
+
+	<h1 style="text-align: center;">Creator</h1>
+
+	<div style ="text-align: center" id="options"class="hidden">
+	  <button id="End" onclick="end()">Crea Storia</button>
+	</div>
+
+	<div id="main"  onClick="closeAllNavs()" style="text-align: center;">
+
+          <div id="titolo" >
+
+            <img  src="ImageCreate/story.png" style="width:40%">
+
+            <h1>TitoloStoria</h1>
+            <input id="titoloStory" type="text"/>
+            <p>Selezionare Pubblico</p>
+            <select id="agePicker" >
+              <option>7-10</option>
+              <option>12-14</option>
+              <option>16-18</option>
+            </select>
+
+            <button onclick="validateTitle()">Inizia</button>
+
+            <br>
+            <h2>Choose a css Style</h2>
+            <select id="CssStyle">
+              <option>default</option>
+              <option>ColorFull</option>
+              <select>
+		<a href="/create/customCss">Create Custom Css</a>
+		<br>
+		<br>
+		<a href="/">Back To Player</a>
+          </div>
+
+          <span id="myText"></span>
+
+          <div id="container">
+
+            <div  id="page" style="text-align: center; padding-bottom: 10px;" ></div>
+
+            <div id="buts" style="text-align: center;padding-bottom: 40px;" ></div>
+            <div id="nextPrev" style="text-align: center;" ></div>
+            <div id="Modify" class=hidden style ="text-align: center; padding-bottom: 30px;" ></div>
+          </div>
+
+	</div>
+
+
+      </div>
+
+      <div id="graphSidenav" class="sidenavGraph" onclick="closeAllNavs()" >
+
+	<div id="Graph" style="text-align:left;">
+
+          <ul id="GraphView">
+
+          </ul>
+
+	</div>
+      </div>
+
+
+
+      <div id="files" style="text-align: center" class="hidden" >
 	<br>
-	<textarea rows="10" cols="70" id="consoleOut"></textarea>
+	<br>
+	<p>Selezionare le immagini o i video che si desiderano usare per creare la storia </p>
+	<p>(formato in jpg,png,avi,mkv)</p>
+	<br>
+	<form id="imageStory"  name="file" action="http://site192020.tw.cs.unibo.it/create"  enctype="multipart/form-data">
+	</form>
       </div>
 
-      <h1 style="text-align: center;">Creator</h1>
-
-      <div style ="text-align: center" id="options"class="hidden">
-	<button id="End" onclick="end()">Crea Storia</button>
+      <div id="options"class="hidden">
+        <button id="End" onclick="setStartPoint()">Crea Storia</button>
       </div>
-
-      <div id="main"  onClick="closeAllNavs()" style="text-align: center;">
-
-        <div id="titolo" >
-
-          <img  src="ImageCreate/story.png" style="width:40%">
-
-          <h1>TitoloStoria</h1>
-          <input id="titoloStory" type="text"/>
-          <p>Selezionare Pubblico</p>
-          <select id="agePicker" >
-            <option>7-10</option>
-            <option>12-14</option>
-            <option>16-18</option>
-          </select>
-
-          <button onclick="validateTitle()">Inizia</button>
-
-          <br>
-          <h2>Choose a css Style</h2>
-          <select id="CssStyle">
-            <option>default</option>
-            <option>ColorFull</option>
-            <select>
-	      <a href="/create/customCss">Create Custom Css</a>
-	      <br>
-	      <br>
-	      <a href="/">Back To Player</a>
-        </div>
-
-        <span id="myText"></span>
-
-        <div id="container">
-
-          <div  id="page" style="text-align: center; padding-bottom: 10px;" ></div>
-
-          <div id="buts" style="text-align: center;padding-bottom: 40px;" ></div>
-          <div id="nextPrev" style="text-align: center;" ></div>
-          <div id="Modify" class=hidden style ="text-align: center; padding-bottom: 30px;" ></div>
-        </div>
-
-      </div>
-
-
-    </div>
-
-    <div id="graphSidenav" class="sidenavGraph" onclick="closeAllNavs()" >
-
-      <div id="Graph" style="text-align:left;">
-
-        <ul id="GraphView">
-
-        </ul>
-
-      </div>
-    </div>
-
-
-
-    <div id="files" style="text-align: center" class="hidden" >
-      <br>
-      <br>
-      <p>Selezionare le immagini o i video che si desiderano usare per creare la storia </p>
-      <p>(formato in jpg,png,avi,mkv)</p>
-      <br>
-      <form id="imageStory"  name="file" action="http://site192020.tw.cs.unibo.it/create"  enctype="multipart/form-data">
-      </form>
-    </div>
-
 
 
   </body>

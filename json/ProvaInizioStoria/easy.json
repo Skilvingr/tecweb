@@ -1,0 +1,58 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "fds",
+      "text": "eee",
+      "numeroBottoni": 2,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "dsada",
+          "type": "ContinueButton",
+          "destination": "wwq",
+          "score": "-1",
+          "id": 1
+        },
+        {
+          "text": "ddd",
+          "type": "ContinueButton",
+          "destination": "cccc",
+          "score": "-1",
+          "id": 2
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none",
+      "start": true
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "wwq",
+      "text": "",
+      "numeroBottoni": "0",
+      "buttons": [],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "cccc",
+      "text": "",
+      "numeroBottoni": "0",
+      "buttons": [],
+      "id": 2,
+      "branch": false,
+      "fatherIdGraph": 0
+    }
+  ],
+  "storyInfo": {
+    "title": "ProvaInizioStoria",
+    "età": "7-10",
+    "css": "default"
+  }
+}

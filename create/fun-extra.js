@@ -525,8 +525,12 @@ if(obj[id].disableBranch==true){
       $('#score'+parseInt(i+1)).prop('disabled', 'disabled');
 
     }else{
-      if(item.type=="StopButton")
+      if(item.type=="StopButton"){
       document.getElementById("stop"+parseInt((i+1))).readOnly=true;
+      }
+      else if(item.type=="BridgeButton"){
+      $('#listBridge'+parseInt(i+1)).prop('disabled', 'disabled');
+      }
 
       document.getElementById("button"+parseInt((i+1))).readOnly=true;
 
@@ -546,6 +550,7 @@ function enable(item){
   //var item=document.getElementById("selectBranchToEnable").value;
   enableBranch(item);
 //  enableBranchGraph(item);
+alert("Abilitato Modificare");
   console.log("patata");
 }
 
@@ -593,8 +598,12 @@ function controlDisable(id){
       $('#score'+parseInt(i+1)).prop('disabled', 'disabled');
 
     }else if(item.disable==true){
-      if(item.type=="StopButton")
+      if(item.type=="StopButton"){
       document.getElementById("stop"+parseInt((i+1))).readOnly=true;
+      }
+      else if(item.type=="BridgeButton"){
+      $('#listBridge'+parseInt(i+1)).prop('disabled', 'disabled');
+      }
 
       document.getElementById("button"+parseInt((i+1))).readOnly=true;
 
@@ -742,7 +751,11 @@ function openNavGraph(id){
 }
 
 function openNav(id) {
+if(id==="utilsSidenav"){
+    document.getElementById(id).style.width = "350px";
+  }else{
     document.getElementById(id).style.width = "250px";
+  }
 }
 
 function openStoriesNav(id) {
@@ -757,6 +770,8 @@ function openStoriesNav(id) {
 	getStoriesComplete(document.getElementById("removeInnerDiv"))
     else if(sidenav.id=="accessabilityStorySidenav")
   getStories(document.getElementById("accessabilityStoryInnerDiv"));
+  else if(sidenav.id=="accessabilityRemoveSidenav")
+  getStoriesForAccessability(document.getElementById("accessabilityStoryToRemoveInnerDiv"));
 }
 
 function openLevelNav(story) {
@@ -1108,7 +1123,9 @@ function deleteSelectBranch(item){
 }
 
 function disableSelectBranch(item){
-
+  if(obj[item].title!=document.getElementById("TitoloMissione").value){
+  return alert("Bisogna trovarsi sulla pagina iniziale del branch che si vuole disabilitare. Se lo si è bisogna ricordarsi di modificare la pagina se qualcosa è stato cambiato");
+}
   //var item = document.getElementById("selectBranch").value;
   //var select=document.getElementById("selectBranch");
   disableAllBranch(item);
@@ -1132,6 +1149,28 @@ function disableAllBranch(id){
   });
 
 }
+//disabilita il widget per la modifica delle storie accessibili
+function disablewidgetForAccessaability(){
+  var element=null;
+  var widgetList=document.getElementById("utilsSidenav").childNodes;
+  widgetList.forEach((item, i) => {
+    console.log(item.textContent);
+    if(item.textContent==="Attiva/Mostra widget"){
+        element=item;
+    }
+  });
+  console.log(element);
+element.onclick=function(){
+  alert("non è possibile aggiungere widget per le storie accessibili");
+}
+  for(var x in obj){
+if(obj[x]!=null){
+    if(obj[x].widgetPuzzle===true)
+      obj[x].widgetPuzzle=false;
+  }
+
+}
+}
 
 //modifica il Creator per eseguire l'upload delle storie per l'accessibilità
 function setForAccessability(){
@@ -1149,6 +1188,8 @@ function setForAccessability(){
     $("#files").addClass("hidden");
     $("#utilsSidenav").addClass("hidden");
     $("#sidenavForBranches").addClass("hidden");
+    $("#Drawer").addClass("hidden");
+    $("#DrawerUtils").addClass("hidden");
     var arrayImg=[];
     var i=0;
     for(var x in obj){
@@ -1169,9 +1210,10 @@ function setForAccessability(){
 function textForImages(arrayImg,i){
   console.log(arrayImg);
   var x = arrayImg[i];
-
   var body = document.getElementById("body");
   body.innerHTML="";
+
+  if(arrayImg.length!=0){
   var p=document.createElement("p");
   var p1 = document.createTextNode("Qui è possibile aggiungere le descrizioni per le immagini");
   p.appendChild(p1);
@@ -1185,6 +1227,7 @@ function textForImages(arrayImg,i){
   img_url.setAttribute("height", "320");
   img.appendChild(img_url);
   body.appendChild(img);
+
 
   var textarea = document.createElement("textarea");
   textarea.setAttribute("id", "textS");
@@ -1237,12 +1280,25 @@ function textForImages(arrayImg,i){
   divForButtons.appendChild(endButton)
 
   body.style.textAlign="center";
+}else{
+  var divButtons=document.createElement("div");
+  divButtons.setAttribute("id","divForButtons");
+  var endButton=document.createElement("button");
+  endButton.textContent="Fine";
+  endButton.setAttribute("onClick","setEndStartAccessabilityStory()");
+  divButtons.appendChild(endButton)
+  divButtons.style.textAlign="center";
+  body.appendChild(divButtons);
+  alert("nessuna immagine da mostrare");
+    body.style.textAlign="center";
+}
 }
 
 function setEndStartAccessabilityStory(){
 
 var body = document.getElementById("body");
 body.innerHTML="";
+showOldStartPoint();
 
 var p=document.createElement("p");
 var p1 = document.createTextNode("Scegliere punto iniziale");
@@ -1298,6 +1354,7 @@ divEnd.appendChild(listEnd);
   button.setAttribute("onclick","setButtonInObj()");
   body.appendChild(document.createElement("br"));
   body.appendChild(button);
+
 }
 
 function setButtonInObj(){
@@ -1306,14 +1363,11 @@ var start=document.getElementById("listStart").value;
 if(end==null||start==null)
     return alert("selezionare punto di inizio e punto di fine");
 
-  var array = [];
-  var arrayId = [];
-  var i=0;
   for(var x in obj){
   console.log(x);
   if(obj[x] != null){
      if(obj[x].start==true)
-      obj[x].start==false;
+      obj[x].start=false;
     }
   }
   console.log(obj);
@@ -1325,6 +1379,28 @@ if(end==null||start==null)
     obj[end].buttons[parseInt(numButtons)].end=true;
     console.log(obj);
     uploadAccessabilityStory();
+}
+
+function showOldStartPoint(){
+var body = document.getElementById("body");
+var divShowOldPoint=document.createElement("div");
+
+divShowOldPoint.style.textAlign="center";
+  for(var x in obj){
+      console.log(x);
+      if(obj[x] != null){
+         if(obj[x].start===true){
+           var e=document.createElement("p");
+           var e1 = document.createTextNode("Il punto scelto in precedenza era: "+obj[x].title);
+           e.appendChild(e1);
+           divShowOldPoint.appendChild(e);
+
+         }
+        }
+      }
+      body.appendChild(document.createElement("br"));
+      body.appendChild(divShowOldPoint);
+
 }
 
 function uploadAccessabilityStory(){
