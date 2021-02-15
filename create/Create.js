@@ -79,8 +79,7 @@ function start() {
     var submit = document.createElement("input");
     submit.id="submit";
     submit.type = "submit";
-    submit.value="Carica Foto";
-
+    submit.value="Carica File";
 
     var page = document.getElementById("page");
 
@@ -136,12 +135,14 @@ function start() {
     var selectImage = document.createElement("select");
     selectImage.setAttribute("id","selectImage");
 
+    var selectWidget = document.createElement("select");
+    selectWidget.setAttribute("id","selectWidget");
 
     var optionImage = document.createElement("option");
     optionImage.value="none";
     optionImage.text = "selezionare l'immagine per la pagina corrente"
     selectImage.appendChild(optionImage);
-
+    
     //creo il div per il puzzle
     var divWidget =document.createElement("div");
     divWidget.setAttribute("id","widgetShow");
@@ -149,9 +150,12 @@ function start() {
 
     imageStory.appendChild(image);
     imageStory.appendChild(submit);
+    imageStory.appendChild(document.createElement("br")); //FIXME: Rimuovetemi. Assolutamente.
 
     page.appendChild(stor);
     page.appendChild(selectImage);
+    page.appendChild(document.createElement("br"));
+    page.appendChild(selectWidget);
     page.appendChild(storyMis);
 
     page.appendChild(titoloMis);
@@ -165,6 +169,83 @@ function start() {
 
     nextPrev.appendChild(next);
 
+
+
+    $("#imageStory").submit(function(e) {
+
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+	
+        var form = $(this);
+        var url = form.attr('action');
+ 
+        var file = document.getElementById("imgName");
+        //controllo l'estensione
+        var ext = getFileName(file);
+	
+        if (ext == "jpg"
+	    || ext == "png" || ext == "jpeg" || ext == "mkv"
+	    || ext == "avi" || ext == "mp4"
+	    || ext == "flv" || ext == "js"
+	   ){
+            var name = file.files[0].name;
+            var data=new FormData(imageStory);
+            data.append('file',this.new_attachments)
+
+            $.ajax({
+		type: "POST",
+		url: url,
+		data: data,
+		processData: false,
+		contentType: false,
+		success: function(data)
+		{
+                    alert("caricato");
+		}
+            });
+
+
+	    if(ext == "jpg" || ext == "jpeg" || ext == "png") {
+		//crea il testo per inserire il nome dell'immagine
+		var fatherImage=document.getElementById("selectImage");
+		var addOptionImage=document.createElement("option");
+		addOptionImage.value=name;
+		addOptionImage.text=name;
+		fatherImage.appendChild(addOptionImage);
+
+		//cerca di inserire i nomi delle immagini anche nei select del widget se esiste
+		try{
+		    for(var i=1;i<7;i++){
+			var fatherImage=document.getElementById("selectImg"+i);
+			var addOptionImage=document.createElement("option");
+			addOptionImage.value=name;
+			addOptionImage.text=name;
+			fatherImage.appendChild(addOptionImage);
+		    }
+		} catch(err){
+		    //console.log(err);
+		}
+		
+	    } else if(ext == "avi" || ext == "mp4" || ext == "mkv" || ext == "flv") {
+
+		//crea il testo per inserire il nome del video
+		var fatherImage=document.getElementById("selectImage");
+		var addOptionImage=document.createElement("option");
+		addOptionImage.value=name;
+		addOptionImage.text=name;
+		fatherImage.appendChild(addOptionImage);
+
+	    } else if(ext == "js") {
+		var fatherWidget = document.getElementById("selectWidget");
+		var addOptionWidget=document.createElement("option");
+		addOptionWidget.value=name;
+		addOptionWidget.text=name;
+		fatherWidget.appendChild(addOptionWidget);
+	    }
+	}
+
+	//document.getElementById("next").setAttribute("onClick", "createPage(\""+ name + "\")");
+
+    });
 
 
     $("#imageStory").submit(function(e) {
@@ -728,12 +809,14 @@ a.id=""+obj[id].id+"-"+i;
 
 function listWidget(action){
 
-  var a = document.createElement("a");
-  	a.className = "toRemove";
-      a.textContent = "Applica Puzzle";
+    var a = document.createElement("a");
+    a.className = "toRemove";
+    a.textContent = "Applica Puzzle";
+
     a.onclick=function(){
-      showWidget("sidenavForPuzzle");
+	showWidget("sidenavForPuzzle");
     }
-      $("#sidenavForWidget").append(a);
+
+    $("#sidenavForWidget").append(a);
     openNav("sidenavForWidget");
 }

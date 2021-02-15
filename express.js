@@ -85,10 +85,10 @@ app.use(express.static(path.join(__dirname, "/")));
 
 //LogIn
 app.post('/login',
-	 passport.authenticate('local', { failureRedirect: 'http://site192020.tw.cs.unibo.it/' }),
+	 passport.authenticate('local', { failureRedirect: 'localhost:8000' }),
 	 function(req, res) {
 	     // res.sendFile(path.join(__dirname, "/create"));
-	     res.redirect('http://site192020.tw.cs.unibo.it/create');
+	     res.redirect('localhost:8000/create');
 	 });
 
 /* Handle Registration POST */
@@ -111,7 +111,7 @@ app.post('/signup', function(req,res) {
 
 /*
 app.post("create/passport/addUser", function(req,res){
-    execSync(("rm webapp/create/passport/credentials.json"));
+    execSync(("rm create/passport/credentials.json"));
 
 	var returned = saver.addUser(req.body);
 
@@ -147,9 +147,9 @@ app.get("/playableStory", (req, res) => {
     var story = "json/" + req.query.story + "/";
     var data = story + req.query.level + ".json";
 
-    execSync(("rm -rf webapp/completeJson/" + req.query.story));
-    execSync(("mkdir webapp/completeJson/" + req.query.story));
-    execSync(("cp webapp/" + data + " " + "webapp/completeJson/" + req.query.story + "/" + req.query.story + "-" + req.query.level + ".json" ));
+    execSync(("rm -rf completeJson/" + req.query.story));
+    execSync(("mkdir completeJson/" + req.query.story));
+    execSync(("cp " + data + " " + "completeJson/" + req.query.story + "/" + req.query.story + "-" + req.query.level + ".json" ));
 
     //saver.playable(req.query.story,req.query.level);
     res.header("Content-Type","application/json");
@@ -159,7 +159,7 @@ app.get("/playableStory", (req, res) => {
 
 app.get("/removeStory", (req, res) => {
 
-    execSync(("rm webapp/completeJson/" + req.query.story +"/" + req.query.level + ".json"));
+    execSync(("rm completeJson/" + req.query.story +"/" + req.query.level + ".json"));
 
 
     //saver.playable(req.query.story,req.query.level);
@@ -169,7 +169,7 @@ app.get("/removeStory", (req, res) => {
 });
 
 app.get("/getStoriesComplete", (req,res)=>{
-  exec("ls webapp/completeJson/", (error, stdout, stderr) => {
+  exec("ls completeJson/", (error, stdout, stderr) => {
 if (error) {
     console.log(`error: ${error.message}`);
     return;
@@ -184,7 +184,7 @@ res.send(stdout);
 });
 
 app.get("/getStories", (req, res) => {
-    exec("ls webapp/json/", (error, stdout, stderr) => {
+    exec("ls json/", (error, stdout, stderr) => {
 	if (error) {
 	    console.log(`error: ${error.message}`);
 	    return;
@@ -203,9 +203,9 @@ app.get("/getAvailableLevels", (req, res) => {
     var toExec = "";
 
     if(req.query.dir == "json")
-	toExec = "ls webapp/json/" + req.query.story
+	toExec = "ls json/" + req.query.story
     else
-	toExec = "ls webapp/completeJson/" + req.query.story
+	toExec = "ls completeJson/" + req.query.story
 
     exec(toExec, (error, stdout, stderr) => {
 	if (error) {
@@ -266,7 +266,7 @@ app.get("/loginWindow", (req, res) => {
 //multer path
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-	cb(null, 'webapp/imgCreate')
+	cb(null, 'imgCreate')
     },
     filename: function (req, file, cb) {
 	cb(null, file.originalname)
@@ -277,8 +277,8 @@ var storage = multer.diskStorage({
 var upload = multer({storage : storage});
 
 app.post("/create/story", function(req,res){
-    execSync(("rm -rf webapp/json/" + req.body.storyInfo.title+" 2&>/dev/null"));
-    execSync(("mkdir webapp/json/" + req.body.storyInfo.title));
+    execSync(("rm -rf json/" + req.body.storyInfo.title+" 2&>/dev/null"));
+    execSync(("mkdir json/" + req.body.storyInfo.title));
 
 	var returned = saver.write(req.body);
 
@@ -299,7 +299,7 @@ app.post(
     });
 
     app.post("/create/uploadCss", function(req,res){
-        //execSync(("mkdir webapp/create/customCss/createdCss" + req.body.storyInfo.title));
+        //execSync(("mkdir create/customCss/createdCss" + req.body.storyInfo.title));
 
     	var returned = saver.writeCss(req.body);
 

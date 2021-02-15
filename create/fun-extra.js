@@ -475,24 +475,28 @@ var disableButtonSelect =document.getElementById("sidenavButtons");
       controlDisableBranch(id);
 
     //controllo se c'è il puzzle
-    if(obj[id].widgetPuzzle==true){
-      var tempPuzzle=0;
-      showWidget()
-      for(var k=1;k<2;k++){
-        var image=document.getElementById("selectImg"+k);
-        var addOptionImage=document.createElement("option");
-        addOptionImage.value=obj[id].puzzle[tempPuzzle].img;
-        addOptionImage.text=obj[id].puzzle[tempPuzzle].img;
-        image.appendChild(addOptionImage);
-        document.getElementById("checkApplyWidget").checked=true;
-        tempPuzzle++;
-      }
+    if(obj[id].hasWidget==true){
+	var tempPuzzle = 0;
+	showWidget()
+	
+	for(var k = 1; k < 2; k++){
+            var image = document.getElementById("selectImg" + k);
+            var addOptionImage = document.createElement("option");
+	    
+            addOptionImage.value = obj[id].puzzle[tempPuzzle].img;
+            addOptionImage.text = obj[id].puzzle[tempPuzzle].img;
+	    
+            image.appendChild(addOptionImage);
+            document.getElementById("checkApplyWidget").checked = true;
+
+	    tempPuzzle++;
+	}
 
     }
 
     try{
       Modify.removeChild(Modify.childNodes[0]);
-    }catch(err){
+    } catch(err) {
 
     }
 
@@ -851,164 +855,150 @@ if(obj[i].img!="none"){
 }
 
 function controlWidget(id){
-  try{
-  var controlList=document.getElementById("checkApplyWidget");
-  if(controlList.checked){
-    obj[id].widgetPuzzle=true;
-    obj[id].puzzle=[];
-    var i=1;
+    try{
+	var controlList = document.getElementById("checkApplyWidget");
+	
+	if(controlList.checked){
+	    obj[id].hasWidget = true;
+	    obj[id].puzzle = [];
 
-      var select=document.getElementById("selectImg"+i);
-      obj[id].puzzle[i-1]={};
-      obj[id].puzzle[i-1].img=select.value;
+	    var selectWidget = document.getElementById("selectWidget");
+	    obj[id].puzzle[0] = {};
+	    obj[id].puzzle[0].js = selectWidget.value;
 
-    console.log(obj[id].puzzle);
+	    console.log(obj[id].puzzle);
 
+	}else
+	    obj[id].hasWidget = false;
+    } catch(err) {
+	obj[id].hasWidget = false;
+    }
+    
+    resetWidget();
 
-    //prelevare le informazioni creare un teg  creare un oggetto puzzle con le informazioni e richiamare
-    //il delete button sulle destinazioni precedenti se presenti e aggiungere la nuova destinazione
-  }else
-  obj[id].widgetPuzzle=false;
-  }catch(err){
-    obj[id].widgetPuzzle=false;
-  }
-  resetWidget();
-
+    console.log(obj[id]);
 }
 
 function showWidget(){
-  openNav("sidenavForPuzzle");
-  try{
-      if(document.getElementById("buttonDeleteWidget")){
-       // alert("patata");
-        return null;
-      }
-  }catch(err){
-    //console.log(err);
-  }
-
-  var br =document.createElement("br");
-  //var listValue = document.getElementById("widgetList").value;
-
-  //document.getElementById("buts").innerHTML="";
-
-  var div =document.getElementById("sidenavForPuzzle");
-
-  /*
-  var image = document.createElement("input");
-  image.type = "file";
-  image.id="imgWidget";
-  image.setAttribute("name","file");
-
-
-  var submit = document.createElement("input");
-  submit.id="submitimg";
-  submit.type = "submit";
-  submit.value="Carica Foto";
-*/
-
-
-//div.appendChild(image);
-  //div.appendChild(submit);
-var i=1;
-
-  var select=document.createElement("select");
-  select.setAttribute("id","selectImg"+i);
-  var p=document.createElement("p");
-  var p1=document.createTextNode("Selezionare immagine"+i);
-
-  var countElement=document.getElementById("selectImage").childNodes;
-  console.log("element nodes "+countElement.length);
-
-  for(a=1;a<countElement.length;a++){
-    var valueImg=countElement[a].value;
-    var imgText=countElement[a].text;
-
-    var currentValue=document.createElement("option");
-    currentValue.setAttribute("id","optionWidget");
-    currentValue.value=valueImg;
-    currentValue.text=imgText;
-    select.appendChild(currentValue);
-  }
-  p.appendChild(p1);
-  div.appendChild(p);
-  div.appendChild(select);
-
-
-  var buttonDeleteWidget =document.createElement("button");
-  var checkApplyWidget=document.createElement("input");
-  var label=document.createElement("label");
-
-  checkApplyWidget.type="checkbox";
-  checkApplyWidget.setAttribute("id","checkBoxWidget");
-
-  label.innerHTML="Apply";
-  label.style.color="white";
-
-  buttonDeleteWidget.textContent="Delete Widget";
-  buttonDeleteWidget.setAttribute("id","buttonDeleteWidget");
-  buttonDeleteWidget.setAttribute("onclick","resetWidget()");
-
-  checkApplyWidget.setAttribute("id","checkApplyWidget");
-
-  div.appendChild(br);
-  div.appendChild(buttonDeleteWidget);
-  div.appendChild(checkApplyWidget);
-  div.appendChild(label);
-
-  //$("#files").addClass("hidden");
-
-  alert("Widget Creato");
-  /*
-  $("#").click(function(e) {
-
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    var file=document.getElementById("imgWidget");
-
-    if(getFileName(file)){
-    var nameImg= file.files[0].name;
-
-
-    //crea il testo per inserire il nome dell'immagine
-    for(var i=1;i<7;i++){
-    var fatherImage=document.getElementById("selectImg"+i);
-    var addOptionImage=document.createElement("option");
-    addOptionImage.value=nameImg;
-    addOptionImage.text=nameImg;
-    fatherImage.appendChild(addOptionImage);
+    openNav("sidenavForPuzzle");
+    try{
+	if(document.getElementById("buttonDeleteWidget")){
+	   
+            return null;
+	}
+    }catch(err){
+	console.log(err);
     }
-    alert("Caricata");
-  }
 
-  //document.getElementById("next").setAttribute("onClick", "createPage(\""+ name + "\")");
+    var br = document.createElement("br");
 
-});
-*/
+    var div = document.getElementById("sidenavForPuzzle");
+
+    var i=1;
+
+    var select=document.createElement("select");
+    select.setAttribute("id","selectImg"+i);
+
+    var selectJs=document.createElement("select");
+    select.setAttribute("id","selectJs");
+    
+    var p=document.createElement("p");
+    var p1=document.createTextNode("Selezionare immagine"+i);
+
+    var chooseHere = (str = "Choose Here") => {
+	var doc = document.createElement("option")
+
+	doc.value = "";
+	doc.text = str;
+	doc.setAttribute("selected", "");
+	doc.setAttribute("disabled", "");
+	doc.setAttribute("hidden", "");
+	
+	return doc;
+    }
+    
+    selectImage.appendChild(chooseHere("Choose an image"));
+    selectJs.appendChild(chooseHere("Choose a widget"));
+    
+    var fillSelects = (array, select) => {
+	array.forEach((el) => {
+	    var currentValue = document.createElement("option");
+	
+	    currentValue.value = el.value;
+	    currentValue.text = el.text;
+
+	    select.appendChild(currentValue);
+	});
+    }
+
+    fillSelects(
+	Array.from(document.getElementById("selectImage").children),
+	select
+    );
+    
+    fillSelects(
+	Array.from(document.getElementById("selectWidget").children),
+	selectJs
+    );
+    
+    p.appendChild(p1);
+    div.appendChild(p);
+    div.appendChild(select);
+    div.appendChild(document.createElement("br"));
+    div.appendChild(selectJs);
+
+
+    var buttonDeleteWidget = document.createElement("button");
+    var label = document.createElement("label");
+
+    var checkApplyWidget=document.createElement("input");
+    checkApplyWidget.type="checkbox";
+    checkApplyWidget.setAttribute("id","checkApplyWidget");
+    
+    label.innerHTML="Apply";
+    label.style.color="white";
+
+    buttonDeleteWidget.textContent="Delete Widget";
+    buttonDeleteWidget.setAttribute("id","buttonDeleteWidget");
+    buttonDeleteWidget.setAttribute("onclick","resetWidget()");
+
+    checkApplyWidget.setAttribute("id","checkApplyWidget");
+
+    div.appendChild(br);
+    div.appendChild(buttonDeleteWidget);
+    div.appendChild(checkApplyWidget);
+    div.appendChild(label);
+
+
+    alert("Widget Creato");
 }
 
 function resetWidget(){
 
- // $("#files").removeClass("hidden");
-  document.getElementById("sidenavForPuzzle").innerHTML="";
-  closeAllNavs();
+    // $("#files").removeClass("hidden");
+    document.getElementById("sidenavForPuzzle").innerHTML="";
+    closeAllNavs();
 }
 
 function getFileName(file) {
 
-  const name = file.files[0].name;
-  const lastDot = name.lastIndexOf('.');
+    const name = file.files[0].name;
+    const lastDot = name.lastIndexOf('.');
 
-  const fileName = name.substring(0, lastDot);
-  const ext = name.substring(lastDot + 1);
+    const fileName = name.substring(0, lastDot);
+    const ext = name.substring(lastDot + 1);
 
-// outputfile.value = fileName;
- // extension.value = ext;
- if(ext=="jpg"||ext=="png"||ext=="jpeg"||ext=="mkv"||ext=="avi"||ext=="flv"||ext=="mp4"){
-    return ext;
-  }else{return alert("Cambiare Estensione del file");}
+    // outputfile.value = fileName;
+    // extension.value = ext;
+    if(ext=="jpg"||ext=="png"||ext=="jpeg"||ext=="mkv"||ext=="avi"||ext=="flv"||ext=="mp4" || ext == "js"){
+	return ext;
+    } else {
+	return alert("Cambiare Estensione del file");
+    }
 
 }
+
+
 //disabilità il bottone selezionato
 function disableSelectButton(item){
 
