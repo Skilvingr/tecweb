@@ -7,9 +7,33 @@ var arrayBut = ["ContinueButton","StopButton","WrongButton", "BridgeButton"];
 var id=0;
 var graphNumber=0;
 
-//creo un oggetto con le informazioni iniziali della storia (età e titolo)
+function checkPhone(){
+  var control=detectMob();
+  console.log(control);
+  if(control===true){
+    alert("Non puoi accedere al Creator con un cellulare");
+    window.location.replace("http://site192020.tw.cs.unibo.it");
+  }
+}
+
+function detectMob() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+}
 
 $(document).ready(function(){
+  checkPhone();
 
   var query="ls webapp/create/customCss/createdCss"
   $.ajax({
@@ -35,18 +59,18 @@ for(var i=0; i<arrayData.length;i++){
 }
 
 function normalizeString(str){
-    
+
     const finalString = str.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
     var noSpaceString = finalString.replace(/\s+/g, '');
     return noSpaceString;
 }
-
+//creo un oggetto con le informazioni iniziali della storia (età e titolo)
 function initialObject(){
     initGraph();
 
     //graph.data(data);
     //graph.render();
-    
+
     var age = document.getElementById("agePicker").value;
     var css =document.getElementById("CssStyle").value;
     title = document.getElementById("titoloStory").value;
@@ -309,7 +333,7 @@ function end(){
 		 location.reload();
             }});
     });
-   
+
     //End.appendChild(button);
 
 }

@@ -404,7 +404,7 @@ function populate(id){
 
     document.getElementById("list").value = bottoni;
     createButs();
-
+    
 
 
 
@@ -557,7 +557,6 @@ obj[id].disableBranch=false;
       enableBranch(item.id);
 
   });
-  alert("Abilitato modificare per apportare le modifiche")
   graph.data(data);
   graph.render();
   graph.fitView();
@@ -1069,15 +1068,12 @@ function deleteSelectBranch(item){
   //var item = document.getElementById("selectBranch").value;
   //var select=document.getElementById("selectBranch")
   console.log("item = "+item)
-  console.log(data);
-  deleteButtons(item);
-  //deleteButtonGraph(item);
-  //deleteBranch();
+  deleteBranch();
   deleteBranchGraph("id"+item);
   graph.data(data);
   graph.render();
   graph.fitView();
-console.log(obj);
+   
   //select.remove(select.selectedIndex);
   document.getElementById("TitoloMissione").value="";
   document.getElementById("textS").value="";
@@ -1090,7 +1086,7 @@ console.log(obj);
   $("#disable").addClass("hidden");
 */
     console.log(data);
-
+    
 }
 
 function disableSelectBranch(item){
@@ -1103,7 +1099,7 @@ function disableSelectBranch(item){
   graph.render();
   graph.fitView();
   controlDisableBranch(item);
-    alert("Disabilitato");
+    alert("Disabilitato");  
 }
 
 function disableAllBranch(id){

@@ -8,13 +8,13 @@ $(document).ready(function() {
 	var text = "premere il numero " + (index + 1) + " per avviare la storia " + cN.textContent + "";
 	speech(text);
     });
-    
+
     chooseNumber(number);
 });
 
 function chooseNumber(number){
     var choose = parseInt(window.prompt(""), 10);
-    
+
     if(isNaN(choose) || choose < 1 || choose > number){
 	var textError = "numero non corretto, reinserire";
 	speech(textError);
@@ -27,7 +27,7 @@ function startJson(story){
     var name = document.getElementById("button" + story).textContent;
     var container = document.getElementById("initialAccessability");
     container.innerHTML="";
-    
+
     eyesJson(name);
 }
 
@@ -101,9 +101,8 @@ function buttons(number, data, score){
             button.onclick = function(){
 		score.wrong += 1;
 
-		speech("risposta sbagliata");
-		speech("la risposta corretta era: " + element.correct);
-		startRead(element.idCorrect, data, score);
+    repeatButtons(element, data, score);
+
             }
             container.appendChild(button);
 	}
@@ -118,10 +117,10 @@ function buttons(number, data, score){
 	}
     });
 
-    	
-    
+
+
     var buttonNumber = NaN;
-    
+
     while(isNaN(buttonNumber)){
 	buttonNumber = parseInt(
 	    window.prompt(""),
@@ -131,13 +130,28 @@ function buttons(number, data, score){
 	if(isNaN(buttonNumber) || buttonNumber > data[number].buttons.length || buttonNumber <= 0) {
 	    if(!synthesis.pending)
 		speech("Input sbagliato");
-	    
+
 	    buttonNumber = NaN;
 	}
     }
 
     $("#button" + buttonNumber).click();
 
+}
+
+function repeatButtons(element, data, score){
+  synthesis.cancel();
+  speech("risposta sbagliata");
+  speech("la risposta corretta era: " + element.correct);
+  speech("premere il numero: 1, e poi: invio per continuare");
+  var number = parseInt(window.prompt(""),10);
+  if(number===1){
+    startRead(element.idCorrect, data, score);
+  }
+  else {
+    speech("reinserire");
+    repeatButtons(element, data ,score);
+  }
 }
 
 function endStory(score){
@@ -166,7 +180,7 @@ function speech(data){
 	var voice = synthesis.getVoices().filter((voice) => {
 	    return voice.lang === 'it';
 	})[0];
-	
+
 	utterance = new SpeechSynthesisUtterance(data);
 
 	// Set utterance properties
