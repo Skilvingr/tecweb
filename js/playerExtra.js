@@ -1,13 +1,14 @@
 //const { endianness } = require("os");
 //const { checkServerIdentity } = require("tls");
 
+//modificare chiamata e cartella
 function playerButtons(){
     document.getElementById("story").innerHTML="" ;
-        var com1="ls webapp/completeJson/";
+        var com1="ls completeJson/";
     	$.ajax({
 	    type: "GET",
 	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + com1 +"",
+	    url: "http://localhost:8000/getOut?com=" + com1 +"",
 	    success: function(returnData1) {
 		//alert(returnData);
 		//data=returnData;
@@ -17,19 +18,17 @@ function playerButtons(){
 	    }
 	})
 
-
-
 }
-
+//modificare chiamata e cartella
 function findButtons1(data){
     var array = data.split("\n");
     console.log("array "+array+""+ array.length);
 	for(var i=0;i<array.length - 1;i++){
-	var com2= "ls webapp/completeJson/"+array[i];
+	var com2= "ls completeJson/"+array[i];
 	$.ajax({
 	    type: "GET",
 	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + com2 +"",
+	    url: "http://localhost:8000/getOut?com=" + com2 +"",
 	    success: function(returnData2) {
 		console.log("il secondo "+returnData2);
 		findButtons2(returnData2);
@@ -65,7 +64,7 @@ function addSpaceTitle(str){
     var modString= str.replace(/([A-Z])/g, ' $1').trim();
     console.log(modString);
     return modString;
-    
+
 }
 
 function createButtonsPlayer(title,dif){
@@ -100,9 +99,9 @@ function addPlayer(){
 
     img.classList.add("card-img-top");
     img.classList.add("sizeCard");
-    img.src="./mainImg/player.jpeg";
+    img.src="./mainImg/player_added.png";
     img.alt="Card image";
-    img.style.width="100%";
+    img.style.width="80%";
 
     bodyCard.classList.add("card-body");
 
@@ -163,20 +162,20 @@ while(i<length){
 
 function controlNull(objP){
     var control=false;
-    
+
     objP.forEach((item)=>{
 	if(item.name==="")
 	    control=true;
     });
-    
+
     return control;
 }
 
 function playStory(title,dif){
    var control =false;
-   var nullTitle=false; 
+   var nullTitle=false;
    var objP = createPlayerObj(title,dif);
-   nullTitle=controlNull(objP); 
+   nullTitle=controlNull(objP);
    control=controlNamePlayer(objP);
     console.log(objP);
     if(nullTitle==true)
@@ -271,10 +270,10 @@ function generateStory(title,dif,playerName,playerObj){
 
     var number=0;
     for(var x in story.player){
-  if(story[x]!=null){
-      number=x;
-      break;
-  }
+      if(story.player[x].start==true){
+        number=x;
+        break;
+      }
     }
 console.log(story.storyInfo.css);
 
@@ -327,7 +326,7 @@ function generation(story,number,playerName,playerObj,score,css){
     body.appendChild(endDiv);
 if(css.control===true)
   applyCssText(p.id,css);
-if(story[number].disableBranch!=true){
+if(story[number].disableBranch!=true&&story[number].disable!=true){
     generateText(story,number,css);
     generateImg(story,number);
     if(story[number].widgetPuzzle==true){

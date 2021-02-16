@@ -23,7 +23,8 @@
       ],
       "widgetPuzzle": false,
       "video": "none",
-      "img": "Graffetta.png"
+      "img": "Graffetta.png",
+      "start": true
     },
     {
       "img": "none",

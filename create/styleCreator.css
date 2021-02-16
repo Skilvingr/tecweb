@@ -1,58 +1,107 @@
-html {
-  height: 100%;
-  background-color: black;
-  background-image: url('ImageCreate/image5.jpg');
-}
 body{
-  background-image: url('ImageCreate/image5.jpg');
-  
+  text-decoration-color: black;
+  margin:0;
+  font-family: 'Yusei Magic', sans-serif;
 }
 
-h1{
-  color: white;
+#main{
+  display: grid;
+  border-top: 2px solid #03989e;
+  padding-top: 0.3%;
 }
-h2{
-  color: white;
+
+h1,h2,h3{
+  font-family: 'Shadows Into Light Two', cursive;
 }
-h3{
-  color:white;
+
+#WelcomeRow{
+  background-image: url("ImageCreate/sfondoCarta.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-p {
-  color:white;
+
+#UnderWelcome{
+  border-top: 2px solid #03989e;
+  margin-top: 0.3%;
 }
 
 select{
-  background-color: darkgreen;
+  background-color: #03989e;
   border: none;
   color: white;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: smaller;
   padding: 7px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  
+
   cursor: pointer;
 }
-button {
-  background-color: darkgreen;
+
+#Drawer{
+  cursor:pointer;
+  text-align:right;
+}
+
+#DrawerUtils{
+  cursor: pointer;
+  text-align: left;
+  right: 96%;
+  position: relative;
+}
+
+#btn_NavAdd{
+  background: none;
+  color: black;
+  padding: 0px;
+  margin-top: 0px;
+  font-size: x-large;
+}
+
+#btn_NavAltro{
+  background: none;
+  color: black;
+  padding: 0px;
+  margin-top: 0px;
+  font-size: x-large;
+}
+
+button{
+  background-color: #03989e;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: smaller;
   border-radius: 5px;
   border: none;
   color: white;
-  padding: 7px 20px;
+  padding: 8px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-
+  margin:2px;
   cursor: pointer;
 }
 
-#selectImage{
-position: left;
-
+#btn_player{
+  border-radius: 5px;
+  background:white;
+  border: 2px solid black;
+  color: black;
+  font-family: 'Yusei Magic', sans-serif;
+  font-size: smaller;
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin:2px;
+  cursor: pointer;
 }
 
-span{color:white;}
-
-
+#options{
+  text-align: center;
+  margin: 2%;
+}
 
 .sidenavGraph {
   height: 100%;
@@ -95,7 +144,7 @@ span{color:white;}
     
 
     .hidden{
-    visibility: hidden;
+    display: none;
 
     }
 
