@@ -772,6 +772,8 @@ function openStoriesNav(id) {
   getStories(document.getElementById("accessabilityStoryInnerDiv"));
   else if(sidenav.id=="accessabilityRemoveSidenav")
   getStoriesForAccessability(document.getElementById("accessabilityStoryToRemoveInnerDiv"));
+  else if(sidenav.id=="qrSidenav")
+  getStoriesComplete(document.getElementById("qrInnerDiv"))
 }
 
 function openLevelNav(story) {
@@ -820,6 +822,17 @@ function accessabilityLevelNav(story) {
 	"getStoryForAccessability(\"" + story + "\", \"",
 	"json"
     );
+}
+function createCustomQrCode(story){
+  var sidenav = document.getElementById("levelSidenav");
+  sidenav.style.width = "250px";
+
+  getAvailableLevels(
+story,
+document.getElementById("levelInnerDiv"),
+"customQrCodeGeneration(\"" + story + "\", \"",
+"json"
+  );
 }
 
 function closeAllNavs() {

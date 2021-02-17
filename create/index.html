@@ -6,6 +6,8 @@
   <script src="Graph.js"></script>
   <script src="fun-extra.js"></script>
   <script src="object.js"></script>
+  <script src="../js/qrCode/qrCodeGen.js"></script>
+  <script type="text/javascript" src="../js/qrCode/qrcode.js"></script>
 
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
@@ -79,6 +81,7 @@
   <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('removeSidenav')">Elimina storia</a>
   <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('loadSidenav')">Rendi storia giocabile</a>
   <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openNav('accessabilitySidenav')">Accessability</a>
+  <a class="extraOptionsBut" style="font-size:30px;cursor:pointer" onclick="openStoriesNav('qrSidenav')">Genera qrCode</a>
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('masterSidenav')">&times;</a>
 </div>
 <div id="editSidenav" class="sidenav">
@@ -117,12 +120,23 @@
   </div>
 </div>
 
+<div id="qrSidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('qrSidenav')">&times;</a>
+  <div id="qrInnerDiv">
+  </div>
+</div>
+
 <div id="levelSidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav('levelSidenav')">&times;</a>
   <div id="levelInnerDiv">
   </div>
 </div>
 
+<div id="qrContainer" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav('qrContainer')">&times;</a>
+  <div id="qrContainerDiv">
+  </div>
+</div>
 
 <div id="body" onclick="closeAllNavs()">
 

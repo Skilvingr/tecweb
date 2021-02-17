@@ -14,6 +14,7 @@ $(document).ready(function(){
 function playQrStory(urlParams){
   var story = urlParams.get("story");
   var dif = urlParams.get("dif");
+  dif+=".json";
   console.log(story);
   console.log(dif);
   $("#age").addClass("hidden");
@@ -221,6 +222,19 @@ function playStory(title,dif){
   if(control==true)
   return alert("Non è possibile inserire nomi uguali");
 
+  //Crea il div ed il bottone per poter tornare indietro alla selezione delle storie
+  var buttonHome=document.createElement("button");
+  buttonHome.setAttribute("id","buttonHome");
+  buttonHome.textContent="Torna al player";
+  buttonHome.onclick=function(){
+    location.reload();
+  }
+  var divHome=document.createElement("div");
+  divHome.style.textAlign="center";
+  var body=document.getElementById("body");
+  divHome.appendChild(buttonHome);
+  body.appendChild(divHome);
+
   //carica la storia
   generateStory(title,dif,objP[1].name,objP);
 
@@ -262,6 +276,8 @@ function loadCustomCss(story,number,playerName,playerObj,score,css){
     //per la generazione della storia
     css=cssObj;
     css.control=true;
+    //applica il css personalizzato anche al bottone che permette di tornare alla selezione delle storie
+    applyButtonCss("buttonHome",css);
     //genero la storia
     generation(story.player,number,playerName,playerObj,score,css);
 
@@ -359,6 +375,7 @@ function generation(story,number,playerName,playerObj,score,css){
   endDiv.setAttribute("id","endStory");
   body.appendChild(endDiv);
 
+
   //controlla se esiste il css personalizzato
   if(css.control===true)
   applyCssText(p.id,css);
@@ -385,6 +402,23 @@ function generatePuzzle(story,number,score,playerName,playerObj,css){
 
   $("#puzzle").removeClass("hidden");
   startPuzzle(story[number].puzzle[0].img,story,number,score,playerName,playerObj,css);
+  //Crea un bottone per poter saltare il puzzle in caso di necessità
+  var buttonSkip=document.createElement("button");
+  buttonSkip.setAttribute("id","skipButton");
+  buttonSkip.textContent="Salta Puzzle";
+
+  var div = document.getElementById("buttonsStory");
+  div.appendChild(buttonSkip);
+
+  //Applica il css personalizzato se presente
+  if(css.control===true)
+  applyButtonCss("skipButton",css)
+
+  buttonSkip.onclick=function(){
+    setScore(score,"-1");
+    $("#puzzle").addClass("hidden");
+    generateButtons(story,number,score,playerName,playerObj,css);
+  }
 
 }
 

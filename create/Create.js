@@ -746,6 +746,7 @@ function handleButton(page, button) {
 function handleStories(stories, sidenav, onclick = null){
     var storiesArray = stories.split("\n");
     console.log(sidenav.id);
+    console.log(storiesArray);
 
     if(sidenav.id=="modifyInnerDiv"){
 	document.getElementById("modifyInnerDiv").innerHTML="";
@@ -816,7 +817,7 @@ function handleStories(stories, sidenav, onclick = null){
 
 	document.getElementById("accessabilityStoryToRemoveInnerDiv").innerHTML="";
 	storiesArray.forEach((story) => {
-            var name= story.split(".");
+            var name = story.split(".");
             console.log(name);
             var a = document.createElement("a");
             a.className = "storyLabel";
@@ -826,6 +827,24 @@ function handleStories(stories, sidenav, onclick = null){
             sidenav.appendChild(a);
 
 	});
+    }
+    else if(sidenav.id="qrInnerDiv"){
+    storiesArray.forEach((story) => {
+      var name = story.split("-");
+      console.log(name);
+      var a = document.createElement("a");
+      a.className = "storyLabel";
+      a.setAttribute("style", "font-size:30px;cursor:pointer");
+      a.setAttribute("onclick", "createCustomQrCode(\"" + story + "\")");
+      /*
+      a.onclick=function(){
+        createCustomQrCode(story);
+        customQrCodeGeneration(name)
+      }
+      */
+      a.textContent = name[0];
+      sidenav.appendChild(a);
+      });
     }
 }
 
