@@ -6,13 +6,14 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        
-    
-        
+
+
+
         <link href="style.css" rel="stylesheet" />
 
     </head>
     <body id="body">
+      <div id="MainContainer">
       <div id="players" class="container">
         <h3>Gioca con gli Amici</h3>
 
@@ -39,24 +40,34 @@
 	$(document).ready(function(){
 	createButtonsPlayer('Olimpiadi','easy.json')
 	});
-	
+
       </script>
-         
+
 
           <div id="story">
-      
+
           </div>
           <div>
 
           </div>
-          
-  
+
+  </div>
+  <div id="puzzle" class="hidden">
+      <article>
+          <div class="pieces" id="piece-1"></div>
+          <div class="pieces" id="piece-2"></div>
+          <div class="pieces" id="piece-3"></div>
+          <div class="pieces" id="piece-4"></div>
+          <div class="pieces" id="piece-5"></div>
+          <div class="pieces" id="piece-6"></div>
+      </article>
+  </div>
     <script src="js/playerExtra.js"></script>
     <script src="create/fun-extra.js"></script>
     <script src="/widget/puzzle-game-jquery/dist/script.js"></script>
     <script type="text/javascript" src="js/qrCode/qrcode.js"></script>
     <script src="js/qrCode/qrCodeGen.js"></script>
-     
+
 
     </body>
 </html>

@@ -3,7 +3,7 @@
     {
       "id": 0,
       "title": "Pagina1",
-      "text": "Benvenuto\nSei pronto per fare un viaggio alla scoperta della storia delle\nOlimpiadi?\n",
+      "text": "Benvenuto! Sei pronto per fare un viaggio alla scoperta della storia delle Olimpiadi?",
       "numeroBottoni": 1,
       "branch": true,
       "buttons": [
@@ -17,13 +17,14 @@
       ],
       "widgetPuzzle": false,
       "video": "none",
-      "img": "1.jpg"
+      "img": "1.jpg",
+      "start": true
     },
     {
       "img": "new2.jpg",
       "video": "none",
       "title": "Pagina2",
-      "text": "Uno dei simboli delle olimpiadi sono proprio i cinque cerchi di colore\ndiverso sun un fondo bianco e simboleggia l'unione tra tutte le nazioni\nche i giochi olimpici portano.\nil colori scelti ( nero, azzurro, rosso, verde, giallo e lo sfondo bianco)\nnon sono casuali, infatti le bandiere di tutto il mondo contengono almeno uno di questi colori.\nI cerchi invece cosa stanno a significare?\n",
+      "text": "Uno dei simboli delle olimpiadi è proprio la bandiera con i cinque cerchi di colore diverso su un fondo bianco: simboleggia l'unione tra tutte le nazioni che i giochi olimpici portano.I colori scelti, nero, azzurro, rosso, verde, giallo e lo sfondo bianco, non sono casuali; infatti le bandiere di tutto il mondo contengono almeno uno di questi colori.I cerchi, invece, cosa stanno a significare?",
       "numeroBottoni": 3,
       "buttons": [
         {
@@ -55,7 +56,7 @@
       "img": "3.jpg",
       "video": "none",
       "title": "Pagina3",
-      "text": "Le Prime olimpiadi si svolsero ad Olimponel\nL’origine dei Giochi Olimpici viene fatta risalire al 766 a.C. Inizialmente\nerano delle celebrazioni in onore degli\ndei dell’Olimpo, infatti si volgevano nella città di Olimpia.\nMi sai dire quali tra questi e' il simbolo delle olimpiadi?\n",
+      "text": "L’origine dei Giochi Olimpici viene fatta risalire al 766 a.C. Inizialmente erano delle celebrazioni in onore degli dei dell’Olimpo, infatti si svolgevano nella città di Olimpia.Mi sai dire quali tra questi e' il simbolo delle Olimpiadi?\n",
       "numeroBottoni": 3,
       "buttons": [
         {
@@ -87,7 +88,7 @@
       "img": "4.jpg",
       "video": "none",
       "title": "Pagina4",
-      "text": "Esatto!\nLe origini della torcia risalgono in Grecia, quando un fuoco sacro era\ntenuto acceso per tutto il periodo delle Olimpiadi Antiche.\nPer gli antichi greci, il fuoco aveva una connotazione divina: il mito\nnarra che fosse stato\nrubato agli Dei dall’eroe Prometeo per donarlo agli uomini",
+      "text": "Esatto! Le origini della torcia risalgono all'antica Grecia, quando un fuoco sacro era tenuto acceso per tutto il periodo delle Olimpiadi.Per i greci, il fuoco aveva una connotazione sacra: il mito narra che fosse stato rubato agli Dei dall’eroe Prometeo, per donarlo agli uomini.",
       "numeroBottoni": 1,
       "buttons": [
         {
@@ -107,7 +108,7 @@
       "img": "5.jpg",
       "video": "none",
       "title": "Pagina5",
-      "text": "Nel presente vengono premiati moltissimi sport ma devi sapere che\nsono piu' di trante gli sport che entrano a far parte delle competizioni\nolimpiche!\nInizialmente pero erano molti meno e molti erano differenti da quelli\nattuali.\nAuitami a trovare almeno uno di questi\n",
+      "text": "Ad oggi, vengono premiati moltissimi sport, ma devi sapere che sono piu' di trenta gli sport che entrano a far parte delle competizioni olimpiche! Inizialmente, però, erano molti meno sport e tanti di questi erano differenti da quelli attuali.Auitami a trovare almeno uno di questi.",
       "numeroBottoni": 4,
       "buttons": [
         {
@@ -147,7 +148,7 @@
       "img": "6.jpg",
       "video": "none",
       "title": "Pagina6",
-      "text": "inizialmente il salto con l'asta aveva come obiettivo che l'atleta\nsaltasse il piu in lungo possibile con l'utilizzo di un'asta (allora era una\nramo molto robusto) per poter raggiungere la distanza maggiore. Negli\nanni questo sport si e' sviluppato ed e' cambiato l'obiettivo dell'atleta\novvero questo non deve piu saltarte in lungo ma in alto cercando\nquindi di raggiungere l'altezza maggiore possibile\nMi sai dire quale di queste e' attualmente il record di salto con l'asta\ndell'era moderna?\n",
+      "text": "Inizialmente, il salto con l'asta aveva come obiettivo il raggiungimento della distanza maggiore possibile, prevedendo che l'atleta saltasse con l'aiuto di un'asta, che originariamente consisteva in un ramo molto robusto. Negli anni questo sport si e' evoluto ed e' cambiato l'obiettivo dell'atleta: non bisogna più saltare in lungo, ma in alto, cercando, quindi, di raggiungere l'altezza migliore.Mi sai dire quale di questi e' attualmente il record di salto con l'asta?\n",
       "numeroBottoni": 3,
       "buttons": [
         {
@@ -179,7 +180,7 @@
       "img": "7.jpg",
       "video": "none",
       "title": "Pagina7",
-      "text": "La lotta ai Giochi olimpici affonda le proprie radici nei Giochi olimpici\nantichi, infatti sin dal 708 a.C. veniva disputata. Con la restaurazione\ndei moderni Giochi olimpici, la lotta (nella forma greco-romana) è\nriapparsa ai Giochi sin da Atene 1896 e, ad eccezione del programma\nolimpico del 1900, tuttora fa parte dell'evento polisportivo\nMi sai dire quale e' la nazione ad aver vinto piu medaglie nella lotta?\n",
+      "text": "La lotta affonda le proprie radici nei Giochi olimpici antichi: infatti, sin dal 708 A.C, veniva disputata alla maniera attuale. Con la restaurazione dei moderni Giochi olimpici, la lotta, nella forma greco-romana, è comparsa sin da Atene 1896 e, ad eccezione del programma olimpico del 1900, tuttora fa parte dell'evento polisportivo.Mi sai dire quale e' la nazione che ha vinto più medaglie nella lotta?",
       "numeroBottoni": 3,
       "buttons": [
         {
@@ -210,7 +211,7 @@
       "img": "8.jpg",
       "video": "none",
       "title": "Pagina8",
-      "text": "Il lancio del disco è uno sport antico. Il Discobolo di Mirone, la\nceleberrima scultura che ritrae un atleta che si appresta a scagliare il\ndisco, risale al V secolo a.C. Nelle Olimpiadi moderne il lancio del disco\nmaschile è presente sin dalla prima edizione, mentre la gara femminile\nfu introdotta ai Giochi di Amsterdam 1928.\nMi sai dire quale e' il record olimpico maschile del lancio del disco?\n",
+      "text": "Il lancio del disco è uno sport antico. Il Discobolo di Mirone, la celeberrima scultura ritraente un atleta che si appresta a scagliare il disco, risale al quinto secolo avanti cristo. Nelle Olimpiadi moderne, il lancio del disco maschile è presente sin dalla prima edizione; mentre la gara femminile è stata introdotta ai Giochi di Amsterdam 1928.Mi sai dire quale e' il record olimpico maschile di lancio del disco?\n",
       "numeroBottoni": 3,
       "buttons": [
         {

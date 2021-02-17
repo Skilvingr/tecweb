@@ -1409,7 +1409,7 @@ function uploadAccessabilityStory(){
   //	completejson();
       $.ajax({
           type: "POST",
-          url: "http://localhost:8000/create/accessabilityStory",
+          url: "http://site192020.tw.cs.unibo.it/create/accessabilityStory",
           contentType:"application/json;charset=utf-8",
           dataType:"html",
           data: JSON.stringify(init),

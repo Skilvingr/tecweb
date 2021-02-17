@@ -85,10 +85,10 @@ app.use(express.static(path.join(__dirname, "/")));
 
 //LogIn
 app.post('/login',
-	 passport.authenticate('local', { failureRedirect: 'http://site192020.tw.cs.unibo.it/' }),
+	 passport.authenticate('local', { failureRedirect: 'http://site192020.tw.cs.unibo.it:8000/' }),
 	 function(req, res) {
 	     // res.sendFile(path.join(__dirname, "/create"));
-	     res.redirect('http://site192020.tw.cs.unibo.it/create');
+	     res.redirect('http://site192020.tw.cs.unibo.it:8000/create');
 	 });
 
 /* Handle Registration POST */
@@ -253,9 +253,9 @@ app.get("/getCss", (req, res) => {
 	res.send(stdout);
     });
 });
-//modificare chiamata nel server
+
 app.get("/getStoriesForAccessabilityToRemove", (req, res) => {
-    exec("ls accessability/eyes/", (error, stdout, stderr) => {
+    exec("ls webapp/accessability/eyes/", (error, stdout, stderr) => {
 	if (error) {
 	    console.log(`error: ${error.message}`);
 	    return;
@@ -268,10 +268,10 @@ app.get("/getStoriesForAccessabilityToRemove", (req, res) => {
 	res.send(stdout);
     });
 });
-//modificare cartella
+
 app.get("/removeStoryForAccessability", (req, res) => {
 
-    execSync(("rm accessability/eyes/" + req.query.story + ""));
+    execSync(("rm webapp/accessability/eyes/" + req.query.story + ""));
 
 
     //saver.playable(req.query.story,req.query.level);
@@ -301,10 +301,10 @@ var storage = multer.diskStorage({
 
 //multer
 var upload = multer({storage : storage});
-//modificare cartelle
+
 app.post("/create/story", function(req,res){
-    execSync(("rm -rf json/" + req.body.storyInfo.title+" 2&>/dev/null"));
-    execSync(("mkdir json/" + req.body.storyInfo.title));
+    execSync(("rm -rf webapp/json/" + req.body.storyInfo.title+" 2&>/dev/null"));
+    execSync(("mkdir webapp/json/" + req.body.storyInfo.title));
 
 	var returned = saver.write(req.body);
 

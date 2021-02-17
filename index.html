@@ -14,11 +14,13 @@
       <link rel="preconnect" href="https://fonts.gstatic.com">
       <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
       <link href="style.css" rel="stylesheet" />
+  
 
   </head>
 
   <body id="body">
     <row id="NavMenu">
+      <div id="MainContainer">
         <div>
             <button id="buttonQrCode" onclick="qrCodeGeneration()">Genera QrCode</button>
         </div>
@@ -28,9 +30,10 @@
             </button>
         </div>
         <div id="mainContainer" class="container">
-            <form action="/loginWindow" method="get">
-                <input class="submit-btn" type="submit" value="Creator">
-            </form>
+          <button onclick="window.location.href='/create';">
+             Creator
+          </button>
+
         </div>
     </row>
 
@@ -93,6 +96,18 @@
 
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav('homeSideNav')">&times;</a>
         </div>
+      </div>
+        <div id="puzzle" class="hidden">
+            <article>
+                <div class="pieces" id="piece-1"></div>
+                <div class="pieces" id="piece-2"></div>
+                <div class="pieces" id="piece-3"></div>
+                <div class="pieces" id="piece-4"></div>
+                <div class="pieces" id="piece-5"></div>
+                <div class="pieces" id="piece-6"></div>
+            </article>
+        </div>
+
     </row>
 
 
@@ -101,6 +116,6 @@
     <script src="/widget/puzzle-game-jquery/dist/script.js"></script>
     <script type="text/javascript" src="js/qrCode/qrcode.js"></script>
     <script src="js/qrCode/qrCodeGen.js"></script>
-    
+
   </body>
 </html>

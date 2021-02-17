@@ -1,35 +1,41 @@
-//$(document).ready(function(){
 
-//	var image = new Image();
-//	image.src = "../puzzle-image/pp.jpg"; // load the image
-//	image.onload = function () {  // when loaded
-//		createPuzzle_Image(this);
-	//}
-//	startPuzzle();
-	/*
-	var image = new Image();
-	image.src = "../puzzle-image/pp.jpg"; // load the image
-	image.onload = function () {  // when loaded
-		var cc = {
-			x : - (this.width / 12),     // crop keeping the center
-			y :  - (this.height / 12),
-			width : this.width / 2,
-			height : this.height / 2,
-		};
-		var workCan = document.createElement("canvas"); // create a canvas
-		workCan.width = Math.floor(cc.width);  // set the canvas resolution to the cropped image size
-		workCan.height = Math.floor(cc.height);
-		var ctx = workCan.getContext("2d");    // get a 2D rendering interface
-		ctx.drawImage(this, -Math.floor(cc.x), -Math.floor(cc.y)); // draw the image offset to place it correctly on the cropped region
-		this.src = workCan.toDataURL();       // set the image source to the canvas as a data URL
-		console.log(this.src);
-		var newImage = new Image();
-		newImage.src = this.src
-		document.body.appendChild(newImage);  // Add the image to the DOM
-	}; */
+// Mischia i pezzi del puzzle
+function shuffleTiles(shuffle){
 
-	//  globals
+	if(shuffle == 1){
+		$('#piece-1').css({top: 340, left: 680});
+		$('#piece-2').css({top: 0, left: 680});
+		$('#piece-3').css({top: 340, left: 340});
+		$('#piece-4').css({top: 0, left: 340});
+		$('#piece-5').css({top: 340, left: 0});
+		$('#piece-6').css({top: 0, left: 0});
+	} else if(shuffle == 2){
+		$('#piece-1').css({top: 340, left: 0});
+		$('#piece-2').css({top: 0, left: 0});
+		$('#piece-3').css({top: 340, left: 340});
+		$('#piece-4').css({top: 0, left: 340});
+		$('#piece-5').css({top: 340, left: 680});
+		$('#piece-6').css({top: 0, left: 680});
+	} else if(shuffle == 3){
+		$('#piece-1').css({top: 0, left: 680});
+		$('#piece-2').css({top: 0, left: 0});
+		$('#piece-3').css({top: 340, left: 340});
+		$('#piece-4').css({top: 340, left: 680});
+		$('#piece-5').css({top: 0, left: 340});
+		$('#piece-6').css({top: 340, left: 0});
+	} else if(shuffle == 4){
+		$('#piece-1').css({top: 0, left: 680});
+		$('#piece-2').css({top: 340, left: 680});
+		$('#piece-3').css({top: 0, left: 340});
+		$('#piece-4').css({top: 340, left: 340});
+		$('#piece-5').css({top: 0, left: 0});
+		$('#piece-6').css({top: 340, left: 0});
+	}
+}
 
+//carica il puzzle
+function loadPuzzle(story,number,score,playerName,playerObj,css){
+	//variabili
 	var tileClicked = false;
 	var firstTileClicked;
 	var secondTileClicked;
@@ -41,91 +47,34 @@
 	var moves = 0;
 	var secs = 0;
 
-	//  shuffle the tiles
-
-	function shuffleTiles(){
-		if(shuffle == 1){
-			$('#piece-1').css({top: 340, left: 680});
-			$('#piece-2').css({top: 0, left: 680});
-			$('#piece-3').css({top: 340, left: 340});
-			$('#piece-4').css({top: 0, left: 340});
-			$('#piece-5').css({top: 340, left: 0});
-			$('#piece-6').css({top: 0, left: 0});
-		} else if(shuffle == 2){
-			$('#piece-1').css({top: 340, left: 0});
-			$('#piece-2').css({top: 0, left: 0});
-			$('#piece-3').css({top: 340, left: 340});
-			$('#piece-4').css({top: 0, left: 340});
-			$('#piece-5').css({top: 340, left: 680});
-			$('#piece-6').css({top: 0, left: 680});
-		} else if(shuffle == 3){
-			$('#piece-1').css({top: 0, left: 680});
-			$('#piece-2').css({top: 0, left: 0});
-			$('#piece-3').css({top: 340, left: 340});
-			$('#piece-4').css({top: 340, left: 680});
-			$('#piece-5').css({top: 0, left: 340});
-			$('#piece-6').css({top: 340, left: 0});
-		} else if(shuffle == 4){
-			$('#piece-1').css({top: 0, left: 680});
-			$('#piece-2').css({top: 340, left: 680});
-			$('#piece-3').css({top: 0, left: 340});
-			$('#piece-4').css({top: 340, left: 340});
-			$('#piece-5').css({top: 0, left: 0});
-			$('#piece-6').css({top: 340, left: 0});
-		}
-	}
-/*
-	$(window).load(function(){
-		setTimeout(function(){
-			shuffleTiles();
-			setInterval(function(){
-				secs++
-			}, 1000);
-		}, 1000);
-	});
-*/
-
-function loadPuzzle(story,number,score,playerName,playerObj,css){
-	setTimeout(function(){
-		shuffleTiles();
-		loadClick(story,number,score,playerName,playerObj,css)
-		setInterval(function(){
-			secs++
-		}, 1000);
-	}, 1000);
-}
-
-	//  play the game
-function loadClick(story,number,score,playerName,playerObj,css){
+	shuffleTiles(shuffle);
+	//se un pezzo viene cliccato esegue la funzione per muovere i pezzi
 	$('.pieces').click(function(){
 
-		if(tileClicked == false){  //  if no tile is clicked
+		if(tileClicked == false){  //  se nessun pezzo è cliccato
 
-			//  set variables
+			// aggiorna le variabili
 			firstTileClicked = $(this).attr('id');
 			topPosFir = parseInt($(this).css('top'));
 			leftPosFir = parseInt($(this).css('left'));
 
-			//  highlight tile
 			$(this).addClass('glow');
 			tileClicked = true;
 
-		} else{  //  if you've clicked a tile
+		} else{  //  se un pezzo è cliccato
 
-			//  set variables
+			//  aggiorna le variabili
 			secondTileClicked = $(this).attr('id');
 			topPosSec = parseInt($(this).css('top'));
 			leftPosSec = parseInt($(this).css('left'));
 
-			//  animations
 			$('#' + firstTileClicked).css({'top' : topPosSec , 'left' : leftPosSec});
 			$('#' + secondTileClicked).css({'top' : topPosFir , 'left' : leftPosFir});
 
-			//  remove the glow and reset the first tile
 			$('.pieces').removeClass('glow');
 			tileClicked = false;
 
-			//  test for the win
+			//  test per controllare se i pezzi sono nelle posizioni corrette
 
 			setTimeout(function(){
 				if(
@@ -136,42 +85,47 @@ function loadClick(story,number,score,playerName,playerObj,css){
 					$('#piece-5').css('left') == '340px' && $('#piece-5').css('top') == '340px' &&
 					$('#piece-6').css('left') == '680px' && $('#piece-6').css('top') == '340px'
 				){
-					generateButtons(story,number,score,playerName,playerObj,css);
-					 var head = document.getElementsByTagName('head')[0];
-					head.removeChild(document.getElementById("cssPuzzle"));
-					document.getElementById("puzzleStory").innerHTML="";
-					//$('p').text('You have solved the puzzle in ' + secs + ' seconds using ' + moves + ' moves!!');
-					//$('article').addClass('glow-2');
+
 					moves = 0;
+					//Finito il puzzle genera i bottoni per la pagina corrente
+					$('article').addClass('glow-2');
+
+					$("#puzzle").addClass("hidden");
+					generateButtons(story,number,score,playerName,playerObj,css);
+
 				}
 			}, 1000);
 
-			//  increment the move counter
+			//  incrementa il counter dei movimenti
 			moves++
 
 		}
 
 	});
-}//  end the click function
 
-
-//});
-function startPuzzle(imagePuzzle,story,number,score,playerName,playerObj,css){
-	var image = new Image();
-	image.src = "/imgCreate/"+imagePuzzle; // load the image
-	image.onload = function () {  // when loaded
-	createPuzzle_Image(this,story,number,score,playerName,playerObj,css);
-	}
 }
 
+//Crea l'immagine per poter essere tagliata
+function startPuzzle(imagePuzzle,story,number,score,playerName,playerObj,css){
+	var image = new Image();
+	image.src = "/imgCreate/"+imagePuzzle; // carica l'immagine
+	console.log(image);
+	image.onload = function () {
+		createPuzzle_Image(this,story,number,score,playerName,playerObj,css);
+	}
+
+}
+
+//crea i pezzi del puzzle
 function createPuzzle_Image(Image,story,number,score,playerName,playerObj,css) {
+
 	let c1 = {
 		x: 0,     // crop keeping the center
 		y: 0,
 		width: Image.width / 3,
 		height: Image.height / 3,
 	};
-
+	//esegue il crop
 	let piece1 = cropImage(Image, c1);
 
 	let c2 = {
@@ -225,9 +179,11 @@ function createPuzzle_Image(Image,story,number,score,playerName,playerObj,css) {
 	$("#piece-4").css({"background-image": `url('${piece4.src}')`});
 	$("#piece-5").css({"background-image": `url('${piece5.src}')`});
 	$("#piece-6").css({"background-image": `url('${piece6.src}')`});
+
 	loadPuzzle(story,number,score,playerName,playerObj,css);
 }
 
+//ritorna il crop dell'immagine
 function cropImage(Img, coordinates){
 	var cc = coordinates;
 	var workCan = document.createElement("canvas"); // create a canvas

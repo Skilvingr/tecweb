@@ -30,8 +30,8 @@ function write(jsonContent) {
 	dif = "medium";
     else if(età=="16-18")
 	dif="hard";
-//modificare cartelle
-    fs.writeFile(("json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
+
+    fs.writeFile(("webapp/json/"+ titolo +"/"+ dif +".json"),jsonObj, function (err) {
         if (err) {
 	    console.log(err);
 	    console.log("An error occured while writing JSON Object to File.");
@@ -68,7 +68,7 @@ function writeAccessability(objAccessability){
   console.log(objAccessability);
   var title=""+objAccessability.storyInfo.title;
   var jsonAccessability = JSON.stringify(objAccessability,null,2);
-  fs.writeFile(("accessability/eyes/"+title+".json"),jsonAccessability,function(err){
+  fs.writeFile(("webapp/accessability/eyes/"+title+".json"),jsonAccessability,function(err){
       if (err) {
     console.log(err);
     console.log("An error occured while writing JSON Object to File.");

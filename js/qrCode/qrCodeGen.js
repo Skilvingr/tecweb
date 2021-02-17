@@ -5,14 +5,14 @@ function qrCodeGeneration(){
     button.textContent="Elimina Qrcode";
     div.innerHTML="";
     var qrcode = new QRCode(document.getElementById("qrCode"), {
-	text: "http://site192020.tw.cs.unibo.it",
+	text: "http://site192020.tw.cs.unibo.it/?story=Olimpiadi&dif=easy.json",
 	width: 128,
 	height: 128,
 	colorDark : "#000000",
 	colorLight : "#ffffff",
 	correctLevel : QRCode.CorrectLevel.H
     });
-    
+
     button.onclick=function(){
 	div.innerHTML="";
     }

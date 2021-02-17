@@ -8,63 +8,67 @@ var id=0;
 var graphNumber=0;
 
 function checkPhone(){
-  var control=detectMob();
-  console.log(control);
-  if(control===true){
-    alert("Non puoi accedere al Creator con un cellulare");
-    window.location.replace("http://site192020.tw.cs.unibo.it");
-  }
+    var control = detectMob();
+    console.log(control);
+
+    if(control === true){
+	alert("Non puoi accedere al Creator con un cellulare");
+	window.location.replace("http://site192020.tw.cs.unibo.it");
+    }
 }
 
 function detectMob() {
     const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i
+	/Android/i,
+	/webOS/i,
+	/iPhone/i,
+	/iPad/i,
+	/iPod/i,
+	/BlackBerry/i,
+	/Windows Phone/i
     ];
 
     return toMatch.some((toMatchItem) => {
-        return navigator.userAgent.match(toMatchItem);
+	return navigator.userAgent.match(toMatchItem);
     });
 }
 
-$(document).ready(function(){
-  checkPhone();
+$(document).ready(() => {
+    checkPhone();
 
-  var query="ls webapp/create/customCss/createdCss"
-  $.ajax({
-	    type: "GET",
-	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + query +"",
-	    success: function(returnData) {
-		listCssCreate(returnData);
-	    }
-	})
-
+    var query="ls webapp/create/customCss/createdCss"
+    $.ajax({
+	type: "GET",
+	datatype: "html",
+	url: "http://site192020.tw.cs.unibo.it/getOut?com=" + query +"",
+	success: function(returnData) {
+	    listCssCreate(returnData);
+	}
+    })
 });
-function listCssCreate(cssData){
-  var arrayData=cssData.split("\n");
-  var select=document.getElementById("CssStyle");
 
-for(var i=0; i<arrayData.length;i++){
-  var option =document.createElement("option");
-  option.text=arrayData[i];
-  option.value=arrayData[i];
-  select.appendChild(option);
-  }
+function listCssCreate(cssData){
+    var arrayData = cssData.split("\n");
+    var select = document.getElementById("CssStyle");
+
+    for(var i = 0; i < arrayData.length; i++){
+	var option = document.createElement("option");
+	option.text = arrayData[i];
+	option.value = arrayData[i];
+	select.appendChild(option);
+    }
 }
 
 function normalizeString(str){
-
     const finalString = str.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
     var noSpaceString = finalString.replace(/\s+/g, '');
     return noSpaceString;
 }
-//creo un oggetto con le informazioni iniziali della storia (età e titolo)
+
+
+/***********************************************************************************
+* Creo un oggetto con le informazioni iniziali della storia (età e titolo)
+***********************************************************************************/
 function initialObject(){
     initGraph();
 
@@ -84,7 +88,10 @@ function initialObject(){
     start();
 }
 
-//Si occupa di creare la pagina
+
+/***********************************************************************************
+* Inizia a creare gli elementi della pagina
+***********************************************************************************/
 function start() {
 
     $("#widgets").removeClass("hidden");
@@ -132,7 +139,7 @@ function start() {
     textarea.setAttribute("cols", "100");
 
     var p = document.createElement("p");
-    p.id="ChooseNumButs";
+    p.id = "ChooseNumButs";
     var p1 = document.createTextNode("Scegli il numero di bottoni");
     p.appendChild(p1);
 
@@ -146,10 +153,10 @@ function start() {
     //Create and append the options
 
     array.forEach((el) => {
-        var option = document.createElement("option");
-        option.value = el;
-        option.text = el;
-        selectList.appendChild(option);
+	var option = document.createElement("option");
+	option.value = el;
+	option.text = el;
+	selectList.appendChild(option);
     });
 
     var next = document.createElement("button");
@@ -193,32 +200,32 @@ function start() {
 
 
 
-    $("#imageStory").submit(function(e) {
+    $("#imageStory").submit((e) => {
 
-        e.preventDefault(); // avoid to execute the actual submit of the form.
+	e.preventDefault(); // avoid to execute the actual submit of the form.
 
-        var form = $(this);
-        var url = form.attr('action');
+	var form = $(this);
+	var url = form.attr('action');
 
-        var file=document.getElementById("imgName");
-        //controllo l'estensione
-        var ext=getFileName(file);
-        if (ext=="jpg"||ext=="jpeg"||ext=="png"||ext=="avi"||ext=="mp4"||ext=="mkv"||ext=="flv"){
-            var name = file.files[0].name;
-            var data=new FormData(imageStory);
-            data.append('file',this.new_attachments)
+	var file=document.getElementById("imgName");
+	//controllo l'estensione
+	var ext=getFileName(file);
+	if (ext=="jpg"||ext=="jpeg"||ext=="png"||ext=="avi"||ext=="mp4"||ext=="mkv"||ext=="flv"){
+	    var name = file.files[0].name;
+	    var data=new FormData(imageStory);
+	    data.append('file',this.new_attachments)
 
-            $.ajax({
+	    $.ajax({
 		type: "POST",
 		url: url,
 		data: data,
 		processData: false,
 		contentType: false,
-		success: function(data)
+		success: (data) =>
 		{
-                    alert("caricato");
+		    alert("caricato");
 		}
-            });
+	    });
 
 
 	    if(ext=="jpg"||ext=="jpeg"||ext=="png"){
@@ -240,7 +247,7 @@ function start() {
 		    }
 		}catch(err){
 		    //console.log(err);
-			   }
+		}
 	    }else if(ext=="avi"||ext=="mp4"||ext=="mkv"||ext=="flv"){
 
 		//crea il testo per inserire il nome del video
@@ -258,12 +265,14 @@ function start() {
 }
 
 
-
+/***********************************************************************************
+* Compone la pagina
+***********************************************************************************/
 function createPage(){
 
     var control = controlTitle();
     if(control == false)
-	   return alert("assicurarsi di aver inserito tutti i titoli");
+	return alert("assicurarsi di aver inserito tutti i titoli");
 
     //creo la pagina
     var objectId = createObject();
@@ -272,18 +281,18 @@ function createPage(){
     controlWidget(objectId);
 
     //obj.forEach((object) => {
-        createBranch(objectId);
-        obj[objectId].buttons.forEach((item) => {
-          if(item.type==="ContinueButton")
-          createBranch(item.id);
-        });
+    createBranch(objectId);
+    obj[objectId].buttons.forEach((item) => {
+	if(item.type==="ContinueButton")
+	    createBranch(item.id);
+    });
 
-      //  });
+    //  });
 
-        console.log(data);
-        graph.data(data);
-        graph.render();
-        graph.fitView();
+    console.log(data);
+    graph.data(data);
+    graph.render();
+    graph.fitView();
 
     //se è stata caricata l'immagine la salvo sennò setto a 'none'
 
@@ -302,13 +311,13 @@ function createPage(){
     //aggiustare il delete branch
     //inizializzo il bottone per eliminare il branch
     /*
-    var deletePage=document.createElement("option");
-    deletePage.setAttribute("id","DeletePage"+document.getElementById("TitoloMissione").value);
-    deletePage.text="delete Branch di "+document.getElementById("TitoloMissione").value;
-    deletePage.value= obj[objectId].id ;
-    selectBranch.appendChild(deletePage);
-    $("#elimina").removeClass("hidden");
-*/
+      var deletePage=document.createElement("option");
+      deletePage.setAttribute("id","DeletePage"+document.getElementById("TitoloMissione").value);
+      deletePage.text="delete Branch di "+document.getElementById("TitoloMissione").value;
+      deletePage.value= obj[objectId].id ;
+      selectBranch.appendChild(deletePage);
+      $("#elimina").removeClass("hidden");
+    */
 
     //pulisco la pagina
     document.getElementById("TitoloMissione").value="";
@@ -318,44 +327,44 @@ function createPage(){
 }
 
 function setStartPoint(){
-  var body = document.getElementById("body");
-  body.innerHTML="";
-  $("#files").addClass("hidden");
-  $("#utilsSidenav").addClass("hidden");
-  $("#sidenavForBranches").addClass("hidden");
-  $("#Drawer").addClass("hidden");
-  $("#DrawerUtils").addClass("hidden");
-  $("#options").addClass("hidden");
-  showOldStartPoint();
-  var p=document.createElement("p");
-  var p1 = document.createTextNode("Scegliere punto iniziale della storia");
-  p.appendChild(p1);
+    var body = document.getElementById("body");
+    body.innerHTML="";
+    $("#files").addClass("hidden");
+    $("#utilsSidenav").addClass("hidden");
+    $("#sidenavForBranches").addClass("hidden");
+    $("#Drawer").addClass("hidden");
+    $("#DrawerUtils").addClass("hidden");
+    $("#options").addClass("hidden");
+    showOldStartPoint();
+    var p=document.createElement("p");
+    var p1 = document.createTextNode("Scegliere punto iniziale della storia");
+    p.appendChild(p1);
 
-  var array = [];
-  var arrayId=[];
-  var i=0;
-  for(var x in obj){
-  console.log(x);
-  if(obj[x]!=null){
-      array[i]=obj[x].title;
-      arrayId[i]=obj[x].id;
-  i++;
-  }
-  }
+    var array = [];
+    var arrayId=[];
+    var i=0;
+    for(var x in obj){
+	console.log(x);
+	if(obj[x]!=null){
+	    array[i]=obj[x].title;
+	    arrayId[i]=obj[x].id;
+	    i++;
+	}
+    }
 
-  var divStart=document.createElement("div");
-  divStart.style.textAlign="center";
-  var listStart = document.createElement("select");
-  listStart.setAttribute("id","listStart");
+    var divStart=document.createElement("div");
+    divStart.style.textAlign="center";
+    var listStart = document.createElement("select");
+    listStart.setAttribute("id","listStart");
 
-  for (var a = 0; a < array.length; a++) {
-      var optionStart = document.createElement("option");
-      optionStart.value = arrayId[a];
-      optionStart.text = array[a];
-      listStart.appendChild(optionStart);
-  }
-  divStart.appendChild(p);
-  divStart.appendChild(listStart);
+    for (var a = 0; a < array.length; a++) {
+	var optionStart = document.createElement("option");
+	optionStart.value = arrayId[a];
+	optionStart.text = array[a];
+	listStart.appendChild(optionStart);
+    }
+    divStart.appendChild(p);
+    divStart.appendChild(listStart);
 
     body.appendChild(divStart);
     var button = document.createElement("button");
@@ -367,45 +376,45 @@ function setStartPoint(){
 
 }
 
+
 function end(){
-  var start=document.getElementById("listStart").value;
-  if(start==null)
-      return alert("selezionare punto di inizio");
+    var start=document.getElementById("listStart").value;
+    if(start==null)
+	return alert("selezionare punto di inizio");
 
-  for(var x in obj){
-      console.log(x);
-      if(obj[x] != null){
-         if(obj[x].start===true)
-            obj[x].start=false;
+    for(var x in obj){
+	console.log(x);
+	if(obj[x] != null){
+	    if(obj[x].start===true)
+		obj[x].start=false;
 
-        }
-      }
-  obj[start].start=true;
-  uploadStoryForCreator();
+	}
+    }
+    obj[start].start=true;
+    uploadStoryForCreator();
 }
+
+
+/***********************************************************************************
+* Carica la storia
+***********************************************************************************/
 function uploadStoryForCreator(){
-  /*
-  var button = document.createElement("button");
-  button.id="reqButton";
-  button.textContent="carica storia";
-  */
-  //modificare chiamata
-  $(document).ready(function(){
-//	completejson();
-      $.ajax({
-          type: "POST",
-          url: "http://localhost:8000/create/story",
-          contentType:"application/json;charset=utf-8",
-          dataType:"html",
-          data: JSON.stringify(init),
-          success: function(result){
-              alert(result);
-   location.reload();
-          }});
-  });
+    $(document).ready(() => {
 
-  //End.appendChild(button);
+	$.ajax({
+	    type: "POST",
+	    url: "http://site192020.tw.cs.unibo.it/create/story",
+	    contentType:"application/json;charset=utf-8",
+	    dataType:"html",
+	    data: JSON.stringify(init),
+	    success: (result) => {
+		alert(result);
+		location.reload();
+	    }});
+
+    });
 }
+
 
 function deleteAllPage(id){
     var ul=obj[id].idGraph;
@@ -447,67 +456,76 @@ function deleteAllPage(id){
     console.log(`obj: ${obj}`);
 
     try{
-        $("#nextPrev").removeClass("hidden");
-        $("#End").removeClass("hidden");
-        $("#Modify").addClass("hidden");
+	$("#nextPrev").removeClass("hidden");
+	$("#End").removeClass("hidden");
+	$("#Modify").addClass("hidden");
 
     }catch(err){}
 
     $(`#${id}`).remove();
 }
-//modificare chiamata
+
+
+/***********************************************************************************
+* Carica le storie accessibili ai non vedenti
+***********************************************************************************/
 function getStoriesForAccessability(sidenav){
 
-  $(document).ready(function(){
-$.ajax({
-    type: "GET",
-    datatype: "html",
-    url: "http://localhost:8000/getStoriesForAccessabilityToRemove",
-    success: function(returnData) {
-  handleStories(returnData, sidenav);
-    }
-})
-  });
+    $(document).ready(() => {
+	$.ajax({
+            type: "GET",
+            datatype: "html",
+            url: "http://site192020.tw.cs.unibo.it/getStoriesForAccessabilityToRemove",
+            success: (returnData) => {
+		handleStories(returnData, sidenav);
+            }
+	})
+    });
 
 }
 
+
 function getStories(sidenav) {
-    $(document).ready(function(){
+    $(document).ready(() => {
 	$.ajax({
-	    type: "GET",
-	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getStories",
-	    success: function(returnData) {
+            type: "GET",
+            datatype: "html",
+            url: "http://site192020.tw.cs.unibo.it/getStories",
+            success: function(returnData) {
 		handleStories(returnData, sidenav);
-	    }
+            }
 	})
     });
 }
 
-//ottiene le storie completate
+
+/***********************************************************************************
+* Carica le storie complete e giocabili
+***********************************************************************************/
 function getStoriesComplete(sidenav){
-  $(document).ready(function(){
-$.ajax({
-    type: "GET",
-    datatype: "html",
-    url: "http://site192020.tw.cs.unibo.it/getStoriesComplete",
-    success: function(returnData) {
-  handleStories(returnData, sidenav);
-    }
-})
-  });
+    $(document).ready(function(){
+	$.ajax({
+            type: "GET",
+            datatype: "html",
+            url: "http://site192020.tw.cs.unibo.it/getStoriesComplete",
+            success: function(returnData) {
+		handleStories(returnData, sidenav);
+            }
+	})
+    });
 }
+
 
 function getAvailableLevels(story, sidenav, onclick, dir) {
     $(document).ready(function(){
 	$.ajax({
-	    type: "GET",
-	    dataType: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getAvailableLevels?story=" + story + "&dir=" + dir,
-	    success: function(returnData) {
+            type: "GET",
+            dataType: "html",
+            url: "http://site192020.tw.cs.unibo.it/getAvailableLevels?story=" + story + "&dir=" + dir,
+            success: function(returnData) {
 		console.log(returnData);
 		handleStories(returnData, sidenav, onclick);
-	    }
+            }
 	})
     });
 }
@@ -516,23 +534,24 @@ function getAvailableLevels(story, sidenav, onclick, dir) {
 function getOut(com) {
     $(document).ready(function(){
 	$.ajax({
-	    type: "GET",
-	    datatype: "html",
-	    url: "http://site192020.tw.cs.unibo.it/getOut?com=" + com +"",
-	    success: function(returnData) {
+            type: "GET",
+            datatype: "html",
+            url: "http://site192020.tw.cs.unibo.it/getOut?com=" + com +"",
+            success: function(returnData) {
 		comOutput(returnData);
-	    }
+            }
 	})
     });
 }
 
+
 function getStory(story, level) {
-    $(document).ready(function(){
+    $(document).ready(() => {
 	$.ajax({
-	    type: "GET",
-	    dataType: "json",
-	    url: "http://site192020.tw.cs.unibo.it/getStory?story=" + story + "&level=" + level,
-	    success: function(returnData) {
+            type: "GET",
+            dataType: "json",
+            url: "http://site192020.tw.cs.unibo.it/getStory?story=" + story + "&level=" + level,
+            success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
 		console.log(returnData);
@@ -542,18 +561,19 @@ function getStory(story, level) {
 		init = returnData;
 		obj = returnData.player;
 		initPage();
-	    }
+            }
 	})
     });
 }
 
+
 function getStoryForAccessability(story, level) {
-    $(document).ready(function(){
+    $(document).ready(() => {
 	$.ajax({
-	    type: "GET",
-	    dataType: "json",
-	    url: "http://site192020.tw.cs.unibo.it/getStory?story=" + story + "&level=" + level,
-	    success: function(returnData) {
+            type: "GET",
+            dataType: "json",
+            url: "http://site192020.tw.cs.unibo.it/getStory?story=" + story + "&level=" + level,
+            success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
 		console.log(returnData);
@@ -563,60 +583,60 @@ function getStoryForAccessability(story, level) {
 		init = returnData;
 		obj = returnData.player;
 		initPageForAccessability();
-	    }
+            }
 	})
     });
 }
 
 function playableStory(story, level) {
-    $(document).ready(function(){
+    $(document).ready(() => {
 	$.ajax({
-	    type: "GET",
-	    dataType: "json",
-	    url: "http://site192020.tw.cs.unibo.it/playableStory?story=" + story + "&level=" + level,
-	    success: function(returnData) {
+            type: "GET",
+            dataType: "json",
+            url: "http://site192020.tw.cs.unibo.it/playableStory?story=" + story + "&level=" + level,
+            success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
 		console.log(returnData);
 
-	    }
-	   })
+            }
+	})
     });
-    	alert("La storia è giocabile sul player");
+    alert("La storia è giocabile sul player");
 }
 
 function removeStory(story, level) {
-    $(document).ready(function(){
+    $(document).ready(() => {
 	$.ajax({
-	    type: "GET",
-	    dataType: "json",
-	    url: "http://site192020.tw.cs.unibo.it/removeStory?story=" + story + "&level=" + level,
-	    success: function(returnData) {
+            type: "GET",
+            dataType: "json",
+            url: "http://site192020.tw.cs.unibo.it/removeStory?story=" + story + "&level=" + level,
+            success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
 		console.log(returnData);
 
-	    }
-	   })
+            }
+	})
     });
-    	alert("La storia è stata eliminata");
+    alert("La storia è stata eliminata");
 }
 
 function removeStoryForAccessability(story) {
-    $(document).ready(function(){
+    $(document).ready(() => {
 	$.ajax({
-	    type: "GET",
-	    dataType: "json",
-	    url: "http://localhost:8000/removeStoryForAccessability?story=" + story + "",
-	    success: function(returnData) {
+            type: "GET",
+            dataType: "json",
+            url: "http://site192020.tw.cs.unibo.it/removeStoryForAccessability?story=" + story + "",
+            success: function(returnData) {
 		closeAllNavs();
 		$("#sidenavEntryPoint").addClass("hidden");
 		console.log(returnData);
 
-	    }
-	   })
+            }
+	})
     });
-    	alert("La storia è stata eliminata");
+    alert("La storia è stata eliminata");
 }
 
 function initPageForAccessability() {
@@ -629,9 +649,9 @@ function initPageForAccessability() {
 
     for(var x in obj){
 	if(obj[x]!=null){
-	    id=obj[x].id;
+            id=obj[x].id;
 	}
-id++;
+	id++;
     }
     disablewidgetForAccessaability();
     setForAccessability();
@@ -647,9 +667,9 @@ function initPage() {
 
     for(var x in obj){
 	if(obj[x]!=null){
-	    id=obj[x].id;
+            id=obj[x].id;
 	}
-id++;
+	id++;
     }
 }
 
@@ -657,8 +677,8 @@ id++;
 function populateGraph() {
 
     obj.forEach((page) => {
-      if(page!=null)
-	createBranch(page.id);
+	if(page!=null)
+	    createBranch(page.id);
     });
 
     graph.data(data);
@@ -701,24 +721,24 @@ function handleButton(page, button) {
     switch(obj[page].buttons[button].type) {
 
     case arrayBut[0]: {
-	var buttonDest = document.getElementById("input" + (button + 1));
-	buttonDest.value = obj[page].buttons[button].destination;
-	break;
+        var buttonDest = document.getElementById("input" + (button + 1));
+        buttonDest.value = obj[page].buttons[button].destination;
+        break;
     }
     case arrayBut[1]: {
-	var buttonStop = document.getElementById("stop" + (button + 1));
-	buttonStop.value = obj[page].buttons[button].alert;
-	break;
+        var buttonStop = document.getElementById("stop" + (button + 1));
+        buttonStop.value = obj[page].buttons[button].alert;
+        break;
     }
     case arrayBut[3]: {
-	var buttonBridge = document.getElementById("listBridge" + (button + 1));
+        var buttonBridge = document.getElementById("listBridge" + (button + 1));
 
-	var optionBridge = document.createElement("option");
-	optionBridge.value = obj[page].buttons[button].bridge;
-	optionBridge.text = obj[optionBridge.value].title;
-	buttonBridge.appendChild(optionBridge);
+        var optionBridge = document.createElement("option");
+        optionBridge.value = obj[page].buttons[button].bridge;
+        optionBridge.text = obj[optionBridge.value].title;
+        buttonBridge.appendChild(optionBridge);
 
-	break;
+        break;
     }
     }
 }
@@ -730,12 +750,12 @@ function handleStories(stories, sidenav, onclick = null){
     if(sidenav.id=="modifyInnerDiv"){
 	document.getElementById("modifyInnerDiv").innerHTML="";
 	storiesArray.forEach((story) => {
-	    var a = document.createElement("a");
-	    a.className = "storyLabel";
-	    a.setAttribute("style", "font-size:30px;cursor:pointer");
-	    a.setAttribute("onclick", "uploadLevelNav(\"" + story + "\")");
-	    a.textContent = story;
-	    sidenav.appendChild(a);
+            var a = document.createElement("a");
+            a.className = "storyLabel";
+            a.setAttribute("style", "font-size:30px;cursor:pointer");
+            a.setAttribute("onclick", "uploadLevelNav(\"" + story + "\")");
+            a.textContent = story;
+            sidenav.appendChild(a);
 
 	});
     }
@@ -743,12 +763,12 @@ function handleStories(stories, sidenav, onclick = null){
 	document.getElementById("editInnerDiv").innerHTML="";
 
 	storiesArray.forEach((story) => {
-	    var a = document.createElement("a");
-	    a.className = "storyLabel";
-	    a.setAttribute("style", "font-size:30px;cursor:pointer");
-	    a.setAttribute("onclick", "openLevelNav(\"" + story + "\")");
-	    a.textContent = story;
-	    sidenav.appendChild(a);
+            var a = document.createElement("a");
+            a.className = "storyLabel";
+            a.setAttribute("style", "font-size:30px;cursor:pointer");
+            a.setAttribute("onclick", "openLevelNav(\"" + story + "\")");
+            a.textContent = story;
+            sidenav.appendChild(a);
 
 	});
     }
@@ -756,12 +776,12 @@ function handleStories(stories, sidenav, onclick = null){
 	document.getElementById("removeInnerDiv").innerHTML="";
 
 	storiesArray.forEach((story) => {
-	    var a = document.createElement("a");
-	    a.className = "storyLabel";
-	    a.setAttribute("style", "font-size:30px;cursor:pointer");
-	    a.setAttribute("onclick", "removeLevelNav(\"" + story + "\")");
-	    a.textContent = story;
-	    sidenav.appendChild(a);
+            var a = document.createElement("a");
+            a.className = "storyLabel";
+            a.setAttribute("style", "font-size:30px;cursor:pointer");
+            a.setAttribute("onclick", "removeLevelNav(\"" + story + "\")");
+            a.textContent = story;
+            sidenav.appendChild(a);
 
 	});
     }
@@ -771,41 +791,41 @@ function handleStories(stories, sidenav, onclick = null){
 	storiesArray = storiesArray.map((str) => str.split(".")[0]);
 
 	storiesArray.forEach((level) => {
-	    var a = document.createElement("a");
-	    a.className = "storyLabel";
-	    a.setAttribute("style", "font-size:30px;cursor:pointer");
-	    a.setAttribute("onclick", onclick + level + "\")");
-	    a.textContent = level;
-	    sidenav.appendChild(a);
+            var a = document.createElement("a");
+            a.className = "storyLabel";
+            a.setAttribute("style", "font-size:30px;cursor:pointer");
+            a.setAttribute("onclick", onclick + level + "\")");
+            a.textContent = level;
+            sidenav.appendChild(a);
 
 	});
     }
     else if(sidenav.id=="accessabilityStoryInnerDiv"){
-  document.getElementById("accessabilityStoryInnerDiv").innerHTML="";
-  storiesArray.forEach((story) => {
-      var a = document.createElement("a");
-      a.className = "storyLabel";
-      a.setAttribute("style", "font-size:30px;cursor:pointer");
-      a.setAttribute("onclick", "accessabilityLevelNav(\"" + story + "\")");
-      a.textContent = story;
-      sidenav.appendChild(a);
+	document.getElementById("accessabilityStoryInnerDiv").innerHTML="";
+	storiesArray.forEach((story) => {
+            var a = document.createElement("a");
+            a.className = "storyLabel";
+            a.setAttribute("style", "font-size:30px;cursor:pointer");
+            a.setAttribute("onclick", "accessabilityLevelNav(\"" + story + "\")");
+            a.textContent = story;
+            sidenav.appendChild(a);
 
-  });
+	});
     }
     else if(sidenav.id=="accessabilityStoryToRemoveInnerDiv"){
 
-  document.getElementById("accessabilityStoryToRemoveInnerDiv").innerHTML="";
-  storiesArray.forEach((story) => {
-    var name= story.split(".");
-    console.log(name);
-      var a = document.createElement("a");
-      a.className = "storyLabel";
-      a.setAttribute("style", "font-size:30px;cursor:pointer");
-      a.setAttribute("onclick", "removeStoryForAccessability(\"" + story + "\")");
-      a.textContent = name[0];
-      sidenav.appendChild(a);
+	document.getElementById("accessabilityStoryToRemoveInnerDiv").innerHTML="";
+	storiesArray.forEach((story) => {
+            var name= story.split(".");
+            console.log(name);
+            var a = document.createElement("a");
+            a.className = "storyLabel";
+            a.setAttribute("style", "font-size:30px;cursor:pointer");
+            a.setAttribute("onclick", "removeStoryForAccessability(\"" + story + "\")");
+            a.textContent = name[0];
+            sidenav.appendChild(a);
 
-  });
+	});
     }
 }
 
@@ -845,7 +865,7 @@ function listBranches(action) {
     openNav("sidenavUtils");
 
     obj.filter((page) => (page != null && page.branch)).map((page) => {
-      console.log("gianni");
+	console.log("gianni");
 	var a = document.createElement("a");
 	a.className = "toRemove";
 	a.id = page.id;
@@ -853,78 +873,77 @@ function listBranches(action) {
 
 
 	if(action === "changeStatus"){
-    a.textContent = (page.title);
-      if(page.disableBranch!=true){
-        a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:green");
+            a.textContent = (page.title);
+            if(page.disableBranch!=true){
+		a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:green");
 
-    a.onclick=function(){
-        disableSelectBranch(a.id);
-    }
+		a.onclick = () => {
+		    disableSelectBranch(a.id);
+		}
 
-  }else{
-      a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
-    a.onclick=function(){
-      enable(a.id);
-    }
+            }else{
+		a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
+		a.onclick = () => {
+		    enable(a.id);
+		}
 
-  }
+            }
 	}
-  else if (action === "delete"){
-    a.textContent = (page.title);
-    a.onclick=function(){
-        deleteSelectBranch(a.id);
-      }
-	    //a.setAttribute("onclick", `deleteAllPage(${page.id})`);
+	else if (action === "delete"){
+            a.textContent = (page.title);
+            a.onclick=function(){
+		deleteSelectBranch(a.id);
+            }
+            //a.setAttribute("onclick", `deleteAllPage(${page.id})`);
 	}
 
 	$("#sidenavUtils").append(a);
-      })
+    })
 
 }
 
 function sidenavListButtons(id){
-    console.log("gianni2");
     var toDelete=document.getElementById("sidenavButtons");
     removeAllChildNodes(toDelete);
-   obj[id].buttons.forEach((item, i) => {
+    obj[id].buttons.forEach((item, i) => {
 
-  var a = document.createElement("a");
-//	a.className = "toRemove";
-if(item.type=="ContinueButton")
-	a.id = "destination"+"-"+item.id;
-else
-a.id=""+obj[id].id+"-"+i;
+	var a = document.createElement("a");
+	//	a.className = "toRemove";
+	if(item.type=="ContinueButton")
+	    a.id = "destination"+"-"+item.id;
+	else
+	    a.id=""+obj[id].id+"-"+i;
 
-        a.textContent = (item.text);
-        console.log("testo"+item.text);
-          if(item.disable!=true){
+	a.textContent = (item.text);
+	console.log("testo"+item.text);
+	if(item.disable != true){
             a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:green");
 
-        a.onclick=function(){
-            disableSelectButton(a.id);
-        }
+            a.onclick = () => {
+		disableSelectButton(a.id);
+            }
 
-      }else{
-          a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
-        a.onclick=function(){
-          enableButton(a.id);
-        }
+	}else{
+            a.setAttribute("style", "font-size:20px;cursor:pointer;color:black;background-color:red");
+            a.onclick = () => {
+		enableButton(a.id);
+            }
 
-      }
+	}
 
-    $("#sidenavButtons").append(a);
+	$("#sidenavButtons").append(a);
     })
 
 }
 
 function listWidget(action){
 
-  var a = document.createElement("a");
-  	a.className = "toRemove";
-      a.textContent = "Applica Puzzle";
-    a.onclick=function(){
-      showWidget("sidenavForPuzzle");
+    var a = document.createElement("a");
+    a.className = "toRemove";
+    a.textContent = "Applica Puzzle";
+    a.onclick = () => {
+	showWidget("sidenavForPuzzle");
     }
-      $("#sidenavForWidget").append(a);
+    $("#sidenavForWidget").append(a);
     openNav("sidenavForWidget");
 }
