@@ -206,6 +206,7 @@ function controlNull(objP){
 }
 //Si occupa di inizializzare la storia
 function playStory(title,dif){
+
   //variabili di controllo
   var control =false;
   var nullTitle=false;
@@ -222,6 +223,12 @@ function playStory(title,dif){
   if(control==true)
   return alert("Non è possibile inserire nomi uguali");
 
+  //Nascondo le strutture
+  $("#NavMenu").addClass("hidden");
+  $("#qrCodeRow").addClass("hidden");
+  $("#WelcomeRow").addClass("hidden");
+  $("#IntroductionRow").addClass("hidden");
+  
   //Crea il div ed il bottone per poter tornare indietro alla selezione delle storie
   var buttonHome=document.createElement("button");
   buttonHome.setAttribute("id","buttonHome");

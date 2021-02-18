@@ -3,16 +3,16 @@
     "css": "TheScientistCss"
   },
   "img": {
-    "url": "lab.jpg"
+    "url": "image0Blur.jpg"
   },
   "p": {
-    "color": "#ff0003",
-    "fontFamily": "serif-sans",
-    "fontSize": "25"
+    "color": "#ff00a6",
+    "fontFamily": "arial",
+    "fontSize": "20"
   },
   "button": {
-    "backgroundColor": "#000000",
-    "color": "#70ff00",
-    "borderRadius": "10"
+    "backgroundColor": "#76d153",
+    "color": "#000000",
+    "borderRadius": "7"
   }
 }

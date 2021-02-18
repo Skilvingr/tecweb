@@ -60,7 +60,9 @@ function listCssCreate(cssData){
 }
 
 function normalizeString(str){
-    const finalString = str.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+    var res = str.toLowerCase();
+
+    const finalString = res.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
     var noSpaceString = finalString.replace(/\s+/g, '');
     return noSpaceString;
 }
@@ -956,6 +958,13 @@ function sidenavListButtons(id){
 }
 
 function listWidget(action){
+document.getElementById("sidenavForWidget").innerHTML="";
+
+var b = document.createElement("a");
+b.className = "closebtn";
+b.onclick = () => {
+closeNav('sidenavForWidget')
+}
 
     var a = document.createElement("a");
     a.className = "toRemove";
@@ -963,6 +972,7 @@ function listWidget(action){
     a.onclick = () => {
 	showWidget("sidenavForPuzzle");
     }
+      $("#sidenavForWidget").append(b);
     $("#sidenavForWidget").append(a);
     openNav("sidenavForWidget");
 }

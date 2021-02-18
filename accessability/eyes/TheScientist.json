@@ -3,7 +3,7 @@
     {
       "id": 0,
       "title": "Missione1",
-      "text": "Sei un ragazzo appassionato di esperimenti scientifici, ti eri informato su un simpatico e semplice esperimento, cosi decidi di testarlo. Perciò prendi una graffetta e decidi di posarla delicatamente in un bicchiere pieno d'acqua. Noti che la graffetta non sta affondando, sai dirmi il perchè? ",
+      "text": "Sei un ragazzo appassionato di esperimenti scientifici. Ti sei informato su un simpatico e semplice esperimento, cosi decidi di testarlo; perciò prendi una graffetta e la posi delicatamente in un bicchiere pieno d'acqua. Noti che la graffetta resta sulla superficie dell'acqua senza affondare: sai dirmi il perchè? ",
       "numeroBottoni": 2,
       "branch": true,
       "buttons": [
@@ -24,8 +24,8 @@
       "widgetPuzzle": false,
       "video": "none",
       "img": "Graffetta.png",
-      "textAccessability": "patata",
-      "start": true
+      "start": true,
+      "textAccessability": "L'immagine rappresenta una graffetta, che curva la tensione superficiale dell'acqua senza romperla."
     },
     {
       "img": "none",
@@ -56,26 +56,29 @@
     {
       "id": 2,
       "title": "SpiegazioneTensioneSuperficiale",
-      "text": "Le forze che agiscono sulle molecole di superficie non sono equilibrate verso l'alto e da ciò risulta una compressione verso l'interno. \nInoltre, la coesione tra le molecole determina una tensione tangenziale alla superficie. La forza superficiale di coesione tra le molecole appena descritta prende il nome di tensione superficiale",
+      "text": "La tensione superficiale è una caratteristica di molti liquidi.\nLe molecole tendono ad attrarsi tra loro, formando deboli legami intermolecolari. Una molecola all’interno del liquido è circondata da altre molecole, e subisce attrazioni in tutte le direzioni. Invece, le molecole in superficie risentono solo della forza dalle molecole che si trovano al di sotto di esse. Per questo formano una specie di pellicola.\nGrazie a questa proprietà, alcuni insetti riescono a camminare sull'acqua senza affondare.\nLa tensione superficiale tende anche a ridurre l'area superficiale del liquido. Per questo si formano le gocce.",
       "numeroBottoni": 1,
       "branch": true,
       "buttons": [
         {
           "text": "Avanti",
-          "type": "BridgeButton",
-          "bridge": "3",
+          "type": "ContinueButton",
+          "destination": "QuizSpiegazione",
+          "id": 14,
           "score": "0"
         }
       ],
       "widgetPuzzle": false,
       "video": "none",
-      "img": "tensione-superficiale.jpg"
+      "img": "tensione_02.jpg",
+      "start": false,
+      "textAccessability": "L'immagine schematizza le forze di attrazione intermolecolare, che sussistono fra molecole d'acqua."
     },
     {
       "img": "none",
       "video": "none",
       "title": "Missione3",
-      "text": "Una volta messa in acqua la graffetta decidi di aggiungere del sapone liquido sai dirmi cosa accade?",
+      "text": "Una volta messa in acqua la graffetta, provi ad aggiungere del sapone liquido; sai dirmi cosa accade?",
       "numeroBottoni": 2,
       "buttons": [
         {
@@ -98,10 +101,10 @@
       "widgetPuzzle": false
     },
     {
-      "img": "none",
+      "img": "imgDEntifricioElefante.jpg",
       "video": "none",
       "title": "Missione4",
-      "text": "Soddisfatto del tuo esperimento decidi di tornare in casa. Entrato decidi di effetuare un secondo esperimento chiamato il dentifricio dell'elefante.Sai cos'è?",
+      "text": "Soddisfatto del tuo esperimento decidi di tornare in casa. Entrato, vuoi effetuare un secondo esperimento, chiamato il dentifricio dell'elefante. Sai cos'è?",
       "numeroBottoni": 2,
       "buttons": [
         {
@@ -124,10 +127,10 @@
       "widgetPuzzle": false
     },
     {
-      "img": "none",
+      "img": "elephantToothpaste.jpg",
       "video": "none",
       "title": "Missione5",
-      "text": "Decidi di leggere gli ingredienti per effettuare l'esperimento. Avrai bisogno di 120 ml di acqua ossigenata, 15 g di lievito secco, 45 ml di acqua calda, Sapone liquido per i piatti e volendo anchde del colorante alimentare.",
+      "text": "Decidi di leggere gli ingredienti per effettuare l'esperimento. Avrai bisogno di 120 ml di acqua ossigenata, 15 g di lievito secco, 45 ml di acqua calda, sapone liquido per i piatti e, volendo, anche del colorante alimentare.",
       "numeroBottoni": 1,
       "buttons": [
         {
@@ -146,26 +149,28 @@
     {
       "id": 6,
       "title": "SpiegazioneDentifricio",
-      "text": "Il lievito spinge gli elementi chimici contenuti nell'acqua ossigenata (perossido di idrogeno) e libera l’ossigeno che viene \"bloccato\" dal detersivo.\n\nSi crea così la schiuma, chiamata il dentifricio dell'elefante: fuoriesce dalla bottiglia perché l’ossigeno, come tutti i gas, occupa tutto lo spazio del contenitore. È per questo che più il contenitore è stretto e alto, tipo una bottiglia di plastica, più l'effetto è dirompente",
+      "text": "Il dentifricio dell'elefante è il risultato di una reazione chimica che genera una grande quantità di schiuma. Si può facilmente effettuare in casa con pochi ingredienti:\ndel lievito; dell'acqua calda, dove sciogliere il lievito; dell'acqua ossigentata; del sapone per i piatti; volendo, del colorante alimentare. Ti servirà, naturalmente, anche una bottiglia dove mischiare i tuoi ingredienti e far avvenire la reazione.",
       "numeroBottoni": 1,
       "branch": true,
       "buttons": [
         {
           "text": "Avanti",
-          "type": "BridgeButton",
-          "bridge": "5",
+          "type": "ContinueButton",
+          "destination": "DentifricioSpiegazione2",
+          "id": 15,
           "score": "0"
         }
       ],
       "widgetPuzzle": false,
       "video": "none",
-      "img": "dentifricioSpiegazionCut.jpg"
+      "img": "ingriedentiDentifricio.png",
+      "textAccessability": "L'immagine rappresenta gli ingredienti per creare il dentifricio dell'elefante."
     },
     {
       "img": "none",
       "video": "none",
       "title": "Missione6",
-      "text": "Per cercare gli ingredienti decidi di rivolgerti a tua madre cosi da farti aiutare, tuttavia tua madre decide di sottoporti ad alcune sfide per la ricerca dei tuoi ingredienti. Per procedere ti chiede di risolvere un puzzle.",
+      "text": "Per cercare gli ingredienti, ti rivolgi a tua madre. Cosi da farti aiutare, tuttavia, tua madre vuole sottoporti ad alcune sfide, per la ricerca dei tuoi ingredienti.",
       "numeroBottoni": 1,
       "buttons": [
         {
@@ -190,19 +195,19 @@
       "img": "acqua ossigenata.jpg",
       "video": "none",
       "title": "Missione7",
-      "text": "Il puzzle che hai risolto rappresenta la formula chimica del perossido di idrogeno più comunemente chiamata acqua ossigenata. Risolto il puzzle tua madre decide questa volta di farti una domanda alla quale dovrai rispondere correttamente se vuoi avere il lievito.\nQuando viene svolta la fotosintesi clorofilliana?",
+      "text": "Il puzzle che hai risolto rappresenta la formula chimica del perossido di idrogeno, più comunemente chiamato acqua ossigenata. Superata la prova, tua madre ti pone una domanda alla quale dovrai rispondere correttamente, se vuoi avere il lievito.\nSai dirmi quando viene svolta la fotosintesi clorofilliana?",
       "numeroBottoni": 3,
       "buttons": [
         {
           "text": "Di giorno",
           "type": "StopButton",
-          "alert": "Rifletti bene, la risposta è parzialmente esatta",
+          "alert": "Rifletti bene, la risposta è parzialmente esatta.",
           "score": "-0.5"
         },
         {
           "text": "Di notte",
           "type": "StopButton",
-          "alert": "Rifletti bene, la risposta è parzialmente esatta",
+          "alert": "Rifletti bene, la risposta è parzialmente esatta.",
           "score": "-0.5"
         },
         {
@@ -216,13 +221,14 @@
       "id": 8,
       "branch": false,
       "fatherIdGraph": 7,
-      "widgetPuzzle": false
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine rappresenta la formula chimica dell'acqua ossigenata."
     },
     {
       "img": "Giorno notte.jpg",
       "video": "none",
       "title": "Missione8",
-      "text": "Esatto! la fotosintesi viene svolta sempre, di giorno viene prodotto ossigeno(O2), quello che noi respiriamo per mantenerci in vita mentre di notte respirano ossigeno e producono anidride carbonica(CO2).\nE per questo non bisogna mai tenere una pianta in camera di notte mentre si dorme perchè la pianta potrebbe assorbire tutto l'ossigeno presente nell'aria.",
+      "text": "Esatto! La fotosintesi viene svolta sempre. Di giorno viene prodotto ossigeno(O2), quello che noi respiriamo per mantenerci in vita; mentre, di notte, respirano ossigeno e producono anidride carbonica(CO2).\nE per questo non bisogna mai tenere una pianta in camera di notte mentre si dorme: perchè la pianta potrebbe assorbire tutto l'ossigeno presente nell'aria.",
       "numeroBottoni": 1,
       "buttons": [
         {
@@ -236,24 +242,25 @@
       "id": 9,
       "branch": false,
       "fatherIdGraph": 8,
-      "widgetPuzzle": false
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine semplifica il ciclo giorno notte della fotosintesi clorofilliana"
     },
     {
-      "img": "none",
+      "img": "fotosintesiGlucosio.png",
       "video": "none",
       "title": "Missione9",
-      "text": "Bravo! ti sei meritato il tuo premio adesso però per scaldare l'acqua e procurarti cosi l'ultimo ingrediente tua madre decide di farti un'altra domanda.\nLa fotosinteti clorofilliana trasforma il glucosio in energia? O l'energia in glucosio?",
+      "text": "Bravo! Ti sei meritato il lievito. Adesso, però, per scaldare l'acqua e procurarti cosi l'ultimo ingrediente, tua madre ti fa un'altra domanda.\nLa fotosintesi clorofilliana ha lo scopo di trasformare il glucosio in energia o l'energia in glucosio?",
       "numeroBottoni": 2,
       "buttons": [
         {
-          "text": "l'energia in glucosio",
+          "text": "L'energia in glucosio",
           "type": "ContinueButton",
           "destination": "Missione10",
           "id": 11,
           "score": "1"
         },
         {
-          "text": "il glucosio in energia",
+          "text": "Il glucosio in energia",
           "type": "WrongButton",
           "wrong": "",
           "score": "-1"
@@ -262,24 +269,25 @@
       "id": 10,
       "branch": false,
       "fatherIdGraph": 9,
-      "widgetPuzzle": false
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine rappresenta la fase luminosa del processo della fotosintesi."
     },
     {
       "img": "none",
       "video": "none",
       "title": "Missione10",
-      "text": "Ottimo ti vedo preparato, infatti la fotosintesi trasforma l'energia ricevuta dal sole in energia per la pianta, fortunatamente non hai bisogno di procurarti il sapone liquido visto che ne è avanzato un pò dal tuo esperimento precedente. Tuttavia tua madre ti chiede se hai bisogno anche del colorante per rendere l'esperimento più interessante.",
+      "text": "Ottimo: ti vedo preparato! Infatti, la fotosintesi trasforma l'energia ricevuta dal sole in energia per la pianta. Fortunatamente, non hai bisogno di procurarti il sapone liquido, visto che ne è avanzato un po' dal tuo esperimento precedente. Tuttavia, tua madre ti chiede se hai bisogno anche del colorante per rendere l'esperimento più interessante.",
       "numeroBottoni": 2,
       "buttons": [
         {
-          "text": "Si grazie",
+          "text": "Sì, grazie",
           "type": "ContinueButton",
           "destination": "Missione11",
           "id": 12,
           "score": "0.5"
         },
         {
-          "text": "No preferisco far senza",
+          "text": "No, preferisco far senza",
           "type": "ContinueButton",
           "destination": "Missione12",
           "id": 13,
@@ -295,32 +303,33 @@
       "img": "clorofilla.jpg",
       "video": "none",
       "title": "Missione11",
-      "text": "Okay, tuttavia dovrai prima rispondere ad un'altra domanda. Chi si occupa di catturare l'energia solare?",
+      "text": "Okay, però dovrai prima rispondere a un'altra domanda. Chi si occupa di catturare l'energia solare?",
       "numeroBottoni": 3,
       "buttons": [
         {
-          "text": "il glucosio",
+          "text": "Il glucosio",
           "type": "StopButton",
-          "alert": "no il glucosio è la sostanza che viene ricavata dal prodecimento della fotosintesi",
+          "alert": "No, il glucosio è la sostanza che viene ricavata dalla fotosintesi",
           "score": "-1"
         },
         {
-          "text": "la clorofilla",
+          "text": "La clorofilla",
           "type": "BridgeButton",
           "bridge": "13",
           "score": "1"
         },
         {
-          "text": "la cellula vegetale",
+          "text": "La cellula vegetale",
           "type": "StopButton",
-          "alert": "La risposta è parzialmente esatta, la cellula vegetale contiene i plastidi che svolgono grazie ad un componente la trasformazione",
+          "alert": "La risposta è parzialmente esatta: la cellula vegetale contiene i plastidi, che svolgono, grazie a uno speciale componente, la trasformazione.",
           "score": "0.5"
         }
       ],
       "id": 12,
       "branch": false,
       "fatherIdGraph": 11,
-      "widgetPuzzle": false
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine è un ingrandimento di una foglia."
     },
     {
       "img": "Dentifricio.jpg",
@@ -338,7 +347,81 @@
       "branch": false,
       "fatherIdGraph": 11,
       "widgetPuzzle": false,
+      "textAccessability": "L'immagine è il risultato finale dell'esperimento del dentifricio dell'elefante: Fuoriesce una schiuma, in questo caso, di colore arancione da una bottiglia.",
       "end": true
+    },
+    {
+      "img": "tensione_02.jpg",
+      "video": "none",
+      "title": "QuizSpiegazione",
+      "text": "Vediamo se hai capito. Le molecole all'interno del liquido subiscono attrazione in?",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Tutte le direzioni",
+          "type": "BridgeButton",
+          "bridge": "3",
+          "score": "1"
+        },
+        {
+          "text": "solo dalle molecole sotto di loro",
+          "type": "StopButton",
+          "alert": "le molecole che subiscono questo fenomeno sono soltanto le molecole in superficie",
+          "score": "-0.5"
+        }
+      ],
+      "id": 14,
+      "branch": false,
+      "fatherIdGraph": 2,
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine schematizza le forze di attrazione intermolecolare, che sussistono fra molecole d'acqua."
+    },
+    {
+      "img": "ingriedentiDentifricio.png",
+      "video": "none",
+      "title": "DentifricioSpiegazione2",
+      "text": "Inizialmente, si uniscono in una bottiglia il sapone, l'acqua ossigenata, ed eventualmente il colorante. Dopodichè, si aggiunge il lievito, precedentemente attivato in acqua calda.\n\nIl lievito spinge gli elementi chimici contenuti nell'acqua ossigenata (perossido di idrogeno) e libera l’ossigeno che viene \"bloccato\" dal detersivo.\n\nSi crea così la schiuma, chiamata il dentifricio dell'elefante: fuoriesce dalla bottiglia perché l’ossigeno, come tutti i gas, occupa tutto lo spazio del contenitore. È per questo che più il contenitore è stretto e alto, come la nostra bottiglia di plastica, più l'effetto è esplosivo.",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "ContinueButton",
+          "destination": "QuizElefante",
+          "id": 16,
+          "score": "0"
+        }
+      ],
+      "id": 15,
+      "branch": false,
+      "fatherIdGraph": 6,
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine rappresenta gli ingredienti per creare il dentifricio dell'elefante."
+    },
+    {
+      "img": "dentifricioEsplosione.jpg",
+      "video": "none",
+      "title": "QuizElefante",
+      "text": "Vediamo se hai capito. Il lievito libera l'ossigeno che permette la fuoriuscita della schiuma. Sai dirmi il perchè?",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Perchè l'ossigeno, essendo un gas, occupa tutto lo spazio disponibile nel contenitore",
+          "type": "BridgeButton",
+          "bridge": "5",
+          "score": "1"
+        },
+        {
+          "text": "Perchè non occupa tutto lo spazio nella bottiglia e quindi fuoriesce",
+          "type": "StopButton",
+          "alert": "Sbagliato! Rifletti bene su quanto detto in precedenza. L'ossigeno è un gas e, come tutti i gas, cerca di riempire lo spazio di cui dispone.",
+          "score": "-0.5"
+        }
+      ],
+      "id": 16,
+      "branch": false,
+      "fatherIdGraph": 15,
+      "widgetPuzzle": false,
+      "textAccessability": "L'immagine rappresenta in tre fasi l'esplosione di schiuma dell'esperimento del dentifricio dell'elefante."
     }
   ],
   "storyInfo": {

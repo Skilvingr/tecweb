@@ -334,7 +334,7 @@
       ]
     },
     {
-      "img": "11.jpg",
+      "img": "golden-medal-design_1166-34.jpg",
       "video": "none",
       "title": "Pagina12",
       "text": "Congratulazioni!\nHai vinto la medaglia d'oro\n",
@@ -343,7 +343,12 @@
       "id": 11,
       "branch": false,
       "fatherIdGraph": 10,
-      "widgetPuzzle": false
+      "widgetPuzzle": false,
+      "puzzle": [
+        {
+          "img": "10.jpg"
+        }
+      ]
     }
   ],
   "storyInfo": {

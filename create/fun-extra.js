@@ -550,8 +550,8 @@ function enable(item){
   //var item=document.getElementById("selectBranchToEnable").value;
   enableBranch(item);
 //  enableBranchGraph(item);
-alert("Abilitato Modificare");
-  console.log("patata");
+alert("Abilitato, Modificare per apportare le modifiche");
+
 }
 
 function enableBranch(id){
@@ -562,7 +562,7 @@ obj[id].disableBranch=false;
       enableBranch(item.id);
 
   });
-  alert("Abilitato modificare per apportare le modifiche")
+
   graph.data(data);
   graph.render();
   graph.fitView();
