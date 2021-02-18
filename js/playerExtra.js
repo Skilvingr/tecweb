@@ -4,7 +4,6 @@ $(document).ready(function(){
   const urlParams = new URLSearchParams(queryString);
   const story=urlParams.get("story");
   console.log(story);
-  //if(story!=null
   if(story!=null)
     playQrStory(urlParams);
 
@@ -228,7 +227,7 @@ function playStory(title,dif){
   $("#qrCodeRow").addClass("hidden");
   $("#WelcomeRow").addClass("hidden");
   $("#IntroductionRow").addClass("hidden");
-  
+
   //Crea il div ed il bottone per poter tornare indietro alla selezione delle storie
   var buttonHome=document.createElement("button");
   buttonHome.setAttribute("id","buttonHome");
@@ -382,10 +381,6 @@ function generation(story,number,playerName,playerObj,score,css){
   endDiv.setAttribute("id","endStory");
   body.appendChild(endDiv);
 
-
-  //controlla se esiste il css personalizzato
-  if(css.control===true)
-  applyCssText(p.id,css);
   //Controlla se il banch che si sta considerando è disabilitato o meno
   if(story[number].disableBranch!=true&&story[number].disable!=true){
     //genera il testo e l'immagine
