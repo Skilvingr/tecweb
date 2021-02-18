@@ -1,9 +1,28 @@
 body{
-  background-color: white;
+    background-color: white;
+    display: flex;
+    flex-direction: row-reverse;
 }
+
+h1,h2{
+    font-family: 'Shadows Into Light Two', cursive;
+    text-align: center;
+}
+
+#info{
+    text-decoration: underline;
+}
+
+#Main{
+    flex: 50%;
+}
+
 #tryBox{
-  height: 700px;
-  width: 700px;
-   float:right;
-   align-content: center;
+    margin: 1%;
+    padding: 1%;
+    float:right;
+    flex: 50%;
+    align-content: center;
+    border: 2px solid black;
+
 }

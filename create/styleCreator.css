@@ -40,16 +40,25 @@ select{
   cursor: pointer;
 }
 
+#Nav{
+  display: flex;
+  flex-direction: column;
+}
+
 #Drawer{
   cursor:pointer;
-  text-align:right;
+  align-self: flex-end;
 }
 
 #DrawerUtils{
   cursor: pointer;
-  text-align: left;
-  right: 96%;
-  position: relative;
+  align-self: flex-start;
+  position: absolute;
+}
+
+div#qrContainerDiv img{
+  display: block;
+  margin: auto;
 }
 
 #btn_NavAdd{
