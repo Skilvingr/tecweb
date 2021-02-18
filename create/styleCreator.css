@@ -181,3 +181,18 @@ button{
     .leftSidenav {
 	left: 0;
     }
+
+
+div#sidenavForPuzzle p{
+  color: white;
+  text-align: center;
+}
+
+div#sidenavForPuzzle select, div#sidenavForPuzzle button{
+  display: block;
+  margin: auto;
+}
+
+div#sidenavForPuzzle input{
+  margin:3%;
+}
