@@ -1,0 +1,41 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "ProvaOlimpiadi",
+      "text": "Prova storia medio olimpiadi",
+      "numeroBottoni": 1,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "ciao è un bottone di prova",
+          "type": "ContinueButton",
+          "destination": "destinazione2",
+          "score": "0",
+          "id": 1
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none",
+      "start": true
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "destinazione2",
+      "text": "Fine",
+      "numeroBottoni": 0,
+      "buttons": [],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    }
+  ],
+  "storyInfo": {
+    "title": "Olimpiadi",
+    "età": "12-14",
+    "css": "default"
+  }
+}

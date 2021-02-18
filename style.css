@@ -1,7 +1,7 @@
 body{
     display: grid;
     text-decoration-color: black;
-    margin: 0.3% 0;
+    margin: 0.3% 0% 5%;
     font-family: 'Yusei Magic', sans-serif;
 }
 
@@ -10,18 +10,18 @@ h1,h2{
 }
 
 button {
-  background-color: #ff5757;
+    background-color: #ff5757;
     font-family: 'Yusei Magic', sans-serif;
     font-size: smaller;
-  border-radius: 5px;
-  border: none;
-  color: white;
+    border-radius: 5px;
+    border: none;
+    color: white;
     padding: 8px 24px;
     text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin:2px;
-  cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin:2px;
+    cursor: pointer;
 }
 #NavMenu{
     margin-bottom: 0.3%;
@@ -34,6 +34,20 @@ button {
 #IntroductionRow{
     border-top: 2px solid #ff5757;
     margin-top: 0.3%;
+}
+
+#playerName{
+    background: white;
+    color: black;
+    font-size: larger;
+    font-family: 'Acme', sans-serif;
+}
+
+#buttonHome{
+    margin: 2%;
+    border: 2px solid black;
+    color: black;
+    background: white;
 }
 
 input{
@@ -136,7 +150,7 @@ select{
   text-align: center;
 }
 #imageStory{
-  text-align: center;
+    text-align: center;
 }
 
 #playerTable{
@@ -186,6 +200,7 @@ div.card-body p{
 #textStory{
 
     text-align:center;
+    margin:2%;
 }
 #titlePlayer{
 
@@ -199,6 +214,9 @@ div.card-body p{
 
 #imgScore{
     text-align:center;
+    max-width: fit-content;
+    display: block;
+    margin: auto;
 }
 
 #divButtonReload{

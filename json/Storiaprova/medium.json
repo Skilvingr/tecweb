@@ -1,0 +1,41 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "Missione1",
+      "text": "Ciao sono una prova",
+      "numeroBottoni": 1,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "Vai alla fine",
+          "type": "ContinueButton",
+          "destination": "Attività1",
+          "score": "1",
+          "id": 1
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none",
+      "start": true
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Attività1",
+      "text": "Questa è la fine della storia",
+      "numeroBottoni": 0,
+      "buttons": [],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    }
+  ],
+  "storyInfo": {
+    "title": "Storiaprova",
+    "età": "12-14",
+    "css": "default"
+  }
+}

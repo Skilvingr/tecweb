@@ -35,17 +35,6 @@ app.use("/create/customCss", express.static(__dirname + "/create/customCss"));
 app.use(express.static(path.join(__dirname, "/")));
 
 
-//Chiamate per gestire i qrcode delle storie principali
-app.get("/olimpiadi", (request, response) => {
-  response.sendFile(path.join(__dirname, "paginaVuota1.html"));
-});
-app.get("/TheScientist", (request, response) => {
-  response.sendFile(path.join(__dirname, "paginaVuota2.html"));
-});
-app.get("/EscapeRoom", (request, response) => {
-  response.sendFile(path.join(__dirname, "paginaVuota3.html"));
-});
-
 //recupera la storia nella cartella json
 app.get("/getStory", (req, res) => {
   var story = "json/" + req.query.story + "/";
@@ -61,8 +50,8 @@ app.get("/playableStory", (req, res) => {
   var data = story + req.query.level + ".json";
   //esegue tre comandi uno rimuome la storia se precedentemente creata il secondo la crea e il terzo copia
   //la storia da json in completeJson
-  execSync(("rm -rf webapp/completeJson/" + req.query.story));
-  execSync(("mkdir webapp/completeJson/" + req.query.story));
+ // execSync(("rm -rf webapp/completeJson/" + req.query.story));
+  execSync(("mkdir -p webapp/completeJson/" + req.query.story));
   execSync(("cp webapp/" + data + " " + "webapp/completeJson/" + req.query.story + "/" + req.query.story + "-" + req.query.level + ".json" ));
 
 
@@ -201,8 +190,8 @@ var upload = multer({storage : storage});
 
 //Carica sul server la storia corrispondente
 app.post("/create/story", function(req,res){
-  execSync(("rm -rf webapp/json/" + req.body.storyInfo.title+" 2&>/dev/null"));
-  execSync(("mkdir webapp/json/" + req.body.storyInfo.title));
+  //execSync(("rm -rf webapp/json/" + req.body.storyInfo.title+" 2&>/dev/null"));
+  execSync(("mkdir -p webapp/json/" + req.body.storyInfo.title));
   //esegue la write nel saver per memorizzare il json con le informazioni
   //della storia
   var returned = saver.write(req.body);

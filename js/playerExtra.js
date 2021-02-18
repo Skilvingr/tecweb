@@ -27,7 +27,7 @@ function playQrStory(urlParams){
   buttonStart.onclick=function(){
     playStory(story,dif);
   }
-  var body=document.getElementById("MainContainer");
+  var body=document.getElementById("MainContainerPlayer");
   divButton.appendChild(buttonStart)
   body.appendChild(divButton);
   //playStory(story,dif);
@@ -172,8 +172,6 @@ function deletePlayer(){
 
   var del = document.getElementById("player"+(numPlayer-2));
   div.removeChild(del);
-  console.log("poppo "+ div.childNodes[numPlayer]);
-  console.log("numeroDelete"+numPlayer);
 }
 //Controlla che i nomi dei player siano diversi
 function controlNamePlayer(objP){
@@ -350,8 +348,8 @@ function generateStory(title,dif,playerName,playerObj){
 function generation(story,number,playerName,playerObj,score,css){
   //prende il MainContainer dove sono presenti tutte le strutture base e lo pulisce
   //per aggiungere le nuove strutture
-  document.getElementById("MainContainer").innerHTML="";
-  var body = document.getElementById("MainContainer");
+  document.getElementById("MainContainerPlayer").innerHTML="";
+  var body = document.getElementById("MainContainerPlayer");
   //Crea il div dove si posiziona il nome del giocatore corrente
   var title = document.createElement("div");
   title.setAttribute("id","titlePlayer");

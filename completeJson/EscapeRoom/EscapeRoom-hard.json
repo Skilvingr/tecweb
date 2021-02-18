@@ -1,0 +1,411 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "Missione1",
+      "text": " Improvvisamente apri gli occhi, ti senti frastornato. Inizi a guardarti intorno ma non riesci a capire dove ti trovi, sei in una stanza ma non la riconosci. Non è la tua stanza, quella in cui ricordi di esserti addormentato ieri sera, è completamente spoglia e tu sei seduto sul pavimento con la schiena appoggiata alla parete, ci sono 3 porte intorno a te ognuna di colore diverso. Una ROSSA, una VERDE e una BLU, potrebbe non c'entrare nulla ma dato il tuo lavoro non riesci a non pensare ad un collegamento… ",
+      "numeroBottoni": 2,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "Il modello additivo RGB, uno dei sistemi più utilizzati per la visualizzazione delle immagini negli schermi.",
+          "type": "ContinueButton",
+          "destination": "Missione2",
+          "score": "1",
+          "id": 1
+        },
+        {
+          "text": "I colori primari, con cui puoi crearne qualunque altro e che non possono essere ottenuti dalla mescolanza di nessun altro colore. ",
+          "type": "StopButton",
+          "alert": "Pensaci bene, i colori primari sono rosso, GIALLO e blu ma qui c'è il verde. ",
+          "score": "-0.5"
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none"
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione2",
+      "text": "Ma certo, il modello RGB, essendo un informatico e super appassionato di tecnologia non potevi non pensarci.. Purtroppo però torni in fretta alla realtà e ripensi alla situazione surreale in cui ti trovi. Non sai cosa stia succedendo ma capisci in fretta che prima o poi dovrai aprire una di quelle porte, non hai grandi alternative e di certo non vuoi rimanere lì per sempre. Però hai un brutto presentimento…",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Rosso",
+          "type": "ContinueButton",
+          "destination": "Missione3",
+          "id": 2,
+          "score": "0"
+        },
+        {
+          "text": "Verde",
+          "type": "BridgeButton",
+          "bridge": "2",
+          "score": "0"
+        },
+        {
+          "text": "Blu",
+          "type": "BridgeButton",
+          "bridge": "2",
+          "score": "0"
+        }
+      ],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione3",
+      "text": "Hai aperto la porta, ma ti ritrovi in una stanza identica alla precedente. Senti la porta dietro di te chiudersi di botto, d'istinto provi a riaprila ma ti accorgi in fretta che è bloccata, in fondo un po' te lo aspettavi.. Non si torna indietro. Decidi quindi di guardarti intorno, di nuovo, cerchi di capire qualcosa di quello che sta succedendo, vedi 4 porte questa volta. In realtà sono tre le porte bloccate dietro di te, non solo quella da cui sei arrivato. Deduci quindi che la tua scelta non avrebbe cambiato nulla, probabilmente quelle 3 porte sono quelle della stanza precedente e indipendentemente dal colore, ti avrebbero portato tutte esattamente dove sei ora, da questo lato sono tutte dello stesso grigio metallizzato mentre la quarta è di un nero lucido, avvicinandoti riesci a vedere il tuo volto riflesso in essa.. È lì che ti accorgi della serratura, sembra esserci un codice per aprirla, anzi no, somiglia più ad un puzzle..  ",
+      "numeroBottoni": 1,
+      "buttons": [
+        {
+          "text": "Avanti",
+          "type": "ContinueButton",
+          "destination": "Missione4",
+          "id": 3,
+          "score": "1"
+        }
+      ],
+      "id": 2,
+      "branch": false,
+      "fatherIdGraph": 1,
+      "widgetPuzzle": true,
+      "puzzle": [
+        {
+          "img": "missione3.png"
+        }
+      ]
+    },
+    {
+      "img": "missione3.png",
+      "video": "none",
+      "title": "Missione4",
+      "text": "Una volta risolto il puzzle riesci a riconoscere il codice.. Lo conosci, è in un linguaggio di programmazione a te familiare, il C++, familiare a chiunque nel tuo campo poiché è uno dei primi linguaggi che si impara anche nelle scuole superiori per insegnare agli studenti a programmare, pare sia il migliore per iniziare a pensare in maniera algoritmica e interfacciarsi per le prime volte con quel mondo.. Continuando a pensarci, ti chiedi a cosa servisse quel codice ",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Riempie e stampa un array di numeri",
+          "type": "StopButton",
+          "alert": "Si, la prima parte riempie, la seconda stampa.. Ma sei sicuro che faccia solo questo? Riguarda l'ultima riga di codice.",
+          "score": "-1"
+        },
+        {
+          "text": "Fa la somma dei numeri di un array ",
+          "type": "StopButton",
+          "alert": ": Si, l'ultima riga di codice fa la somma, ma le parti precedenti? Sicuro che faccia solo questo?",
+          "score": "-1"
+        },
+        {
+          "text": "    Entrambe le risposte precedenti ",
+          "type": "ContinueButton",
+          "destination": "Missione5",
+          "id": 4,
+          "score": "1"
+        }
+      ],
+      "id": 3,
+      "branch": false,
+      "fatherIdGraph": 2,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione5",
+      "text": "Ti sei chiesto cosa facesse quel codice come se ciò potesse aiutarti ad uscire da lì, una parte di te in realtà sa che ti serve solo a tenere la mente impegnata, a non impazzire data la situazione in cui ti trovi poiché stai arrivando alla conclusione che tutto questo sia soltanto un gioco, probabilmente partorito da una mente malata che vuole usarti come cavia da laboratorio.. Oppure è solo uno scherzo di un qualche tuo amico dato che il tuo compleanno è vicino? Vuoi continuare a sperare per il meglio.. Non puoi lasciarti andare. Torni a fare mente locale, appena completato il puzzle avevi sentito un \"CLICK\", la porta deve essersi sbloccata, entrando nella stanza successiva noti una differenza, in questa c'è un tavolo con sopra un laptop acceso, sarà un altro codice da completare per metterti alla prova? Vedi anche altre due porte ai lati della stanza, nel mentre senti la porta chiudersi dietro di te. Sei di nuovo in trappola… ",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Apri la porta a destra",
+          "type": "StopButton",
+          "alert": "Questa porta è bloccata, l'altra sarà aperta?",
+          "score": "0"
+        },
+        {
+          "text": "Apri la porta a sinistra",
+          "type": "ContinueButton",
+          "destination": "Missione6",
+          "id": 5,
+          "score": "0"
+        }
+      ],
+      "id": 4,
+      "branch": false,
+      "fatherIdGraph": 3,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione6",
+      "text": "Stavolta scegli qualcosa di diverso, non vuoi metterti di nuovo alla prova, preferisci capire cosa stia succedendo e curiosare il più possibile il posto in cui ti trovi. Mentre ti avvicini alla porta alla tua sinistra senti arrivare da essa dei rumori, dei… singhiozzi? Qualcuno sta piangendo? Giri piano la maniglia, sei spaventato ma scegli di non fermarti. Apri la porta.  \n\nIn un primo momento ti sembra non ci sia nulla, nessuna porta alle pareti, nessun tavolo al centro della stanza, nulla.. A parte LUI. Rannicchiato in un angolo, con le mani sul volto, vedi un uomo dall'aria alquanto disperata. Era lui a piangere. Ti avvicini e quando si accorge di te ti guarda come se fossi il suo salvatore.. ",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Parla con l'uomo",
+          "type": "ContinueButton",
+          "destination": "Missione7",
+          "id": 6,
+          "score": "0"
+        },
+        {
+          "text": "Tornate indietro",
+          "type": "BridgeButton",
+          "bridge": "6",
+          "score": "0"
+        }
+      ],
+      "id": 5,
+      "branch": false,
+      "fatherIdGraph": 4,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione7",
+      "text": "Vedi il volto di quell'uomo incupirsi di colpo: \"TIENI LA PORTA APERTAA!!\", ti urla. La porta dietro di te stava per chiudersi e tu di colpo ti lanci a metterci un piede in mezzo, non arrivi in tempo.. Siete bloccati lì. \n\nParlate un po' e l'uomo ti dice di chiamarsi Jack, di essere un artista e di essere stato chiuso lì dentro per almeno 3 ore, l'unica porta della stanza era quella da cui sei arrivato tu, lui aveva provato ad aprirla diverse volte ma era bloccata dall'esterno a quanto pare e per aprirla avrebbe dovuto inserire un codice alfanumerico, la risposta ad una domanda scritta su un foglio di carta che aveva trovato appoggiato sul pavimento al centro della stanza, peccato che lui non conoscesse la risposta. Non dici nulla, quello che ti ha detto però ti lascia un grande senso di angoscia, se tu non avessi scelto di aprire quella porta cosa sarebbe successo? Quanto a lungo sarebbe rimasto lì dentro? Metti momentaneamente da parte quel pensiero perché Jack ti sembra già abbastanza angosciato, tu al suo posto saresti riuscito ad uscire? Prendi dalle mani di Jack il foglio e poni a te stesso il quesito: \"Quale di questi è un meta-linguaggio?\" ",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "SGML",
+          "type": "ContinueButton",
+          "destination": "Missione8",
+          "id": 7,
+          "score": "1"
+        },
+        {
+          "text": "FORTRAN ",
+          "type": "ContinueButton",
+          "destination": "Missione9",
+          "id": 8,
+          "score": "-1"
+        },
+        {
+          "text": "PYTHON",
+          "type": "BridgeButton",
+          "bridge": "8",
+          "score": "-1"
+        }
+      ],
+      "id": 6,
+      "branch": false,
+      "fatherIdGraph": 5,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione8",
+      "text": "Si esatto, è SGML ad essere un meta-linguaggio ovvero un linguaggio per descrivere altri linguaggi, cioè una serie di regole sintattiche che consentono di descrivere le regole sintattiche di una certa categoria di linguaggi. SGML è usato per la definizione di un particolare tipo di documenti, quali?",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "HTML",
+          "type": "ContinueButton",
+          "destination": "Missione10",
+          "id": 9,
+          "score": "1"
+        },
+        {
+          "text": "XHTML",
+          "type": "ContinueButton",
+          "destination": "Missione11",
+          "id": 10,
+          "score": "-1"
+        },
+        {
+          "text": "JSON",
+          "type": "BridgeButton",
+          "bridge": "10",
+          "score": "-1"
+        }
+      ],
+      "id": 7,
+      "branch": false,
+      "fatherIdGraph": 6,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione9",
+      "text": "Ci ripensi bene e capisci di esserti sbagliato, in realtà è SGML ad essere un meta-linguaggio ovvero un linguaggio per descrivere altri linguaggi, cioè una serie di regole sintattiche che consentono di descrivere le regole sintattiche di una certa categoria di linguaggi. SGML è usato per la definizione di un particolare tipo di documenti, quali?  ",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "HTML",
+          "type": "BridgeButton",
+          "bridge": "9",
+          "score": "1"
+        },
+        {
+          "text": "XHTML",
+          "type": "BridgeButton",
+          "bridge": "10",
+          "score": "-1"
+        },
+        {
+          "text": "JSON",
+          "type": "BridgeButton",
+          "bridge": "10",
+          "score": "-1"
+        }
+      ],
+      "id": 8,
+      "branch": false,
+      "fatherIdGraph": 6,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "Missione10.png",
+      "video": "none",
+      "title": "Missione10",
+      "text": "Esatto, SGML è usato per la definizione di documenti HTML, uno dei linguaggi di markup (di contrassegno o di marcatura), diversi dai linguaggi di programmazione di tipo imperativo, in cui si specificano algoritmi precisi con \"strutture di controllo\". I linguaggi di markup sono di tipo dichiarativo, come HTML che serve ad indicare cosa deve apparire sullo schermo (testi, immagini, suoni, etc.), dove e in che sequenza, in una pagina web.  \n\nMentre fai questi pensieri inserisci il codice \"SGML\" , riesci a riaprire la porta e insieme tornate nella stanza precedente dove ormai l'unica alternativa possibile è quella di completare la prova sul laptop posto sul tavolo al centro della stanza. Ti avvicini allo schermo, sono aperte due finestre con due diverse applicazioni una accanto all'altra, un editor di testo a sinistra e una pagina web a destra, nell'editor di testo è scritto un codice in html, di conseguenza la pagina web dovrebbe corrispondere a quel codice ma qualcosa non quadra, manca un pezzo?  ",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Aggiungi - alt=\"Bacco di Caravaggio\" - all'interno del tag <img> ",
+          "type": "ContinueButton",
+          "destination": "Missione12",
+          "id": 11,
+          "score": "1"
+        },
+        {
+          "text": "    Aggiungi <h1> Bacco di Caravaggio </h1>  ",
+          "type": "StopButton",
+          "alert": "Sei sicuro? In questo modo aggiungeresti quella scritta ma guarda bene la differenza tra come viene mostrato il testo in <h1> rispetto a com'è scritto invece \"Bacco di Caravaggio\" nella finestra di destra. ",
+          "score": "-0.5"
+        },
+        {
+          "text": " Togli il tag <img> ",
+          "type": "StopButton",
+          "alert": "Sei sicuro? Se così fosse non avresti comunque quella scritta \"Bacco di Caravaggio\" che compare nella finestra di destra",
+          "score": "-0.5"
+        }
+      ],
+      "id": 9,
+      "branch": false,
+      "fatherIdGraph": 7,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "Missione10.png",
+      "video": "none",
+      "title": "Missione11",
+      "text": "Forse la tensione ti gioca brutti scherzi.. pensandoci bene capisci di esserti confuso, in realtà ti ricordi che SGML è usato per la definizione di documenti HTML, uno dei linguaggi di markup (di contrassegno o di marcatura), diversi dai linguaggi di programmazione di tipo imperativo, in cui si specificano algoritmi precisi con \"strutture di controllo\". I linguaggi di markup sono di tipo dichiarativo, come HTML che serve ad indicare cosa deve apparire sullo schermo (testi, immagini, suoni, etc.), dove e in che sequenza, in una pagina web.  \n\nMentre fai questi pensieri inserisci il codice \"SGML\" , riesci a riaprire la porta e insieme tornate nella stanza precedente  dove ormai l'unica alternativa possibile è quella di completare la prova sul laptop posto sul tavolo al centro della stanza. Ti avvicini allo schermo, sono aperte due finestre con due diverse applicazioni una accanto all'altra, un editor di testo a sinistra e una pagina web a destra, nell'editor di testo è scritto un codice in html, di conseguenza la pagina web dovrebbe corrispondere a quel codice ma qualcosa non quadra, manca un pezzo?  ",
+      "numeroBottoni": 3,
+      "buttons": [
+        {
+          "text": "Aggiungi - alt=\"Bacco di Caravaggio\" - all'interno del tag <img>",
+          "type": "BridgeButton",
+          "bridge": "11",
+          "score": "1"
+        },
+        {
+          "text": "    Aggiungi <h1> Bacco di Caravaggio </h1>  ",
+          "type": "StopButton",
+          "alert": "Sei sicuro? In questo modo aggiungeresti quella scritta ma guarda bene la differenza tra come viene mostrato il testo in <h1> rispetto a com'è scritto invece \"Bacco di Caravaggio\" nella finestra di destra.",
+          "score": "-0.5"
+        },
+        {
+          "text": " Togli il tag <img> ",
+          "type": "StopButton",
+          "alert": "Sei sicuro? Se così fosse non avresti comunque quella scritta \"Bacco di Caravaggio\" che compare nella finestra di destra",
+          "score": "-0.5"
+        }
+      ],
+      "id": 10,
+      "branch": false,
+      "fatherIdGraph": 7,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "Missione12.png",
+      "video": "none",
+      "title": "Missione12",
+      "text": "Esatto, \"alt\" serve per specificare una scritta, una descrizione dell'immagine, che compaia in caso l'immagine non riuscisse ad essere mostrata dal browser, era l'unica modifica possibile per avere un codice che rispecchiasse quella pagina web. Inserisci il codice corretto nell'editor e sentite aprirsi la porta a destra. Jack si fionda ad attraversarla, tu invece continui con la solita calma che ti contraddistingue. Arrivati nella stanza successiva vi accorgete che c'è solo una porta, Jack riconosce la serratura, anche questa era da sbloccare con un codice alfanumerico, ma quale? C'è una foto sul pavimento, Jack la raccoglie esclamando tutto contento di sapere di cosa si tratta: \"E' IL BACCO DI CARAVAGGIO!\", poi noti comparire un'espressione pensierosa sul suo volto: \"Manca un pezzo… la foto sembra tagliata\", dice. Ti rendi conto che la chiave dovrà c'entrare con il pezzo mancante… pensa, cosa manca??",
+      "numeroBottoni": 4,
+      "buttons": [
+        {
+          "text": "Una brocca di vino ",
+          "type": "ContinueButton",
+          "destination": "Missione13",
+          "id": 12,
+          "score": "0"
+        },
+        {
+          "text": "Un cesto di frutta",
+          "type": "BridgeButton",
+          "bridge": "12",
+          "score": "0"
+        },
+        {
+          "text": "Una mela",
+          "type": "BridgeButton",
+          "bridge": "12",
+          "score": "0"
+        },
+        {
+          "text": "Chiedi a Jack, lui se ne intende d'arte",
+          "type": "BridgeButton",
+          "bridge": "12",
+          "score": "0"
+        }
+      ],
+      "id": 11,
+      "branch": false,
+      "fatherIdGraph": 9,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "missione13.jpg",
+      "video": "none",
+      "title": "Missione13",
+      "text": "Non fai in tempo neanche a prendere una decisione che Jack è già corso ad inserire il codice, di colpo lo blocchi, gli chiedi cosa stia inserendo e se ne sia realmente sicuro, non sai se avrete o meno altri tentativi a disposizione. A quel punto però Jack ti guarda e sorridendoti ti dice: \"Fidati di me, so quel che faccio, ho dedicato tutta la mia vita all'arte\". Inserisce la parola \"BROCCA\" senza nemmeno darti il tempo di rispondere e pochi, anche se per te interminabili, secondi dopo quando senti il suono di sblocco della porta tiri un grande sospiro di sollievo. Mentre entrate nella porta successiva Jack inizia con le spiegazioni. La brocca era la parte mancante, se lo ricordava benissimo per via di una curiosità legata ad essa, Caravaggio dipinse il suo autoritratto riflesso in quella brocca.  \n\nNel mentre siete arrivati in un'altra stanza.. Ci sono solo due porte ed entrambe con sopra un cartello con su scritto \"FINE\". Sembra una trappola.. Ma sapete entrambi che dovrete comunque scegliere. ",
+      "numeroBottoni": 2,
+      "buttons": [
+        {
+          "text": "Destra",
+          "type": "ContinueButton",
+          "destination": "Misione14",
+          "id": 13,
+          "score": "0"
+        },
+        {
+          "text": "Sinistra",
+          "type": "BridgeButton",
+          "bridge": "13",
+          "score": "0"
+        }
+      ],
+      "id": 12,
+      "branch": false,
+      "fatherIdGraph": 11,
+      "widgetPuzzle": false
+    },
+    {
+      "img": "FINE.png",
+      "video": "none",
+      "title": "Misione14",
+      "text": "Tu e Jack iniziate a discutere ma alla fine lui sceglie di prendere la stessa porta che hai scelto tu, non ha senso dividersi ora. Cercando di essere coraggioso ti avvicini alla porta. Mentre prendi la maniglia fai un grande respiro per calmarti poi di botto la spalanchi di fretta, per non avere il tempo di ripensarci. In un primo momento notate solo la luce del Sole.  \n\nI vostri occhi non erano più abituati alla luce essendo stati al buio così tanto quindi per un momento il Sole vi acceca, non permettendovi di vedere altro. D'istinto ti copri gli occhi con una mano, ma mentre la togli scorgi un'ombra, la sagoma di un uomo.. Ha in mano qualcosa, ma cosa? UNA PISTOLA. Non fai in tempo a reagire che senti partire due spari, uno destinato a te e l'altro probabilmente a Jack, urli. \n\nDi colpo apri gli occhi, sei nel tuo letto, stai ancora urlando quando riconosci la tua stanza e lì ti blocchi. Hai il respiro affannoso, sei ancora agitato ma poi scoppi a ridere un po' per la tensione e un po' perché ti senti uno stupido.. Era tutto soltanto un sogno.  ",
+      "numeroBottoni": 0,
+      "buttons": [],
+      "id": 13,
+      "branch": false,
+      "fatherIdGraph": 12,
+      "widgetPuzzle": false
+    }
+  ],
+  "storyInfo": {
+    "title": "EscapeRoom",
+    "età": "16-18",
+    "css": "default"
+  }
+}

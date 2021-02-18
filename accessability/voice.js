@@ -51,8 +51,10 @@ function speechNumber(){
     var text = "premere il numero " + (index + 1) + " e poi : invio, per avviare la storia " + cN.textContent + "";
     speech(text);
   });
-  speech("E' possibile tornare al player in qualsiasi momento premendo il numero: 6, e poi: invio.");
-
+    
+  speech("premere il numero: "+(number+1)+" per tornare alla pagina principale del Player");  
+  speech("E' possibile tornare alla selezione, durante una storia, in qualsiasi momento premendo il numero: 6, e poi: invio.");
+     
   chooseNumber(number);
 
 }
@@ -60,14 +62,18 @@ function speechNumber(){
 function chooseNumber(number){
   //crea un prompt che permette di inserire un numero
   //corrispondente alla storia che si vuole avviare
-  var choose = parseInt(window.prompt(""), 10);
+    var choose = parseInt(window.prompt(""), 10);
+    
+    if(choose==(number+1)){
+	 synthesis.cancel();
+	return window.location.replace("http://site192020.tw.cs.unibo.it");
+    }    
   //controlla che l'input inserito corrisponda ad uno dei bottoni
-  if(isNaN(choose) || choose < 1 || choose > number){
+    if(isNaN(choose) || choose < 1 || choose > (number+1)){
     var textError = "numero non corretto, reinserire";
     speech(textError);
     chooseNumber(number);
   } else
-
   startJson(choose);
 }
 //Pulisce le strutture e richiama la funzione per generare la storia
@@ -238,7 +244,7 @@ function buttons(number, data, score){
         buttonNumber = NaN;
       }
     }else
-    window.location.replace("http://site192020.tw.cs.unibo.it");
+    window.location.replace("http://site192020.tw.cs.unibo.it/accessability");
   }
 
   $("#button" + buttonNumber).click();

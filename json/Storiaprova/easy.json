@@ -1,0 +1,41 @@
+{
+  "player": [
+    {
+      "id": 0,
+      "title": "Ciao",
+      "text": "Ciao sono una prova",
+      "numeroBottoni": 1,
+      "branch": true,
+      "buttons": [
+        {
+          "text": "FineProva",
+          "type": "ContinueButton",
+          "destination": "Missione2",
+          "score": "1",
+          "id": 1
+        }
+      ],
+      "widgetPuzzle": false,
+      "video": "none",
+      "img": "none",
+      "start": true
+    },
+    {
+      "img": "none",
+      "video": "none",
+      "title": "Missione2",
+      "text": "Fine",
+      "numeroBottoni": 0,
+      "buttons": [],
+      "id": 1,
+      "branch": false,
+      "fatherIdGraph": 0,
+      "widgetPuzzle": false
+    }
+  ],
+  "storyInfo": {
+    "title": "Storiaprova",
+    "età": "7-10",
+    "css": "default"
+  }
+}
