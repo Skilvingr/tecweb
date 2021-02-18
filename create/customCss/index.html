@@ -5,6 +5,10 @@
   <script src="uploadCss.js"></script>
 
   <link rel="stylesheet" href="styleCustomCss.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap" rel="stylesheet">
+
+  <link href="style.css" rel="stylesheet" />
 
 
 <head>
@@ -16,69 +20,74 @@
     <p id="tryP">This is a p example , 'A quick brown fox jumps over the lazy dog'</p>
     <button id="tryButton"> this is a button example</button>
   </div>
-<h1>Qui è possibile creare il proprio css personalizzato per il Player.</h1>
-<h2>Quando si inseriscono i pixel omettere 'px'.</h2>
-<p>Css name:<p>
-<div id="nameCss">
-  <input id="name"></input>
-</div>
-<br>
-<div id="customBody">
 
-  <div id="filesCss" class="hidden" >
+<div id="Main">
+  <h1>Qui è possibile creare il proprio css personalizzato per il Player</h1>
+  <h2 id="info">Quando si inseriscono i pixel omettere 'px'.</h2>
+  <p>Css name:<p>
+  <div id="nameCss">
+    <input id="name"></input>
+  </div>
+  <br>
+  <div id="customBody">
+
+    <div id="filesCss" class="hidden" >
       <br>
       <p>Selezionare l'immagine che si desidera usare come sfondo </p>
       <select id="selectImageCss"></select>
       <br>
 
-  <form id="imageBody" name="file" action="http://site192020.tw.cs.unibo.it/create" enctype="multipart/form-data">
-    <input type="file" id="backgroundImage" name="file" ></input>
-    <input type="submit" id="submitBackgroundImage" onclick="upload()"value="Carica Foto"></input>
-  </form>
+      <form id="imageBody" name="file" action="http://site192020.tw.cs.unibo.it/create" enctype="multipart/form-data">
+        <input type="file" id="backgroundImage" name="file" ></input>
+        <input type="submit" id="submitBackgroundImage" onclick="upload()"value="Carica Foto"></input>
+      </form>
+    </div>
+
   </div>
 
-</div>
 
 
+  <br>
+  <p>Modifica Testo</p>
+  <br>
+  <div id="customP">
+    <input type="color" id="PColor"
+           value="#e66465">
+    <label for="p">P Color</label>
+    <br>
+    <input id="fontFamilyP">
+    <label>Font Family</label>
 
-<br>
-<p>Modifica Testo</p>
-<br>
-<div id="customP">
-  <input type="color" id="PColor"
-       value="#e66465">
-<label for="p">P Color</label>
-<br>
-<input id="fontFamilyP">
-<label>Font Family</label>
-
-<input id="font-sizeP">
-<label>Font Size</label>
+    <input id="font-sizeP">
+    <label>Font Size</label>
 
   </div>
   <br>
 
-<p>Modifica Bottoni</p>
-<br>
+  <p>Modifica Bottoni</p>
+  <br>
   <div id=customButtons>
     <input type="color" id="ButtonsBackgroundColor"
-         value="#e66465">
-  <label for="buttons">Buttons Background Color</label>
-  <br>
-  <input type="color" id="ButtonsTextColor"
-       value="#e66465">
-<label for="buttons">Buttons Text Color</label>
-<br>
-
-  <input id="BorderRadiusButtons">
-  <label>Border Radius</label>
-
-    </div>
+           value="#e66465">
+    <label for="buttons">Buttons Background Color</label>
+    <br>
+    <input type="color" id="ButtonsTextColor"
+           value="#e66465">
+    <label for="buttons">Buttons Text Color</label>
     <br>
 
-    <button id="tryCssButton" onclick="tryCss()">Try Css</button>
-    <select id="tryCss">TryCss</select>
-    <button id="loadCss" onClick="uploadCss()">Save Css </button>
-    <a href="/create"> Back to Creator</a>
+    <input id="BorderRadiusButtons">
+    <label>Border Radius</label>
+
+  </div>
+  <br>
+
+  <button id="tryCssButton" onclick="tryCss()">Try Css</button>
+  <select id="tryCss">TryCss</select>
+  <button id="loadCss" onClick="uploadCss()">Save Css </button>
+  <br>
+  <a href="/create"> Back to Creator</a>
+</div>
+
 </body>
 </html>

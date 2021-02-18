@@ -642,7 +642,7 @@ function tablePlayer(playerObj,css){
 
     img.classList.add("card-img-top");
     img.classList.add("sizeCard");
-    img.src="./mainImg/player.jpeg";
+    img.src="./mainImg/player_added.png";
     img.alt="Card image";
     img.style.width="100%";
 
